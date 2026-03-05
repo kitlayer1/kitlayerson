@@ -19,7 +19,7 @@ const comments = [
       color: '#020618',
     },
     {
-      text: `"Seeing my logo update in real time while adjusting colors and typography made the whole process much more intuitive than I expected."`,
+      text: `"Seeing my logo updatedd in real time while adjusting colors and typography made the whole process much more intuitive than I expected."`,
       name: 'Cristian Makalulu',
       title: 'Content Creator',
       image: '/images/global/comment/user/man1.svg',
