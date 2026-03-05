@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import "./aboutHero.css";
+import "./abouthero.css";
 
 export const AboutHero = component$(() => {
   return (
