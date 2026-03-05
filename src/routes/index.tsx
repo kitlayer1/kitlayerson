@@ -7,8 +7,6 @@ import { HomeTestimonial } from "~/components/home/testimonial/testimonial";
 
 
 
-
-
 export default component$(() => {
   return (
     <>
