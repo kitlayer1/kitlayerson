@@ -5,7 +5,7 @@ import { getMetaData } from '~/services/services';
 
 export const useMetaTags = routeLoader$(async(requestEvents) => {
 
-    let result = await getMetaData(requestEvents.url.pathname);
+    const result = await getMetaData(requestEvents.url.pathname);
     if(result && result.success){
         return result.success;
     }
