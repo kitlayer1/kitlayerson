@@ -2,11 +2,10 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { BlogCard } from "~/components/blog/blogCard/blogCard";
 import { HomeHeader } from "~/components/global/header/homeHeader";
+import blogData from "../../../public/data/blogDetail.json";
 
 export const useBlogData = routeLoader$(async () => {
-  const res = await fetch(`${process.env.BASE_URL || ''}/data/blogDetail.json`);
-  if (!res.ok) throw new Error('JSON yüklenemedi');
-  return await res.json();
+  return blogData;
 });
 
 export default component$(() => {

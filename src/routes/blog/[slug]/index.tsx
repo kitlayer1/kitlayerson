@@ -2,7 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import './blogDetail.css';
 import { HomeHeader } from '~/components/global/header/homeHeader';
-
+import blogData from '../../../../public/data/blogDetail.json';
 
 /* ---------------- TYPES ---------------- */
 
@@ -35,17 +35,10 @@ interface BlogPost {
 // Vercel Edge uyumlu loader
 export const useBlogPost = routeLoader$<BlogPost | null>(async (event) => {
   const { slug } = event.params;
-
-  // public/data/blogDetail.json'den fetch
-  const res = await fetch('/data/blogDetail.json');
-  const posts: BlogPost[] = await res.json();
-
+  const posts = blogData as BlogPost[];
   const post = posts.find((p) => p.slug === slug);
-
   return post ?? null;
 });
-
-/* ---------------- COMPONENT ---------------- */
 
 export default component$(() => {
   const post = useBlogPost();
