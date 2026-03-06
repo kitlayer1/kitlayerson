@@ -59,7 +59,7 @@ interface PageData {
 
 export const usePageData = routeLoader$<PageData | null>(async ({ url, status }) => {
   try {
-    const res = await fetch("http://localhost:5173/data/createDetail.json");
+    const res = await fetch("/data/createDetail.json");
     if (!res.ok) throw new Error('Failed to load page data');
     
     const json = await res.json();
