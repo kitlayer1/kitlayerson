@@ -1,7 +1,5 @@
 import { component$ } from '@builder.io/qwik';
 import {routeLoader$,  } from '@builder.io/qwik-city';
-import fs from 'fs';
-import path from 'path';
 import './blogDetail.css';
 import { HomeHeader } from '~/components/global/header/homeHeader';
 
@@ -37,15 +35,11 @@ export const useBlogPost = routeLoader$<BlogPost | null>(
   async (event) => {
     const { slug } = event.params;
 
-    const filePath = path.join(
-      process.cwd(),
-      'public',
-      'data',
-      'blogDetail.json'
+    const res = await fetch(
+      new URL('/data/blogDetail.json', event.url)
     );
 
-    const file = fs.readFileSync(filePath, 'utf-8');
-    const posts: BlogPost[] = JSON.parse(file);
+    const posts: BlogPost[] = await res.json();
 
     const post = posts.find((p) => p.slug === slug);
 
