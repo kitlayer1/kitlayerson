@@ -1,7 +1,8 @@
 import { component$ } from '@builder.io/qwik';
-import {routeLoader$,  } from '@builder.io/qwik-city';
+import { routeLoader$ } from '@builder.io/qwik-city';
 import './blogDetail.css';
 import { HomeHeader } from '~/components/global/header/homeHeader';
+
 
 /* ---------------- TYPES ---------------- */
 
@@ -31,21 +32,18 @@ interface BlogPost {
 
 /* ---------------- LOADER ---------------- */
 
-export const useBlogPost = routeLoader$<BlogPost | null>(
-  async (event) => {
-    const { slug } = event.params;
+// Vercel Edge uyumlu loader
+export const useBlogPost = routeLoader$<BlogPost | null>(async (event) => {
+  const { slug } = event.params;
 
-    const res = await fetch(
-      new URL('/data/blogDetail.json', event.url)
-    );
+  // public/data/blogDetail.json'den fetch
+  const res = await fetch('/data/blogDetail.json');
+  const posts: BlogPost[] = await res.json();
 
-    const posts: BlogPost[] = await res.json();
+  const post = posts.find((p) => p.slug === slug);
 
-    const post = posts.find((p) => p.slug === slug);
-
-    return post ?? null;
-  }
-);
+  return post ?? null;
+});
 
 /* ---------------- COMPONENT ---------------- */
 
@@ -66,66 +64,46 @@ export default component$(() => {
       <HomeHeader />
 
       {/* ================= HERO ================= */}
-
       <section class="blog-hero">
         <div class="blog-hero-left">
           <div class="blog-breadcrumb">
             Blog <span>›</span> {post.value.title}
           </div>
 
-          <h1 class="blog-hero-title">
-            {post.value.title}
-          </h1>
+          <h1 class="blog-hero-title">{post.value.title}</h1>
 
-             <div class="blog-hero-date">
-            {post.value.displayDate}
-          </div>
+          <div class="blog-hero-date">{post.value.displayDate}</div>
         </div>
 
         <div class="blog-hero-right">
           <div class="blog-hero-image-card">
-            <img
-              src={post.value.coverImage}
-              alt={post.value.title}
-            />
+            <img src={post.value.coverImage} alt={post.value.title} />
           </div>
         </div>
       </section>
 
       {/* ================= CONTENT ================= */}
-
       <section class="blog-detail-container">
         <div class="blog-detail-body">
           {post.value.blocks.map((block, index) => {
-            
-            // Paragraph
             if (block.type === 'paragraph') {
               return <p key={index}>{block.content}</p>;
             }
 
-            // Tüm başlıklar h2
             if (block.type === 'heading') {
               return <h2 key={index}>{block.content}</h2>;
             }
 
-            // Image
             if (block.type === 'image') {
               return (
-                <figure
-                  key={index}
-                  class="blog-detail-image-block"
-                >
+                <figure key={index} class="blog-detail-image-block">
                   <img
                     src={block.src ?? ''}
                     alt={block.alt ?? ''}
                     title={block.title ?? ''}
                     loading="lazy"
                   />
-                  {block.description && (
-                    <figcaption>
-                      {block.description}
-                    </figcaption>
-                  )}
+                  {block.description && <figcaption>{block.description}</figcaption>}
                 </figure>
               );
             }
@@ -137,4 +115,3 @@ export default component$(() => {
     </>
   );
 });
-
