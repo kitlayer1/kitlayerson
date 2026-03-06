@@ -1,4 +1,3 @@
-// src/routes/[slug]/index.tsx
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { CategoryBadge } from "~/components/create/badge/categoryBadge";
@@ -9,6 +8,7 @@ import { CategorySlider } from "~/components/create/slider/categorySlider";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { NotFound } from "~/components/global/notFound/notFound";
 import { HomeTestimonial } from "~/components/home/testimonial/testimonial";
+import createData from '../../../../public/data/createDetail.json';
 
 interface HeroData {
   badge: string;
@@ -58,7 +58,6 @@ interface PageData {
   content: string;
 }
 
-// --- Dinamik Slug ile Server-Side JSON Fetch ---
 export const usePageData = routeLoader$<PageData | null>(async ({ params, status }) => {
   const slug = params.slug?.toLowerCase();
   if (!slug) {
@@ -67,16 +66,14 @@ export const usePageData = routeLoader$<PageData | null>(async ({ params, status
   }
 
   try {
-    // JSON veriyi API endpoint üzerinden çekiyoruz
-    // Eğer sadece Vercel'de bir statik JSON kullanmak istiyorsan
-    // bunu `public/data/createDetail.json` yapıp url.origin ile fetch edebilirsin
-    const res = await fetch(`https://yourdomain.com/api/pages/${slug}`); 
-    if (!res.ok) {
+    const pages = (createData as any).success;
+    const pageData = pages[slug];
+
+    if (!pageData) {
       status(404);
       return null;
     }
 
-    const pageData: PageData = await res.json();
     return pageData;
   } catch (err) {
     console.error(err);
