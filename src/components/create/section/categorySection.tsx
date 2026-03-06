@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import "./categorysection.css";
+import "./categorySection.css";
 
 interface Props {
   badge?: string;
