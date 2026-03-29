@@ -47,6 +47,8 @@ export default defineConfig(({ command, mode }): UserConfig => {
     //     : undefined,
 
     server: {
+      host: '0.0.0.0',
+        allowedHosts: true as any,
       headers: {
         // Don't cache the server response in dev mode
         "Cache-Control": "public, max-age=0",

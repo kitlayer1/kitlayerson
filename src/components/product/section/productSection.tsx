@@ -1,40 +1,35 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 import "./productSection.css";
 
 interface ProductSectionProps {
-  badge?: string;
   title: string;
   description: string;
-  image: string;
-  imagePosition?: "left" | "right";
+  text: string;
+  reverse?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export const ProductSection = component$<ProductSectionProps>(
-  ({
-    badge,
-    title,
-    description,
-    image,
-    imagePosition = "right",
-  }) => {
+  ({ title, description, text, reverse, imageSrc, imageAlt }) => {
     return (
-      <section class="product-section">
-        <div
-          class={`product-section__container ${
-            imagePosition === "left" ? "reverse" : ""
-          }`}
-        >
-          <div class="product-section__left">
-            {badge && (
-              <span class="product-section__badge">{badge}</span>
-            )}
-            <h2 class="product-section__title">{title}</h2>
-            <p class="product-section__description">{description}</p>
+      <section class={`product-section ${reverse ? "reverse" : ""}`}>
+        <div class="product-container">
+
+          <div class="product-text">
+            <h2>{title}</h2>
+            <p class="desc">{description}</p>
+            <p>{text}</p>
           </div>
 
-          <div class="product-section__right">
-            <img src={image} alt="Product visual" />
+          <div class="product-image">
+            {imageSrc ? (
+              <img src={imageSrc} alt={imageAlt || title} width="400" height="300" />
+            ) : (
+              <Slot />
+            )}
           </div>
+
         </div>
       </section>
     );

@@ -1,6 +1,7 @@
 /* SECTION */
 .category-section {
-  padding: 24px 24px;
+  padding: 42px 24px;
+  background-color: var(--color-hero-bg-w);
 }
 
 /* GRID */
@@ -9,40 +10,40 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
-  max-width: 1160px;
+  max-width: 1232px;
   width: 100%;
   margin: 0 auto;
 }
 
 /* CARD */
 .category-card {
-  height: 64px;
   border-radius: 8px;
+  max-height: 53px;
   padding: 16px 8px 16px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  border: 1px solid #E0DDD9;
+  background-color: var(--color-card-w);
   color: var(--color-heading-h1);
   overflow: hidden;
 }
 
 .category-card:hover {
-  background: #ECE2DA;
+  background: var(--color-card-w-hover);
 }
-
 
 /* NAME */
 .category-name {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   font-size: 16px;
   letter-spacing: -0.4px;
+  color: var(--color-heading-h1);
 }
 
 /* IMAGE */
 .category-image img {
-  width: 52px;
+  width: 40px;
   height: auto;
   object-fit: contain;
 }
@@ -51,6 +52,9 @@
 @media (max-width: 1200px) {
   .category-grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+   .category-section {
+    padding: 0 0 80px 32px;
   }
 }
 
@@ -87,11 +91,11 @@
   .category-grid {
     scrollbar-width: none; /* Firefox */
   }
-   .category-image img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
+  .category-image img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 768px) {
@@ -107,11 +111,11 @@
     gap: 12px;
   }
 
-   .category-image img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
+  .category-image img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 640px) {
@@ -123,11 +127,11 @@
     padding: 0 0 45px 24px;
   }
 
-   .category-image img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
+  .category-image img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 430px) {
@@ -150,8 +154,8 @@
   }
 
   .category-image img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
 }

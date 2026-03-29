@@ -31,7 +31,7 @@ export const CategoryBrandCard = component$(() => {
             <span class="category-name">{item.title}</span>
 
             <div class="category-image">
-              <img src={item.image} alt={item.title} />
+              <img src={item.image} alt={item.title} width="160" height="160" />
             </div>
           </Link>
         ))}

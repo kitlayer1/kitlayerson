@@ -1,8 +1,11 @@
-import { component$ } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { component$, $ } from '@builder.io/qwik';
+import { routeLoader$, Link, useLocation } from '@builder.io/qwik-city';
 import './blogDetail.css';
 import { HomeHeader } from '~/components/global/header/homeHeader';
+import { BlogDetailHero } from '~/components/blog/hero/blogDetailHero';
+import { BlogCard } from '~/components/blog/blogCard/blogCard';
 import blogData from '../../../../public/data/blogDetail.json';
+import { Footer } from '~/components/global/footer/footer';
 
 /* ---------------- TYPES ---------------- */
 
@@ -42,12 +45,45 @@ export const useBlogPost = routeLoader$<BlogPost | null>(async (event) => {
 
 export default component$(() => {
   const post = useBlogPost();
+  const allPosts = blogData as BlogPost[];
+  const location = useLocation();
+  
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : location.url.href;
+  const postTitle = post.value?.title ?? '';
+  const postImage = post.value?.coverImage ?? '';
+
+  const shareOnFacebook = $(() => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  });
+
+  const shareOnTwitter = $(() => {
+    const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(postTitle)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  });
+
+  const shareOnPinterest = $(() => {
+    const url = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(currentUrl)}&description=${encodeURIComponent(postTitle)}&media=${encodeURIComponent(new URL(postImage, currentUrl).href)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  });
+
+  const shareOnInstagram = $(() => {
+    // Instagram doesn't support direct URL sharing for posts like others.
+    // Commonly, we just copy the link to clipboard.
+    navigator.clipboard.writeText(currentUrl);
+    alert('Link copied to clipboard for Instagram sharing!');
+  });
+  
+  // current post hariç ilk 3 yazıyı getir
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== post.value?.slug)
+    .slice(0, 3);
 
   if (!post.value) {
     return (
       <>
         <HomeHeader />
-        <div class="not-found">Blog yazısı bulunamadı.</div>
+        <div class="not-found">Blog post not found.</div>
       </>
     );
   }
@@ -57,54 +93,104 @@ export default component$(() => {
       <HomeHeader />
 
       {/* ================= HERO ================= */}
-      <section class="blog-hero">
-        <div class="blog-hero-left">
-          <div class="blog-breadcrumb">
-            Blog <span>›</span> {post.value.title}
-          </div>
-
-          <h1 class="blog-hero-title">{post.value.title}</h1>
-
-          <div class="blog-hero-date">{post.value.displayDate}</div>
-        </div>
-
-        <div class="blog-hero-right">
-          <div class="blog-hero-image-card">
-            <img src={post.value.coverImage} alt={post.value.title} />
-          </div>
-        </div>
-      </section>
+      <BlogDetailHero
+        title={post.value.title}
+        description={post.value.excerpt}
+        coverImage={post.value.coverImage}
+      />
 
       {/* ================= CONTENT ================= */}
       <section class="blog-detail-container">
-        <div class="blog-detail-body">
-          {post.value.blocks.map((block, index) => {
-            if (block.type === 'paragraph') {
-              return <p key={index}>{block.content}</p>;
-            }
+        <div class="blog-detail-wrapper">
+          <aside class="blog-sidebar">
+            <Link href="/blog" class="share-btn back-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              Back
+            </Link>
+            <button onClick$={shareOnFacebook} class="share-btn share-facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <path fill="currentColor" d="M16,2c-7.732,0-14,6.268-14,14,0,6.566,4.52,12.075,10.618,13.588v-9.31h-2.887v-4.278h2.887v-1.843c0-4.765,2.156-6.974,6.835-6.974,.887,0,2.417,.174,3.043,.348v3.878c-.33-.035-.904-.052-1.617-.052-2.296,0-3.183,.87-3.183,3.13v1.513h4.573l-.786,4.278h-3.787v9.619c6.932-.837,12.304-6.74,12.304-13.897,0-7.732-6.268-14-14-14Z"></path>
+              </svg> 
+              <span class="share-text-full">Share on Facebook</span>
+              <span class="share-text-short">Share</span>
+            </button>
+            <button onClick$={shareOnInstagram} class="share-btn share-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <path fill="currentColor" d="M10.202,2.098c-1.49,.07-2.507,.308-3.396,.657-.92,.359-1.7,.84-2.477,1.619-.776,.779-1.254,1.56-1.61,2.481-.345,.891-.578,1.909-.644,3.4-.066,1.49-.08,1.97-.073,5.771s.024,4.278,.096,5.772c.071,1.489,.308,2.506,.657,3.396,.359,.92,.84,1.7,1.619,2.477,.779,.776,1.559,1.253,2.483,1.61,.89,.344,1.909,.579,3.399,.644,1.49,.065,1.97,.08,5.771,.073,3.801-.007,4.279-.024,5.773-.095s2.505-.309,3.395-.657c.92-.36,1.701-.84,2.477-1.62s1.254-1.561,1.609-2.483c.345-.89,.579-1.909,.644-3.398,.065-1.494,.081-1.971,.073-5.773s-.024-4.278-.095-5.771-.308-2.507-.657-3.397c-.36-.92-.84-1.7-1.619-2.477s-1.561-1.254-2.483-1.609c-.891-.345-1.909-.58-3.399-.644s-1.97-.081-5.772-.074-4.278,.024-5.771,.096m.164,25.309c-1.365-.059-2.106-.286-2.6-.476-.654-.252-1.12-.557-1.612-1.044s-.795-.955-1.05-1.608c-.192-.494-.423-1.234-.487-2.599-.069-1.475-.084-1.918-.092-5.656s.006-4.18,.071-5.656c.058-1.364,.286-2.106,.476-2.6,.252-.655,.556-1.12,1.044-1.612s.955-.795,1.608-1.05c.493-.193,1.234-.422,2.598-.487,1.476-.07,1.919-.084,5.656-.092,3.737-.008,4.181,.006,5.658,.071,1.364,.059,2.106,.285,2.599,.476,.654,.252,1.12,.555,1.612,1.044s.795,.954,1.051,1.609c.193,.492,.422,1.232,.486,2.597,.07,1.476,.086,1.919,.093,5.656,.007,3.737-.006,4.181-.071,5.656-.06,1.365-.286,2.106-.476,2.601-.252,.654-.556,1.12-1.045,1.612s-.955,.795-1.608,1.05c-.493,.192-1.234,.422-2.597,.487-1.476,.069-1.919,.084-5.657,.092s-4.18-.007-5.656-.071M21.779,8.517c.002,.928,.755,1.679,1.683,1.677s1.679-.755,1.677-1.683c-.002-.928-.755-1.679-1.683-1.677,0,0,0,0,0,0-.928,.002-1.678,.755-1.677,1.683m-12.967,7.496c.008,3.97,3.232,7.182,7.202,7.174s7.183-3.232,7.176-7.202c-.008-3.97-3.233-7.183-7.203-7.175s-7.182,3.233-7.174,7.203m2.522-.005c-.005-2.577,2.08-4.671,4.658-4.676,2.577-.005,4.671,2.08,4.676,4.658,.005,2.577-2.08,4.671-4.658,4.676-2.577,.005-4.671-2.079-4.676-4.656h0"></path>
+              </svg>
+              <span class="share-text-full">Share on Instagram</span>
+              <span class="share-text-short">Share</span>
+            </button>
+            <button onClick$={shareOnPinterest} class="share-btn share-pinterest">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <path fill="currentColor" d="M16,2C8.268,2,2,8.268,2,16c0,5.931,3.69,11.001,8.898,13.041-.122-1.108-.233-2.811,.049-4.02,.254-1.093,1.642-6.959,1.642-6.959,0,0-.419-.839-.419-2.079,0-1.947,1.128-3.4,2.533-3.4,1.194,0,1.771,.897,1.771,1.972,0,1.201-.765,2.997-1.16,4.661-.33,1.393,.699,2.53,2.073,2.53,2.488,0,4.401-2.624,4.401-6.411,0-3.352-2.409-5.696-5.848-5.696-3.983,0-6.322,2.988-6.322,6.076,0,1.203,.464,2.494,1.042,3.195,.114,.139,.131,.26,.097,.402-.106,.442-.342,1.393-.389,1.588-.061,.256-.203,.311-.468,.187-1.749-.814-2.842-3.37-2.842-5.424,0-4.416,3.209-8.472,9.25-8.472,4.857,0,8.631,3.461,8.631,8.086,0,4.825-3.042,8.708-7.265,8.708-1.419,0-2.752-.737-3.209-1.608,0,0-.702,2.673-.872,3.328-.316,1.216-1.169,2.74-1.74,3.67,1.31,.406,2.702,.624,4.145,.624,7.732,0,14-6.268,14-14S23.732,2,16,2Z"></path>
+              </svg>
+              <span class="share-text-full">Pin on Pinterest</span>
+              <span class="share-text-short">Pin</span>
+            </button>
+            <button onClick$={shareOnTwitter} class="share-btn share-twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <path fill="currentColor" d="M18.42,14.009L27.891,3h-2.244l-8.224,9.559L10.855,3H3.28l9.932,14.455L3.28,29h2.244l8.684-10.095,6.936,10.095h7.576l-10.301-14.991h0Zm-3.074,3.573l-1.006-1.439L6.333,4.69h3.447l6.462,9.243,1.006,1.439,8.4,12.015h-3.447l-6.854-9.804h0Z"></path>
+              </svg>
+              <span class="share-text-full">Share on Twitter</span>
+              <span class="share-text-short">Share</span>
+            </button>
+          </aside>
 
-            if (block.type === 'heading') {
-              return <h2 key={index}>{block.content}</h2>;
-            }
+          <div class="blog-main-content">
+            <div class="blog-detail-body">
+              {post.value.blocks.map((block: BlogBlock, index: number) => {
+                if (block.type === 'paragraph') {
+                  return <p key={index}>{block.content}</p>;
+                }
 
-            if (block.type === 'image') {
-              return (
-                <figure key={index} class="blog-detail-image-block">
-                  <img
-                    src={block.src ?? ''}
-                    alt={block.alt ?? ''}
-                    title={block.title ?? ''}
-                    loading="lazy"
-                  />
-                  {block.description && <figcaption>{block.description}</figcaption>}
-                </figure>
-              );
-            }
+                if (block.type === 'heading') {
+                  return <h2 key={index}>{block.content}</h2>;
+                }
 
-            return null;
-          })}
+                if (block.type === 'image') {
+                  return (
+                    <figure key={index} class="blog-detail-image-block">
+                      <img
+                        src={block.src ?? ''}
+                        alt={block.alt ?? ''}
+                        title={block.title ?? ''}
+                        loading="lazy"
+                        width="800"
+                        height="450"
+                      />
+                      {block.description && <figcaption>{block.description}</figcaption>}
+                    </figure>
+                  );
+                }
+
+                return null;
+              })}
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* ================= RELATED BLOGS ================= */}
+      <section class="related-blogs-section">
+        <div class="container">
+          <h2 class="related-blogs-title">Recommended Articles</h2>
+          <div class="blog-grid">
+            {relatedPosts.map((p) => (
+              <BlogCard
+                key={p.slug}
+                slug={p.slug}
+                title={p.title}
+                coverImage={p.coverImage}
+                date={p.displayDate}
+                category={p.category}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </>
   );
 });

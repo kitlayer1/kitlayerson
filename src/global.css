@@ -113,96 +113,110 @@ textarea {
 }
 
 body {
-  background-color: #FFFCF7;
-  font-family: "Rubik", sans-serif;
+  background-color: #ffffff;
+  font-family: "Rubik", system-ui, sans-serif;
 }
 
 @font-face {
-  font-family: "Geist-Light";
-  src: url("/fonts/geist/Geist-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Geist-Regular";
-  src: url("/fonts/geist/Geist-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Geist-Medium";
-  src: url("/fonts/geist/Geist-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Geist-SemiBold";
-  src: url("/fonts/geist/Geist-SemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Geist-Bold";
-  src: url("/fonts/geist/Geist-Bold.otf") format("opentype");
+  font-family: "Graphik-Bold";
+  src: url("/fonts/graphik/Graphik-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Hidayatullah';
-  src: url('/fonts/classic/hida/hidayatullah.ttf') format('truetype');
+  font-family: "Graphik-SemiBold";
+  src: url("/fonts/graphik/Graphik-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mexican-Tequila';
-  src: url('/fonts/classic/mexican/MexicanTequila.ttf') format('truetype');
+  font-family: "Graphik-Medium";
+  src: url("/fonts/graphik/Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Starlight-Romance';
-  src: url('/fonts/classic/starlight/Starlight-Romance.ttf') format('truetype');
+  font-family: "Graphik-Regular";
+  src: url("/fonts/graphik/Graphik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "Hidayatullah";
+  src: url("/fonts/classic/hida/hidayatullah.ttf") format("truetype");
+}
 
+@font-face {
+  font-family: "Mexican-Tequila";
+  src: url("/fonts/classic/mexican/MexicanTequila.ttf") format("truetype");
+}
 
- 
+@font-face {
+  font-family: "Starlight-Romance";
+  src: url("/fonts/classic/starlight/Starlight-Romance.ttf") format("truetype");
+}
+
 :root {
+  --color-hero-bg-w: #fffbdd;
+  --color-hero-bg-w-hover: #f4efd3;
+
+   --color-hero-bg-g: #063017;
+  --color-hero-bg-g-hover: #23452F;
+   --color-hero-bg-g-input :#3A5844;
+
+    --color-hero-bg-black: #140018;
+  --color-hero-bg-black-hover: #1E0024;
+
+  --color-black-bg: #1a0026;
+
+  --color-card-w: #f4efd3;
+  --color-card-w-hover: #ede7c3;
 
   --color-white: #ffffff;
 
+  --color-heading-h1: #140018;
+  
+   --color-heading-white: #F3F0E8;
+
+  --color-description-p1: #1a1a1a;
+  --color-description-p2: #222222;
 
   --color-border-b1: #f0f1f4;
-  --color-border-b2: #EAEBEF;
-  --color-border-b3: #DADCE3;
+  --color-border-b2: #eaebef;
+  --color-border-b3: #dadce3;
 
-  --color-heading-h1: #020618;
   --color-heading-h2: #0f172b;
   --color-heading-h3: #1d293d;
 
-  --color-description-p1: #314158;
-  --color-description-p2: #45556c;
-  --color-description-p3: #62748e;
+  /* Button */
 
-  /* Renkler */
-  --primary-50: #fffbea;
-  --primary-100: #fef3c7;
-  --primary-200: #fde68a;
-  --primary-300: #fcd34d;
-  --primary-400: #fbbf24;
-  --primary-500: #f59e0b;
-  --primary-600: #d97706;
-  --primary-700: #b45309;
-  --primary-800: #92400e;
-  --primary-900: #78350f;
+  --btn-black-bg: #0a0a0a;
+  --btn-black-text: #fffbdd;
+  --btn-black-bg-hover: #1a1a1a;
+  --btn-black-text-hover: #fffbdd;
+  --btn-black-bg-disabled: #6c6f89;
+
+  --btn-purple-bg: #b9a7ff;
+  --btn-purple-text: #1a0026;
+  --btn-purple-bg-hover: #a588fd;
+  --btn-purple-text-hover: #1a0026;
+
+  --btn-white-bg: #F3F0E8;
+  --btn-white-text: #063017;
+  --btn-white-bg-hover: #ffffff;
+  --btn-white-text-hover: #063017;
+
+  
+  --purple-50: #b9a7ff;
+  --purple-950: #1a0026;
 
   --warning-50: #fff7ed;
   --warning-100: #ffedd4;
@@ -265,11 +279,6 @@ body {
   --grey-950: #31313a;
 
   /* Buton */
-  --btn-black-bg: #0c0c29;
-  --btn-black-text: #f0f1f4;
-  --btn-black-bg-hover: #131343;
-  --btn-black-text-hover: #f0f1f4;
-  --btn-black-bg-disabled:#6c6f89;
 
   --btn-white-bg: #f0f1f4;
   --btn-white-text: #0c0c29;
@@ -282,13 +291,12 @@ body {
   --btn-border-text-hover: #0c0c29;
 
   /* Input */
-  --input-border-grey: #EAEBEF;
+  --input-border-grey: #eaebef;
   --input-border-grey-focus: #6c6f89;
   --input-border-grey-bg-disabled: #f0f1f4;
   --input-border-grey-text-disabled: #c0c5d0;
   --input-black-bg-hover: #131343;
   --input-black-text-hover: #ffffff;
- 
 
   /* Radius */
   --radius-sm: 4px;
@@ -326,7 +334,12 @@ body {
   --letter-spacing-lg: -0.4px;
   --letter-spacing-xl: -0.6px;
   --letter-spacing-2xl: -0.64px;
-  
+
+  /* Spacing & Layout */
+  --section-padding-hero: 150px 24px 120px;
+  --section-padding: 80px 24px;
+  --container-max-width: 1232px;
+  --container-padding: 40px;
 
   /* Margin / Padding */
   --spacing-2xs: 4px;
@@ -339,6 +352,52 @@ body {
   --spacing-2xl: 32px;
   --spacing-3xl: 63px;
   --spacing-4xl: 80px;
+
+  /* Section Header Typography */
+  --section-title-size: clamp(32px, 5vw, 46px);
+  --section-title-line-height: 1.1;
+  --section-desc-size: 16px;
+  --section-desc-line-height: 1.3;
+
+  /* Section Header Spacing */
+  --spacing-label-to-title: 8px;
+  --spacing-title-to-desc: 16px;
+  --spacing-desc-to-content: 32px;
+
+  /* Secondary Typography */
+  --section-title-size-secondary: 24px;
+  --section-desc-size-secondary: 16px;
 }
 
+@media (max-width: 1200px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
 
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 30px;
+    --section-title-size: clamp(28px, 8vw, 36px);
+    --spacing-title-to-desc: 12px;
+    --spacing-desc-to-content: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 24px;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --container-padding: 20px;
+    --padding-outer-y-mobile: 60px;
+    --padding-inner-y-mobile: 50px;
+    --section-title-size: 32px;
+    --section-desc-size: 16px;
+    --section-title-size-secondary: 24px;
+    --section-desc-size-secondary: 14px;
+  }
+}

@@ -16,6 +16,7 @@ export const CategoryHero = component$((props: Props) => {
         <div class="categoryhero-left">
           {props.badge && (
             <div class="categoryhero-badge">
+              <span class="badge-dot"></span>
               {props.badge}
             </div>
           )}
@@ -43,7 +44,7 @@ export const CategoryHero = component$((props: Props) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
@@ -65,6 +66,8 @@ export const CategoryHero = component$((props: Props) => {
             class="categoryhero-mainimg"
             src={props.img}
             alt={props.title}
+            width="500"
+            height="410"
           />
         </div>
       </div>

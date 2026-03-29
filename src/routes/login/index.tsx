@@ -84,6 +84,7 @@ export default component$(() => {
     if (err) error.value = err.message;
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async () => {
     const { data, error: err } = await supabase.auth.getUser();
     if (err || !data?.user) return;
@@ -173,7 +174,7 @@ export default component$(() => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("google")}
               >
-                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" />
+                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" width="24" height="24" />
                 Continue with Google
               </button>
 
@@ -182,7 +183,7 @@ export default component$(() => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("facebook")}
               >
-                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" />
+                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="24" height="24" />
                 Continue with Facebook
               </button>
 
@@ -297,7 +298,7 @@ export default component$(() => {
 
       <div class="login-right">
         <div class="mockup-grid">
-          <img src="/images/login/loginHero.svg" alt="Login mockup" class="mockup-image" />
+          <img src="/images/login/loginHero.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
         </div>
       </div>
     </div>

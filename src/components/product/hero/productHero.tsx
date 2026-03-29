@@ -6,21 +6,22 @@ interface ProductHeroProps {
   title: string;
   description: string;
   buttonText?: string;
-  image: string;
 }
 
 export const ProductHero = component$<ProductHeroProps>(
   ({
-    badgeText = 'No design knowledge needed',
+    badgeText = 'Product',
     title,
     description,
     buttonText = 'Get Started',
-    image,
   }) => {
     return (
       <section class="product-hero">
         <div class="product-hero__inner">
-          <span class="product-hero__badge">{badgeText}</span>
+          <span class="product-hero__badge">
+            <span class="badge-dot"></span>
+            {badgeText}
+          </span>
 
           <h1 class="product-hero__title">{title}</h1>
 
@@ -31,14 +32,6 @@ export const ProductHero = component$<ProductHeroProps>(
 </a>
         </div>
 
-        <div class="product-hero__image-wrapper">
-          <img
-            src={image}
-            alt={title}
-            class="product-hero__image"
-            loading="eager"
-          />
-        </div>
       </section>
     );
   }

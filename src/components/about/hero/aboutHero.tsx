@@ -5,10 +5,13 @@ export const AboutHero = component$(() => {
   return (
     <section class="about-hero">
       <div class="about-hero-container">
-        <h1 class="about-hero-title">About</h1>
+         <div class="about-badge">
+          <span class="badge-dot"></span>
+          About
+        </div>
+        <h1 class="about-hero-title">Building Brands, One Logo at a Time</h1>
         <p class="about-hero-subtitle">
-We make professional logo design accessible to everyone. Create a logo that truly represents your brand — quickly and effortlessly.
-        </p>
+We combine creativity, innovation, and simplicity to help brands like yours stand out. See how our journey fuels every logo we create</p>
 
         <div class="about-hero-cards">
           {/* Card 1 */}
@@ -33,8 +36,7 @@ We make professional logo design accessible to everyone. Create a logo that trul
               <h3>FAQs</h3>
             </div>
             <p>
-              Find answers to the most common questions about our logo design
-              process and services.
+              Have questions? We’ve compiled clear answers to the most common inquiries so you can quickly find what you need and get the most out of our platform.
             </p>
             <button
               class="about-btn"
@@ -43,8 +45,6 @@ We make professional logo design accessible to everyone. Create a logo that trul
               Faq's
             </button>
           </div>
-
-          {/* Card 2 */}
           <div class="about-card">
             <div class="about-card-header">
               <span class="icon">
@@ -66,8 +66,7 @@ We make professional logo design accessible to everyone. Create a logo that trul
               <h3>Contact Us</h3>
             </div>
             <p>
-              Get in touch with our team for personalized support, inquiries, or
-              custom design requests.
+            Have questions or need assistance? Our team is here to help you every step of the way, providing clear answers and guidance so you can get the most out of our platform.
             </p>
             <button
               class="about-btn"

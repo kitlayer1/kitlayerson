@@ -1,0 +1,35 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-family: "Graphik-Medium", sans-serif;
+  width: fit-content;
+}
+
+.badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Variants */
+.badge--default, .badge--product {
+  color: var(--color-description-p1);
+  background: var(--color-hero-bg-w-hover);
+}
+
+.badge--default .badge__dot, .badge--product .badge__dot {
+  background-color: var(--color-description-p1);
+}
+
+.badge--plan {
+  padding: 6px 20px;
+  background-color: var(--color-hero-bg-w);
+}
+
+.badge--plan .badge__dot {
+  background-color: var(--color-description-p1);
+}

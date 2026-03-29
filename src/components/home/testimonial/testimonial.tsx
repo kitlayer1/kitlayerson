@@ -1,57 +1,61 @@
 import { component$ } from "@builder.io/qwik";
 import "./testimonial.css";
 
-export const HomeTestimonial = component$(() => {
+interface TestimonialItem {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export const Testimonial = component$(() => {
+  const testimonials: TestimonialItem[] = [
+    {
+      image: "/images/home/testimonial/testimonial1.svg",
+      title: "Enter Your Brand Details",
+      description:
+        "Start by adding your brand’s core information. Name, description, and key details — all set up in just a few steps.",
+    },
+    {
+      image: "/images/home/testimonial/testimonial2.svg",
+      title: "Choose Your Brand Category.",
+      description:
+        "Select the category that best fits your brand. We’ll tailor the experience and suggestions based on your choice.",
+    },
+    {
+      image: "/images/home/testimonial/testimonial3.svg",
+      title: "Download Ready-to-Use Files",
+      description:
+        "Download your brand assets in popular formats like JPG, SVG PNG, or PDF — ready for web, social media, or print.",
+    },
+  ];
+
   return (
-    <section class="home-testimonial">
-      <div class="testimonial-container">
+    <section class="testi-wrapper">
+      <div class="testi-container">
 
-        {/* CARD 1 */}
-        <div class="testimonial-card">
-          <div class="card-content">
-            <h3>Enter Your Brand Details</h3>
-            <p>
-             Add your business name, industry, and style preferences to generate logo ideas tailored to your brand.
-            </p>
-
-            <div class="card-image">
-              <img src="/images/home/testimonial/testimonial1.jpg" alt="Brand Details" />
-            </div>
-          </div>
-
-          <button class="discover-btn">Discover</button>
+        {/* section header */}
+        <div class="testi-header">
+          <h2 class="testi-section-title">
+           How It Works Step by Step
+          </h2>
+          <p class="testi-section-desc">
+            Follow our simple, guided process to create, customize, and launch your brand effortlessly. Each step is designed to make your experience smooth, intuitive, and productive
+          </p>
         </div>
 
-        {/* CARD 2 */}
-        <div class="testimonial-card">
-          <div class="card-content">
-            <h3>Customize Your Logo</h3>
-            <p>
-            Adjust colors, fonts, and icons to create a design that perfectly represents your business and reflects your unique brand identity.
-            </p>
+        <div class="testi-grid">
+          {testimonials.map((item, index) => (
+            <div class="testi-card" key={index}>
+              <div class="testi-image">
+                <img src={item.image} alt={item.title} width="300" height="200" />
+              </div>
 
-            <div class="card-image">
-              <img src="/images/home/testimonial/testimonial2.jpg" alt="Logo Customize" />
+              <div class="testi-content">
+                <h3 class="testi-title">{item.title}</h3>
+                <p class="testi-desc">{item.description}</p>
+              </div>
             </div>
-          </div>
-
-          <button class="discover-btn">Discover</button>
-        </div>
-
-        {/* CARD 3 */}
-        <div class="testimonial-card">
-          <div class="card-content">
-            <h3>Download Instantly</h3>
-            <p>
-             Get high-resolution logo files ready for websites, social media, print materials, and professional branding use.
-            </p>
-
-            <div class="card-image">
-              <img src="/images/home/testimonial/testimonial3.jpg" alt="Download Logo" />
-            </div>
-          </div>
-
-          <button class="discover-btn">Discover</button>
+          ))}
         </div>
 
       </div>

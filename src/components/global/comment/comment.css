@@ -1,7 +1,7 @@
 .comment-section {
-  padding: 150px 24px;
-  background-color: #FFFCF7;
+  padding: 100px 24px;
   text-align: center;
+  background-color: var(--color-hero-bg-w);
 }
 
 .comment-header {
@@ -11,17 +11,16 @@
 
 /* Üst başlık */
 .comment-header h2 {
-  font-family: "Geist-SemiBold", sans-serif;
-  font-size: 42px;
+  font-family: "Graphik-Bold", sans-serif;
+  font-size: 46px;
   line-height: 1.1;
-  letter-spacing: -0.84px;
   color: var(--color-heading-h1);
-  margin-bottom: 16px;
+  margin-bottom: 42px;
 }
 
 /* Grid yapısı */
 .comment-grid {
-  max-width: 1160px;
+  max-width: 1232px;
   width: 100%;
   margin: 0 auto;
   display: grid;
@@ -43,7 +42,7 @@
 
 /* Kart metni */
 .comment-text {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   font-size: 16px;
   line-height: 1.4;
   margin-bottom: 24px;
@@ -64,31 +63,29 @@
 }
 
 .comment-name {
-  font-family: "Geist-SemiBold", sans-serif;
+   font-family: "Graphik-Medium", sans-serif;
   font-size: 16px;
   margin: 0;
   padding-bottom: 5px;
+  color: var( --color-heading-h1);
 }
 
 .comment-title {
-  font-family: "Geist-Medium", sans-serif;
+   font-family: "Graphik-Regular", sans-serif;
   font-size: 14px;
-  color: #666;
+  color: var(  --color-description-p1);
   margin: 0;
 }
 
-
 @media (max-width: 1300px) {
   .comment-section {
-    padding: 150px 32px 80px 32px;
-   
+    padding: 90px 40px;
   }
-
 }
 
 @media (max-width: 1000px) {
   .comment-section {
-    padding: 160px 32px 80px 32px;
+    padding: 80px 32px;
     text-align: center;
   }
   .comment-grid {
@@ -102,7 +99,7 @@
 
 @media (max-width: 768px) {
   .comment-section {
-    padding: 100px 0 50px 30px;
+    padding: 72px 30px;
   }
 
   .comment-header {
@@ -145,7 +142,7 @@
 
 @media (max-width: 640px) {
   .comment-section {
-    padding: 90px 0 45px 24px;
+    padding: 60px 24px;
   }
 
   .comment-header {
@@ -188,7 +185,8 @@
 
 @media (max-width: 430px) {
   .comment-section {
-    padding: 84px  0  0 20px ;
+    padding: 50px 20px;
+    margin-bottom: 50px;
   }
 
   .comment-header {
@@ -196,7 +194,7 @@
   }
 
   .comment-header h2 {
-    font-size: 30px;
+    font-size: 34px;
     margin: 0 20px 0 0;
   }
 

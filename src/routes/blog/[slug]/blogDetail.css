@@ -1,55 +1,97 @@
 .blog-detail-container {
-  max-width: 1160px;
-  margin: 60px auto;
-  
+  max-width: 1440px;
+  margin: 40px auto;
+  padding: 0 40px;
 }
 
-/* BLOG TITLE - Eksik olan sınıf eklendi */
-.blog-detail-title {
-  font-family: "Geist-SemiBold", sans-serif;
-  font-size: 44px;
-  line-height: 1.2;
-  color: var(--color-heading-h1);
-  margin-bottom: 24px;
-}
-
-/* BLOG META INFO (tarih, yazar vb için) */
-.blog-detail-meta {
-  font-size: 16px;
-  color: #6b7280;
-  margin-bottom: 40px;
+.blog-detail-wrapper {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1232px;
+  margin: 0 auto;
+}
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.share-btn {
+  background-color: #F4EFD3;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: "Graphik-Medium", sans-serif;
+  font-size: 15px;
+  color: #140018;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.share-btn:hover {
+  background-color: #EDE7C3;
+  color: #140018;
+}
+
+.share-btn svg {
+  flex-shrink: 0;
+  color: #140018;
+  transition: color 0.2s ease;
+}
+
+.share-btn:hover svg {
+  color: #140018;
+}
+
+.share-text-short { display: none; }
+.share-text-full { display: inline; }
+
+.back-btn {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-main-content {
+  flex-grow: 1;
+  max-width: 800px;
 }
 
 /* BODY */
 .blog-detail-body {
-  
-  margin: 0 auto;
+  margin: 0;
 }
 
-.blog-detail-body p {
-  font-family: "Geist-Regular", sans-serif;
-  color: var(--color-description-p1);
+.blog-detail-body p { 
+   font-family: "Graphik-Regular", sans-serif;
+  color: var( --color-description-p2);
   font-size: 16px;
-  line-height: 1.6; /* Okunabilirlik için artırıldı */
+  line-height: 1.5; /* Okunabilirlik için artırıldı */
   margin-bottom: 24px;
 }
 
 .blog-detail-body h1,
 .blog-detail-body h2 {
-  font-family: "Geist-SemiBold", sans-serif;
+  font-family: "Graphik-SemiBold", sans-serif;
   color: var(--color-heading-h1);
   font-size: 24px;
   margin: 40px 0 16px 0; /* Üst margin artırıldı */
 }
 
-.blog-detail-body h3 {
-  font-family: "Geist-SemiBold", sans-serif;
-  color: var(--color-heading-h1);
-  font-size: 20px;
-  margin: 32px 0 12px 0;
-}
+
 
 /* IMAGE BLOCK */
 .blog-detail-image-block {
@@ -133,16 +175,37 @@
 /* MOBILE */
 @media (max-width: 1000px) {
   .blog-detail-container {
-    margin: 60px auto 100px auto;
-    padding: 0 30px;
+    padding: 0 32px;
+    margin: 60px auto;
   }
-  
-  .blog-detail-title {
+
+  .blog-detail-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .blog-sidebar {
+    width: 100%;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .share-btn {
+    width: auto;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .back-btn {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .blog-main-title {
     font-size: 36px;
-  }
-  
-  .blog-detail-image-wrapper {
-    height: 350px;
+    margin-bottom: 24px;
   }
 }
 
@@ -180,6 +243,37 @@
   .blog-detail-image-block {
     margin: 30px 0;
   }
+
+  .blog-sidebar {
+    flex-wrap: nowrap;
+    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .blog-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .back-btn {
+    width: auto;
+    flex: none;
+    margin-bottom: 0;
+  }
+
+  .share-btn:not(.back-btn) {
+    width: auto;
+    height: auto;
+    padding: 10px 12px;
+  }
+
+  .share-text-full {
+    display: none;
+  }
+
+  .share-text-short {
+    display: inline;
+  }
 }
 
 @media (max-width: 640px) {
@@ -212,4 +306,42 @@
   .blog-detail-image-wrapper {
     height: 200px;
   }
+
+  .blog-sidebar {
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .back-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .share-btn:not(.back-btn) {
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+  }
+
+  .share-text-short {
+    display: none;
+  }
+}
+
+.related-blogs-section {
+  max-width: 1232px;
+  margin: 100px auto 140px;
+}
+
+.related-blogs-title {
+  font-family: "Graphik-SemiBold", sans-serif;
+  font-size: 32px;
+  color: var(--color-heading-h1);
+  margin-bottom: 40px;
+  padding: 0 16px;
+}
+
+.related-blogs-section .blog-grid {
+  padding: 0 16px;
 }

@@ -1,32 +1,27 @@
 import { component$ } from "@builder.io/qwik";
 import "./blogDetailHero.css";
 
-interface BlogHeroProps {
+interface BlogDetailHeroProps {
   title: string;
-  date: string;
+  description: string;
   coverImage: string;
-  category: string;
 }
 
-export const BlogHero = component$<BlogHeroProps>(
-  ({ title, date, coverImage, category }) => {
+export const BlogDetailHero = component$<BlogDetailHeroProps>(
+  ({ title, description, coverImage }) => {
     return (
-      <section class="blog-hero">
-        <div class="blog-hero-inner">
-          {/* LEFT */}
-          <div class="blog-hero-left">
-            <div class="blog-breadcrumb">
-              {category} <span>›</span> {title}
-            </div>
-
-            <h1 class="blog-hero-title">{title}</h1>
-            <div class="blog-hero-date">{date}</div>
+      <section class="blog-detail-hero">
+        <div class="blog-detail-hero-inner">
+          <div class="blog-tag">
+            <span class="dot"></span> Blog
           </div>
 
-          <div class="blog-hero-right">
-            <div class="blog-hero-image-card">
-              <img src={coverImage} alt={title} />
-            </div>
+          <h1 class="blog-detail-hero-title">{title}</h1>
+
+          <p class="blog-detail-hero-description">{description}</p>
+
+          <div class="blog-detail-hero-image-wrapper">
+            <img src={coverImage} alt={title} width="800" height="400" />
           </div>
         </div>
       </section>

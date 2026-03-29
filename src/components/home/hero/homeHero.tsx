@@ -18,6 +18,7 @@ export const HomeHero = component$((props: Props) => {
         <div class="homehero-left">
           {props.badgeText && (
             <div class="homehero-badge">
+              <span class="badge-dot"></span>
               {props.badgeText}
             </div>
           )}
@@ -44,7 +45,7 @@ export const HomeHero = component$((props: Props) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
@@ -66,6 +67,8 @@ export const HomeHero = component$((props: Props) => {
             class="homehero-mainimg"
             src={props.image}
             alt={props.title}
+            width="500"
+            height="410"
           />
         </div>
       </div>

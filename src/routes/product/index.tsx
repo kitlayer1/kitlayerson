@@ -1,64 +1,16 @@
 import { component$ } from "@builder.io/qwik";
-import Comment from "~/components/global/comment/comment";
 import { FAQ } from "~/components/global/faq/faq";
 import { Footer } from "~/components/global/footer/footer";
 import { HomeHeader } from "~/components/global/header/homeHeader";
+import { HomeBanner } from "~/components/home/banner/homeBanner";
+import { Testimonial } from "~/components/home/testimonial/testimonial";
 import { FeaturesCard } from "~/components/product/card/features/featuresCard";
+import { ProductInfo } from "~/components/product/card/info/productİnfo";
 import { ProductHero } from "~/components/product/hero/productHero";
 import { ProductSection } from "~/components/product/section/productSection";
 
 export default component$(() => {
 
-const comments = [
-    {
-      text: `I don’t have any design background, but I was able to create a clean and professional-looking logo by following the steps. Everything felt clear and easy to use.`,
-      name: 'Elissa Piraver',
-      title: 'Small Business Owner',
-      image: '/images/global/comment/user/woman1.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-    {
-      text: `"Seeing my logo updatedd in real time while adjusting colors and typography made the whole process much more intuitive than I expected."`,
-      name: 'Cristian Makalulu',
-      title: 'Content Creator',
-      image: '/images/global/comment/user/man1.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-    {
-      text: `I explored several styles and variations before choosing the final one, which really helped me understand what works best for my brand."`,
-      name: 'Albert Mitrovic',
-      title: 'Startup Founder',
-      image: '/images/global/comment/user/man2.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-    {
-      text: `"As someone who just wanted a solid logo without learning complex design tools, this platform was exactly what I needed."`,
-      name: 'Guillermo Rauch',
-      title: 'Freelance Consultant',
-      image: '/images/global/comment/user/man3.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-    {
-      text: `"The step-by-step flow made it easy to experiment, make changes, and improve the design without feeling overwhelmed."`,
-      name: 'Peter Rashford',
-      title: 'E-commerce Store Owner',
-      image: '/images/global/comment/user/man4.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-    {
-      text: `"I created a logo in a short time, and it looks good enough to use across my website and social media."`,
-      name: 'Sabriana Convelti',
-      title: 'Marketing Specialist',
-      image: '/images/global/comment/user/woman2.svg',
-      bg: '#F4EFE9',
-      color: '#020618',
-    },
-  ];
 
    const faqs = [
     {
@@ -91,26 +43,39 @@ const comments = [
     <>
       <HomeHeader />
       <ProductHero
-        title="AI-Powered Logo Design for Modern Brands"
-        description="Instantly generate unique logo ideas, customize colors and typography, and export professional files ready for web, social media, and print."
-        image="/images/product/hero/productHero.svg"
+        title="Create Your Perfect Logo Instantly"
+        description="Explore unique logo designs, customize every detail, and see how it fits your brand. Real-time previews, easy editing, and ready-to-use files make creating your logo effortless"
       />
 
       <FeaturesCard />
        <ProductSection
-        badge="Logo Design"
-        title="Launch Your Brand with Confidence"
-        description="From your initial idea to the final polished design, our platform guides you through every step of creating a stunning logo that truly represents your brand. With intelligent design tools, fully customizable templates, and an intuitive interface, you can craft a professional-quality logo in just minutes. No design experience is needed — simply choose your preferences, refine your style, and download a high-resolution logo ready for web, social media, and print. Fast, affordable, and completely hassle-free, it’s everything you need to launch your brand with confidence."
-        image="/images/home/testimonial/testimonial1.jpg"
-        imagePosition="right"
+        title="Profitability's secret ingredient."
+        description="Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place."
+        text="Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place. Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place."
       />
 
+      <ProductSection
+        reverse
+        title="Profitability's secret ingredient."
+        description="Streamline your entire operations."
+        text="Meet the AI-powered restaurant management system that serves up full control of your business."
+      />
+<ProductInfo
+  items={[
+    { title: "Profitability's secret ingredient.", value: "55+" },
+    { title: "Profitability's secret ingredient.", value: "120+" },
+    { title: "Profitability's secret ingredient.", value: "88+" },
+  ]}
+/>
 
-      <Comment comments={comments} />;
+<Testimonial />
+
         <FAQ
             title={`Frequently\nasked\nquestions`}
             faqs={faqs}
           />
+
+          <HomeBanner/>
 <Footer/>
     </>
   );

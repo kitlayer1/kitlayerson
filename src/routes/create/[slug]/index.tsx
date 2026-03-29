@@ -1,14 +1,21 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { CategoryBadge } from "~/components/create/badge/categoryBadge";
-import { CategoryBanner } from "~/components/create/banner/categoryBanner";
 import { CategoryHero } from "~/components/create/hero/categoryHero";
-import { CategorySection } from "~/components/create/section/categorySection";
-import { CategorySlider } from "~/components/create/slider/categorySlider";
+import { CategorySectionCard } from "~/components/create/card/section/categorySectionCard";
+import { CategoryBrandCard } from "~/components/create/card/brand/categoryBrandCard";
+import { CategoryTestimonial } from "~/components/create/testimonial/categoryTestimonial";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { NotFound } from "~/components/global/notFound/notFound";
-import { HomeTestimonial } from "~/components/home/testimonial/testimonial";
-import createData from '../../../../public/data/createDetail.json';
+import createData from "../../../../public/data/createDetail.json";
+import { HomeBanner } from "~/components/home/banner/homeBanner";
+import { Footer } from "~/components/global/footer/footer";
+
+interface CardItem {
+  badge: string;
+  title: string;
+  description: string;
+}
 
 interface HeroData {
   badge: string;
@@ -23,16 +30,7 @@ interface SectionData {
   title: string;
   description: string;
   subText: string;
-}
-
-interface SliderItem {
-  img: string;
-}
-
-interface SliderData {
-  title: string;
-  description: string;
-  top: SliderItem[];
+  cards?: CardItem[];
 }
 
 interface CategoryItem {
@@ -40,32 +38,35 @@ interface CategoryItem {
   slug: string;
 }
 
-interface BannerData {
+interface BrandLogo {
+  img: string;
+  bg: string;
+}
+
+interface TestimonialItem {
+  img: string;
   title: string;
   description: string;
-  buttonText: string;
-  buttonLink?: string;
 }
 
 interface PageData {
   hero: HeroData;
   categorySection: SectionData;
-  slider?: SliderData;
   categories?: CategoryItem[];
-  banner?: BannerData;
-  title: string;
-  description: string;
-  content: string;
+  brandLogos?: BrandLogo[];
+  testimonials?: TestimonialItem[];
 }
 
-export const usePageData = routeLoader$<PageData | null>(async ({ params, status }) => {
-  const slug = params.slug?.toLowerCase();
-  if (!slug) {
-    status(404);
-    return null;
-  }
 
-  try {
+export const usePageData = routeLoader$<PageData | null>(
+  async ({ params, status }) => {
+    const slug = params.slug?.toLowerCase();
+
+    if (!slug) {
+      status(404);
+      return null;
+    }
+
     const pages = (createData as any).success;
     const pageData = pages[slug];
 
@@ -75,12 +76,8 @@ export const usePageData = routeLoader$<PageData | null>(async ({ params, status
     }
 
     return pageData;
-  } catch (err) {
-    console.error(err);
-    status(404);
-    return null;
   }
-});
+);
 
 export default component$(() => {
   const page = usePageData();
@@ -101,33 +98,32 @@ export default component$(() => {
         img={page.value.hero.img}
       />
 
-      <CategorySection
-        badge={page.value.categorySection.badge}
-        title={page.value.categorySection.title}
-        description={page.value.categorySection.description}
-        subText={page.value.categorySection.subText}
-      />
+      {/* CARD SECTION */}
+      {page.value.categorySection.cards && (
+        <CategorySectionCard cards={page.value.categorySection.cards} />
+      )}
 
-      <HomeTestimonial />
-
-      {page.value.slider && (
-        <CategorySlider
-          title={page.value.slider.title}
-          description={page.value.slider.description}
-          topItems={page.value.slider.top}
+      {/* BRAND LOGOS */}
+      {page.value.brandLogos && (
+        <CategoryBrandCard
+          title={page.value.hero.title}
+          description={page.value.hero.description}
+          logos={page.value.brandLogos}
         />
       )}
 
-      {page.value.categories && <CategoryBadge categories={page.value.categories} />}
-
-      {page.value.banner && (
-        <CategoryBanner
-          title={page.value.banner.title}
-          description={page.value.banner.description}
-          buttonText={page.value.banner.buttonText}
-          buttonLink={page.value.banner.buttonLink}
-        />
+      {/* TESTIMONIAL */}
+      {page.value.testimonials && (
+        <CategoryTestimonial testimonials={page.value.testimonials} />
       )}
+
+      {/* CATEGORY BADGES */}
+      {page.value.categories && (
+        <CategoryBadge categories={page.value.categories} />
+      )}
+      <HomeBanner />
+      <Footer />
+
     </>
   );
 });

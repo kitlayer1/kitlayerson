@@ -21,10 +21,10 @@ export default component$<CommentSectionProps>(
       <section class="comment-section">
          <div class="comment-header">
         <h2>
-       Loved by Entrepreneurs
+       Real Stories from Our 
 
           <br />
-           Worldwide
+           Happy Users
         </h2>
       </div>
 
@@ -42,6 +42,8 @@ export default component$<CommentSectionProps>(
                   src={item.image}
                   alt={item.name}
                   class="comment-avatar"
+                  width="48"
+                  height="48"
                 />
                 <div>
                   <p class="comment-name">{item.name}</p>

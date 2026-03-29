@@ -1,9 +1,9 @@
 .about-banner {
   margin: 72px auto;
-  max-width: 1160px;
+  max-width: var(--container-max-width);
   background: #EDE3DA;
   border-radius: 8px;
-  padding: 42px 20px;
+  padding: 80px var(--container-padding);
   text-align: center;
 }
 
@@ -16,21 +16,21 @@
 
 .about-banner__title {
   font-family: "Geist-SemiBold", sans-serif;
-  font-size: var(--font-size-3xl);
+  font-size: var(--section-title-size);
   color: var(--color-heading-h1);
-  line-height: var(--line-height-xs);
+  line-height: var(--section-title-line-height);
   letter-spacing: var(--letter-spacing-md);
   max-width: 420px;
-  margin: 16px auto;
+  margin: 0 auto var(--spacing-title-to-desc);
 }
 
 .about-banner__description {
-    font-family: "Geist-Medium", sans-serif;
-  font-size: 16px;
+  font-family: "Geist-Medium", sans-serif;
+  font-size: var(--section-desc-size);
   color: var(  --color-description-p1);
-  line-height: 1.4;
+  line-height: var(--section-desc-line-height);
   max-width: 600px;
-  margin: 16px auto;
+  margin: 0 auto var(--spacing-desc-to-content);
 }
 
 /* BUTTON */
@@ -48,7 +48,6 @@
   transition: all 0.2s ease;
   width: 200px;
   justify-content: center;
-  margin-top: 16px;
 }
 
 .about-banner__button:hover {
@@ -62,121 +61,17 @@
 
 /* RESPONSIVE */
 
-@media (max-width: 1300px) {
-  .about-banner {
-    margin: clamp(32px, 5vw, 60px) auto;
-    padding: clamp(20px, 3.5vw, 30px) 20px;
-    max-width: clamp(760px, 92vw, 1160px);
-    border-radius: 8px;
-  }
-
-  .about-banner__inner {
-    max-width: clamp(560px, 70vw, 700px);
-  }
-
-  .about-banner__title {
-    font-size: clamp(22px, 3.2vw, var(--font-size-2xxl));
-  }
-
-  .about-banner__description {
-    font-size: clamp(14px, 1.6vw, var(--font-size-xsm));
-    margin: clamp(12px, 2vw, 16px) auto;
-  }
-
-  .about-banner__button {
-    padding: clamp(6px, 1vw, 10px) clamp(18px, 2.4vw, 24px);
-  }
-}
-
-
 @media (max-width: 1000px) {
   .about-banner {
-    padding: 32px 32px;
+    padding: 60px var(--container-padding);
     border-radius: 12px;
-  }
-
-  .about-banner__title {
-    font-size: var(--font-size-xl);
-    max-width: 450px;
-  }
-
-  .about-banner__description {
-    font-size: var(--font-size-sm);
-    margin: 12px auto;
-    max-width: 550px;
-  }
-
-  .about-banner__button {
-    width: 60%;
-    justify-content: center;
-    margin-top: 12px;
-    padding: 14px 18px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-banner {
-    padding: 32px 24px;
-    border-radius: 12px;
-  }
-
-  .about-banner__title {
-    font-size: var(--font-size-xl);
-    max-width: 400px;
-  }
-
-  .about-banner__description {
-    font-size: var(--font-size-xs);
-    margin: 12px auto;
-    max-width: 500px;
-  }
-
-  .about-banner__button {
-    width: 60%;
-    justify-content: center;
-    margin-top: 12px;
-    padding: 12px 18px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 640px) {
-  .about-banner {
-    padding: 32px 24px;
-    border-radius: 12px;
-  }
-
-  .about-banner__title {
-    font-size: var(--font-size-lg);
-  }
-
-  .about-banner__description {
-    font-size: var(--font-size-xs);
-    margin: 12px auto;
-  }
-
-  .about-banner__button {
-    width: 60%;
-    justify-content: center;
-    margin-top: 12px;
-    padding: 12px 18px;
-    font-size: 14px;
   }
 }
 
 @media (max-width: 430px) {
   .about-banner {
-    padding: 24px 24px;
-  }
-
-  .about-banner__title {
-    font-size: var(--font-size-lg);
-  }
-
-  .about-banner__description {
-    font-size: var(--font-size-xs);
-    margin: 12px auto;
+    padding: var(--padding-inner-y-mobile) var(--container-padding);
+    margin: var(--padding-outer-y-mobile) auto;
   }
 
   .about-banner__button {

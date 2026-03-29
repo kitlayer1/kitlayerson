@@ -1,0 +1,60 @@
+.btn {
+  font-family: "Graphik-SemiBold", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.btn--primary, .btn--black {
+  background: var(--btn-black-bg);
+  color: var(--btn-black-text);
+}
+
+.btn--primary:hover:not(:disabled), .btn--black:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn--secondary {
+  background: #E0DAB7;
+  color: var(--color-heading-h1);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: #D5CFAC;
+}
+
+/* Sizes */
+.btn--md {
+  padding: 16px;
+}
+
+.btn--sm {
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* Spinner */
+.btn__spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}

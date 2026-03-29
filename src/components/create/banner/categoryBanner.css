@@ -162,16 +162,16 @@
 
 @media (max-width: 430px) {
   .category-banner {
-    margin: 28px 20px;
-    padding: 24px 24px;
+    margin: var(--padding-outer-y-mobile) var(--container-padding);
+    padding: var(--padding-inner-y-mobile) var(--container-padding);
   }
 
   .category-banner-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--section-title-size);
   }
 
   .category-banner-description {
-    font-size: var(--font-size-xs);
+    font-size: var(--section-desc-size);
     margin: 12px auto;
   }
 

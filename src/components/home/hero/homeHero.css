@@ -1,70 +1,88 @@
 .homehero {
-  padding: 120px 0;
-  background: #FFFCF7;
+  padding: 150px var(--container-padding) 120px;
+  background-color: var(--color-hero-bg-w);
 }
 
 .homehero-container {
-  max-width: 1160px;
+  max-width: var(--container-max-width);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 130px;
+  gap: 10px;
   align-items: center;
 }
 
 .homehero-badge {
-  font-family: "Geist-Medium", sans-serif;
-  display: inline-block;
-  padding: 8px 14px;
+  font-family: "Graphik-Medium", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
   font-size: 14px;
-  color: #304158;
-  background: #ECE3DA;
-  border-radius: 6px;
+  color: var(--color-description-p1);
+  background: var(--color-hero-bg-w-hover);
+  border-radius: 100px;
   margin-bottom: 24px;
+}
+
+.homehero-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-description-p1);
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
 }
 
 .homehero-title {
-  font-family: "Geist-SemiBold", sans-serif;
-  font-size: 42px;
-  line-height: 1.2;
+  font-family: "Graphik-Bold", sans-serif;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.1;
+  color: var(--color-heading-h1);
   letter-spacing: -0.84px;
-  margin-bottom: 20px;
-}
-
-.homehero-description {
-  font-family: "Geist-Regular", sans-serif;
-  line-height: 1.4;
-  letter-spacing: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-description-p1);
   margin-bottom: 24px;
 }
 
+.homehero-description {
+  font-family: "Graphik-Regular", sans-serif;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-size: 16px;
+  color: var(--color-description-p1);
+  margin-bottom: 24px;
+  width: 600px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .homehero-sub {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   font-size: var(--font-size-xs);
   line-height: 1.4;
   letter-spacing: 0;
-  color: var(--color-description-p3);
-  margin-top: 16px;
+  color: var(--color-description-p2);
+  margin-top: 20px;
 }
 
 .homehero-input {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   display: flex;
-  background: white;
-  border: 1px solid #E0DDD9;
+  background: #f4efd3;
   border-radius: 8px;
-  padding: 6px;
+  padding: 5px;
   width: 500px;
-  color: var(--color-description-p1);
+  max-width: 100%;
+  max-height: 56px;
+  color: var( --color-heading-h1);
+  box-sizing: border-box;
 }
 
 .homehero-input:focus-within {
-  border-color: var(--btn-black-bg);
+  border-color: var( --color-heading-h1);
 }
 
 .homehero-input-field {
+  font-family: "Graphik-Medium", sans-serif;
   color: var(--color-heading-h1);
   flex: 1;
   border: none;
@@ -72,10 +90,18 @@
   padding: 14px 12px;
   border-radius: 6px;
   font-size: 16px;
+  background-color: #f4efd3;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.homehero-input-field::placeholder {
+  color: var(--color-heading-h1);
+  opacity: 0.6;
 }
 
 .homehero-input-button {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   background: var(--btn-black-bg);
   color: var(--btn-black-text);
   border: none;
@@ -84,8 +110,9 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   line-height: 1;
+  white-space: nowrap;
   transition:
     background 0.15s ease,
     transform 0.1s ease;
@@ -113,7 +140,7 @@
 
 .homehero-mainimg {
   width: 500px;
-  height: 480px;
+  height: 410px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -121,7 +148,7 @@
 /* 1300px */
 @media (max-width: 1300px) {
   .homehero {
-    padding: 140px 32px 80px;
+    padding: 140px var(--container-padding) 80px;
   }
 
   .homehero-container {
@@ -130,7 +157,8 @@
 
   .homehero-mainimg {
     width: clamp(380px, 38vw, 500px);
-    height: clamp(360px, 36vw, 480px);
+    height: auto;
+    aspect-ratio: 500 / 410;
   }
 
   .homehero-input {
@@ -138,11 +166,10 @@
   }
 }
 
-
-
-@media (max-width: 900px) {
+/* 1000px */
+@media (max-width: 1000px) {
   .homehero {
-    padding: 150px 24px 80px;
+    padding: 150px var(--container-padding) 80px;
   }
 
   .homehero-container {
@@ -161,13 +188,16 @@
   }
 
   .homehero-title {
-    font-size: 38px;
+    font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 20px;
     max-width: 600px;
   }
 
   .homehero-description {
-    font-size: 17px;
-    max-width: 500px;
+    font-size: 16px;
+    width: auto;
+    max-width: 550px;
   }
 
   .homehero-input {
@@ -175,7 +205,8 @@
     gap: 16px;
     width: 100%;
     max-width: 560px;
-    height: 130px;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
     background: transparent;
@@ -183,8 +214,12 @@
 
   .homehero-input-field {
     width: 100%;
-    border: 1px solid var(--color-border-b2);
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 60px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 16px;
   }
 
   .homehero-input-field:focus {
@@ -199,34 +234,22 @@
   }
 }
 
-
+/* 640px */
 @media (max-width: 640px) {
   .homehero {
-    padding: 120px 24px 80px;
-  }
-
-  .homehero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .homehero-right {
-    display: none;
-  }
-
-  .homehero-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 140px var(--container-padding) 80px;
   }
 
   .homehero-title {
-    font-size: 38px;
-    max-width: 450px;
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 400px;
   }
 
   .homehero-description {
-    font-size: 17px;
+    font-size: 16px;
+    width: auto;
     max-width: 500px;
   }
 
@@ -234,21 +257,25 @@
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    max-width: 560px;
-    height: 120px;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
-    background: transparent;
   }
 
   .homehero-input-field {
     width: 100%;
-    border: 1px solid var(--color-border-b2);
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 56px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 16px;
   }
 
   .homehero-input-field:focus {
-   border-color: var(--color-heading-h1);
+    border-color: var(--color-heading-h1);
   }
 
   .homehero-input-button {
@@ -261,7 +288,7 @@
 /* 430px */
 @media (max-width: 430px) {
   .homehero {
-    padding: 120px 20px 80px;
+    padding: 140px var(--container-padding) 80px;
   }
 
   .homehero-container {
@@ -269,22 +296,28 @@
   }
 
   .homehero-badge {
-    font-size: var(--font-size-2xs);
+    font-size: 14px;
     margin-bottom: 20px;
   }
 
   .homehero-title {
-    font-size: 36px;
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
   }
 
   .homehero-description {
     font-size: 16px;
-}
+    width: auto;
+  }
 
   .homehero-input {
     flex-direction: column;
     gap: 16px;
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
     background: transparent;
@@ -292,8 +325,9 @@
 
   .homehero-input-field {
     width: 100%;
-    border: 1px solid var(--color-border-b2);
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 56px;
   }
 
   .homehero-input-button {

@@ -3,27 +3,30 @@ import "./homeSection.css";
 
 export const HomeSection = component$(() => {
   return (
-    <section class="home-section">
-      <div class="home-section__content">
-        <span class="home-section__badge">
-         No Design Skills Required.
-        </span>
+    <section class="hs-wrapper">
+      <div class="hs-grid">
 
-        <h1 class="home-section__title">
-         Design a Professional <br /> Logo in Minutes
-        </h1>
+        <div class="hs-leftCard">
+          <h2 class="hs-title">
+            <span class="hs-line">Create</span>
+            <span class="hs-line">Customize</span>
+            <span class="hs-line">Empower</span>
+            <span class="hs-line">Share Your</span>
+            <span class="hs-line">Brand</span>
+            <span class="hs-line">Instantly</span>
+          </h2>
+        </div>
 
-        <p class="home-section__description">
-         Create fully customizable, high-resolution logos without any design experience. Bring your brand to life instantly.
-        </p>
-      </div>
+        <div class="hs-imageArea">
+          <img
+            src="/images/home/section/homeSection.svg"
+            alt="Dashboard"
+            class="hs-image"
+            width="800"
+            height="600"
+          />
+        </div>
 
-      <div class="home-section__image-wrapper">
-        <img
-          src="/images/home/section/homeSection.jpg"
-          alt="Product dashboard preview"
-          class="home-section__image"
-        />
       </div>
     </section>
   );

@@ -3,19 +3,26 @@ import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import './homeHeader.css';
 
-export const HomeHeader = component$(() => {
+interface Props {
+  variant?: 'light' | 'dark';
+}
+
+export const HomeHeader = component$<Props>((props) => {
   const isMenuOpen = useSignal(false);
   const isUserMenuOpen = useSignal(false);
   const user = useSignal<any>(null);
   const loading = useSignal(true);
+  const isScrolled = useSignal(false);
   const nav = useNavigate();
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async () => {
     const { data } = await supabase.auth.getUser();
     user.value = data?.user ?? null;
     loading.value = false;
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     const { data: listener } = supabase.auth.onAuthStateChange(
       async (event, session) => {
@@ -25,6 +32,7 @@ export const HomeHeader = component$(() => {
     cleanup(() => listener.subscription.unsubscribe());
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     const handleClickOutside = (event: MouseEvent) => {
       const userMenu = document.querySelector('.home-header-user-menu-modal');
@@ -40,6 +48,19 @@ export const HomeHeader = component$(() => {
     };
     document.addEventListener('click', handleClickOutside);
     cleanup(() => document.removeEventListener('click', handleClickOutside));
+  });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        if (!isScrolled.value) isScrolled.value = true;
+      } else {
+        if (isScrolled.value) isScrolled.value = false;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    cleanup(() => window.removeEventListener('scroll', handleScroll));
   });
 
   const handleLogout = $(async () => {
@@ -76,8 +97,8 @@ export const HomeHeader = component$(() => {
 
   const SettingsIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/>
-      <circle cx="12" cy="12" r="3"/>
+      <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+      <circle cx="12" cy="12" r="3" />
     </svg>
   );
 
@@ -111,12 +132,12 @@ export const HomeHeader = component$(() => {
   );
 
   return (
-    <header class="home-header">
+    <header class={["home-header", isScrolled.value ? "scrolled" : "", props.variant === 'light' ? 'light' : ""]}>
       <div class="header-content">
         <div class="header-left">
           <div class="logosme">
             <a href="/">
-              <img src="/images/logo.svg" alt="Logo" />
+              <img src="/images/logo.svg" alt="Logo" width="140" height="46" />
             </a>
           </div>
         </div>
@@ -148,13 +169,7 @@ export const HomeHeader = component$(() => {
             class="consult-btn"
             onClick$={() => (window.location.href = '/app')}
           >
-            <span>Get started</span>
-            <div class="arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+            <span>Get Started</span>
           </button>
         </div>
 
@@ -224,13 +239,7 @@ export const HomeHeader = component$(() => {
               isMenuOpen.value = false;
             }}
           >
-            <span>Get started</span>
-            <div class="arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+            <span>Get Started</span>
           </button>
         </div>
       )}

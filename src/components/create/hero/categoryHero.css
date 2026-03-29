@@ -1,94 +1,121 @@
 .categoryhero {
-  padding: 120px 0;
-  background: #ffffff;
+  padding: var(--section-padding-hero);
+  background: var(--color-hero-bg-g);
 }
 
 .categoryhero-container {
-  max-width: 1160px;
-  margin: auto;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 130px;
+  gap: 10px;
   align-items: center;
 }
 
 .categoryhero-badge {
-  font-family: "Geist-Medium", sans-serif;
-  display: inline-block;
-  padding: 10px 16px;
+  font-family: "Graphik-Medium", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
   font-size: 14px;
-  color: var(--info-600);
-  background: var(--info-50);
-  border-radius: 8px;
+  color: var(--color-heading-white);
+  background: var( --color-hero-bg-g-hover);
+  border-radius: 100px;
   margin-bottom: 24px;
+}
+
+.categoryhero-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-heading-white);
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
 }
 
 .categoryhero-title {
- font-family: "Geist-SemiBold", sans-serif;
-  font-size: 42px;
-  line-height: 1.1;
+   font-family: "Graphik-Bold", sans-serif;
+  font-size: 62px;
+  line-height: 1;
+  color: var(--color-heading-white);
   letter-spacing: -0.84px;
-  margin-bottom: 20px;
-}
-
-.categoryhero-description {
-   font-family: "Geist-Regular", sans-serif;
-  line-height: 1.4;
-  letter-spacing: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-description-p1);
   margin-bottom: 24px;
 }
 
+.categoryhero-description {
+  font-family: "Graphik-Regular", sans-serif;
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-size: 16px;
+  color: var(--color-white);
+  margin-bottom: 32px;
+  width: 550px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .categoryhero-sub {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: "Graphik-Medium", sans-serif;
   font-size: var(--font-size-xs);
   line-height: 1.4;
   letter-spacing: 0;
-  color: var(--color-description-p3);
+  color: var(--color-heading-white);
   margin-top: 16px;
 }
 
 .categoryhero-input {
-   font-family: "Geist-Medium", sans-serif;
+ font-family: "Graphik-Medium", sans-serif;
   display: flex;
-  background: white;
-  border: 1px solid var(--color-border-b2);
+  background: var(--color-hero-bg-g-input);
   border-radius: 8px;
-  padding: 6px;
+  padding: 5px;
   width: 500px;
-  color: var(--color-description-p1);
+  max-width: 100%;
+  max-height: 56px;
+  color: var( --color-heading-h1);
+  box-sizing: border-box;
 }
 
 .categoryhero-input:focus-within {
-    border-color: var(--btn-black-bg);
+    border-color: var(--color-hero-bg-g-input);
 }
 
 .categoryhero-input-field {
- color: var(--color-heading-h1);
+  font-family: "Graphik-Medium", sans-serif;
+ color: var(--color-heading-white);
   flex: 1;
   border: none;
   outline: none;
   padding: 14px 12px;
   border-radius: 6px;
   font-size: 16px;
+  background:  var(--color-hero-bg-g-input);
+  box-sizing: border-box;
+}
+
+.categoryhero-input-field::placeholder {
+  color: var(--color-heading-white);
+  opacity: 1;
 }
 
 .categoryhero-input-button {
- font-family: "Geist-Medium", sans-serif;
-  background: var(--btn-black-bg);
-  color: var(--btn-black-text);
+ font-family: "Graphik-Medium", sans-serif;
+  background:var(--btn-white-bg);
+  color: var(--btn-white-text);
   border: none;
   border-radius: 6px;
   padding: 14px 20px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   line-height: 1;
+  white-space: nowrap;
   transition:
     background 0.15s ease,
     transform 0.1s ease;
+  box-sizing: border-box;
 }
 
 .categoryhero-input-button svg {
@@ -97,7 +124,7 @@
 }
 
 .categoryhero-input-button:hover {
-  background: var(--btn-black-bg-hover);
+  background: var(--btn-white-bg-hover);
 }
 
 .categoryhero-input-button:active {
@@ -112,42 +139,40 @@
 }
 
 .categoryhero-mainimg {
-  width: 500px;
-  height: 480px;
+width: 500px;
+  height: 410px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 @media (max-width: 1300px) {
   .categoryhero {
-    padding: 140px 32px 80px;
+    padding: 140px var(--container-padding) 80px;
   }
 
   .categoryhero-container {
-    gap: clamp(60px, 8vw, 130px);
+   gap: clamp(60px, 8vw, 130px);
   }
 
   .categoryhero-mainimg {
-    width: clamp(380px, 38vw, 500px);
-    height: clamp(360px, 36vw, 480px);
+  width: clamp(380px, 38vw, 500px);
+    height: auto;
+    aspect-ratio: 500 / 410;
   }
 
   .categoryhero-input {
-    width: clamp(380px, 42vw, 500px);
+   width: clamp(380px, 42vw, 500px);
   }
 
-  .categoryhero-right {
-    justify-content: right;
-  }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .categoryhero {
-      padding: 150px 24px 80px;
+     padding: 150px var(--container-padding) 80px;
   }
 
   .categoryhero-container {
-   grid-template-columns: 1fr;
+     grid-template-columns: 1fr;
     text-align: center;
   }
 
@@ -156,36 +181,46 @@
   }
 
   .categoryhero-left {
-     display: flex;
+      display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .categoryhero-title {
-    font-size: 38px;
-    max-width: 500px;
+  font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 600px;
   }
 
   .categoryhero-description {
-      font-size: 17px;
-    max-width: 500px;
+     font-size: 16px;
+    width: auto;
+    max-width: 550px;
   }
 
   .categoryhero-input {
-     flex-direction: column;
+   flex-direction: column;
     gap: 16px;
     width: 100%;
     max-width: 560px;
-    height: 130px;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
     background: transparent;
+    color: white;
   }
 
   .categoryhero-input-field {
-     width: 100%;
-    border: 1px solid var(--color-border-b2);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 60px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 16px;
   }
 
   .categoryhero-input-field:focus {
@@ -193,7 +228,7 @@
   }
 
   .categoryhero-input-button {
-    width: 100%;
+      width: 100%;
     border-radius: 8px;
     height: 52px;
     justify-content: center;
@@ -236,20 +271,24 @@
   }
 
   .categoryhero-input {
-    flex-direction: column;
+      flex-direction: column;
     gap: 16px;
     width: 100%;
-    max-width: 560px;
-    height: 130px;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
-    background: transparent;
   }
 
   .categoryhero-input-field {
-    width: 100%;
-    border: 1px solid var(--color-border-b2);
+     width: 100%;
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 56px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 16px;
   }
 
   .categoryhero-input-field:focus {
@@ -304,9 +343,12 @@
   }
 
   .categoryhero-input {
-   flex-direction: column;
+    flex-direction: column;
     gap: 16px;
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     border: none;
     padding: 0;
     background: transparent;
@@ -314,8 +356,9 @@
 
   .categoryhero-input-field {
      width: 100%;
-    border: 1px solid var(--color-border-b2);
+    box-sizing: border-box;
     border-radius: 8px;
+    min-height: 56px;
   }
 
   .categoryhero-input-field:focus {
@@ -323,7 +366,7 @@
   }
 
   .categoryhero-input-button {
-   width: 100%;
+     width: 100%;
     border-radius: 8px;
     padding: 16px;
     justify-content: center;
