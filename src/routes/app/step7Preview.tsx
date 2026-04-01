@@ -145,7 +145,7 @@ export const Step7Preview = component$(
       }
 
       try {
-        const opentype = (await import("opentype.js")).default;
+        const opentype = (await import("opentype.js/dist/opentype.module.js")).default;
         const res = await fetch(fontUrl);
         const buffer = await res.arrayBuffer();
         opentype.parse(buffer);
@@ -179,7 +179,7 @@ export const Step7Preview = component$(
 
         if (fontUrl) {
           try {
-            const opentype = (await import("opentype.js")).default;
+            const opentype = (await import("opentype.js/dist/opentype.module.js")).default;
             const res = await fetch(fontUrl);
             const buffer = await res.arrayBuffer();
             const font = opentype.parse(buffer);
