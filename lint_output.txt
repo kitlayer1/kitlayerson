@@ -1,0 +1,164 @@
+
+> lint
+> eslint "src/**/*.ts*"
+
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/components/home/banner/homeBanner.tsx
+  23:14  warning  Unused eslint-disable directive (no problems were reported from 'qwik/jsx-img')
+  25:15  warning  Local images can be optimized by importing using ESM, like this:
+
+  import ImgLogo from '~/media/images/home/banner/logo.png?jsx';
+  <ImgLogo />
+
+See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/components/home/section/homeSection.tsx
+  21:12  warning  Unused eslint-disable directive (no problems were reported from 'qwik/jsx-img')
+  23:13  warning  Local images can be optimized by importing using ESM, like this:
+
+  import ImgHomesection from '~/media/images/home/section/homeSection.svg?jsx';
+  <ImgHomesection />
+
+See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/components/header/header.tsx
+    7:9   error    'isMenuOpen' is assigned a value but never used                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   48:9   error    'LearnIcon' is assigned a value but never used                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  106:3   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  112:3   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  121:3   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  158:18  warning  Local images can be optimized by importing using ESM, like this:
+
+  import ImgLogo from '~/media/images/logo.svg?jsx';
+  <ImgLogo />
+
+See https://qwik.dev/docs/integrations/image-optimization/#responsive-images                                                                                                                           qwik/jsx-img
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/index.tsx
+  98:3  warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step1BrandName.tsx
+  15:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  67:31  error    When referencing "props" inside a different scope (onClick$), Qwik needs to serialize the value, however "props.onNext$" is a function, which is not serializable.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details                                                                                                         qwik/valid-lexical-scope
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step2Category.tsx
+   81:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  102:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+  229:31  error    When referencing "props" inside a different scope (onClick$), Qwik needs to serialize the value, however "props.onNext$" is a function, which is not serializable.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details                                                                                                         qwik/valid-lexical-scope
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step3Favicons.tsx
+  61:33  error    When referencing "toggleSelect" inside a different scope (onClick$), Qwik needs to serialize the value, however it is a function, which is not serializable.
+Did you mean to wrap it in `$()`?
+
+const toggleSelect = $(
+  (id: number) => {
+       if (state.selectedFaviconIds.includes(id)) {
+         state.selectedFaviconIds = state.selectedFaviconIds.filter(
+           (selectedId) => selectedId !== id,
+         );
+       } else {
+         state.selectedFaviconIds = [...state.selectedFaviconIds, id];
+       }
+     }
+);
+.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details  qwik/valid-lexical-scope
+  63:17  warning  Missing "width" or "height" attribute.
+For performance reasons, always provide width and height attributes for <img> elements, it will prevent layout shifts, boosting performance and UX                                                                                                                                                                                                                                                                                                                                                                                                                     qwik/jsx-img
+  90:29  error    When referencing "props" inside a different scope (onClick$), Qwik needs to serialize the value, however "props.onNext$" is a function, which is not serializable.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details                                                                                                                                                                                                                                                                                                                                                                          qwik/valid-lexical-scope
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step4Colors.tsx
+  45:23  error  When referencing "toggle" inside a different scope (onClick$), Qwik needs to serialize the value, however it is a function, which is not serializable.
+Did you mean to wrap it in `$()`?
+
+const toggle = $(
+  (id: number) => {
+     if (state.selected.includes(id)) {
+       state.selected = state.selected.filter(x => x !== id);
+     } else {
+       state.selected = [...state.selected, id];
+     }
+   }
+);
+.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details  qwik/valid-lexical-scope
+  81:32  error  When referencing "props" inside a different scope (onClick$), Qwik needs to serialize the value, however "props.onNext$" is a function, which is not serializable.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details                                                                                                                                                                                                                                                     qwik/valid-lexical-scope
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step5Style.tsx
+  20:7   error    When referencing "props" inside a different scope ($), Qwik needs to serialize the value, however "props.onNext$" is a function, which is not serializable.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details  qwik/valid-lexical-scope
+  59:17  warning  Missing "width" or "height" attribute.
+For performance reasons, always provide width and height attributes for <img> elements, it will prevent layout shifts, boosting performance and UX                                      qwik/jsx-img
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step6GeneratedLogos.tsx
+  87:17  warning  Missing "width" or "height" attribute.
+For performance reasons, always provide width and height attributes for <img> elements, it will prevent layout shifts, boosting performance and UX  qwik/jsx-img
+
+/Users/volkanyilmaz/Desktop/new/qwik-app/src/routes/app/step7Preview.tsx
+  165:24  error    When referencing "getColorsByMode" inside a different scope ($), Qwik needs to serialize the value, however it is a function, which is not serializable.
+Did you mean to wrap it in `$()`?
+
+const getColorsByMode = $(
+  (mode: LogoMode) => {
+       switch (mode) {
+         case "black":
+           return { background: "#ffffff", text: "#000000", icon: "#000000" };
+         case "white":
+           return { background: "#000000", text: "#ffffff", icon: "#ffffff" };
+         case "transparent":
+           return {
+             background: "transparent",
+             text: "#000000",
+             icon: "#000000",
+           };
+         case "invert":
+           return {
+             background: palette.text,
+             text: palette.background,
+             icon: palette.background,
+           };
+         default: // color
+           return {
+             background: palette.background,
+             text: palette.text,
+             icon: palette.text,
+           };
+       }
+     }
+);
+.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details  qwik/valid-lexical-scope
+  166:34  error    When referencing "toBase64" inside a different scope ($), Qwik needs to serialize the value, however it is a function, which is not serializable.
+Did you mean to wrap it in `$()`?
+
+const toBase64 = $(
+  async (url: string) => {
+       try {
+         const res = await fetch(url);
+         const blob = await res.blob();
+         return new Promise<string>((resolve, reject) => {
+           const reader = new FileReader();
+           reader.onloadend = () => resolve(reader.result as string);
+           reader.onerror = reject;
+           reader.readAsDataURL(blob);
+         });
+       } catch (error) {
+         console.error("Base64 dönüşüm hatası:", error);
+         return "";
+       }
+     }
+);
+.
+Check out https://qwik.dev/docs/advanced/dollar/ for more details                                                                                                                                                                                                                                                                                                       qwik/valid-lexical-scope
+  377:11  error    'getSessionIdFromUrl' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+  447:11  error    'handleEdit' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  464:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             qwik/no-use-visible-task
+  535:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             qwik/no-use-visible-task
+
+✖ 30 problems (13 errors, 17 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
+

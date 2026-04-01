@@ -1,3 +1,4 @@
+/* eslint-disable qwik/jsx-img */
 import { component$ } from "@builder.io/qwik";
 import "./homeSection.css";
 
@@ -18,7 +19,6 @@ export const HomeSection = component$(() => {
         </div>
 
         <div class="hs-imageArea">
-          {/* eslint-disable-next-line qwik/jsx-img */}
           <img
             src="/images/home/section/homeSection.svg"
             alt="Dashboard"

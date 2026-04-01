@@ -4,13 +4,13 @@ import "./downloadModal.css";
 
 interface DownloadModalProps {
   brandName: string;
-  generateSvg: QRL<() => Promise<string>>;
+  generateSvg$: QRL<() => Promise<string>>;
   palette?: { background: string; text: string; icon?: string };
-  closeMethod?: QRL<() => void>;
+  closeMethod$?: QRL<() => void>;
   triggerElement?: HTMLElement;
   isPaid?: boolean;
   planType?: 'started' | 'business' | null;
-  onFormatSelect?: QRL<(format: string, includeAll: boolean) => Promise<boolean>>;
+  onFormatSelect$?: QRL<(format: string, includeAll: boolean) => Promise<boolean>>;
   onShowPricing$?: QRL<() => void>;
 }
 
@@ -71,7 +71,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
   });
 
   const downloadSvg$ = $(async () => {
-    const svg = await props.generateSvg();
+    const svg = await props.generateSvg$();
     const blob = new Blob([svg], { type: "image/svg+xml" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -82,7 +82,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
   });
 
   const downloadPng$ = $(async () => {
-    const svg = await props.generateSvg();
+    const svg = await props.generateSvg$();
     const img = new Image();
     const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
     
@@ -105,7 +105,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
   });
 
   const downloadJpg$ = $(async () => {
-    const svg = await props.generateSvg();
+    const svg = await props.generateSvg$();
     const img = new Image();
     const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
     
@@ -130,7 +130,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
   });
 
   const downloadPdf$ = $(async () => {
-    const svg = await props.generateSvg();
+    const svg = await props.generateSvg$();
     const blob = new Blob([svg], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -149,7 +149,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
 
   const handleClose$ = $(() => {
     showModal.value = false;
-    props.closeMethod?.();
+    props.closeMethod$?.();
   });
 
   // Format seçiminde kontrol işlevi inline olarak kullanılacak
@@ -177,8 +177,8 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
       return;
     }
 
-    if (props.onFormatSelect) {
-      const canDownload = await props.onFormatSelect(
+    if (props.onFormatSelect$) {
+      const canDownload = await props.onFormatSelect$(
         selectedFormat.value, 
         includeAllFormats.value
       );
