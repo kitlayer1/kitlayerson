@@ -9,10 +9,6 @@ export default extendConfig(baseConfig, () => {
       rollupOptions: {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
         external: [
-          "proxy-agent",
-          "fs-constants",
-          "destroy",
-          "node-gyp-build",
           "fs",
           "path",
           "stream",
@@ -30,6 +26,18 @@ export default extendConfig(baseConfig, () => {
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
-    plugins: [vercelEdgeAdapter()],
+    plugins: [
+      vercelEdgeAdapter(),
+      {
+        name: "replace-opentype-fs",
+        transform(code, id) {
+          if (id.includes("opentype")) {
+            return code
+              .replace(/require\(['"]fs['"]\)/g, "undefined")
+              .replace(/var t=require\(['"]fs['"]\)/g, "var t=undefined");
+          }
+        },
+      },
+    ],
   };
 });
