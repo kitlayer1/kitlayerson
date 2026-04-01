@@ -72,7 +72,7 @@ export const ContactForm = component$(() => {
             <a href="/about" class="info-card">
               <div class="card-content">
                 <h3>About</h3>
-                <p>Have questions or need assistance? Our team is here to help you every step of the way, providing clear answers and guidance so you can get the most out of our platform.</p>
+                <p>Discover Kitlayer and our mission to make professional logo creation simple, fast, and accessible. Learn how our platform works, explore its features, and see how we help brands bring their ideas to life.</p>
               </div>
               <div class="arrows">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -84,7 +84,7 @@ export const ContactForm = component$(() => {
             <a href="/faq" class="info-card">
               <div class="card-content">
                 <h3>Faq's</h3>
-                <p>Have questions? We’ve compiled clear answers to the most common inquiries so you can quickly find what you need and get the most out of our platform.</p>
+                <p>Find clear answers to all your questions about Kitlayer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.</p>
               </div>
               <div class="arrows">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,7 +98,7 @@ export const ContactForm = component$(() => {
         {/* Right Side - Form */}
         <div class="contact-form-card">
           <div class="form-header">
-            <h2>Have Questions or Need Support?</h2>
+            <h2>Do you have any questions? Contact us.</h2>
             <p>Fill out the form below and our team will get back to you quickly with helpful answers and guidance.</p>
           </div>
 

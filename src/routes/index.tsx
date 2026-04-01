@@ -105,7 +105,6 @@ export default component$(() => {
         subText="No credit card required • No design experience needed"
         placeholder="Brand Name"
         buttonText="Generate"
-        image="/images/home/hero/homeHero.webp" // kendi görselinin URL'si
         badgeText="Trusted by 100,000+ Users"
       />
       <CategoryBrandCard />

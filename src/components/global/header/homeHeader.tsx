@@ -137,7 +137,8 @@ export const HomeHeader = component$<Props>((props) => {
         <div class="header-left">
           <div class="logosme">
             <a href="/">
-              <img src="/images/logo.svg" alt="Logo" width="140" height="46" />
+              {/* eslint-disable-next-line qwik/jsx-img */}
+              <img src="/logo.svg" alt="Logo" width="100" height="40" />
             </a>
           </div>
         </div>

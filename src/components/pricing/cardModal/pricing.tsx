@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import "./pricing.css";
 
 interface Plan {
@@ -90,13 +91,14 @@ export const Pricing = component$(() => {
 
               <div class="divider"></div>
 
-              <button
+              <Link
+                href="/app"
                 class={`pricing-btn ${
                   plan.featured ? "primary-btn" : "secondary-btn"
                 }`}
               >
                 {plan.buttonText}
-              </button>
+              </Link>
 
               <ul class="feature-list">
                 {plan.features.map((feature, i) => (

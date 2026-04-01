@@ -7,7 +7,6 @@ interface Props {
   subText?: string;
   placeholder?: string;
   buttonText?: string;
-  image: string;
   badgeText?: string;
 }
 
@@ -60,16 +59,6 @@ export const HomeHero = component$((props: Props) => {
               {props.subText}
             </p>
           )}
-        </div>
-
-        <div class="homehero-right">
-          <img
-            class="homehero-mainimg"
-            src={props.image}
-            alt={props.title}
-            width="500"
-            height="410"
-          />
         </div>
       </div>
     </section>

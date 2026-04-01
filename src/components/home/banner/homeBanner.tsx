@@ -20,6 +20,7 @@ export const HomeBanner = component$(() => {
 
         <div class="hb_right">
           <div class="hb_logoCard">
+            {/* eslint-disable-next-line qwik/jsx-img */}
             <img
               src="/images/home/banner/logo.png"
               alt="Baloo Logo"

@@ -16,7 +16,7 @@
 
 .hb_left {
   flex: 1;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .hb_title {
@@ -62,7 +62,7 @@
 
 .hb_logoCard {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   aspect-ratio: 450 / 400;
   background: #1c8a3f;
   border-radius: 8px;

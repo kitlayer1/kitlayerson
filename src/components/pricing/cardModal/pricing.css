@@ -130,6 +130,10 @@
   border: none;
   margin-bottom: 32px;
   transition: opacity 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .primary-btn {

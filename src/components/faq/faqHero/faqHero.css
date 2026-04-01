@@ -1,0 +1,255 @@
+.faqhero {
+   padding: var(--section-padding-hero);
+  background-color: var(--color-hero-bg-w);/* Fallback to a creamy color */
+}
+
+.faqhero-container {
+  max-width: var(--container-max-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.faqhero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.faqhero-badge {
+   font-family: "Graphik-Medium", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 14px;
+  color: var(--color-description-p1);
+  background: var(--color-hero-bg-w-hover);
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.faqhero-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-description-p1);
+  border-radius: 100px;
+}
+
+.faqhero-title {
+   font-family: "Graphik-Bold", sans-serif;
+  font-size: 56px;
+  line-height: 1.1;
+  color: var(--color-heading-h1);
+  letter-spacing: -0.84px;
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faqhero-description {
+ font-family: "Graphik-Regular", sans-serif;
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-size: 16px;
+  color: var(--color-description-p1);
+  max-width: 600px;
+  margin: 24px auto;
+}
+
+/* Cards */
+.faqhero-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.faqhero-card {
+   background: var(--color-card-w);
+  padding: 24px;
+  width: 480px;
+  text-align: left;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.faqhero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.faqhero-card-header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.faqhero-card-title {
+font-family: "Graphik-SemiBold", sans-serif;
+  font-size: 20px;
+  color: var(  --color-heading-h1);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.faqhero-card-text {
+  font-family: "Graphik-Regular", sans-serif;
+  font-size: 15px;
+  color: var(--color-description-p1);
+  line-height: 1.3;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.faqhero-card-button {
+  font-family: "Graphik-Medium", sans-serif;
+  background-color: var(--btn-black-bg);
+  color: #fffbdd;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.faqhero-card-button:hover {
+   background-color: var(--btn-black-bg-hover);
+}
+
+
+
+/* Responsive */
+@media (max-width: 1300px) {
+  .faqhero {
+    padding: 130px 32px 100px;
+  }
+
+   .faqhero-title {
+     font-size: 48px;
+  }
+
+   .faqhero-description {
+  font-size: 16px;
+  margin-bottom: 32px;
+ }
+}
+
+@media (max-width: 1050px) {
+  .faqhero {
+    padding: 130px 32px 100px;
+  }
+  .faqhero-title {
+    font-size: 46px;
+  }
+
+    .faqhero-description {
+  font-size: 16px;
+  margin-bottom: 32px;
+ }
+
+   .faqhero-card {
+     width: 400px;
+}
+}
+
+@media (max-width: 900px) {
+  .faqhero-cards {
+    grid-template-columns: 1fr;
+  }
+  .faqhero-card {
+    width: 100%;
+  }
+}
+ 
+
+@media (max-width: 768px) {
+   .faqhero {
+     padding: 130px 30px 100px;
+  }
+
+   .faqhero-title {
+     font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 500px;
+  }
+
+   .faqhero-description {
+  font-size: 16px;
+  margin-bottom: 32px;
+ }
+
+ .faqhero-card {
+       width: 100%;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .faqhero {
+    padding: 120px 20px 80px ;
+  }
+  .faqhero-title {
+      font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .faqhero-description {
+ font-size: 16px;
+  margin-bottom: 32px;
+ }
+
+ .faqhero-card {
+       width: 100%;
+  }
+  
+}
+
+@media (max-width: 430px) {
+  .faqhero {
+       padding: 120px 20px 80px ;
+  }
+
+  .faqhero-header {
+   margin-bottom: 12px;
+}
+
+  .faqhero-title {
+     font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+.faqhero-description {
+ font-size: 16px;
+  margin-bottom: 32px;
+ }
+  
+  .faqhero-card {
+       width: 100%;
+     padding: 24px;
+  }
+  
+
+  .faqhero-card-text {
+   font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+}

@@ -36,7 +36,7 @@ We combine creativity, innovation, and simplicity to help brands like yours stan
               <h3>FAQs</h3>
             </div>
             <p>
-              Have questions? We’ve compiled clear answers to the most common inquiries so you can quickly find what you need and get the most out of our platform.
+              Find clear answers to all your questions about Kitlayer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.
             </p>
             <button
               class="about-btn"
@@ -66,7 +66,7 @@ We combine creativity, innovation, and simplicity to help brands like yours stan
               <h3>Contact Us</h3>
             </div>
             <p>
-            Have questions or need assistance? Our team is here to help you every step of the way, providing clear answers and guidance so you can get the most out of our platform.
+            Get in touch with the Kitlayer team. Whether you have questions about logo creation, features, or your account, we’re here to help and provide fast, friendly support to assist your brand journey.
             </p>
             <button
               class="about-btn"
