@@ -1,7 +1,7 @@
 // src/components/pricing/pricingModal.tsx
 import { component$, $, QRL } from "@builder.io/qwik";
 import { supabase } from "~/lib/supabaseClient";
-import "./PricingModal.css";
+import "./pricingModal.css";
 
 export const PricingModal = component$(
   (props: {
@@ -12,7 +12,7 @@ export const PricingModal = component$(
     const handlePurchase = $(async (planType: 'started' | 'business') => {
       const { error } = await supabase
         .from("logo_sessions")
-        .update({ 
+        .update({
           paid: true,
           plan_type: planType
         })
@@ -37,14 +37,14 @@ export const PricingModal = component$(
             <div class="plan premium">
               <h4>Started</h4>
               <p class="plan-subtitle">PNG, SVG, PDF formats</p>
-              
+
               <div class="price-container">
                 <span class="price">$65</span>
                 <span class="price-period">One-time payment</span>
               </div>
-              
+
               <button class="select-btn" onClick$={async () => await handlePurchase('started')}>Select</button>
-              
+
               <ul class="features-list">
                 <li>PNG, SVG, PDF formats</li>
                 <li>Unlimited changes</li>
@@ -58,20 +58,20 @@ export const PricingModal = component$(
               <div class="badge">Most Popular</div>
               <h4>Business</h4>
               <p class="plan-subtitle">Everything you need to start your business</p>
-              
+
               <div class="price-container">
                 <span class="price">$96</span>
                 <span class="price-period">/ One-time payment</span>
               </div>
-              
+
               <button class="select-btn" onClick$={async () => await handlePurchase('business')}>Select</button>
-              
+
               <ul class="features-list">
                 <li class="recently-added">Recently Added</li>
                 <li class="single-page">Single page websites</li>
                 <li>Include all logo formats (ZIP)</li>
               </ul>
-              
+
               <div class="additional-feature">
                 <span class="check-icon">✓</span>
                 PNG, SVG, PDF formats
