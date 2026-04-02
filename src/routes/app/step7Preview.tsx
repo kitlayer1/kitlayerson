@@ -73,6 +73,7 @@ export const Step7Preview = component$(
     const planType = useSignal<'started' | 'business' | null>(null);
     const fontsLoaded = useSignal(false);
     const initializationDone = useSignal(false);
+    const downloadBtnRef = useSignal<Element>();
 
     /* ======================
      DATA
@@ -537,10 +538,12 @@ export const Step7Preview = component$(
         <AppHeader>
           <div q:slot="actions">
             <button
+              ref={downloadBtnRef}
               class="step7-download-btn"
               onClick$={handleDownloadClick}
             >
               Download
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
             </button>
           </div>
         </AppHeader>
@@ -585,11 +588,11 @@ export const Step7Preview = component$(
         </div>
         
         <div
-          class="pp-card"
+          class={["pp-card", logoMode.value === "transparent" && "transparent-mode"]}
           style={{
             background:
               colors.background === "transparent"
-                ? "#ffffff"
+                ? undefined
                 : colors.background,
           }}
         >
@@ -599,12 +602,14 @@ export const Step7Preview = component$(
         {showModal.value && (
           <DownloadModal
             brandName={props.brandName}
-            generateSvg$={() => generateSvg(logoMode.value)}
+            generateSvg$={(mode: any) => generateSvg(mode || logoMode.value)}
             palette={colors}
             closeMethod$={() => (showModal.value = false)}
+            triggerElement={downloadBtnRef.value as HTMLElement}
             isPaid={isPaid.value}
             planType={planType.value}
             onShowPricing$={() => {
+              console.log("onShowPricing$ called, sessionId:", sessionId.value);
               showModal.value = false;
               showPricingModal.value = true;
             }}
@@ -614,6 +619,7 @@ export const Step7Preview = component$(
         {showPricingModal.value && sessionId.value && (
           <PricingModal
             sessionId={sessionId.value}
+            currentPlan={planType.value}
             onClose$={() => (showPricingModal.value = false)}
             onSuccess$={handlePurchaseSuccess}
           />

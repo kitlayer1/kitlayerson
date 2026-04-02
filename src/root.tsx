@@ -23,6 +23,7 @@ export default component$(() => {
           />
         )}
         <RouterHead />
+        <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
       </head>
       <body lang="en">
         <RouterOutlet />
