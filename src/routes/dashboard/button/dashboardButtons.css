@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-md) 0;
+  padding: 16px 0;
 }
 
 /* FULL WIDTH BORDER */
@@ -15,14 +15,14 @@
   transform: translateX(-50%);
   width: 100vw;
   height: 1px;
-  background-color: var(--color-border-b1);
+  background-color: #f4f4f5;
 }
 
 /* LEFT / RIGHT GROUPS */
 .toolbar-left {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 8px;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -38,20 +38,20 @@
 .toolbar-right {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 8px;
   flex-shrink: 0;
 }
 
 /* BASE BUTTON */
 .toolbar-btn {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   height: 32px;
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  padding: 0 var(--spacing-md);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-2xs);
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
@@ -60,26 +60,26 @@
 /* GHOST STYLE */
 .toolbar-btn.ghost {
   background: transparent;
-  border: 1px solid var(--color-border-b1);
-  color: var(--color-heading);
+  border: 1px solid #e4e4e7;
+   color: var(--color-heading-h1)
 }
 
 .toolbar-btn.ghost:hover {
-  background-color: var(--color-border-b1);
+  background-color: #e4e4e7;
 }
 
 .toolbar-btn.active {
-  background-color: var(--grey-50);
-  border-color: var(--color-border-b1);
+  background-color: #e4e4e7;
+  border-color: #d4d4d8 
 }
 
 /* ICON BUTTONS (RIGHT) */
 .toolbar-btn.primary {
   height: 32px;
-  background: var(--btn-black-bg);
-  color: var(--btn-black-text);
+  background: black;
+  color: white;
   display: inline-flex;
-  padding: 0 var(--spacing-md);
+  padding: 0 16px;
   align-items: center;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -101,16 +101,16 @@
 /* Tablet - 768px */
 @media (max-width: 768px) {
   .toolbar-left {
-    gap: var(--spacing-xs);
+    gap:16px;
   }
 
   .toolbar-btn {
-    padding: 0 var(--spacing-sm);
+    padding: 0 12px;
     font-size: 13px;
   }
 
   .toolbar-btn.primary {
-    padding: 0 var(--spacing-sm);
+    padding: 0 12px;
   }
 }
 
@@ -119,9 +119,10 @@
   .dashboard-toolbar {
     flex-direction: column;
     align-items: stretch;
-    gap: var(--spacing-md);
-    padding: var(--spacing-sm) 0;
+    gap: 16px;
+    padding: 0;
   }
+  
 
   .dashboard-toolbar::after {
     display: none;
@@ -131,9 +132,9 @@
     order: 2;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    gap: var(--spacing-xs);
+    gap: 12px;
     width: 100%;
-    padding: var(--spacing-md) 0 var(--spacing-xs) 0;
+    padding: 8px 0;
     border-top: 1px solid var(--color-border-b1);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -148,13 +149,13 @@
     order: 1;
     justify-content: center;
     width: 100%;
-    padding: 0 var(--spacing-sm); /* Yanlardan padding */
+    padding: 0; /* Yanlardan padding */
     box-sizing: border-box;
   }
 
   .toolbar-btn {
     height: 36px;
-    padding: 0 var(--spacing-md);
+    padding: 0 12px;
     font-size: 14px;
   }
 
@@ -178,7 +179,7 @@
 @media (max-width: 480px) {
   .toolbar-left {
     gap: 8px;
-    padding: var(--spacing-md) 0 var(--spacing-xs) 0;
+    padding: 0;
   }
 
   .toolbar-btn {

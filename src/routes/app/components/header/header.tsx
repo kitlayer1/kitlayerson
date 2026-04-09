@@ -180,7 +180,7 @@ export const AppHeader = component$(() => {
 
               <div class="app-user-menu-divider"></div>
 
-              <Link href="/app" class="app-user-menu-item">
+              <Link href="/app?reset=true" class="app-user-menu-item">
                 <CreateIcon />
                 Create Logo
               </Link>

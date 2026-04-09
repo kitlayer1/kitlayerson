@@ -145,7 +145,7 @@ const PlusButtonIcon = () => (
 
       {/* RIGHT */}
       <div class="toolbar-right">
-        <a href="/app" class="toolbar-btn primary">
+        <a href="/app?reset=true" class="toolbar-btn primary">
           <PlusButtonIcon />
           New Logo
         </a>

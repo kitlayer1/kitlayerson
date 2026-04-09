@@ -84,6 +84,9 @@ export default component$(() => {
     params.set("step", String(step));
     params.set("data", encoded);
 
+    // Persist to localStorage as well
+    localStorage.setItem("logo_creator_state", JSON.stringify({ step, data }));
+
     window.history.replaceState(
       {},
       "",
@@ -102,9 +105,16 @@ export default component$(() => {
     const params = new URLSearchParams(window.location.search);
     const stepParam = params.get("step");
     const dataParam = params.get("data");
+    const resumeParam = params.get("resume");
+
+    // Auth hash kontrolü (OAuth dönüşü için)
+    const hasAuthHash = window.location.hash.includes("access_token") || 
+                       window.location.hash.includes("id_token") ||
+                       window.location.hash.includes("error=");
 
     if (stepParam && dataParam) {
       const decoded = await decodeData(dataParam);
+// ...
 
       if (decoded) {
         state.brandName = decoded.brandName || "";
@@ -119,6 +129,40 @@ export default component$(() => {
 
         state.currentStep = Math.min(stepNumber, maxStep);
       }
+    } else if (hasAuthHash || resumeParam === "true") {
+      // Sadece auth dönüşünde veya açıkça resume istendiğinde localStorage'dan yükle
+      const savedState = localStorage.getItem("logo_creator_state");
+      if (savedState) {
+        try {
+          const { step, data } = JSON.parse(savedState);
+          if (data) {
+            state.brandName = data.brandName || "";
+            state.category = data.category || "";
+            state.selectedStyleIds = data.selectedStyleIds || [];
+            state.colors = data.colors || [];
+            state.selectedFontStyleId = data.selectedFontStyleId || 0;
+            state.selectedLogoIndex = data.selectedLogoIndex ?? -1;
+
+            const maxStep = await getMaxAccessibleStep();
+            state.currentStep = Math.min(step, maxStep);
+            
+            // Yükledikten sonra URL'i güncelle
+            await updateQueryString(state.currentStep, data);
+          }
+        } catch (e) {
+          console.error("Failed to parse saved state", e);
+        }
+      }
+    } else {
+      // Yeni başlangıç: her şeyi temizle
+      localStorage.removeItem("logo_creator_state");
+      state.brandName = "";
+      state.category = "";
+      state.selectedStyleIds = [];
+      state.colors = [];
+      state.selectedFontStyleId = 0;
+      state.selectedLogoIndex = -1;
+      state.currentStep = 1;
     }
 
     state.loading = false;

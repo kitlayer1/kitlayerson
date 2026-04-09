@@ -9,6 +9,7 @@ import { DownloadModal } from "~/components/editor/Modal/downloadModal";
 import "./step7Preview.css";
 import { AppHeader } from "./components/header/header";
 import { PricingModal } from "~/components/pricing/pricingModal";
+import { LoginModal } from "~/components/login/LoginModal";
 
 type LogoMode = "color" | "black" | "white" | "transparent" | "invert";
 
@@ -66,6 +67,7 @@ export const Step7Preview = component$(
     const svgContainer = useSignal<Element>();
     const showModal = useSignal(false);
     const showPricingModal = useSignal(false);
+    const showLoginModal = useSignal(false);
     const sessionId = useSignal<string>("");
     const logoMode = useSignal<LogoMode>("color");
     const isSaving = useSignal(false);
@@ -432,7 +434,12 @@ export const Step7Preview = component$(
     });
 
 
-    const handleDownloadClick = $(() => {
+    const handleDownloadClick = $(async () => {
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (!sessionData?.session?.user) {
+        showLoginModal.value = true;
+        return;
+      }
       showModal.value = true;
     });
 
@@ -622,6 +629,16 @@ export const Step7Preview = component$(
             currentPlan={planType.value}
             onClose$={() => (showPricingModal.value = false)}
             onSuccess$={handlePurchaseSuccess}
+          />
+        )}
+
+        {showLoginModal.value && (
+          <LoginModal
+            onClose$={() => (showLoginModal.value = false)}
+            onSuccess$={$(() => {
+              showLoginModal.value = false;
+              showModal.value = true;
+            })}
           />
         )}
       </div>

@@ -1,6 +1,5 @@
 // src/components/editor/Modal/downloadModal.tsx
 import { component$, useSignal, $, QRL } from '@builder.io/qwik';
-import { useNavigate, useLocation } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import "./downloadModal.css";
 
@@ -17,8 +16,6 @@ interface DownloadModalProps {
 }
 
 export const DownloadModal = component$<DownloadModalProps>((props) => {
-  const nav = useNavigate();
-  const loc = useLocation();
   const showModal = useSignal(true);
   const modalPosition = useSignal({ top: 0, left: 0 });
   const selectedFormat = useSignal('jpg');
@@ -176,8 +173,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
   const handleDownload$ = $(async () => {
     const { data: sessionData } = await supabase.auth.getSession();
     if (!sessionData?.session?.user) {
-      const currentUrl = loc.url.pathname + loc.url.search;
-      nav(`/login?redirect=${encodeURIComponent(currentUrl)}`);
+      console.error("User session not found during download");
       return;
     }
 

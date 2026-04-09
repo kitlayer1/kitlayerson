@@ -1,7 +1,7 @@
 import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
+import ImgLogo from '~/media/images/logo.svg?jsx';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
-import ImgLogo from '~/media/images/logo.svg?jsx';
 import './dashboardHeader.css';
 
 export const DashboardHeader = component$(() => {
@@ -223,9 +223,9 @@ const BlogIcon = () => (
 
         {/* Logo */}
         <div class="dashboard-header-left">
-          <a href="/">
-            <ImgLogo />
-          </a>
+          <Link href="/">
+            <ImgLogo style={{ width: '120px', height: 'auto' }} />
+          </Link>
         </div>
 
         {/* Right */}
@@ -250,7 +250,7 @@ const BlogIcon = () => (
 
               <div class="dashboard-user-menu-divider"></div>
 
-              <Link href="/app" class="dashboard-user-menu-item">
+              <Link href="/app?reset=true" class="dashboard-user-menu-item">
                 <CreateIcon />
                 Create Logo
               </Link>

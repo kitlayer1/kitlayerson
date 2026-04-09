@@ -1,0 +1,238 @@
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.login-modal-container {
+  position: relative;
+  background-color: #ffffff;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 10000;
+  animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a0a0a0;
+  transition: color 0.2s;
+}
+
+.login-modal-close:hover {
+  color: #171717;
+}
+
+.login-modal-content {
+  text-align: center;
+}
+
+.login-modal-logo {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #000000;
+}
+
+.login-modal-title {
+  font-family: var(--font-lazzer-SemiBold);
+  font-size: 32px;
+  color: #171717;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.login-modal-desc {
+  font-family: var(--font-lazzer-Medium);
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 40px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.login-modal-oauth-btn {
+  font-family: var(--font-lazzer-SemiBold);
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 12px 0;
+  margin-bottom: 12px;
+  background-color: transparent;
+  color: #333333;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.login-modal-oauth-btn:hover {
+  background-color: #F4F4F4;
+}
+
+.login-modal-oauth-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.login-modal-divider {
+  position: relative;
+  text-align: center;
+  margin: 32px 0;
+}
+
+.login-modal-divider::before,
+.login-modal-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+
+.login-modal-divider::before {
+  left: 0;
+}
+.login-modal-divider::after {
+  right: 0;
+}
+
+.login-modal-divider span {
+  font-family: var(--font-lazzer-Medium);
+  color: #888;
+  font-size: 14px;
+  background-color: #ffffff;
+  padding: 0 12px;
+}
+
+.login-modal-input {
+  font-family: var(--font-lazzer-SemiBold);
+  width: 100%;
+  padding: 16px 16px;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+  background-color: #ffffff;
+  color: #171717;
+  font-size: 14px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-modal-input:focus {
+  border-color: #171717;
+}
+
+.login-modal-submit-btn {
+  font-family: var(--font-lazzer-SemiBold);
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.login-modal-submit-btn:hover {
+  opacity: 0.9;
+}
+
+.login-modal-submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.login-modal-error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* OTP Styles */
+.login-modal-otp-input {
+  font-family: var(--font-lazzer-SemiBold);
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 8px;
+  margin-bottom: 24px;
+  outline: none;
+}
+
+.login-modal-otp-input:focus {
+  border-color: #171717;
+}
+
+.login-modal-info {
+  font-family: var(--font-lazzer-Medium);
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.login-modal-resend-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 16px;
+  display: block;
+  width: 100%;
+}
+
+.login-modal-resend-btn:hover {
+  color: #000;
+}
