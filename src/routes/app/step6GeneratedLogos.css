@@ -1,12 +1,12 @@
-.step6 {
+  .step6 {
   min-height: 100vh;
   box-sizing: border-box;
-   background: linear-gradient(to bottom, #fffefa 0%, #fefae0 52%,  #fefae0 100%);
+     background: linear-gradient(to bottom, #fffefa 0%, #fefae0 52%,  #fefae0 100%);
 }
 
 .step6-content {
   width: 100%;
-  padding-top: 100px;
+  padding-top: 140px;
   max-width: 1100px;
   flex-direction: column;
   align-items: center;
@@ -19,17 +19,17 @@
 }
 
 .step6-text h2 {
-    font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   font-size: 52px;
  line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--color-heading-h1);
+   margin: 0 auto 20px auto;
   max-width: 500px;
-  margin: 20px auto;
 }
 
 .step6-description {
-  font-family: var(--font-lazzer-Medium);
+     font-family: var(--font-lazzer-Medium);
   line-height: 1.3;
   letter-spacing: -0.02em;
   text-align: center;
@@ -56,7 +56,7 @@
 }
 
 .step6-logo-item:hover {
-  border: 1.5px solid var(--color-heading-h1);
+  border: 2px solid var(--color-heading-h1);
 }
 
 .step6-logo-item .icon {
@@ -72,39 +72,47 @@
 }
 
 .step6-more-button {
-   font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   min-height: 44px;
   padding: 0 18px;
   display: flex;
   align-items: center;
   gap: 6px;
   border-radius: 8px;
-   background: var(--btn-black-bg);
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  color: var(--btn-black-text);
+  color: #002f46;
   transition: all 0.2s ease;
   margin: 0 auto;
 }
 
 .step6-more-button:hover {
-background: var(--btn-black-bg-hover);
+  background: #f9fafb;
+  border-color: #d1d5db;
 }
+
 
 @media (max-width: 1300px) {
   .step6 {
-    padding-left: 32px;
-    padding-right: 32px;
+      padding: 0 32px;
   }
 
-
+   .step6-content {
+     padding-top: 140px;
+  }
 }
 
 @media (max-width: 1000px) {
   .step6 {
-    padding-left: 32px;
-    padding-right: 32px;
+     padding: 0 32px;
+  }
+
+   
+  .step6-content {
+     padding-top: 140px;
   }
 
   .step6-options {
@@ -122,18 +130,15 @@ background: var(--btn-black-bg-hover);
   }
 
   .step6-content h2 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #1d293d;
-    margin-bottom: 8px;
-    text-align: center;
+     font-size: 48px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .step6-description {
-    font-size: 16px;
-    color: #62748e;
-    line-height: 1.4;
-    text-align: center;
+    font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 20px;
   }
   .custom-select-trigger {
     min-height: 52px;
@@ -169,12 +174,11 @@ background: var(--btn-black-bg-hover);
 
 @media (max-width: 768px) {
   .step6 {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0 30px;
   }
 
   .step6-content {
-    padding-top: 100px;
+     padding-top: 120px;
   }
 
   .step6-options {
@@ -185,32 +189,25 @@ background: var(--btn-black-bg-hover);
     height: 300px; /* kutular biraz büyüsün, logo daha rahat görünsün */
   }
 
-  .step6-header {
-    margin-bottom: 32px;
-  }
 
   .step6-content h2 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #1d293d;
-    margin-bottom: 8px;
+   font-size: 40px;
   }
 
   .step6-description {
-    font-size: 16px;
-    color: #62748e;
-    line-height: 1.4;
+     font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
   }
 }
 
 @media (max-width: 640px) {
   .step6 {
-    padding-left: 24px;
-    padding-right: 24px;
+     padding: 0 24px;
   }
 
   .step6-content {
-    padding-top: 100px;
+   padding-top: 120px;
   }
 
   .step6-options {
@@ -226,32 +223,27 @@ background: var(--btn-black-bg-hover);
     height: 350px; /* kutular biraz büyüsün, logo daha rahat görünsün */
   }
 
-  .step6-header {
-    margin-bottom: 24px;
-  }
 
   .step6-content h2 {
-    font-size: 30px;
-    font-weight: 500;
-    color: #1d293d;
-    margin-bottom: 8px;
+    font-size: 38px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .step6-description {
-    font-size: 16px;
-    color: #62748e;
-    line-height: 1.4;
+     font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
   }
 }
 
 @media (max-width: 430px) {
   .step6 {
-    padding-left: 20px;
-    padding-right: 20px;
+ padding: 0 20px;
   }
 
   .step6-content {
-    padding-top: 100px;
+     padding-top: 120px;
   }
 
   .step6-options {
@@ -268,17 +260,17 @@ background: var(--btn-black-bg-hover);
   }
 
   .step6-content h2 {
-    font-size: 28px;
-    font-weight: 500;
-    color: #1d293d;
-    margin-bottom: 8px;
+   font-size: 36px;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .step6-description {
-    font-size: 16px;
-    color: #62748e;
-    line-height: 1.4;
+   font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
   }
+
   .step6-options {
     gap: 16px;
   }

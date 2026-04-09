@@ -3,16 +3,16 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-   background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
+  background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%, #FFFBDD 100%);
 }
 
 .step1-content {
   margin-top: 120px;
   width: 100%;
-  max-width: 1000px;  /* içerik genişliğini sabitle */
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
 }
 
 /* ======================
@@ -28,9 +28,9 @@
 }
 
 .step1-content h2 {
- font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   font-size: 52px;
- line-height: 1.1;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--color-heading-h1);
   margin-bottom: 20px;
@@ -59,8 +59,10 @@
   border-radius: 8px;
   display: flex;
   justify-content: center;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .step1-input-container:hover {
@@ -68,28 +70,31 @@
 }
 
 .input-wrapper {
-   position: relative;
+  position: relative;
   display: inline-flex;
   width: 100%;
-  margin: 1px;
   height: 56px;
-  background:var(--color-hero-bg-yellow-hover);
+  background: var(--color-hero-bg-yellow-hover);
   border-radius: 8px;
   overflow: visible;
   border: 1px solid transparent;
   transition: all 0.2s ease;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .step1-input-container input {
-   font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   flex: 1;
   padding: 0 16px;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-heading-h1);
   border: 1px solid var(--color-hero-bg-yellow-hover);
   outline: none;
- background: var(--color-hero-bg-yellow-hover);
- font-size: 15px;
+  background: var(--color-hero-bg-yellow-hover);
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
 }
 
 .step1-input-container input::placeholder {
@@ -124,12 +129,12 @@
   justify-content: flex-end;
   align-items: center;
   padding-top: 28px;
+  box-sizing: border-box;
 }
 
 .step1-continue-right {
- font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   font-size: var(--font-size-xs);
-  width: 100%;
   width: 150px;
   height: 44px;
   padding: 8px 8px 8px 16px;
@@ -140,7 +145,7 @@
   border-radius: 8px;
   background: var(--btn-black-bg);
   cursor: pointer;
-   color: var(--btn-black-text);
+  color: var(--btn-black-text);
   transition: all 0.2s ease;
 }
 
@@ -149,12 +154,12 @@
 }
 
 .step1-continue-right:disabled {
- background: #2c2c2c;
+  background: #2c2c2c;
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-/* ARROW CIRCLE */
+/* ARROW */
 
 .arrow-circle {
   width: 36px;
@@ -165,11 +170,11 @@
 }
 
 .step1-continue-right:hover .arrow-circle {
-   background: var(--btn-black-bg-hover);
+  background: var(--btn-black-bg-hover);
 }
 
 .step1-continue-right:disabled .arrow-circle {
-   background: #2c2c2c;
+  background: #2c2c2c;
   color: var(--grey-100);
 }
 
@@ -177,11 +182,8 @@
    RESPONSIVE
    ====================== */
 
-
-
-
 @media (max-width: 1000px) {
-   .step1 {
+  .step1 {
     padding: 0 32px;
   }
 
@@ -189,41 +191,22 @@
     margin-top: 140px;
   }
 
-  .step1-continue-right {
-    width: 300px;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
-  }
-
-    .step1-continue-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 12px 16px;
-    background-color: #ffffff;
-    border-top: 1px solid var(--color-border-b2);
-    justify-content: center;
-    z-index: 999;
-  }
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
-  }
-
   .step1-content h2 {
-  font-size: var(--font-size-3xl);
-  margin-bottom: 16px;
-}
+    font-size: 48px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-.step1-description {
-  font-size: var(--font-size-sm);
- 
-}
+  .step1-description {
+    font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 20px;
+  }
 
+
+  .step1-continue-container {
+    padding-top: 32px;
+}
 }
 
 @media (max-width: 768px) {
@@ -232,30 +215,43 @@
   }
 
   .step1-content {
-    margin-top: 100px;
+    margin-top: 120px;
+  }
+
+  .step1-content h2 {
+    font-size: 40px;
+  }
+
+  .step1-description {
+    font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
+
+  .step1-continue-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 30px;
+    background-color: #F4EFD3;
+    border-top: 1px solid var(--color-border-b2);
+    justify-content: center;
+    z-index: 999;
   }
 
   .step1-continue-right {
-    width: 270px;
-    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
     height: 52px;
-    padding: 8px 8px 6px 12px;
+    font-size: 16px;
   }
 
   .arrow-circle {
     width: 28px;
     height: 28px;
   }
-
-  .step1-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
-
-.step1-description {
-  font-size: var(--font-size-xsm);
- 
-}
 }
 
 @media (max-width: 640px) {
@@ -264,32 +260,25 @@
   }
 
   .step1-content {
-    margin-top: 100px;
-  }
-
-  .step1-continue-right {
-    width: 240px;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
-  }
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
+    margin-top: 120px;
   }
 
   .step1-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
+    font-size: 38px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-.step1-description {
-  font-size: var(--font-size-xsm);
- 
-}
-}
+  .step1-description {
+    font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
 
+  .step1-continue-container {
+    padding: 16px 24px;
+  }
+}
 
 @media (max-width: 430px) {
   .step1 {
@@ -297,28 +286,22 @@
   }
 
   .step1-content {
-    margin-top: 100px;
-  }
-
-  .step1-continue-right {
-    width: 220px;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
-  }
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
+    margin-top: 120px;
   }
 
   .step1-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
+    font-size: 36px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 
-.step1-description {
-  font-size: var(--font-size-xsm);
- 
-}
+  .step1-description {
+    font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
+
+  .step1-continue-container {
+    padding: 16px 20px;
+  }
 }

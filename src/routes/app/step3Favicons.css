@@ -87,12 +87,13 @@
 
 .step3-continue-container {
   width: 100%;
-  width: 800px;
+  max-width: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 28px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .step3-continue-right {
@@ -174,178 +175,154 @@ font-family: var(--font-lazzer-SemiBold);
 
 @media (max-width: 1000px) {
   .step3 {
-    padding-top: 140px;
+     padding: 0 32px;
+}
+  .step3-content {
+  padding-top: 140px;
+  }
+
+
+  .step3-content h2 {
+     font-size: 48px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .step3-description {
+   font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 20px;
+  }
+    .step3-continue-container {
+    padding-top: 32px;
+}
+}
+
+@media (max-width: 768px) {
+     .step3 {
+      padding: 0 30px;
   }
   .step3-content {
-    padding: 0 32px 0 32px;
+    padding-top: 120px;
   }
 
 
+   .step3-content h2 {
+  font-size: 40px;
+  }
+
+  .step3-description {
+      font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
+
+  .step3-favicon-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+   .step3-favicon-item {
+    height: 180px;
+  }
+
   .step3-continue-container {
-    position: fixed;
+     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     max-width: 100%;
-    padding: 16px 50px;
-    background-color: #ffffff; /* buton arka planını ayırmak için */
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-    justify-content: center; /* buton ortalanır */
-    align-items: center;
+    padding: 16px 30px;
+    background-color: #F4EFD3;
+    border-top: 1px solid var(--color-border-b2);
+    justify-content: center;
     z-index: 999;
     gap: 16px;
   }
 
   .step3-continue-right {
-    width: 70%;
-    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
     height: 52px;
-    padding: 8px 8px 6px 12px;
+    font-size: 16px;
+      margin: 0;
   }
 
-  .step3-back-button {
+  .arrow-circle {
+    width: 28px;
+    height: 28px;
+  }
+
+   .step3-back-button {
     width: 30%;
     font-size: 16px;
     height: 52px;
     padding: 8px 18px 8px 12px;
     justify-content: center;
+      margin: 0;
   }
 
-  .step3-content h2 {
-    font-size: var(--font-size-3xl);
-    margin-bottom: 16px;
-  }
-
-  .step3-description {
-    font-size: var(--font-size-sm);
-  }
-}
-
-@media (max-width: 768px) {
-  .step3 {
-    padding-top: 100px;
-  }
-
-  .step3-content {
-   padding:  0 30px 0 30px;
-  }
-
-  .step5-options {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 auto;
-    gap: 16px;
-  }
-
-  .step3-content h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: 16px;
-  }
-
-  .step3-description {
-    font-size: var(--font-size-xsm);
-  }
+ 
 }
 
 @media (max-width: 640px) {
-  .step3 {
-    padding-top: 100px;
-  }
-  .step3-content {
-    padding: 0 24px 0 24px;
+    .step3 {
+      padding: 0 24px;
   }
 
-  .step3-favicon-options {
-    grid-template-columns: repeat(2, 1fr);
+  .step3-content {
+    padding-top: 120px;
+  }
+
+  .step3-content h2 {
+     font-size: 38px;
+    max-width: 400px;
     margin: 0 auto;
-    gap: 16px;
+  }
+
+  .step3-description {
+   font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
   }
 
   .step3-favicon-item {
-    height: 120px;
+    height: 150px;
   }
 
   .step3-continue-container {
-    gap: 16px;
     padding: 16px 24px;
   }
+}
 
-  .step3-continue-right {
-    width: 70%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
+
+@media (max-width: 430px) {
+    .step3 {
+    padding: 0 20px;
   }
 
-  .step3-back-button {
-    width: 30%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 18px 8px 12px;
-  }
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
+  .step3-content {
+    padding-top: 120px;
   }
 
   .step3-content h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: 16px;
+    font-size: 36px;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .step3-description {
-    font-size: var(--font-size-xsm);
-  }
-}
-
-@media (max-width: 430px) {
-  .step3 {
-    padding-top: 100px;
-  }
-  .step3-content {
-    padding: 0 20px 0 20px;
-  }
-
-  .step3-favicon-options {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 auto;
-    gap: 16px;
+   font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
   }
 
   .step3-favicon-item {
-    height: 100px;
+    height: 140px;
   }
 
   .step3-continue-container {
-    gap: 16px;
     padding: 16px 20px;
   }
-
-  .step3-continue-right {
-    width: 70%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
-  }
-
-  .step3-back-button {
-    width: 30%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 18px 8px 12px;
-  }
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
-  }
-
-  .step3-content h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: 16px;
-  }
-
-  .step3-description {
-    font-size: var(--font-size-xsm);
-  }
 }
+

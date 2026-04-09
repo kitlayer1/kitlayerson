@@ -40,10 +40,12 @@
   padding: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 28px;
   background-color: white; /* Default background */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 1px 12px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
 .pp-card.transparent-mode {
@@ -58,8 +60,9 @@
 
 /* LOGO */
 .pp-logo-preview {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,92 +165,77 @@
   100% { transform: rotate(360deg); }
 }
 
-/* MOBILE */
 @media (max-width: 1000px) {
-   .preview-page {
-  padding: 100px 32px;
-}
-  .pp-title {
-    font-size: 32px;
+  .preview-page {
+    padding: 120px 32px;
   }
 
-  .pp-logo-preview {
-    width: 280px;
-    height: 280px;
+  .pp-title {
+    font-size: 42px;
   }
 
   .pp-card {
-    padding: 24px;
-    height: 400px;
+    padding: 32px;
+  }
+
+  .pp-logo-preview {
+    max-width: 400px;
   }
 }
 
-
-/* MOBILE */
 @media (max-width: 768px) {
-   .preview-page {
-  padding: 100px 30px;
-}
-  .pp-title {
-    font-size: 32px;
-  }
-
-  .pp-logo-preview {
-    width: 280px;
-    height: 280px;
-  }
-
-  .pp-card {
-    padding: 24px;
-  }
-}
-
-
-
-/* MOBILE */
-@media (max-width: 640px) {
   .preview-page {
-  padding: 100px 24px;
-}
+    padding: 100px 24px;
+  }
+
   .pp-title {
-    font-size: 32px;
-  }
-
-  .pp-logo-preview {
-    width: 280px;
-    height: 280px;
-  }
-
-  .pp-card {
-    padding: 24px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 430px) {
-  .preview-page {
-  padding: 100px 20px;
-}
-  .pp-title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: 16px;
+    font-size: 36px;
   }
 
   .pp-desc {
-  font-size: var(--font-size-xsm);
-}
-
-  .pp-logo-preview {
-    width: 280px;
-    height: 280px;
+    font-size: 16px;
   }
-  .pp-styles button {
-  padding: 6px 18px;
-  font-size: 12px;
-  cursor: pointer;
-}
 
   .pp-card {
     padding: 24px;
+  }
+
+  .pp-logo-preview {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-page {
+    padding: 80px 16px;
+  }
+
+  .pp-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .pp-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .pp-card {
+    padding: 16px;
+  }
+
+  .pp-logo-preview {
+    max-width: 100%;
+  }
+
+  .pp-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .step7-download-btn {
+    width: 100%;
+    margin-right: 0;
   }
 }

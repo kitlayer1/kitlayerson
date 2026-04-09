@@ -9,7 +9,7 @@
 .step2-content {
   margin-top: 120px;
   width: 100%;
-  max-width: 700px; /* içerik genişliğini sabitle */
+  max-width: 1000px; /* içerik genişliğini sabitle */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,9 +28,9 @@
 }
 
 .step2-content h2 {
- font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-lazzer-SemiBold);
   font-size: 52px;
- line-height: 1.1;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--color-heading-h1);
   margin-bottom: 20px;
@@ -54,13 +54,16 @@
 ========================= */
 
 .step2-input-container {
+   font-family: var(--font-lazzer-SemiBold);
   background-color: var(--color-hero-bg-yellow-hover);
   margin: 0 auto;
   border-radius: 8px;
   display: flex;
   justify-content: center;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .step2-input-container:hover {
@@ -75,13 +78,13 @@
   position: relative;
   display: inline-flex;
   width: 100%;
-  margin: 1px;
   height: 56px;
-  background:var(--color-hero-bg-yellow-hover);
+  background: var(--color-hero-bg-yellow-hover);
   border-radius: 8px;
   overflow: visible;
   border: 1px solid transparent;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input-wrapper:focus-within {
@@ -107,6 +110,7 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* TEXT */
@@ -239,11 +243,12 @@
 
 .step2-continue-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 28px;
+  box-sizing: border-box;
 }
 
 .step2-continue-right {
@@ -322,163 +327,158 @@
 }
 
 @media (max-width: 1000px) {
+
+  .step2 {
+  padding: 0 32px;
+}
   .step2-content {
-    margin-top: 140px;  
-  }
-  
-  .step2-continue-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 16px 50px;
-    background-color: #ffffff; /* buton arka planını ayırmak için */
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-    justify-content: center; /* buton ortalanır */
-    align-items: center;
-    z-index: 999;
-    gap: 16px;
+     margin-top: 140px;
   }
 
-
-   .step2-continue-right {
-   width: 70%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
+  .step2-content h2 {
+     font-size: 48px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
-  .step2-back-button {
-  width: 30%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 18px 8px 12px;
-    justify-content: center;
-}
+  .step2-description {
+     font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 20px;
+  }
 
- .step2-content h2 {
-  font-size: var(--font-size-3xl);
-  margin-bottom: 16px;
-}
-
-.step2-description {
-  font-size: var(--font-size-sm);
- 
+   .step2-continue-container {
+    padding-top: 32px;
 }
 }
 
 @media (max-width: 768px) {
+   .step2 {
+    padding: 0 30px;
+}
   .step2-content {
-    margin-top: 100px;  
-    padding-left: 30px;
-    padding-right: 30px;
+   margin-top: 120px;
   }
 
   .step2-input-container {
-   width: 100%;
-  }
-
-  .step2-continue-container {
-    max-width: 100%;
-  }
-    .step1-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
-
-.step1-description {
-  font-size: var(--font-size-xsm);
- 
-}
-}
-
-/* 600px altı: mobil font ve boyut ayarları */
-@media (max-width: 640px) {
-  .step2-content {
-    margin-top: 100px;
-    padding-left: 24px;
-    padding-right: 24px;
+    width: 100%;
   }
 
   .step2-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
+    font-size: 40px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-.step2-description {
-  font-size: var(--font-size-xsm);
- 
-}
+  .step2-description {
+     font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
 
-.step2-continue-container {
+  .step2-continue-container {
+     position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 30px;
+    background-color: #F4EFD3;
+    border-top: 1px solid var(--color-border-b2);
+    justify-content: center;
+    z-index: 999;
     gap: 16px;
-    padding: 16px 24px;
   }
 
-  .step2-continue-right {
-   width: 80%;
-    font-size: 16px;
+   .step2-continue-right {
+    width: 100%;
+    max-width: 100%;
     height: 52px;
-    padding: 8px 8px 6px 12px;
+    font-size: 16px;
   }
 
-  .step2-back-button {
-  width: 20%;
+  .arrow-circle {
+    width: 28px;
+    height: 28px;
+  }
+
+   .step2-back-button {
+    width: 30%;
     font-size: 16px;
     height: 52px;
     padding: 8px 18px 8px 12px;
     justify-content: center;
+  }
 }
 
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
+@media (max-width: 640px) {
+   .step2 {
+    padding: 0 24px;
+  }
+
+  .step2-content {
+  margin-top: 120px;
+  }
+
+  .step2-content h2 {
+    font-size: 38px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .step2-description {
+     font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
+
+   .step2-continue-container {
+    padding: 16px 24px;
+  }
+
+  .step2-continue-right {
+    width: 100%;
+    flex: 2;
+  }
+
+  .step2-back-button {
+    flex: 1;
+    padding: 8px 12px;
   }
 }
 
 @media (max-width: 430px) {
-  .step2 {
-    padding: 0;
+   .step2 {
+    padding: 0 20px;
   }
+
   .step2-content {
-    margin-top: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
+  margin-top: 120px;
   }
 
+  .step2-content h2 {
+  font-size: 36px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 
-  .step2-continue-container {
-    gap: 16px;
+  .step2-description {
+     font-size: 16px;
+    margin-bottom: 28px;
+    margin-top: 18px;
+  }
+
+   .step2-continue-container {
     padding: 16px 20px;
   }
 
   .step2-continue-right {
-   width: 70%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 8px 6px 12px;
+    width: 100%;
+    flex: 2;
   }
 
   .step2-back-button {
-  width: 30%;
-    font-size: 16px;
-    height: 52px;
-    padding: 8px 18px 8px 12px;
-}
-
-  .arrow-circle {
-    width: 28px;
-    height: 28px;
+    flex: 1;
+    padding: 8px 12px;
   }
-
-   .step2-content h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 16px;
-}
-
-.step2-description {
-  font-size: var(--font-size-xsm);
- 
-}
 }
