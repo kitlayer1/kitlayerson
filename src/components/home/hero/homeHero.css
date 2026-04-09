@@ -1,6 +1,6 @@
 .homehero {
-  padding: 150px var(--container-padding) 120px;
-  background-color: var(--color-hero-bg-w);
+  padding: 150px var(--hero-padding-top) 100px;
+  background-color: var(--color-hero-bg-yellow);
 }
 
 .homehero-container {
@@ -21,68 +21,68 @@
 }
 
 .homehero-badge {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
   font-size: 14px;
-  color: var(--color-description-p1);
-  background: var(--color-hero-bg-w-hover);
+  color: var(--color-hero-bg-yellow-badge-text);
+  background: var(--color-hero-bg-yellow-badge-bg);
   border-radius: 100px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .homehero-badge .badge-dot {
   width: 8px;
   height: 8px;
-  background: var(--color-description-p1);
+  background: var(--color-hero-bg-yellow-badge-dot);
   border-radius: 50%;
   display: block;
   flex-shrink: 0;
 }
 
 .homehero-title {
-  font-family: "Graphik-Bold", sans-serif;
-  font-size: 68px;
-  line-height: 1.2;
+  font-family: var(--font-lazzer-SemiBold);
+  font-size: 78px;
+ line-height: 1.1;
+  letter-spacing: -0.04em;
   color: var(--color-heading-h1);
-  letter-spacing: -0.84px;
-  margin-bottom: 24px;
-  max-width: 800px;
+  margin-bottom: 20px;
+  max-width: 850px;
 }
 
 .homehero-description {
-  font-family: "Graphik-Regular", sans-serif;
+  font-family: var(--font-lazzer-Medium);
   line-height: 1.3;
-  letter-spacing: 0;
-  font-size: 16px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  font-size: 18px;
   color: var(--color-description-p1);
-  margin: 0 auto 32px auto;
-  width: 700px;
-  max-width: 100%;
+  margin: 0 auto 24px auto;
+  max-width: 500px;
   box-sizing: border-box;
 }
 
 .homehero-sub {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-Medium);
   font-size: var(--font-size-xs);
   line-height: 1.4;
   letter-spacing: 0;
   color: var(--color-description-p2);
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .homehero-input {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-Medium);
   display: flex;
-  background: #f4efd3;
+  background: var(--color-hero-bg-yellow-hover);
   border-radius: 8px;
   padding: 5px;
   width: 600px;
   max-width: 100%;
   max-height: 58px;
-  color: var( --color-heading-h1);
+  color: var(--color-heading-h1);
   box-sizing: border-box;
 }
 
@@ -91,14 +91,15 @@
 }
 
 .homehero-input-field {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   color: var(--color-heading-h1);
+  letter-spacing: -0.02em;
   flex: 1;
   border: none;
   outline: none;
   padding: 16px 12px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 15px;
   background-color: #f4efd3;
   box-sizing: border-box;
   min-width: 0;
@@ -106,11 +107,10 @@
 
 .homehero-input-field::placeholder {
   color: var(--color-heading-h1);
-  opacity: 0.6;
 }
 
 .homehero-input-button {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   background: var(--btn-black-bg);
   color: var(--btn-black-text);
   border: none;
@@ -147,26 +147,34 @@
 /* 1300px */
 @media (max-width: 1300px) {
   .homehero {
-    padding: 140px var(--container-padding) 80px;
+    padding: 140px 40px 80px;
   }
 
   .homehero-container {
     gap: clamp(60px, 8vw, 130px);
   }
 
-  .homehero-mainimg {
-    width: clamp(380px, 38vw, 500px);
-    height: auto;
-    aspect-ratio: 500 / 410;
-  }
 
   
+}
+
+@media (max-width: 1200px) {
+  .homehero {
+    padding: 130px 40px 80px;
+  }
+
+   .homehero-title {
+    font-size: 70px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 800px;
+  }
 }
 
 /* 1000px */
 @media (max-width: 1000px) {
   .homehero {
-    padding: 150px var(--container-padding) 80px;
+    padding: 130px 32px 80px;
   }
 
   .homehero-container {
@@ -185,23 +193,24 @@
   }
 
   .homehero-title {
-    font-size: 52px;
+    font-size: 56px;
     line-height: 1.1;
     margin-bottom: 20px;
-    max-width: 600px;
+    max-width: 800px;
   }
 
   .homehero-description {
     font-size: 16px;
     width: auto;
-    max-width: 550px;
+    max-width: 600px;
+    margin-bottom: 32px;
   }
 
   .homehero-input {
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    max-width: 560px;
+    max-width: 600px;
     height: auto;
     max-height: none;
     border: none;
@@ -229,19 +238,78 @@
     height: 52px;
     justify-content: center;
   }
+    .homehero-sub {
+    margin-top: 24px;
+    font-size: 16px;
+  }
 }
+
+@media (max-width: 768px) {
+  .homehero {
+    padding: 120px 30px 80px;
+  }
+
+  .homehero-title {
+    font-size: 54px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .homehero-description {
+    font-size: 16px;
+    width: auto;
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+
+  .homehero-input {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    border: none;
+    padding: 0;
+  }
+
+  .homehero-input-field {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    min-height: 56px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 16px;
+  }
+
+  .homehero-input-field:focus {
+    border-color: var(--color-heading-h1);
+  }
+
+  .homehero-input-button {
+    width: 100%;
+    border-radius: 8px;
+    justify-content: center;
+  }
+
+    .homehero-sub {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+}
+
 
 /* 640px */
 @media (max-width: 640px) {
   .homehero {
-    padding: 140px var(--container-padding) 80px;
+    padding: 120px 24px 80px;
   }
 
   .homehero-title {
-    font-size: 42px;
+    font-size: 52px;
     line-height: 1.1;
     margin-bottom: 20px;
-    max-width: 400px;
   }
 
   .homehero-description {
@@ -280,12 +348,17 @@
     border-radius: 8px;
     justify-content: center;
   }
+
+    .homehero-sub {
+    margin-top: 20px;
+    font-size: 16px;
+  }
 }
 
 /* 430px */
 @media (max-width: 430px) {
   .homehero {
-    padding: 140px var(--container-padding) 80px;
+    padding: 120px 20px 80px;
   }
 
   .homehero-container {
@@ -298,7 +371,7 @@
   }
 
   .homehero-title {
-    font-size: 42px;
+    font-size: 48px;
     line-height: 1.1;
     margin-bottom: 20px;
   }
@@ -306,7 +379,9 @@
   .homehero-description {
     font-size: 16px;
     width: auto;
+    margin-bottom: 32px;
   }
+
 
   .homehero-input {
     flex-direction: column;
@@ -335,6 +410,7 @@
   }
 
   .homehero-sub {
-    margin-top: 16px;
+    margin-top: 20px;
+    font-size: 15px;
   }
 }

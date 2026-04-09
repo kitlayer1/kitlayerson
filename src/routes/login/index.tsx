@@ -299,7 +299,7 @@ export default component$(() => {
       <div class="login-right">
         <div class="mockup-grid">
           {/* eslint-disable-next-line qwik/jsx-img */}
-          <img src="/images/login/loginHero.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
+          <img src="/images/login/login-image.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
         </div>
       </div>
     </div>

@@ -1,0 +1,21 @@
+.step-indicator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.step-dot {
+  background-color: #E2DFCA; /* Light beige/inactive color */
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.1, 1);
+}
+
+.step-dot.active {
+  background-color: #000000;
+  width: 32px; /* Long pill shape */
+}

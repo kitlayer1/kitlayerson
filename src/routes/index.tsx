@@ -1,14 +1,15 @@
 import { component$ } from "@builder.io/qwik";
-import Comment from "~/components/global/comment/comment";
-import { FAQ } from "~/components/global/faq/faq";
-import { Footer } from "~/components/global/footer/footer";
 import { HomeHeader } from "~/components/global/header/homeHeader";
-import { HomeBanner } from "~/components/home/banner/homeBanner";
-import { HomeBrandSection } from "~/components/home/brandSection/homeBrandSection";
-import { CategoryBrandCard } from "~/components/home/card/brandCard";
 import { HomeHero } from "~/components/home/hero/homeHero";
-import { HomeSection } from "~/components/home/section/homeSection";
+import { Footer } from "~/components/global/footer/footer";
+import { HomeBanner } from "~/components/home/banner/homeBanner";
+import Faq from "~/components/global/faq/faq";
+import Comment from "~/components/global/comment/comment";
+import { HomeSectionPanel } from "~/components/home/section/homeSectionPanel";
+import { CategoryBrandCard } from "~/components/home/card/brandCard";
+import { ProductCardSection } from "~/components/product/productCardSection/ProductCardSection";
 import { Testimonial } from "~/components/home/testimonial/testimonial";
+
 
 const comments = [
   {
@@ -61,60 +62,44 @@ const comments = [
   },
 ];
 
-const faqs = [
-  {
-    question: "Do I need design experience to create a logo?",
-    answer:
-      "No. The logo maker is designed for beginners and guides you through each step, so you can create a professional logo without any design experience.",
-  },
-  {
-    question: "How long does it take to create a logo?",
-    answer:
-      "Most users can create a logo in just a few minutes. You can take more time to explore different styles and make adjustments if needed.",
-  },
-  {
-    question: "Can I use my logo for commercial purposes?",
-    answer:
-      "Yes. Logos created with the platform can be used for commercial purposes, including branding, marketing, and promotional materials. Once downloaded, all rights to the logo belong to you, and your design is removed from our system.",
-  },
-  {
-    question: "What file formats will my logo be provided in?",
-    answer:
-      "Your logo will be delivered in PNG, SVG, and JPG formats, packaged in a ZIP file. Each download includes five different logo variations, making it easy to use your logo across different platforms and use cases.",
-  },
-  {
-    question: "Can I edit my logo after creating it?",
-    answer:
-      "Yes. You can go back and update colors, typography, and layout at any time before downloading your final logo.",
-  },
-  {
-    question:
-      "Is this logo maker suitable for small businesses and personal projects?",
-    answer:
-      "Yes. The platform is designed for individuals, creators, and small businesses who want a simple and reliable way to create a professional logo.",
-  },
-];
 
 export default component$(() => {
   return (
     <>
-      <HomeHeader />
+     <HomeHeader/>
       <HomeHero
-        title="Design Your Stunning Logo in Minutes"
-        description="Design a professional logo for your brand in just minutes. Choose from hundreds of templates, customize colors, fonts, and icons, and download your high-quality logo instantly—no prior design experience required."
+        title="Create a Striking Logo for Your Brand"
+        description="Create a Professional Logo for Your Brand and Get It for Free in Just a Few Clicks"
         subText="No credit card required • No design experience needed"
         placeholder="Brand Name"
         buttonText="Generate"
         badgeText="Trusted by 100,000+ Users"
       />
-      <CategoryBrandCard />
-      <Testimonial />
-      <HomeSection />
-      <HomeBrandSection />
+       <CategoryBrandCard/>
+      <div class="homeSectionPanel-wrapper">
+        <HomeSectionPanel
+        title="Customize Your Logo Your Way"
+        description="Fine-tune your logo with intuitive tools that let you change colors, typography, and layout in seconds. Every update is fast, smooth, and easy to apply."
+        text="Whether you want small tweaks or a complete redesign, you have the freedom to shape your logo exactly how you imagine it."
+        imageSrc="/images/home/resim1.svg"
+        imageAlt="Restaurant management system dashboard preview"
+      />
 
-      <Comment comments={comments} />
-      <FAQ faqs={faqs} />
-      <HomeBanner />
+      <HomeSectionPanel
+        reverse
+        title="Download Your Logo in Any Format."
+        description="Download your logo in multiple high-quality formats like SVG, PNG, and JPG, ready for both digital and print use. Every file is optimized to stay sharp, clear, and professional across all platforms."
+        text="Enjoy full flexibility with scalable vectors, high resolution, and transparent backgrounds, giving you everything you need to use your logo anywhere without extra effort."
+        imageSrc="/images/home/resim1.svg"
+        imageAlt="Restaurant management system features preview"
+      />
+      </div>
+        <ProductCardSection />
+
+        <Testimonial />
+        <Comment comments={comments} />
+              <Faq />
+               <HomeBanner />
       <Footer />
     </>
   );

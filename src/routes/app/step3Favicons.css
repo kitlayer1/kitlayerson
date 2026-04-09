@@ -2,13 +2,13 @@
 .step3 {
   min-height: 100vh;
   box-sizing: border-box;
-  background: #ffffff;
+   background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
   justify-content: center;
 }
 
 .step3-content {
   width: 100%;
-  padding-top: 140px ;
+  padding-top: 120px ;
  max-width: 800px;
   display: flex;
   flex-direction: column;
@@ -26,23 +26,25 @@
 }
 
 .step3-header h2 {
-font-family: "Graphik-SemiBold", sans-serif;
-  font-size: 44px;
-  line-height: var(--line-height-xxs);
-  letter-spacing: var(--letter-spacing-xl);
+ font-family: var(--font-lazzer-SemiBold);
+  font-size: 52px;
+ line-height: 1.1;
+  letter-spacing: -0.04em;
   color: var(--color-heading-h1);
   margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .step3-description {
-    font-family: "Graphik-Regular", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: var(--color-description-p1);
-  max-width: 550px;
+    font-family: var(--font-lazzer-Medium);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
   text-align: center;
-  margin-bottom: 32px;
+  font-size: 18px;
+  color: var(--color-description-p1);
+  margin: 0 auto 32px auto;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
 /* ================= Favicon Grid ================= */
@@ -58,9 +60,9 @@ font-family: "Graphik-SemiBold", sans-serif;
 .step3-favicon-item {
   width: 100%;
   aspect-ratio: 1;
-  height: 120px;
-  background-color: #ffffff;
-  border: 1px solid var(--color-border-b3);
+  height: 150px;
+   background-color: var(--color-hero-bg-yellow-hover);
+  border: 1.5px solid var(--color-hero-bg-yellow-hover);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -71,11 +73,11 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step3-favicon-item:hover {
-  border-color: var(--color-heading-h1);
+  border-color:#000000;
 }
 
 .step3-favicon-item.selected {
-  border-color: var(--color-heading-h1);
+  border-color: #000000;
 }
 
 .step3-favicon-item img {
@@ -94,7 +96,7 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step3-continue-right {
-  font-family: "Geist-Semibold", sans-serif;
+font-family: var(--font-lazzer-SemiBold);
   font-size: var(--font-size-xs);
   width: 100%;
   width: 150px;
@@ -107,16 +109,17 @@ font-family: "Graphik-SemiBold", sans-serif;
   border-radius: 8px;
   background: var(--btn-black-bg);
   cursor: pointer;
-  color: var(--grey-100);
+   color: var(--btn-black-text);
   transition: all 0.2s ease;
+   margin-bottom: 40px;
 }
 
 .step3-continue-right:hover {
-  background: var(--btn-black-bg);
+  background: var(--btn-black-bg-hover);
 }
 
 .step3-continue-right:disabled {
-  background: var(--btn-black-bg-disabled);
+   background: #2c2c2c;
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -133,16 +136,17 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step3-continue-right:hover .arrow-circle {
-  background: var(--btn-black-bg);
+ background: var(--btn-black-bg-hover);
 }
 
 .step3-continue-right:disabled .arrow-circle {
-  background-color: var(--btn-black-bg-disabled);
-  color: var(--grey-100);
+   background: #2c2c2c;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .step3-back-button {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   font-size: var(--font-size-xs);
   height: 44px;
   padding: 8px 18px 8px 12px;
@@ -151,15 +155,16 @@ font-family: "Graphik-SemiBold", sans-serif;
   gap: 4px;
   border-radius: 8px;
   border: 1px solid var(--color-border-b2);
-  background: var(--color-white);
+  background: #ded9bd;
   font-size: 14px;
   cursor: pointer;
   color: var(--color-description-p1);
   transition: all 0.2s ease;
+  margin-bottom: 40px;
 }
 
 .step3-back-button:hover {
-  background: var(--color-border-b2);
+  background: #c6c2ab;
   border-color: var(--color-border-b2);
   color: var(--color-heading-h1);
 }

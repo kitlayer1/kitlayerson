@@ -1,6 +1,6 @@
 .faqlist {
-  padding: 80px var(--container-padding) 120px;
-  background-color: white;
+  padding: 40px  20px 40px;
+ background: linear-gradient(to bottom, #FFFBDD 0%, #FFFBDD 52%, #fffefa 100%);
 }
 
 .faqlist-container {

@@ -1,6 +1,7 @@
 import { component$,useStore,useSignal,$,useVisibleTask$, QRL} from "@builder.io/qwik";
 import "./step2Category.css";
 import { AppHeader } from "./components/header/header";
+import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step2Category = component$(
   (props: {
@@ -249,6 +250,7 @@ export const Step2Category = component$(
               </span>
             </button>
           </div>
+          <StepIndicator currentStep={2} />
         </div>
       </div>
     );

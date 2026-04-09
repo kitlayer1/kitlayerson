@@ -1,4 +1,43 @@
 /* =========================
+   Fonts
+   ========================= */
+
+@font-face {
+  font-family: "Lazzer-Light";
+  src: url("/fonts/lazzer/Lazzer-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lazzer-Regular";
+  src: url("/fonts/lazzer/Lazzer-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lazzer-Medium";
+  src: url("/fonts/lazzer/Lazzer-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lazzer-SemiBold";
+  src: url("/fonts/lazzer/Lazzer-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lazzer-Bold";
+  src: url("/fonts/lazzer/Lazzer-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* =========================
    Normalize / Reset (Modern)
    ========================= */
 
@@ -6,35 +45,35 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Remove default margin */
 * {
-  margin: 0;
+    margin: 0;
 }
 
 /* HTML & body defaults */
 html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-  color: #020617;
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    color: #020617;
 }
 
 /* Media defaults */
@@ -43,8 +82,8 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 /* Form elements inherit font */
@@ -52,30 +91,30 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
-  color: inherit;
+    font: inherit;
+    color: inherit;
 }
 
 /* Button reset */
 button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 /* Links */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Lists */
 ul,
 ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* Headings */
@@ -85,319 +124,219 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 /* Tables */
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* Forms */
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 /* Remove animations for people who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 body {
-  background-color: #ffffff;
-  font-family: "Rubik", system-ui, sans-serif;
+    background-color: #ffffff;
+    font-family: "Rubik", system-ui, sans-serif;
 }
 
-@font-face {
-  font-family: "Graphik-Bold";
-  src: url("/fonts/graphik/Graphik-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+
+
+@media (max-width: 1300px) {
+    :root {
+        --page-padding: 40px;
+        --title-fz: 44px;
+        --title-lh: 1.2;
+        --title-ls: -0.02em;
+        --desc-fz: 18px;
+        --desc-lh: 1.6;
+        --desc-ls: 0.01em;
+    }
 }
 
-@font-face {
-  font-family: "Graphik-SemiBold";
-  src: url("/fonts/graphik/Graphik-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Graphik-Medium";
-  src: url("/fonts/graphik/Graphik-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Graphik-Regular";
-  src: url("/fonts/graphik/Graphik-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Hidayatullah";
-  src: url("/fonts/classic/hida/hidayatullah.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mexican-Tequila";
-  src: url("/fonts/classic/mexican/MexicanTequila.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Starlight-Romance";
-  src: url("/fonts/classic/starlight/Starlight-Romance.ttf") format("truetype");
-}
-
-:root {
-  --color-hero-bg-w: #fffbdd;
-  --color-hero-bg-w-hover: #f4efd3;
-
-   --color-hero-bg-g: #063017;
-  --color-hero-bg-g-hover: #23452F;
-   --color-hero-bg-g-input :#3A5844;
-
-    --color-hero-bg-black: #140018;
-  --color-hero-bg-black-hover: #1E0024;
-
-  --color-black-bg: #1a0026;
-
-  --color-card-w: #f4efd3;
-  --color-card-w-hover: #ede7c3;
-
-  --color-white: #ffffff;
-
-  --color-heading-h1: #140018;
-  
-   --color-heading-white: #F3F0E8;
-
-  --color-description-p1: #1a1a1a;
-  --color-description-p2: #222222;
-
-  --color-border-b1: #f0f1f4;
-  --color-border-b2: #eaebef;
-  --color-border-b3: #dadce3;
-
-  --color-heading-h2: #0f172b;
-  --color-heading-h3: #1d293d;
-
-  /* Button */
-
-  --btn-black-bg: #0a0a0a;
-  --btn-black-text: #fffbdd;
-  --btn-black-bg-hover: #1a1a1a;
-  --btn-black-text-hover: #fffbdd;
-  --btn-black-bg-disabled: #6c6f89;
-
-  --btn-purple-bg: #b9a7ff;
-  --btn-purple-text: #1a0026;
-  --btn-purple-bg-hover: #a588fd;
-  --btn-purple-text-hover: #1a0026;
-
-  --btn-white-bg: #F3F0E8;
-  --btn-white-text: #063017;
-  --btn-white-bg-hover: #ffffff;
-  --btn-white-text-hover: #063017;
-
-  
-  --purple-50: #b9a7ff;
-  --purple-950: #1a0026;
-
-  --warning-50: #fff7ed;
-  --warning-100: #ffedd4;
-  --warning-200: #ffd6a7;
-  --warning-300: #ffb86a;
-  --warning-400: #ff8904;
-  --warning-500: #ff6900;
-  --warning-600: #f54900;
-  --warning-700: #ca3500;
-  --warning-800: #9f2d00;
-  --warning-900: #7e2a0c;
-  --warning-950: #441306;
-
-  --error-50: #fff1f2;
-  --error-100: #ffe4e6;
-  --error-200: #ffccd3;
-  --error-300: #ffa1ad;
-  --error-400: #ff637e;
-  --error-500: #ff2056;
-  --error-600: #ec003f;
-  --error-700: #c70036;
-  --error-800: #a50036;
-  --error-900: #8b0836;
-  --error-950: #4d0218;
-
-  --success-50: #ecfdf5;
-  --success-100: #d0fae5;
-  --success-200: #a4f4cf;
-  --success-300: #5ee9b5;
-  --success-400: #00d492;
-  --success-500: #00bc7d;
-  --success-600: #009966;
-  --success-700: #007a55;
-  --success-800: #006045;
-  --success-900: #004f3b;
-  --success-950: #002c22;
-
-  --info-50: #f9f5ff;
-  --info-100: #f1e8ff;
-  --info-200: #e5d5ff;
-  --info-300: #d1b4fe;
-  --info-400: #b484fc;
-  --info-500: #9855f7;
-  --info-600: #8133ea;
-  --info-700: #6d22ce;
-  --info-800: #5e21a8;
-  --info-900: #4d1c87;
-  --info-950: #320764;
-
-  --grey-50: #f0f1f4;
-  --grey-100: #eaebef;
-  --grey-200: #dadce3;
-  --grey-300: #c0c5d0;
-  --grey-400: #a1a7b9;
-  --grey-500: #8a90a7;
-  --grey-600: #797c97;
-  --grey-700: #6c6f89;
-  --grey-800: #5b5d72;
-  --grey-900: #4c4d5c;
-  --grey-950: #31313a;
-
-  /* Buton */
-
-  --btn-white-bg: #f0f1f4;
-  --btn-white-text: #0c0c29;
-  --btn-white-bg-hover: #dadce3;
-  --btn-white-text-hover: #0c0c29;
-
-  --btn-border-bg: #f0f1f4;
-  --btn-border-text: #0c0c29;
-  --btn-border-bg-hover: #f0f1f4;
-  --btn-border-text-hover: #0c0c29;
-
-  /* Input */
-  --input-border-grey: #eaebef;
-  --input-border-grey-focus: #6c6f89;
-  --input-border-grey-bg-disabled: #f0f1f4;
-  --input-border-grey-text-disabled: #c0c5d0;
-  --input-black-bg-hover: #131343;
-  --input-black-text-hover: #ffffff;
-
-  /* Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-
-  /* Font boyutları */
-  --font-size-2xs: 12px;
-  --font-size-xs: 14px;
-  --font-size-xsm: 15px;
-  --font-size-sm: 16px;
-  --font-size-md: 18px;
-  --font-size-lg: 20px;
-  --font-size-xl: 24px;
-  --font-size-2xl: 28px;
-  --font-size-2xxl: 30px;
-  --font-size-3xl: 32px;
-  --font-size-3xxl: 40px;
-  --font-size-4xl: 44px;
-  --font-size-4xxl: 54px;
-
-  /* Line-height */
-  --line-height-xxs: 1.2;
-  --line-height-xs: 1.4;
-  --line-height-sm: 1.5;
-  --line-height-md: 1.8;
-  --line-height-lg: 2;
-  --line-height-xl: 2.2;
-
-  /* Spacing */
-  --letter-spacing-xs: 0px;
-  --letter-spacing-sm: -0.1px;
-  --letter-spacing-md: -0.24px;
-  --letter-spacing-lg: -0.4px;
-  --letter-spacing-xl: -0.6px;
-  --letter-spacing-2xl: -0.64px;
-
-  /* Spacing & Layout */
-  --section-padding-hero: 150px 24px 120px;
-  --section-padding: 80px 24px;
-  --container-max-width: 1232px;
-  --container-padding: 40px;
-
-  /* Margin / Padding */
-  --spacing-2xs: 4px;
-  --spacing-xs: 6px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-lx: 22px;
-  --spacing-xl: 24px;
-  --spacing-2xl: 32px;
-  --spacing-3xl: 63px;
-  --spacing-4xl: 80px;
-
-  /* Section Header Typography */
-  --section-title-size: clamp(32px, 5vw, 46px);
-  --section-title-line-height: 1.1;
-  --section-desc-size: 16px;
-  --section-desc-line-height: 1.3;
-
-  /* Section Header Spacing */
-  --spacing-label-to-title: 8px;
-  --spacing-title-to-desc: 16px;
-  --spacing-desc-to-content: 32px;
-
-  /* Secondary Typography */
-  --section-title-size-secondary: 24px;
-  --section-desc-size-secondary: 16px;
-}
-
-@media (max-width: 1200px) {
-  :root {
-    --container-padding: 32px;
-  }
+@media (max-width: 1000px) {
+    :root {
+        --page-padding: 32px;
+        --title-fz: 38px;
+        --title-lh: 1.2;
+        --title-ls: -0.01em;
+        --desc-fz: 18px;
+        --desc-lh: 1.6;
+        --desc-ls: 0.01em;
+    }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --container-padding: 30px;
-    --section-title-size: clamp(28px, 8vw, 36px);
-    --spacing-title-to-desc: 12px;
-    --spacing-desc-to-content: 24px;
-  }
+    :root {
+        --page-padding: 30px;
+        --title-fz: 36px;
+        --title-lh: 1.3;
+        --title-ls: -0.01em;
+        --desc-fz: 16px;
+        --desc-lh: 1.6;
+        --desc-ls: 0.01em;
+    }
 }
 
 @media (max-width: 640px) {
-  :root {
-    --container-padding: 24px;
-  }
+    :root {
+        --page-padding: 24px;
+        --title-fz: 34px;
+        --title-lh: 1.3;
+        --title-ls: -0.01em;
+        --desc-fz: 16px;
+        --desc-lh: 1.6;
+        --desc-ls: 0.01em;
+    }
 }
 
 @media (max-width: 430px) {
-  :root {
-    --container-padding: 20px;
-    --padding-outer-y-mobile: 60px;
-    --padding-inner-y-mobile: 50px;
-    --section-title-size: 32px;
-    --section-desc-size: 16px;
-    --section-title-size-secondary: 24px;
-    --section-desc-size-secondary: 14px;
-  }
+    :root {
+        --page-padding: 20px;
+        --title-fz: 32px;
+        --title-lh: 1.4;
+        --title-ls: 0;
+        --desc-fz: 16px;
+        --desc-lh: 1.6;
+        --desc-ls: 0.01em;
+    }
 }
+
+.page-container {
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+
+}
+
+/* =========================
+   Button System
+   ========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Button Type 1: Primary (Dark) */
+.btn-primary {
+    background-color: #171717;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: #383838;
+}
+
+/* Button Type 2: Secondary (Outline) */
+.btn-secondary {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    color: #171717;
+}
+
+.btn-secondary:hover {
+    background-color: #F2F2F2;
+}
+
+/* Icon support */
+.btn-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+.main-title {
+    font-size: var(--title-fz);
+    font-weight: 700;
+    line-height: var(--title-lh);
+    letter-spacing: var(--title-ls);
+    color: #0f172a;
+}
+
+.description {
+    font-size: var(--desc-fz);
+    line-height: var(--desc-lh);
+    letter-spacing: var(--desc-ls);
+    color: #475569;
+}
+
+
+
+
+:root {
+
+/* Colors */
+
+/* Hero */
+
+/* Yellow Hero */
+    --color-hero-bg-yellow: #FFFBDD;
+    --color-hero-bg-yellow-hover: #F4EFD3;
+    --color-hero-bg-yellow-badge-bg: #FFF083;
+    --color-hero-bg-yellow-badge-text: #222222;
+    --color-hero-bg-yellow-badge-dot: #222222;
+
+
+
+    --hero-padding-top: 80px;
+
+    /* Black Button Variables */
+    --btn-black-bg: #171717;
+    --btn-black-bg-hover: #383838;
+    --btn-black-text: #FFFFFF;
+
+    --font-lazzer-Light: "Lazzer-Light", system-ui, sans-serif;
+    --font-lazzer-Regular: "Lazzer-Regular", system-ui, sans-serif;
+    --font-lazzer-Medium: "Lazzer-Medium", system-ui, sans-serif;
+    --font-lazzer-SemiBold: "Lazzer-SemiBold", system-ui, sans-serif;
+    --font-lazzer-Bold: "Lazzer-Bold", system-ui, sans-serif;
+
+
+
+    --color-heading-h1: #171717;
+}
+
+
+

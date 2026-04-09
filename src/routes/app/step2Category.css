@@ -3,10 +3,11 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+    background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
 }
 
 .step2-content {
-  margin-top: 150px;
+  margin-top: 120px;
   width: 100%;
   max-width: 700px; /* içerik genişliğini sabitle */
   display: flex;
@@ -27,23 +28,25 @@
 }
 
 .step2-content h2 {
-font-family: "Graphik-SemiBold", sans-serif;
-  font-size: 44px;
-  line-height: var(--line-height-xxs);
-  letter-spacing: var(--letter-spacing-xl);
+ font-family: var(--font-lazzer-SemiBold);
+  font-size: 52px;
+ line-height: 1.1;
+  letter-spacing: -0.04em;
   color: var(--color-heading-h1);
   margin-bottom: 20px;
+  max-width: 900px;
 }
 
 .step2-description {
-   font-family: "Graphik-Regular", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: var(--color-description-p1);
-  max-width: 550px;
+  font-family: var(--font-lazzer-Medium);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
   text-align: center;
-  margin-bottom: 32px;
+  font-size: 18px;
+  color: var(--color-description-p1);
+  margin: 0 auto 32px auto;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -51,9 +54,9 @@ font-family: "Graphik-SemiBold", sans-serif;
 ========================= */
 
 .step2-input-container {
-  background-color: var(--color-border-b3);
+  background-color: var(--color-hero-bg-yellow-hover);
   margin: 0 auto;
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   width: 700px;
@@ -74,8 +77,8 @@ font-family: "Graphik-SemiBold", sans-serif;
   width: 100%;
   margin: 1px;
   height: 56px;
-  background: #ffffff;
-  border-radius: var(--radius-lg);
+  background:var(--color-hero-bg-yellow-hover);
+  border-radius: 8px;
   overflow: visible;
   border: 1px solid transparent;
   transition: all 0.2s ease;
@@ -244,7 +247,7 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step2-continue-right {
-  font-family: "Geist-Semibold", sans-serif;
+ font-family: var(--font-lazzer-SemiBold);
   font-size: var(--font-size-xs);
   width: 100%;
   width: 150px;
@@ -257,16 +260,16 @@ font-family: "Graphik-SemiBold", sans-serif;
   border-radius: 8px;
   background: var(--btn-black-bg);
   cursor: pointer;
-  color: var(--grey-100);
+   color: var(--btn-black-text);
   transition: all 0.2s ease;
 }
 
 .step2-continue-right:hover {
-  background: var(--btn-black-bg);
+    background: var(--btn-black-bg-hover);
 }
 
 .step2-continue-right:disabled {
-  background: var(--btn-black-bg-disabled);
+  background: #2c2c2c;
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -283,11 +286,11 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step2-continue-right:hover .arrow-circle {
-  background: var(--btn-black-bg);
+   background: var(--btn-black-bg-hover);
 }
 
 .step2-continue-right:disabled .arrow-circle {
-  background-color: var(--btn-black-bg-disabled);
+   background: #2c2c2c;
   color: var(--grey-100);
 }
 
@@ -296,7 +299,7 @@ font-family: "Graphik-SemiBold", sans-serif;
 ========================= */
 
 .step2-back-button {
-  font-family: "Geist-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   font-size: var(--font-size-xs);
   height: 44px;
   padding: 8px 18px 8px 12px;
@@ -305,7 +308,7 @@ font-family: "Graphik-SemiBold", sans-serif;
   gap: 4px;
   border-radius: 8px;
   border: 1px solid var(--color-border-b2);
-  background: var(--color-white);
+  background: #ded9bd;
   font-size: 14px;
   cursor: pointer;
   color: var(--color-description-p1);
@@ -313,7 +316,7 @@ font-family: "Graphik-SemiBold", sans-serif;
 }
 
 .step2-back-button:hover {
-  background: var(--color-border-b2);
+  background: #c6c2ab;
   border-color: var(--color-border-b2);
   color: var(--color-heading-h1);
 }

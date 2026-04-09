@@ -2,6 +2,7 @@ import { component$, useStore, $, QRL } from "@builder.io/qwik";
 import { allFavicons, Favicon } from "./allFavicons";
 import "./step3Favicons.css";
 import { AppHeader } from "./components/header/header";
+import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step3Favicons = component$(
   (props: {
@@ -108,6 +109,7 @@ export const Step3Favicons = component$(
             </span>
           </button>
         </div>
+        <StepIndicator currentStep={3} />
       </div>
     );
   },

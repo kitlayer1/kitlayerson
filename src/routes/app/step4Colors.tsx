@@ -3,6 +3,7 @@ import { component$, useStore, $, QRL } from '@builder.io/qwik';
 import { colorOptions } from './colorOption';
 import "./step4Colors.css";
 import { AppHeader } from './components/header/header';
+import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step4Colors = component$((props: { 
   initialSelected?: number[];       // Parent'ten gelirse dolu gelsin
@@ -99,6 +100,7 @@ export const Step4Colors = component$((props: {
             </span>
           </button>
         </div>
+        <StepIndicator currentStep={4} />
       </div>
     </div>
   );

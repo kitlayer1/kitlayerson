@@ -72,7 +72,7 @@ export const ContactForm = component$(() => {
             <a href="/about" class="info-card">
               <div class="card-content">
                 <h3>About</h3>
-                <p>Discover Kitlayer and our mission to make professional logo creation simple, fast, and accessible. Learn how our platform works, explore its features, and see how we help brands bring their ideas to life.</p>
+                <p>Discover Lazzer and our mission to make professional logo creation simple, fast, and accessible. Learn how our platform works, explore its features, and see how we help brands bring their ideas to life.</p>
               </div>
               <div class="arrows">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -84,7 +84,7 @@ export const ContactForm = component$(() => {
             <a href="/faq" class="info-card">
               <div class="card-content">
                 <h3>Faq's</h3>
-                <p>Find clear answers to all your questions about Kitlayer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.</p>
+                <p>Find clear answers to all your questions about Lazzer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.</p>
               </div>
               <div class="arrows">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -142,19 +142,22 @@ export const ContactForm = component$(() => {
 
             <div class="input-group">
               <label for="subject">Subject</label>
-              <select 
-                id="subject" 
-                class="custom-select"
-                value={formData.subject}
-                onChange$={(e) => (formData.subject = (e.target as HTMLSelectElement).value)}
-              >
-                <option value="" disabled selected={!formData.subject}>Select Subject</option>
-                <option value="payment">Payment Operations</option>
-                <option value="technical">Technical Support</option>
-                <option value="general">General Inquiry</option>
-                <option value="feature">Feature Request</option>
-                <option value="partnership">Partnership</option>
-              </select>
+              <div class="select-wrapper">
+                <select 
+                  id="subject" 
+                  class="custom-select"
+                  value={formData.subject}
+                  onChange$={(e) => (formData.subject = (e.target as HTMLSelectElement).value)}
+                >
+                  <option value="" disabled selected={!formData.subject}>Select Subject</option>
+                  <option value="payment">Payment Operations</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="partnership">Partnership</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="select-icon"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
             </div>
 
             <div class="input-group full">

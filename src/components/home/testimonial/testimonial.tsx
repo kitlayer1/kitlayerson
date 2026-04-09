@@ -10,19 +10,19 @@ interface TestimonialItem {
 export const Testimonial = component$(() => {
   const testimonials: TestimonialItem[] = [
     {
-      image: "/images/home/testimonial/brandName.svg",
+      image: "/images/home/banner/2.svg",
       title: "Enter Your Brand Details",
       description:
         "Start by adding your brand’s core information. Name, description, and key details — all set up in just a few steps.",
     },
     {
-      image: "/images/home/testimonial/brandCategory.svg",
+      image: "/images/home/banner/3.svg",
       title: "Choose Your Brand Category.",
       description:
         "Select the category that best fits your brand. We’ll tailor the experience and suggestions based on your choice.",
     },
     {
-      image: "/images/home/testimonial/brandDownload.svg",
+      image: "/images/home/banner/2.svg",
       title: "Download Ready-to-Use Files",
       description:
         "Download your brand assets in popular formats like JPG, SVG PNG, or PDF — ready for web, social media, or print.",

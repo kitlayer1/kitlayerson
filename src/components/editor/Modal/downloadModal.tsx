@@ -1,5 +1,7 @@
 // src/components/editor/Modal/downloadModal.tsx
 import { component$, useSignal, $, QRL } from '@builder.io/qwik';
+import { useNavigate, useLocation } from '@builder.io/qwik-city';
+import { supabase } from '~/lib/supabaseClient';
 import "./downloadModal.css";
 
 interface DownloadModalProps {
@@ -15,6 +17,8 @@ interface DownloadModalProps {
 }
 
 export const DownloadModal = component$<DownloadModalProps>((props) => {
+  const nav = useNavigate();
+  const loc = useLocation();
   const showModal = useSignal(true);
   const modalPosition = useSignal({ top: 0, left: 0 });
   const selectedFormat = useSignal('jpg');
@@ -170,6 +174,13 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
 
   // İndirme işlemini başlat
   const handleDownload$ = $(async () => {
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData?.session?.user) {
+      const currentUrl = loc.url.pathname + loc.url.search;
+      nav(`/login?redirect=${encodeURIComponent(currentUrl)}`);
+      return;
+    }
+
     console.log("Download started...", { format: selectedFormat.value, isPaid: props.isPaid, includeAll: includeAllFormats.value });
     
 

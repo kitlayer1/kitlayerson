@@ -96,7 +96,6 @@ export default component$(() => {
       <BlogDetailHero
         title={post.value.title}
         description={post.value.excerpt}
-        coverImage={post.value.coverImage}
       />
 
       {/* ================= CONTENT ================= */}

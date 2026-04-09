@@ -1,14 +1,13 @@
 .contact-section {
-  padding: var(--section-padding-hero);
-  background-color: var(--color-hero-bg-w);
-  min-height: 100vh;
+  padding: 150px var(--hero-padding-top) 120px;
+  background-color: #063017;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .contact-container {
-  max-width: var(--container-max-width);
+  max-width: 1232px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -23,10 +22,10 @@
 }
 
 .contact-badge {
- font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   padding: 6px 16px;
-  color: var(--color-description-p1);
-  background: var(--color-hero-bg-w-hover);
+  color: white;
+  background: #23452F;
   border-radius: 100px;
   display: flex;
   align-items: center;
@@ -39,26 +38,30 @@
 .contact-badge .dot {
   width: 8px;
   height: 8px;
-  background-color: var(--color-description-p1);
+  background: white;
   border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
 }
 
 .contact-info h1 {
-    font-family: "Graphik-Bold", sans-serif;
-  font-size: 54px;
-  line-height: 1;
-  color: var(--color-heading-h1);
-  letter-spacing: -0.84px;
+   font-family: var(--font-lazzer-SemiBold);
+   font-size: 64px;
+ line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #D2FD74;
   margin-bottom: 24px;
 }
 
 .contact-info .subtitle {
-  font-family: "Graphik-Regular", sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0;
-    color: var(--color-description-p1);
-  margin-bottom: 32px;
+ font-family: var(--font-lazzer-Medium);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  color: white;
+  margin:  0 0 32px ;
+  max-width: 800px;
+  box-sizing: border-box;
 }
 
 .info-links {
@@ -73,7 +76,7 @@
   align-items: center;
   gap: 20px;
   padding: 24px;
-  background: var( --color-card-w);
+  background: #23452F;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.3s ease;
@@ -84,30 +87,30 @@
 }
 
 .card-content h3 {
-  font-family: "Graphik-SemiBold", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   font-size: 20px;
   margin: 0 0 8px 0;
-  color: var(--color-heading-h1);
+  color: white;
 }
 
 .card-content p {
-  font-family: "Graphik-Regular", sans-serif;
+  font-family: var(--font-lazzer-Regular);
   font-size: 14px;
-  color: var(--color-description-p1);
+  color: white;
   margin: 0;
-  line-height: 1.3;
-  max-width: 400px;
+  line-height: 1.4;
+  max-width: 500px;
 }
 
 .arrows svg {
   width: 24px;
   height: 24px;
-  color: var(--color-heading-h1);
+  color: white;
 }
 
 /* Right Side - Form Styles */
 .contact-form-card {
-  background: var(--color-card-w); /* Slightly darker than page bg */
+  background: #23452F; /* Slightly darker than page bg */
   padding: 32px 24px;
   border-radius: 8px;
   display: flex;
@@ -116,17 +119,17 @@
 }
 
 .form-header h2 {
-  font-family: "Graphik-Bold", sans-serif;
+   font-family: var(--font-lazzer-SemiBold);
   font-size: 28px;
   margin: 0 0 16px 0;
-  color: var(--color-heading-h1);
+  color: white;
   max-width: 400px;
 }
 
 .form-header p {
-  font-family: "Graphik-Regular", sans-serif;
+   font-family: var(--font-lazzer-Medium);
   font-size: 14px;
-  color: var(var(--color-description-p1));
+  color: white;
   line-height: 1.3;
   margin: 0;
 }
@@ -140,38 +143,53 @@
 .input-group {
   display: flex;
   flex-direction: column;
-  background: var( --color-white);
+  background: white;
   border-radius: 6px;
   padding: 12px 12px;
 }
 
 .input-group label {
-  font-family: "Graphik-Regular", sans-serif;
+ font-family: var(--font-lazzer-SemiBold);
   font-size: 12px;
-  color: var(--color-description-p1);
-  margin-bottom: 4px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 6px;
 }
 
 
 .input-group input, 
 .input-group textarea,
 .input-group select {
+   font-family: var(--font-lazzer-Medium);
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
   background: transparent;
   width: 100%;
-  font-family: inherit;
-  color: var(--color-heading-h1);
+  color: rgb(0, 0, 0);
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .input-group select {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right center;
-  padding-right: 20px;
+  background: transparent;
+  width: 100%;
+  padding-right: 40px;
+}
+
+.select-icon {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  color: rgb(0, 0, 0);
+  width: 20px;
+  height: 20px;
 }
 
 .input-group textarea {
@@ -180,8 +198,8 @@
 }
 
 .send-btn {
-   font-family: "Graphik-SemiBold", sans-serif;
-  background-color: var(--btn-black-bg);
+font-family: var(--font-lazzer-SemiBold);
+  background: var(--btn-black-bg);
   color: var(--btn-black-text);
   padding: 16px;
   border-radius: 6px;
@@ -202,7 +220,7 @@
 }
 
 .status-message {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-Medium);
   padding: 12px;
   border-radius: 6px;
   font-size: 14px;
@@ -227,30 +245,29 @@
    .contact-container {
     gap: 60px;
   }
+
     .contact-section {
-      padding: 120px 40px 120px;
+      padding: 140px 40px 80px;
 
   }
   
- 
-  .contact-info h1 {
-    font-size: 48px;
-  }
    }
 
    @media (max-width: 1200px) {
      .contact-section {
-      padding: 120px 40px 120px;
+       padding: 130px 40px 80px;
   }
 
   .contact-info h1 {
-    font-size: 46px;
+     font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 20px;
   }
    }
 
 @media (max-width: 1000px) {
   .contact-section {
-      padding: 150px 32px 120px;
+      padding: 130px 32px 80px;
   }
   .contact-container {
     grid-template-columns: 1fr;
@@ -263,13 +280,16 @@
     margin: 0 auto;
   }
   .contact-info h1 {
-    font-size: 46px;
+     font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 800px;
     text-align: center;
-    max-width: 600px;
     margin: 20px auto;
   }
   .contact-info .subtitle {
-    text-align: center;
+    font-size: 16px;
+    width: auto;
     max-width: 600px;
     margin: 0 auto 32px auto;
   }
@@ -278,7 +298,7 @@
 }
 @media (max-width: 768px) {
   .contact-section {
-     padding: 140px 30px 120px;
+      padding: 120px 30px 80px;
   }
   .info-links {
     flex-direction: column;
@@ -289,15 +309,18 @@
   }
 
    .contact-info h1 {
-    font-size: 44px;
+       font-size: 54px;
     line-height: 1.1;
     margin-bottom: 20px;
     text-align: center;
   }
 
   .contact-info .subtitle {
-  font-size: 16px;
-  margin-bottom: 32px;
+    font-size: 16px;
+    width: auto;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 32px;
 }
 
 .form-header h2 {
@@ -312,42 +335,48 @@ font-size: 16px;
 
 @media (max-width: 640px) {
   .contact-section {
-      padding: 120px 24px 100px;
+     padding: 120px 24px 80px;
   }
   .contact-form-card {
     padding: 32px 20px;
   }
 
    .contact-info h1 {
-    font-size: 44px;
+    font-size: 52px;
     line-height: 1.1;
     margin-bottom: 20px;
     text-align: center;
   }
 
   .contact-info .subtitle {
-  font-size: 16px;
-  margin-bottom: 32px;
+   font-size: 16px;
+    width: auto;
+    max-width: 500px;
 }
 }
 
 @media (max-width: 430px) {
   .contact-section {
-    padding: 120px 20px 100px;
+     padding: 120px 20px 80px;
   }
   .contact-form-card {
     padding: 32px 20px;
   }
 
+  .contact-badge {
+  font-size: 14px;
+}
+
    .contact-info h1 {
-    font-size: 42px;
+    font-size: 48px;
     line-height: 1.1;
     margin-bottom: 20px;
     text-align: center;
   }
 
   .contact-info .subtitle {
-  font-size: 16px;
-  margin-bottom: 32px;
+     font-size: 16px;
+    width: auto;
+    margin-bottom: 32px;
 }
 }

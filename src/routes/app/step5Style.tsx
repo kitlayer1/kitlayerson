@@ -2,6 +2,7 @@
 import { component$, useStore, $, QRL } from "@builder.io/qwik";
 import "./step5Style.css";
 import { AppHeader } from "./components/header/header";
+import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step5Style = component$(
   (props: {
@@ -103,6 +104,7 @@ export const Step5Style = component$(
               </span>
             </button>
           </div>
+          <StepIndicator currentStep={5} />
         </div>
       </div>
     );

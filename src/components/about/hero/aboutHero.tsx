@@ -36,7 +36,7 @@ We combine creativity, innovation, and simplicity to help brands like yours stan
               <h3>FAQs</h3>
             </div>
             <p>
-              Find clear answers to all your questions about Kitlayer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.
+              Find clear answers to all your questions about Lazzer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.
             </p>
             <button
               class="about-btn"
@@ -66,7 +66,7 @@ We combine creativity, innovation, and simplicity to help brands like yours stan
               <h3>Contact Us</h3>
             </div>
             <p>
-            Get in touch with the Kitlayer team. Whether you have questions about logo creation, features, or your account, we’re here to help and provide fast, friendly support to assist your brand journey.
+            Get in touch with the Lazzer team. Whether you have questions about logo creation, features, or your account, we’re here to help and provide fast, friendly support to assist your brand journey.
             </p>
             <button
               class="about-btn"

@@ -1,6 +1,7 @@
 import { component$, useStore, useVisibleTask$, QRL } from "@builder.io/qwik";
 import "./step1BrandName.css";
 import { AppHeader } from "./components/header/header";
+import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step1BrandName = component$(
   (props: {
@@ -87,6 +88,7 @@ export const Step1BrandName = component$(
             </button>
           </div>
 
+          <StepIndicator currentStep={1} />
         </div>
       </div>
     );

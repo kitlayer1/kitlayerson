@@ -4,11 +4,10 @@ import "./blogDetailHero.css";
 interface BlogDetailHeroProps {
   title: string;
   description: string;
-  coverImage: string;
 }
 
 export const BlogDetailHero = component$<BlogDetailHeroProps>(
-  ({ title, description, coverImage }) => {
+  ({ title, description }) => {
     return (
       <section class="blog-detail-hero">
         <div class="blog-detail-hero-inner">
@@ -20,9 +19,7 @@ export const BlogDetailHero = component$<BlogDetailHeroProps>(
 
           <p class="blog-detail-hero-description">{description}</p>
 
-          <div class="blog-detail-hero-image-wrapper">
-            <img src={coverImage} alt={title} width="800" height="400" />
-          </div>
+          
         </div>
       </section>
     );
