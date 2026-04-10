@@ -37,6 +37,9 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
     <path d="M16 18v-6"/>
   </svg>`;
 
+  const purpleCrownIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#a45cf6" stroke="none"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>`;
+  const goldCrownIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#e5a400" stroke="none"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>`;
+
   // Ekran genişliğini kontrol et
   const checkScreenSize$ = $(() => {
     isMobile.value = window.innerWidth < 1000;
@@ -50,7 +53,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
       modalPosition.value = { top: 0, left: 0 };
     } else {
       const rect = props.triggerElement.getBoundingClientRect();
-      const modalWidth = 500;
+      const modalWidth = 400;
       const modalHeight = 400;
       
       let top = rect.bottom + 10;
@@ -58,11 +61,11 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
       let left = rect.right - modalWidth;
       
       if (left + modalWidth > window.innerWidth) {
-        left = window.innerWidth - modalWidth - 10;
+        left = window.innerWidth - modalWidth - 16;
       }
       
-      if (left < 10) {
-        left = 10;
+      if (left < 16) {
+        left = 16;
       }
       
       if (top + modalHeight > window.innerHeight) {
@@ -326,7 +329,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
             <div class="canva2025-header">
               <h2>Download</h2>
               <button class="canva2025-close-btn" onClick$={handleClose$}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
                 </svg>
@@ -343,7 +346,6 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
                       <span class="canva2025-select-text">
                          {logoTypeOptions.find(opt => opt.value === selectedLogoType.value)?.label}
                       </span>
-                      {selectedLogoType.value === 'color' && <span class="canva2025-badge-free">Free</span>}
                     </div>
                     <svg class={`canva2025-select-arrow ${showLogoTypeModal.value ? 'open' : ''}`} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="m6 9 6 6 6-6"/>
@@ -367,19 +369,19 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
                                 <div class="canva2025-dropdown-option-label">
                                   <span class="canva2025-select-icon" dangerouslySetInnerHTML={fileChartIcon} />
                                   <span class="canva2025-dropdown-option-title">{option.label}</span>
-                                  {option.value === 'color' ? (
-                                    <span class="canva2025-badge-free">Free</span>
-                                  ) : (
-                                    <span class="canva2025-badge-business">Business</span>
-                                  )}
                                 </div>
                                 <div class="canva2025-dropdown-option-description">{option.description}</div>
                               </div>
-                              {selectedLogoType.value === option.value && (
-                                <svg class="canva2025-dropdown-option-check" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                              )}
+                              <div style="display: flex; align-items: center; gap: 8px;">
+                                {option.value !== 'color' && (
+                                  <span class="canva2025-crown-icon" dangerouslySetInnerHTML={purpleCrownIcon} />
+                                )}
+                                {selectedLogoType.value === option.value && (
+                                  <svg class="canva2025-dropdown-option-check" style="margin-left: 0;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                  </svg>
+                                )}
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -398,7 +400,6 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
                       <span class="canva2025-select-text">
                         {formatOptions.find(opt => opt.value === selectedFormat.value)?.label}
                       </span>
-                      {selectedFormat.value === 'jpg' && <span class="canva2025-badge-free">Free</span>}
                     </div>
                     <svg class={`canva2025-select-arrow ${showFormatModal.value ? 'open' : ''}`} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="m6 9 6 6 6-6"/>
@@ -423,28 +424,29 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
                                   <div class="canva2025-dropdown-option-label">
                                     <span class="canva2025-select-icon" dangerouslySetInnerHTML={fileChartIcon} />
                                     <span class="canva2025-dropdown-option-title">{option.label}</span>
-                                    {option.value === 'jpg' ? (
-                                      selectedLogoType.value === 'color' ? (
-                                        <span class="canva2025-badge-free">Free</span>
-                                      ) : (
-                                        <span class="canva2025-badge-business">Business</span>
-                                      )
-                                    ) : (
-                                      // PNG, SVG, PDF, ZIP
-                                      option.value === 'zip' || selectedLogoType.value !== 'color' ? (
-                                        <span class="canva2025-badge-business">Business</span>
-                                      ) : (
-                                        <span class="canva2025-badge-premium">Premium</span>
-                                      )
-                                    )}
                                   </div>
                                   <div class="canva2025-dropdown-option-description">{option.description}</div>
                                 </div>
-                                {selectedFormat.value === option.value && (
-                                  <svg class="canva2025-dropdown-option-check" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                  </svg>
-                                )}
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                  {(() => {
+                                    let isBusiness = false;
+                                    let isPremium = false;
+                                    if (option.value === 'jpg') {
+                                      if (selectedLogoType.value !== 'color') isBusiness = true;
+                                    } else {
+                                      if (option.value === 'zip' || selectedLogoType.value !== 'color') isBusiness = true;
+                                      else isPremium = true;
+                                    }
+                                    if (isBusiness) return <span class="canva2025-crown-icon" dangerouslySetInnerHTML={purpleCrownIcon} />;
+                                    if (isPremium) return <span class="canva2025-crown-icon" dangerouslySetInnerHTML={goldCrownIcon} />;
+                                    return null;
+                                  })()}
+                                  {selectedFormat.value === option.value && (
+                                    <svg class="canva2025-dropdown-option-check" style="margin-left: 0;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                      <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                  )}
+                                </div>
                               </div>
                             );
                           })}
@@ -455,38 +457,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
                 </div>
               </div>
 
-              <div class="canva2025-section">
-                <div class="canva2025-checkbox-wrapper">
-                  <input 
-                    type="checkbox" 
-                    id="all-formats" 
-                    class="canva2025-checkbox" 
-                    checked={includeAllFormats.value}
-                    onChange$={(e) => {
-                      const checked = (e.target as HTMLInputElement).checked;
-                      // Business plan kontrolü
-                      if (checked && props.planType !== 'business') {
-                        props.onShowPricing$?.();
-                        handleClose$();
-                        return;
-                      }
-                      includeAllFormats.value = checked;
-                    }}
-                    disabled={props.planType !== 'business'} // Sadece Business plan sahipleri kullanabilir
-                  />
-                  <label for="all-formats" class="canva2025-checkbox-label">
-                    <div class="canva2025-checkbox-texts">
-                      <span class="canva2025-checkbox-title">Download all Logo files</span>
-                      <span class="canva2025-checkbox-desc">You can download all the logo files at once and use them as you wish.</span>
-                    </div>
-                    {props.planType !== 'business' && (
-                      <span class="canva2025-badge-business">Business</span>
-                    )}
-                  </label>
-                </div>
-                
-                
-              </div>
+
             </div>
 
             <div class="canva2025-footer">

@@ -82,12 +82,17 @@ export const PricingModal = component$(
                 class={`plan-option ${selectedPlan.value === 'started' ? 'active' : ''}`}
                 onClick$={() => selectedPlan.value = 'started'}
               >
-                <div class="radio-circle">
-                  {selectedPlan.value === 'started' && <div class="radio-dot" />}
+                <div class="plan-left">
+                  <div class="radio-circle">
+                    {selectedPlan.value === 'started' && <div class="radio-dot" />}
+                  </div>
+                  <div class="plan-info">
+                    <div class="plan-name">Started</div>
+                    <div class="plan-desc">one-time payment</div>
+                  </div>
                 </div>
-                <div class="plan-info">
-                  <div class="plan-name">Started</div>
-                  <div class="plan-price-desc">7.90 $ / One-time payment</div>
+                <div class="plan-right">
+                  <div class="plan-price">7,90$</div>
                 </div>
               </div>
 
@@ -95,19 +100,24 @@ export const PricingModal = component$(
                 class={`plan-option ${selectedPlan.value === 'business' ? 'active' : ''}`}
                 onClick$={() => selectedPlan.value = 'business'}
               >
-                <div class="radio-circle">
-                  {selectedPlan.value === 'business' && <div class="radio-dot" />}
+                <div class="plan-left">
+                  <div class="radio-circle">
+                    {selectedPlan.value === 'business' && <div class="radio-dot" />}
+                  </div>
+                  <div class="plan-info">
+                    <div class="plan-name">Business</div>
+                    <div class="plan-desc">one-time payment</div>
+                  </div>
                 </div>
-                <div class="plan-info">
-                  <div class="plan-name">Business</div>
-                  <div class="plan-price-desc">10.90 $ / One-time payment</div>
+                <div class="plan-right">
+                  <div class="plan-price">10,90$</div>
                 </div>
               </div>
             </div>
 
             <div class="features-section">
               <p class="features-intro">
-                Daha hızlı, daha akıllı tasarım yapmak için ihtiyacınız olan her şey:
+                All Features and Advantages Included in This Plan:
               </p>
               
               <ul class="features-list-new">
@@ -117,25 +127,31 @@ export const PricingModal = component$(
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>SVG, PNG ve JPG formatlarında dışa aktarma</span>
+                      <span>JPG, PNG, PDF, SVG & ZIP exports</span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>Şeffaf arka plan seçeneği</span>
+                      <span>Transparent Background Option</span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>Yüksek çözünürlüklü tasarım dosyaları</span>
+                      <span>High-resolution files</span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>Tüm temel düzenleme araçlarına erişim</span>
+                      <span>Full customization access</span>
+                    </li>
+                     <li>
+                      <span class="check-icon-purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                      <span>Commercial use license</span>
                     </li>
                   </>
                 ) : (
@@ -144,25 +160,37 @@ export const PricingModal = component$(
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span><strong>Tüm Started özellikleri dahil</strong></span>
+                      <span><strong>All Started features included</strong></span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>140 milyon+ premium fotoğraf ve video bileşeni</span>
+                      <span>Inverted color version</span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>3.000+ premium yazı tipi ve 2 milyon+ şablon</span>
+                      <span>Black & white logo version</span>
                     </li>
                     <li>
                       <span class="check-icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       </span>
-                      <span>Yüksek yapay zeka kullanım limitleri</span>
+                      <span>Favicon version</span>
+                    </li>
+                      <li>
+                      <span class="check-icon-purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                      <span>Commercial use license</span>
+                    </li>
+                     <li>
+                      <span class="check-icon-purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                      <span>Priority support</span>
                     </li>
                   </>
                 )}
@@ -177,8 +205,7 @@ export const PricingModal = component$(
                 {isUpgrading && selectedPlan.value === 'business' ? "Upgrade Now" : "Select"}
               </a>
               <p class="footer-note">
-                Deneme süresi sona ermeden önce size hatırlatmada bulunacağız. <br />
-                Dilediğiniz zaman kolayca iptal edebilirsiniz.
+               When you purchase a logo package, you gain full usage rights <br /> and the logo is permanently removed from our library.
               </p>
             </div>
           </div>

@@ -130,7 +130,7 @@ export const LogoPreviewModal = component$(
           class="logo-preview-modal"
           onClick$={(e) => e.stopPropagation()}
         >
-          {/* HEADER */}
+          {/* HEADER (Always at Top) */}
           <div class="modal-header">
             <h3>{logo.brand_name}</h3>
             <button
@@ -156,64 +156,54 @@ export const LogoPreviewModal = component$(
             </button>
           </div>
 
-          {/* BODY */}
-          <div class="modal-body">
-            {/* LEFT - Preview */}
+          <div class="modal-main-content">
             <div class="modal-preview">
-              <div class={`preview-box ${mode.value === 'transparent' ? 'transparent' : ''}`}>
-                {hasSvg.value ? (
-                  <div
-                    class="svg-preview"
-                    dangerouslySetInnerHTML={currentSvg.value}
-                  />
-                ) : (
-                  <div class="no-svg-placeholder">
-                    Logo önizlemesi yüklenemedi
-                  </div>
-                )}
-              </div>
-
-              <div class="preview-tabs">
-                {["color", "invert", "black", "white", "transparent"].map((item) => (
-                  <button
-                    key={item}
-                    class={{ active: mode.value === item }}
-                    onClick$={() => {
-                      mode.value = item as LogoMode;
-                    }}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </button>
-                ))}
-              </div>
+            <div class={`preview-box ${mode.value === 'transparent' ? 'transparent' : ''}`}>
+              {hasSvg.value ? (
+                <div
+                  class="svg-preview"
+                  dangerouslySetInnerHTML={currentSvg.value}
+                />
+              ) : (
+                <div class="no-svg-placeholder">
+                  Logo önizlemesi yüklenemedi
+                </div>
+              )}
             </div>
 
-            {/* RIGHT - Info */}
+            <div class="preview-tabs">
+              {["color", "invert", "black", "white", "transparent"].map((item) => (
+                <button
+                  key={item}
+                  class={{ active: mode.value === item }}
+                  onClick$={() => {
+                    mode.value = item as LogoMode;
+                  }}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT - Panel */}
+          <div class="modal-right-panel">
+            {/* INFO */}
             <div class="modal-info">
+              <h2 class="title">Your Previously Created Logo</h2>
+              <p class="description">From billing to revenue recognition streamline your entire contract-to-cash process and eliminate manual work.</p>
 
-              <h4>My Logos</h4>
-              <p>
-                From billing to revenue recognition streamline your entire
-                contract-to-cash process and eliminate manual work.
-              </p>
+              <div class="empty-progress-bar"></div>
 
-              <h5>What do you own?</h5>
-              <div class="file-types">
-                <span>PNG</span>
-                <span>SVG</span>
-                <span>PDF</span>
-                <span>JPG</span>
-                <span>ZIP</span>
-              </div>
 
               {!logo.paid && (
-                <div class="free-box">
-                  <div>
-                    <strong>Free version</strong>
-                    <p>Upgrade to Premium to enjoy all the benefits.</p>
+                <div class="upgrade-banner">
+                  <div class="upgrade-banner-content">
+                    <h3>Have your logo</h3>
+                    <p>Upgrade your logo to gain full ownership and unlock commercial usage rights with no restrictions</p>
                   </div>
                   <button 
-                    class="upgrade-btn"
+                    class="upgrade-btn-new"
                     onClick$={() => (showPricingModal.value = true)}
                   >
                     Upgrade
@@ -221,15 +211,15 @@ export const LogoPreviewModal = component$(
                 </div>
               )}
 
-
               <button 
                 ref={downloadBtnRef}
-                class="download-btn"
+                class="download-btn-new"
                 onClick$={() => (showDownloadModal.value = true)}
               >
                 Download
               </button>
             </div>
+          </div>
           </div>
           
           {showDownloadModal.value && (

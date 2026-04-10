@@ -192,39 +192,39 @@ export const HomeHeader = component$<Props>((props) => {
             </svg>
           )}
         </button>
-      </div>
 
-      {isUserMenuOpen.value && user.value && (
-        <div class="home-header-user-menu-modal">
-          <div class="home-header-user-menu-section-title">Menu</div>
-          <div class="home-header-user-menu-divider"></div>
+        {isUserMenuOpen.value && user.value && (
+          <div class="home-header-user-menu-modal">
+            <div class="home-header-user-menu-section-title">Menu</div>
+            <div class="home-header-user-menu-divider"></div>
 
-          <Link href="/app" class="home-header-user-menu-item">
-            <CreateIcon /> Create Logo
-          </Link>
-          <Link href="/dashboard" class="home-header-user-menu-item">
-            <DashboardIcon /> Dashboard
-          </Link>
-          <Link href="/settings/account" class="home-header-user-menu-item">
-            <SettingsIcon /> Settings
-          </Link>
+            <Link href="/app" class="home-header-user-menu-item">
+              <CreateIcon /> Create Logo
+            </Link>
+            <Link href="/dashboard" class="home-header-user-menu-item">
+              <DashboardIcon /> Dashboard
+            </Link>
+            <Link href="/settings/account" class="home-header-user-menu-item">
+              <SettingsIcon /> Settings
+            </Link>
 
-          <div class="home-header-user-menu-divider"></div>
+            <div class="home-header-user-menu-divider"></div>
 
-          <Link href="/blog" class="home-header-user-menu-item">
-            <BlogIcon /> Blog
-          </Link>
-          <Link href="/help" class="home-header-user-menu-item">
-            <HelpIcon /> Help Center
-          </Link>
+            <Link href="/blog" class="home-header-user-menu-item">
+              <BlogIcon /> Blog
+            </Link>
+            <Link href="/help" class="home-header-user-menu-item">
+              <HelpIcon /> Help Center
+            </Link>
 
-          <div class="home-header-user-menu-divider"></div>
+            <div class="home-header-user-menu-divider"></div>
 
-          <div class="home-user-menu-item logout" onClick$={handleLogout}>
-            <LogOutIcon /> Sign Out
+            <div class="home-user-menu-item logout" onClick$={handleLogout}>
+              <LogOutIcon /> Sign Out
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {isMenuOpen.value && (
         <div class="mobile-menu">

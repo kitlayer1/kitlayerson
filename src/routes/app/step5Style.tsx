@@ -22,14 +22,14 @@ export const Step5Style = component$(
     });
 
     const styles = [
-      { id: 1, name: "Classics", image: "/images/app/font/1.svg" },
-      { id: 2, name: "Retro", image: "/images/app/font/2.svg" },
-      { id: 3, name: "Modern", image: "/images/app/font/3.svg" },
-      { id: 4, name: "Funky", image: "/images/app/font/4.svg" },
-      { id: 5, name: "Elegant", image: "/images/app/font/5.svg" },
-      { id: 6, name: "Playful", image: "/images/app/font/6.svg" },
-      { id: 7, name: "Tech", image: "/images/app/font/7.svg" },
-      { id: 8, name: "Luxury", image: "/images/app/font/8.svg" },
+      { id: 1, name: "Classics", image: "/images/app/font/modern.svg" },
+      { id: 2, name: "Retro", image: "/images/app/font/elegant.svg" },
+      { id: 3, name: "Modern", image: "/images/app/font/slab.svg" },
+      { id: 4, name: "Funky", image: "/images/app/font/playful.svg" },
+      { id: 5, name: "Elegant", image: "/images/app/font/handwritter.svg" },
+      { id: 6, name: "Playful", image: "/images/app/font/minimal.svg" },
+      { id: 7, name: "Tech", image: "/images/app/font/future.svg" },
+      { id: 8, name: "Luxury", image: "/images/app/font/luxury.svg" },
     ];
 
     return (

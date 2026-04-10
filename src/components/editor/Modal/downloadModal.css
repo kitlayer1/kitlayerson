@@ -24,7 +24,7 @@
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  width: 500px;
+  width: 400px;
   max-width: calc(100vw - 40px);
   pointer-events: auto;
   animation: canva2025-slideIn 0.2s ease;
@@ -46,14 +46,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px 14px;
+  padding: 10px 16px ;
   border-bottom: 1px solid #f1f1f1;
 }
 
 .canva2025-header h2 {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: #0e1318;
 }
 
@@ -74,19 +74,20 @@
 }
 
 .canva2025-content {
-  padding: 14px 16px 14px;
+  padding: 20px 16px 0;
+  
 }
 
 .canva2025-section {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .canva2025-label {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-lazzer-SemiBold);
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   color: #0e1318;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .canva2025-select-wrapper {
@@ -95,7 +96,7 @@
 
 .canva2025-select-trigger {
   width: 100%;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: #fbfbfb;
   border: 1px solid #e2e4e7;
   border-radius: 6px;
@@ -125,8 +126,10 @@
 }
 
 .canva2025-select-text {
-  font-size: 15px;
-  font-weight: 700;
+   font-family: var(--font-lazzer-SemiBold);
+  font-size: 14px;
+   line-height: 1.1;
+  letter-spacing: -0.04em;
   color: #0e1318;
 }
 
@@ -241,18 +244,20 @@
 }
 
 .canva2025-footer {
-  padding: 16px 32px 32px;
+  padding: 16px 16px 20px;
 }
 
 .canva2025-download-btn {
+  font-family: var(--font-lazzer-SemiBold);
+   line-height: 1.1;
+  letter-spacing: -0.04em;
   width: 100%;
   padding: 16px 24px;
   background: #0e1318;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
   transition: background-color 0.2s;
   display: flex;
