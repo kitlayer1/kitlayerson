@@ -16,7 +16,6 @@ export const CategoryHero = component$((props: Props) => {
         <div class="categoryhero-left">
           {props.badge && (
             <div class="categoryhero-badge">
-              <span class="badge-dot"></span>
               {props.badge}
             </div>
           )}
@@ -37,27 +36,36 @@ export const CategoryHero = component$((props: Props) => {
 
             <button class="categoryhero-input-button">
               Generate
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <div class="categoryhero-button-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
             </button>
           </div>
 
           {props.subText && (
-            <p class="categoryhero-sub">
-              {props.subText}
-            </p>
+            <div class="categoryhero-avatars-sub">
+              <div class="categoryhero-avatars">
+                <div class="avatar-circle"></div>
+                <div class="avatar-circle"></div>
+                <div class="avatar-circle"></div>
+              </div>
+              <p class="categoryhero-sub">
+                {props.subText}
+              </p>
+            </div>
           )}
         </div>
 

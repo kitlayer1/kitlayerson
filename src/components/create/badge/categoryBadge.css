@@ -1,18 +1,18 @@
 .category-badge-wrapper {
-  max-width: 1232px;
+  max-width: var(--container-max-width);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   margin: 120px auto;
 }
 
 .category-badge-item {
-  font-family: "Graphik-Medium", sans-serif;
+  font-family: var(--font-Geist-Medium);
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size:14px;
-  background: var(--color-card-w);
+  background: var( --color-yellow-light-BG);
   color: var(--color-heading-h1);
   display: inline-flex;
   cursor: pointer;
@@ -23,7 +23,7 @@
 }
 
 .category-badge-item:hover {
-  background-color: var( --color-card-w-hover);
+  background-color: var(--color-yellow-dark-BG);
 }
 
 @media (max-width: 1300px) {

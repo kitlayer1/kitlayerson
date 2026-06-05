@@ -5,6 +5,7 @@ import { supabase } from "~/lib/supabaseClient";
 import { allFavicons } from "./allFavicons";
 import { allFonts } from "./allFonts";
 import { colorOptionById } from "./colorOption";
+import { getLogoIndices } from './logoUtils';
 import { DownloadModal } from "~/components/editor/Modal/downloadModal";
 import "./step7Preview.css";
 import { AppHeader } from "./components/header/header";
@@ -51,7 +52,7 @@ const getColorsByMode = (mode: LogoMode, palette: { background: string; text: st
       return {
         background: palette.background,
         text: palette.text,
-        icon: palette.text,
+        icon: palette.icon || palette.text,
       };
   }
 };
@@ -75,7 +76,10 @@ export const Step7Preview = component$(
     const planType = useSignal<'started' | 'business' | null>(null);
     const fontsLoaded = useSignal(false);
     const initializationDone = useSignal(false);
+    const activeIndex = useSignal(props.selectedLogoIndex);
     const downloadBtnRef = useSignal<Element>();
+    const isScrolled = useSignal(false);
+    const isMobileMenuOpen = useSignal(false);
 
     /* ======================
      DATA
@@ -85,8 +89,10 @@ export const Step7Preview = component$(
       props.selectedStyleIds.includes(f.styleId),
     );
 
+    const { fIndexHash, fontIndexHash, cIndexHash, pIndexHash } = getLogoIndices(activeIndex.value, props.brandName);
+
     const favicon =
-      usableFavicons[props.selectedLogoIndex % usableFavicons.length];
+      usableFavicons[fIndexHash % usableFavicons.length];
 
     const usableFonts = allFonts.filter(
       (f) => f.styleId === props.selectedFontStyleId,
@@ -94,22 +100,23 @@ export const Step7Preview = component$(
 
     const fontFamily =
       usableFonts.length > 0
-        ? usableFonts[props.selectedLogoIndex % usableFonts.length].fontFamily
+        ? usableFonts[fontIndexHash % usableFonts.length].fontFamily
         : "sans-serif";
 
     const fontUrl =
       usableFonts.length > 0
-        ? usableFonts[props.selectedLogoIndex % usableFonts.length].file
+        ? usableFonts[fontIndexHash % usableFonts.length].file
         : null;
 
     const selectedColorId =
-      props.colors[props.selectedLogoIndex % props.colors.length];
+      props.colors[cIndexHash % props.colors.length];
 
     const option = colorOptionById[selectedColorId];
     const palettes = option?.palettes || [
       { background: "#ffffff", text: "#111111" },
     ];
-    const palette = palettes[props.selectedLogoIndex % palettes.length];
+    const palette = palettes[pIndexHash % palettes.length];
+
 
     // Benzersiz bir data hash'i oluştur (tüm props'lardan)
     const getDataHash = $(() => {
@@ -118,7 +125,7 @@ export const Step7Preview = component$(
         styleIds: props.selectedStyleIds,
         colors: props.colors,
         fontStyleId: props.selectedFontStyleId,
-        logoIndex: props.selectedLogoIndex,
+        logoIndex: activeIndex.value,
         faviconId: favicon.id
       });
       
@@ -160,11 +167,36 @@ export const Step7Preview = component$(
       }
     });
 
+    const modes: LogoMode[] = ["color", "invert", "black", "white", "transparent"];
+
     const generateSvg = $(async (forcedMode?: LogoMode) => {
       try {
         const effectiveMode = forcedMode || logoMode.value;
         const colors = getColorsByMode(effectiveMode, palette);
-        const iconBase64 = await toBase64(favicon?.iconPath);
+        
+        let iconUrl = favicon?.iconPath;
+        if (effectiveMode !== "color") {
+          try {
+            const res = await fetch(favicon?.iconPath);
+            let svgText = await res.text();
+            
+            // Renkleri değiştir
+            svgText = svgText
+              .replace(/fill="((?!none)[^"]+)"/gi, `fill="${colors.icon}"`)
+              .replace(/stroke="((?!none)[^"]+)"/gi, `stroke="${colors.icon}"`);
+              
+            // Stil içindeki fill/stroke'ları da dene (opsiyonel ama daha güvenli)
+            svgText = svgText.replace(/fill:\s*((?!none)[^;"]+)/gi, `fill:${colors.icon}`);
+            svgText = svgText.replace(/stroke:\s*((?!none)[^;"]+)/gi, `stroke:${colors.icon}`);
+
+            const encoded = btoa(unescape(encodeURIComponent(svgText)));
+            iconUrl = `data:image/svg+xml;base64,${encoded}`;
+          } catch (e) {
+            console.warn("SVG coloring failed, using original:", e);
+          }
+        }
+
+        const iconBase64 = iconUrl.startsWith("data:") ? iconUrl : await toBase64(iconUrl);
 
         let textElement = `
         <text
@@ -218,10 +250,6 @@ export const Step7Preview = component$(
         return "";
       }
     });
-
-    /* ======================
-     SESSION MANAGEMENT
-    ====================== */
 
     // Mevcut session'ı TÜM PARAMETRELERLE birlikte bul
     const findExistingSessionByData = $(async () => {
@@ -518,6 +546,15 @@ export const Step7Preview = component$(
       }
     });
 
+    // eslint-disable-next-line qwik/no-use-visible-task
+    useVisibleTask$(() => {
+      const handleScroll = () => {
+        isScrolled.value = window.scrollY > 0;
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    });
+
     // Mode değiştiğinde SVG'yi güncelle
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(({ track }) => {
@@ -541,70 +578,151 @@ export const Step7Preview = component$(
     const colors = getColorsByMode(logoMode.value, palette);
 
     return (
-      <div class="preview-page">
+      <div class={["step7-container", isScrolled.value && "is-scrolled"]}>
         <AppHeader>
-          <div q:slot="actions">
+          <div q:slot="actions" class="step7-header-actions">
+            {!isPaid.value && (
+              <button class="upgrade-btn-blue" onClick$={() => (showPricingModal.value = true)}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a10 10 0 0 1 7.38 16.75"/>
+                  <path d="m16 12-4-4-4 4"/>
+                  <path d="M12 16V8"/>
+                  <path d="M2.5 8.875a10 10 0 0 0-.5 3"/>
+                  <path d="M2.83 16a10 10 0 0 0 2.43 3.4"/>
+                  <path d="M4.636 5.235a10 10 0 0 1 .891-.857"/>
+                  <path d="M8.644 21.42a10 10 0 0 0 7.631-.38"/>
+                </svg>
+                Upgrade
+              </button>
+            )}
             <button
               ref={downloadBtnRef}
-              class="step7-download-btn"
+              class="step7-download-btn-header"
               onClick$={handleDownloadClick}
             >
               Download
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
             </button>
           </div>
         </AppHeader>
 
-        <h1 class="pp-title">Pick a logo to customize</h1>
-        <p class="pp-desc">
-          Color, inverted, black, white and transparent versions are generated
-          as real SVG files.
-        </p>
+        <main class="step7-main">
+          {/* LEFT PANEL */}
+          <div class={["step7-left-panel", isMobileMenuOpen.value && "is-open"]}>
+            <div class="mobile-accordion-header" onClick$={() => isMobileMenuOpen.value = !isMobileMenuOpen.value}>
+              <span>Ready to Launch</span>
+              <svg 
+                class={["chevron-icon", isMobileMenuOpen.value && "open"]} 
+                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </div>
+            
+            <div class="left-panel-content">
+              <h1 class="pp-title">YOUR BRAND LOGO IS READY TO LAUNCH</h1>
+              <p class="pp-desc">
+                Download your final logo package in multiple formats, ready for web, print, and all your brand needs.
+              </p>
 
-        <div class="pp-styles">
-          <button
-            class={logoMode.value === "color" ? "active" : ""}
-            onClick$={() => (logoMode.value = "color")}
-          >
-            Color
-          </button>
-          <button
-            class={logoMode.value === "invert" ? "active" : ""}
-            onClick$={() => (logoMode.value = "invert")}
-          >
-            Inverted
-          </button>
-          <button
-            class={logoMode.value === "black" ? "active" : ""}
-            onClick$={() => (logoMode.value = "black")}
-          >
-            Black
-          </button>
-          <button
-            class={logoMode.value === "white" ? "active" : ""}
-            onClick$={() => (logoMode.value = "white")}
-          >
-            White
-          </button>
-          <button
-            class={logoMode.value === "transparent" ? "active" : ""}
-            onClick$={() => (logoMode.value = "transparent")}
-          >
-            Transparent
-          </button>
-        </div>
-        
-        <div
-          class={["pp-card", logoMode.value === "transparent" && "transparent-mode"]}
-          style={{
-            background:
-              colors.background === "transparent"
-                ? undefined
-                : colors.background,
-          }}
-        >
-          <div ref={svgContainer} class="pp-logo-preview" />
-        </div>
+              <div class="owned-section">
+                <h4>Download in your preferred format:</h4>
+                <div class="format-tags">
+                  {["PNG", "SVG", "JPG", "PDF", "ZIP"].map((format) => (
+                    <div key={format} class="format-tagt">
+                      {format}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT PANEL - PREVIEW AREA */}
+          <div class="step7-right-panel">
+            <div class="preview-white-card">
+              <div class="preview-internal-header">
+                <div class="preview-brand-info">
+                  <div class="preview-brand-icon">
+                    <img src="/images/app/step/step7-docs.svg" alt="Brand Icon" />
+                  </div>
+                  <div class="preview-brand-text">
+                    <strong>{props.brandName || "Kitlayer"}</strong>
+                    <span>Created: 21.02.2026</span>
+                  </div>
+                </div>
+
+                <div class="pp-styles-integrated">
+                  {[
+                    { id: "color", label: "Main Logo" },
+                    { id: "invert", label: "Inverted Logo" },
+                    { id: "black", label: "Black Logo" },
+                    { id: "white", label: "White Logo" },
+                    { id: "transparent", label: "Transparent" }
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      class={{ active: logoMode.value === item.id }}
+                      onClick$={() => (logoMode.value = item.id as LogoMode)}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div class="preview-card-outer-container">
+                <div
+                  class={[
+                    "pp-card-integrated", 
+                    logoMode.value === "transparent" && "transparent-mode",
+                    logoMode.value === "black" && "black-mode"
+                  ]}
+                  style={{
+                    background:
+                      colors.background === "transparent"
+                        ? undefined
+                        : colors.background,
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    pointerEvents: 'none',
+                    opacity: 0.04,
+                    fontSize: '8rem',
+                    fontWeight: '900',
+                    color: colors.text,
+                    transform: 'rotate(-30deg)',
+                    whiteSpace: 'nowrap',
+                    userSelect: 'none',
+                    zIndex: 10,
+                    fontFamily: 'sans-serif'
+                  }}>kitlayer</div>
+                  <div ref={svgContainer} class="pp-logo-preview" />
+                </div>
+              </div>
+              
+              <div class="preview-pagination-dots">
+                {modes.map((mode, index) => (
+                  <span 
+                    key={mode} 
+                    class={["dot", logoMode.value === mode ? "active" : ""]}
+                    onClick$={() => (logoMode.value = mode)}
+                  ></span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </main>
 
         {showModal.value && (
           <DownloadModal
@@ -616,7 +734,6 @@ export const Step7Preview = component$(
             isPaid={isPaid.value}
             planType={planType.value}
             onShowPricing$={() => {
-              console.log("onShowPricing$ called, sessionId:", sessionId.value);
               showModal.value = false;
               showPricingModal.value = true;
             }}

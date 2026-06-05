@@ -3,16 +3,16 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-    background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
+  background: #F8F8F7;
 }
 
 .step2-content {
   margin-top: 120px;
   width: 100%;
-  max-width: 1000px; /* içerik genişliğini sabitle */
+  max-width: 700px; /* içerik genişliğini sabitle */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 /* =========================
@@ -20,7 +20,7 @@
 ========================= */
 
 .step2-header {
-  text-align: center;
+  text-align: left;
 }
 
 .step2-text {
@@ -28,24 +28,25 @@
 }
 
 .step2-content h2 {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: 52px;
-  line-height: 1.1;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 32px;
+  line-height: var(--lh-heading-3);
   letter-spacing: -0.04em;
-  color: var(--color-heading-h1);
-  margin-bottom: 20px;
-  max-width: 900px;
+  color: var(--color-heading-dark-1);
+  margin-bottom: 16px;
+  max-width: 450px;
+  text-align: left;
 }
 
 .step2-description {
-  font-family: var(--font-lazzer-Medium);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  text-align: center;
-  font-size: 18px;
-  color: var(--color-description-p1);
-  margin: 0 auto 32px auto;
-  max-width: 500px;
+  font-family: var(--font-Geist-Medium);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
+  text-align: left;
+  font-size: 16px;
+  color: var(--color-subtitle-dark-2);
+  margin: 0 0 24px 0;
+  max-width: 700px;
   box-sizing: border-box;
 }
 
@@ -54,10 +55,9 @@
 ========================= */
 
 .step2-input-container {
-   font-family: var(--font-lazzer-SemiBold);
-  background-color: var(--color-hero-bg-yellow-hover);
+ background-color: white;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 14px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -78,18 +78,18 @@
   position: relative;
   display: inline-flex;
   width: 100%;
-  height: 56px;
-  background: var(--color-hero-bg-yellow-hover);
-  border-radius: 8px;
+  height: 70px;
+  background: white;
+  border-radius: 14px;
   overflow: visible;
-  border: 1px solid transparent;
+  border: 1px solid #E5E7EB;
   transition: all 0.2s ease;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .input-wrapper:focus-within {
-  border: 1px solid var(--color-heading-h1);
-  box-shadow: 0 0 0 3px rgba(0, 47, 70, 0.08);
+  border: 2px solid #000;
 }
 
 .custom-select-wrapper {
@@ -102,6 +102,7 @@
 ========================= */
 
 .custom-select-triggers {
+  font-family: var(--font-Geist-Medium);
   all: unset;
   width: 100%;
   height: 100%;
@@ -117,12 +118,12 @@
 
 .custom-select-text {
   font-size: 15px;
-  color: var(--color-description-p2);
+  color: #121212;
   transition: all 0.2s ease;
 }
 
 .custom-select-triggers.selected .custom-select-text {
-  color: var(--color-heading-h1);
+  color: #121212;
   font-weight: 500;
 }
 
@@ -153,7 +154,7 @@
   right: 0;
   background: #ffffff;
   border-radius: 8px;
-  border: 1px solid var(--color-border-b3);
+  border: 1px solid #E3E7E8;
   padding: 6px;
   z-index: 9999;
   max-height: 300px;
@@ -182,10 +183,13 @@
 ========================= */
 
 .custom-select-option {
+  font-family: var(--font-Geist-Medium);
   padding: 12px 12px;
   cursor: pointer;
-  color: var(--color-description-p1);
+  color: #121212;
   font-size: 15px;
+   letter-spacing: var(--ls-tight-md);
+  line-height: var( --lh-subtitle);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -194,26 +198,26 @@
 }
 
 .custom-select-option:hover {
-  background: var(--color-border-b1);
+  background: #F2F3F3;
 }
 
 /* SELECTED OPTION */
 
 .custom-select-option.selected {
-  background: var(--color-border-b1);
-  color: var(--color-heading-h1);
+  background: #F2F3F3;
+  color: #121212;
 }
 
 .custom-select-option.selected::after {
   content: "✓";
-  font-size: 14px;
-  color: var(--color-heading-h1);
+  font-size: 16px;
+  color: #00A63D;
 }
 
 /* PLACEHOLDER OPTION */
 
 .custom-select-option.placeholder {
-  color: #9ca3af;
+  color: #8FA1B9;
 }
 
 /* =========================
@@ -247,83 +251,92 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 28px;
+  padding-top: 24px;
   box-sizing: border-box;
 }
 
 .step2-continue-right {
- font-family: var(--font-lazzer-SemiBold);
-  font-size: var(--font-size-xs);
-  width: 100%;
-  width: 150px;
+   font-family: var(--font-Geist-SemiBold);
+  font-size: var(--btn-text-3);
   height: 44px;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 16px 8px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   border: none;
-  border-radius: 8px;
-  background: var(--btn-black-bg);
+  border-radius: 10px;
+  background: var(--color-button-green-BG);
   cursor: pointer;
-   color: var(--btn-black-text);
+  color: var(--color-button-green-text);
   transition: all 0.2s ease;
+  margin-left: auto;
 }
 
 .step2-continue-right:hover {
-    background: var(--btn-black-bg-hover);
+  background: var(--color-button-green-hover);
 }
 
 .step2-continue-right:disabled {
-  background: #2c2c2c;
+  background: #A8A8A8;
   cursor: not-allowed;
-  opacity: 0.5;
+  color: #FFF;
+}
+
+.step2-continue-right:disabled svg {
+  stroke: #FFF;
 }
 
 /* ARROW CIRCLE */
 
 .arrow-circle {
-  width: 36px;
-  height: 36px;
   background-color: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.step2-continue-right .arrow-circle {
+ background: transparent;
+}
+
 .step2-continue-right:hover .arrow-circle {
-   background: var(--btn-black-bg-hover);
+ background: transparent;
 }
 
 .step2-continue-right:disabled .arrow-circle {
-   background: #2c2c2c;
-  color: var(--grey-100);
+  background: transparent;
+  color: #191919;
 }
+
+.step2-continue-right:disabled .arrow-circle svg {
+  stroke: #191919;
+}
+
 
 /* =========================
    BACK BUTTON
 ========================= */
 
+
 .step2-back-button {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: var(--font-size-xs);
-  height: 44px;
-  padding: 8px 18px 8px 12px;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--btn-text-3);
+  padding: 10px 18px 10px 12px;
   display: flex;
   align-items: center;
   gap: 4px;
+  border: 1px solid #E7E7E7;
   border-radius: 8px;
-  border: 1px solid var(--color-border-b2);
-  background: #ded9bd;
-  font-size: 14px;
+  background: white;
   cursor: pointer;
-  color: var(--color-description-p1);
+  color: #191919;
   transition: all 0.2s ease;
 }
 
 .step2-back-button:hover {
-  background: #c6c2ab;
-  border-color: var(--color-border-b2);
-  color: var(--color-heading-h1);
+  background: #F1F1F1;
+  border-color: #F1F1F1;
 }
 
 @media (max-width: 1000px) {
@@ -336,9 +349,9 @@
   }
 
   .step2-content h2 {
-     font-size: 48px;
-    max-width: 400px;
-    margin: 0 auto;
+      font-size: 42px;
+    margin: 0;
+    text-align: left;
   }
 
   .step2-description {
@@ -366,14 +379,13 @@
 
   .step2-content h2 {
     font-size: 40px;
-    max-width: 400px;
-    margin: 0 auto;
+    text-align: left;
   }
 
   .step2-description {
-     font-size: 16px;
+    font-size: 16px;
     margin-bottom: 28px;
-    margin-top: 18px;
+    margin-top: 18px;;
   }
 
   .step2-continue-container {
@@ -383,7 +395,7 @@
     width: 100%;
     max-width: 100%;
     padding: 16px 30px;
-    background-color: #F4EFD3;
+    background-color: #F8F8F7;
     border-top: 1px solid var(--color-border-b2);
     justify-content: center;
     z-index: 999;
@@ -422,12 +434,12 @@
 
   .step2-content h2 {
     font-size: 38px;
-    max-width: 400px;
-    margin: 0 auto;
+    margin: 0;
+    text-align: left;
   }
 
   .step2-description {
-     font-size: 16px;
+    font-size: 16px;
     margin-bottom: 28px;
     margin-top: 18px;
   }
@@ -457,15 +469,15 @@
   }
 
   .step2-content h2 {
-  font-size: 36px;
-    max-width: 300px;
-    margin: 0 auto;
+    font-size: 36px;
+    margin: 0;
+    text-align: left;
   }
 
   .step2-description {
-     font-size: 16px;
-    margin-bottom: 28px;
-    margin-top: 18px;
+    font-size: 16px;
+    margin-bottom: 24px;
+    margin-top: 16px;
   }
 
    .step2-continue-container {

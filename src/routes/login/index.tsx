@@ -28,8 +28,18 @@ export default component$(() => {
 
     loading.value = false;
 
-    if (err) error.value = err.message;
-    else step.value = "otp";
+    if (err) {
+      error.value = err.message;
+    } else {
+      step.value = "otp";
+      if (resendCooldown.value <= 0) {
+        resendCooldown.value = 60;
+        const timer = setInterval(() => {
+          resendCooldown.value -= 1;
+          if (resendCooldown.value <= 0) clearInterval(timer);
+        }, 1000);
+      }
+    }
   });
 
   const handleOtpVerify = $(async () => {
@@ -95,9 +105,8 @@ export default component$(() => {
 
     const fullName =
       user.user_metadata?.full_name ||
-      `${user.user_metadata?.name || ""} ${
-        user.user_metadata?.surname || ""
-      }`.trim();
+      `${user.user_metadata?.name || ""} ${user.user_metadata?.surname || ""
+        }`.trim();
 
     const { data: profileData } = await supabase
       .from("profiles")
@@ -148,14 +157,7 @@ export default component$(() => {
 
   const handleResend = $(async () => {
     if (resendCooldown.value > 0) return;
-    resendCooldown.value = 30;
-
     await handleEmailLogin();
-
-    const timer = setInterval(() => {
-      resendCooldown.value -= 1;
-      if (resendCooldown.value <= 0) clearInterval(timer);
-    }, 1000);
   });
 
   return (
@@ -166,8 +168,9 @@ export default component$(() => {
 
           {step.value === "email" && (
             <>
-              <h1 class="welcome-text">Welcome back</h1>
-              {error.value && <p class="error-text">{error.value}</p>}
+              <h1 class="welcome-text">Log in or register</h1>
+              <p class="info-texts">Welcome back! Please enter your details.</p>
+
 
               <button
                 class="google-btn"
@@ -193,67 +196,93 @@ export default component$(() => {
 
               <input
                 type="email"
-                class="email-input"
-                placeholder="Enter email address"
+                class={`email-input ${error.value ? "input-error" : ""}`}
+                placeholder="E-posta adresinizi girin"
                 value={email.value}
                 onInput$={(e) =>
                   (email.value = (e.target as HTMLInputElement).value)
                 }
               />
 
+              {error.value && (
+                <div class="error-box">
+                  {error.value}
+                </div>
+              )}
+
               <button
                 class="continue-btn"
                 disabled={loading.value || !email.value}
                 onClick$={handleEmailLogin}
               >
-                Continue
+                Devam et
               </button>
 
               <p class="terms">
                 By continuing, you agree to our{" "}
-                <a href="/terms">Terms of Service</a> and{" "}
-                <a href="/privacy">Privacy Policy</a>.
+                <a
+                  href="/terms-of-service"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Terms of Service
+                </a>{" "}
+                and{" "}
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>.
               </p>
             </>
           )}
 
           {step.value === "otp" && (
             <div class="otp-section">
-              <h2 class="welcome-text">Enter Your Code</h2>
+              <h2 class="welcome-text">Enter your code</h2>
               <p class="info-text">
-                <strong>{email.value}</strong> We've sent a code to your address.
+                <span class="email-text">{email.value}</span>{" "}
+                <span class="gray-text">We've sent a code to your address.</span>
               </p>
 
-              <input
-                type="text"
-                inputMode="numeric"
-                maxLength={6}
-                class="otp-input"
-                placeholder="------"
-                value={otp.value}
-                onInput$={(e) =>
-                  (otp.value = (e.target as HTMLInputElement).value)
-                }
-              />
+              <div class={`otp-input-wrapper ${error.value ? "input-error" : ""}`}>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={6}
+                  class="otp-single-input"
+                  placeholder="OTP"
+                  value={otp.value}
+                  onInput$={(e) =>
+                    (otp.value = (e.target as HTMLInputElement).value)
+                  }
+                />
 
-              {error.value && <p class="error-text">{error.value}</p>}
+                <div class="otp-timer-badge">
+                  {resendCooldown.value > 0 ? (
+                    <span>{resendCooldown.value}</span>
+                  ) : (
+                    <button class="otp-resend-inline-btn" onClick$={handleResend}>
+                      Resend Code
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {error.value && (
+                <div class="error-box">
+                  {error.value}
+                </div>
+              )}
 
               <button
-                class="continue-btn"
+                class="continue-btn otp-btn"
                 disabled={loading.value || otp.value.length !== 6}
                 onClick$={handleOtpVerify}
               >
-                Continue
-              </button>
-
-              <button
-                class="resend-btn"
-                disabled={resendCooldown.value > 0}
-                onClick$={handleResend}
-              >
-                {resendCooldown.value > 0
-                  ? `Resend (${resendCooldown.value}s)`
-                  : "Resend Code"}
+                Devam et
               </button>
             </div>
           )}
@@ -299,7 +328,7 @@ export default component$(() => {
       <div class="login-right">
         <div class="mockup-grid">
           {/* eslint-disable-next-line qwik/jsx-img */}
-          <img src="/images/login/login-image.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
+          <img src="/images/global/globalSection/globalSection.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
         </div>
       </div>
     </div>

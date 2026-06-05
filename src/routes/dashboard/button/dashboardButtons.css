@@ -3,48 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
-}
-
-/* FULL WIDTH BORDER */
-.dashboard-toolbar::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 1px;
-  background-color: #f4f4f5;
-}
-
-/* LEFT / RIGHT GROUPS */
-.toolbar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  flex: 1;
-}
-
-.toolbar-left::-webkit-scrollbar {
-  display: none;
-}
-
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+  padding: 20px 0;
 }
 
 /* BASE BUTTON */
 .toolbar-btn {
-  font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-Geist-Medium);
+  line-height: var(--lh-heading-2);
+  letter-spacing: var(--ls-tight-md);
   height: 32px;
   display: inline-flex;
   align-items: center;
@@ -55,43 +21,57 @@
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
-}
-
-/* GHOST STYLE */
-.toolbar-btn.ghost {
+  position: relative;
+  border: none;
   background: transparent;
-  border: 1px solid #e4e4e7;
-   color: var(--color-heading-h1)
 }
 
-.toolbar-btn.ghost:hover {
-  background-color: #e4e4e7;
-}
-
-.toolbar-btn.active {
-  background-color: #e4e4e7;
-  border-color: #d4d4d8 
-}
-
-/* ICON BUTTONS (RIGHT) */
+/* PRIMARY (NEW LOGO) */
 .toolbar-btn.primary {
-  height: 32px;
-  background: black;
-  color: white;
-  display: inline-flex;
+  height: 36px;
+  background: var(--color-button-green-BG);
+  color: var( --color-button-green-text);
   padding: 0 16px;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  border-radius: 6px;
+  font-weight: 500;
   text-decoration: none;
 }
 
 .toolbar-btn.primary:hover {
-  background-color: var(--btn-black-bg-hover);
+  background-color: var( --color-button-green-hover);
 }
 
-.toolbar-icon {
-  flex-shrink: 0;
+/* TABS CONTAINER */
+.tabs-container {
+  display: flex;
+  align-items: center;
+  background: #F0F0EF;
+  border: 1px solid #E8E8E8;
+  padding: 2px;
+  border-radius: 8px;
+  gap: 4px;
+}
+
+/* TABS */
+.toolbar-btn.tab {
+  font-family: var(--font-Geist-SemiBold);
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+  color: #858481;
+  border-radius: 6px;
+}
+
+.toolbar-btn.tab:hover {
+  color: #18181B;
+}
+
+.toolbar-btn.tab.active {
+  background-color: white;
+  color: #111111;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 13px;
 }
 
 /* ===============================
@@ -100,21 +80,12 @@
 
 /* Tablet - 768px */
 @media (max-width: 768px) {
-  .toolbar-left {
-    gap:16px;
-  }
-
-  .toolbar-btn {
-    padding: 0 12px;
-    font-size: 13px;
-  }
-
-  .toolbar-btn.primary {
-    padding: 0 12px;
+  .dashboard-toolbar {
+    gap: 16px;
   }
 }
 
-/* Mobil - 640px (New Logo butonu üstte, badge'ler altta) */
+/* Mobil - 640px */
 @media (max-width: 640px) {
   .dashboard-toolbar {
     flex-direction: column;
@@ -122,163 +93,75 @@
     gap: 16px;
     padding: 0;
   }
-  
 
-  .dashboard-toolbar::after {
-    display: none;
-  }
-
-  .toolbar-left {
-    order: 2;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 12px;
+  .tabs-container {
     width: 100%;
-    padding: 8px 0;
-    border-top: 1px solid var(--color-border-b1);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding: 6px;
+    gap: 6px;
   }
 
-  .toolbar-left::-webkit-scrollbar {
+  .tabs-container::-webkit-scrollbar {
     display: none;
   }
 
-  .toolbar-right {
-    order: 1;
-    justify-content: center;
-    width: 100%;
-    padding: 0; /* Yanlardan padding */
-    box-sizing: border-box;
-  }
-
-  .toolbar-btn {
-    height: 36px;
-    padding: 0 12px;
-    font-size: 14px;
-  }
-
   .toolbar-btn.primary {
-    width: 100%; /* Tam genişlik */
-    max-width: 100%; /* Maksimum genişlik kaldırıldı */
     justify-content: center;
     height: 44px;
     font-size: 15px;
-    margin: 0; /* Margin sıfır */
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  .toolbar-btn.ghost {
-    flex: 0 0 auto;
-    min-width: 70px;
-    justify-content: center;
+  .toolbar-btn.tab {
+    height: 32px;
+    padding: 0 14px;
+    font-size: 14px;
+    flex-shrink: 0;
   }
 }
 
 /* Küçük Mobil - 480px */
 @media (max-width: 480px) {
-  .toolbar-left {
-    gap: 8px;
-    padding: 0;
-  }
-
-  .toolbar-btn {
-    height: 34px;
-    padding: 0 12px;
-    font-size: 13px;
-  }
-
-  .toolbar-btn.ghost {
-    min-width: 60px;
-  }
-
   .toolbar-btn.primary {
     height: 42px;
     font-size: 14px;
+    margin-bottom: 16px;
   }
 
-  .toolbar-icon {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .toolbar-right {
-    padding: 0 var(--spacing-xs);
+  .toolbar-btn.tab {
+    height: 30px;
+    padding: 0 12px;
+    font-size: 13px;
   }
 }
 
 /* Çok Küçük Mobil - 430px */
 @media (max-width: 430px) {
-  .toolbar-left {
-    gap: 8px;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0;
-  }
-
-  .toolbar-left::-webkit-scrollbar {
-    display: none;
-  }
-
-  .toolbar-btn {
-    height: 36px;
-    padding: 0 12px;
-    font-size: 12px;
-    flex-shrink: 0;
-  }
-
-  .toolbar-btn.ghost {
-    min-width: 60px;
-    padding: 0 8px;
-  }
-
   .toolbar-btn.primary {
     height: 42px;
     font-size: 13px;
-    width: 100%;
+    margin-bottom: 16px;
   }
 
-  .toolbar-icon {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .toolbar-right {
-    padding: 0 var(--spacing-xs);
+  .toolbar-btn.tab {
+    padding: 0 10px;
+    font-size: 12px;
   }
 }
 
 /* Ekstra küçük - 360px */
 @media (max-width: 360px) {
-  .toolbar-left {
-    gap: 6px;
-  }
-  
-  .toolbar-btn {
-    padding: 0 8px;
-    font-size: 11px;
-    height: 34px;
-  }
-  
-  .toolbar-btn.ghost {
-    min-width: 55px;
-    padding: 0 6px;
-  }
-  
   .toolbar-btn.primary {
     height: 40px;
     font-size: 12px;
+    margin-bottom: 16px;
   }
-  
-  .toolbar-icon {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .toolbar-right {
+
+  .toolbar-btn.tab {
     padding: 0 8px;
+    font-size: 11px;
   }
 }

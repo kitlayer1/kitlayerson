@@ -2,13 +2,29 @@
 import { component$, useSignal, useVisibleTask$, $, Slot } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
+import { LoginModal } from '~/components/login/LoginModal';
 import './header.css';
+
+const getInitials = (name?: string, email?: string) => {
+  if (name && name.trim() !== '') {
+    const parts = name.trim().split(' ');
+    if (parts.length > 1) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  }
+  if (email) {
+    return email.substring(0, 2).toUpperCase();
+  }
+  return 'U';
+};
 
 export const AppHeader = component$(() => {
 
   const isUserMenuOpen = useSignal(false);
   const user = useSignal<any>(null);
   const loading = useSignal(true);
+  const showLoginModal = useSignal(false);
   const nav = useNavigate();
 
   /* ---------------- ICONS ---------------- */
@@ -41,8 +57,8 @@ export const AppHeader = component$(() => {
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
       class="settings-icon">
-      <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/>
-      <circle cx="12" cy="12" r="3"/>
+      <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+      <circle cx="12" cy="12" r="3" />
     </svg>
   );
 
@@ -63,8 +79,8 @@ export const AppHeader = component$(() => {
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
       class="users-icon">
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
     </svg>
   );
 
@@ -138,7 +154,7 @@ export const AppHeader = component$(() => {
   });
 
   const handleUserIconClick = $(() => {
-    if (!user.value) nav('/login');
+    if (!user.value) showLoginModal.value = true;
     else isUserMenuOpen.value = !isUserMenuOpen.value;
   });
 
@@ -148,9 +164,14 @@ export const AppHeader = component$(() => {
 
         {/* LEFT */}
         <div class="app-header-left">
-          <a href="/">
+          <a href="/dashboard">
             <img src="/logo.svg" alt="Logo" />
           </a>
+        </div>
+
+        {/* CENTER */}
+        <div class="app-header-center">
+          <Slot name="center" />
         </div>
 
         {/* RIGHT */}
@@ -162,9 +183,11 @@ export const AppHeader = component$(() => {
           </div>
 
           {/* USER ICON */}
-          <div class="app-user-icon" onClick$={handleUserIconClick}>
+          <div class={["app-user-icon", user.value ? "logged-in" : ""]} onClick$={handleUserIconClick}>
             {loading.value ? (
               <div class="skeleton-circle" />
+            ) : user.value ? (
+              getInitials(user.value?.user_metadata?.name, user.value?.email)
             ) : (
               <UserIcon />
             )}
@@ -173,37 +196,50 @@ export const AppHeader = component$(() => {
           {/* USER MENU */}
           {isUserMenuOpen.value && user.value && (
             <div class="app-user-menu-modal">
-
-              <div class="app-user-menu-section-title">
-                Menu
+              {/* User Profile */}
+              <div class="app-user-profile-section">
+                <div class="app-user-avatar-large">
+                  {getInitials(user.value?.user_metadata?.name, user.value?.email)}
+                </div>
+                <div class="app-user-info">
+                  <div class="app-user-name">
+                    {user.value?.user_metadata?.name || 'Volkan Yılmaz'}
+                  </div>
+                  <div class="app-user-email">
+                    {user.value?.email || 'volkansamiyilmaz00@gmail.com'}
+                  </div>
+                </div>
               </div>
 
               <div class="app-user-menu-divider"></div>
 
-              <Link href="/app?reset=true" class="app-user-menu-item">
-                <CreateIcon />
-                Create Logo
-              </Link>
+              {/* Create Banner */}
+              <div class="app-create-banner">
+                <div class="app-create-banner-text">
+                  <span class="app-create-banner-title">Create Logo</span>
+                  <span class="app-create-banner-desc">Create a free logo for your brand</span>
+                </div>
+                <button
+                  class="app-create-banner-btn"
+                  onClick$={() => nav('/app?reset=true')}
+                >
+                  Create
+                </button>
+              </div>
 
               <Link href="/dashboard" class="app-user-menu-item">
                 <DashboardIcon />
                 Dashboard
               </Link>
 
-              <Link href="/settings/account" class="app-user-menu-item">
-                <SettingsIcon />
-                Settings
-              </Link>
-
               <div class="app-user-menu-divider"></div>
-
 
               <Link href="/blog" class="app-user-menu-item">
                 <BlogIcon />
                 Blog
               </Link>
 
-              <Link href="/help" class="app-user-menu-item">
+              <Link href="/about" class="app-user-menu-item">
                 <HelpIcon />
                 Help Center
               </Link>
@@ -217,12 +253,21 @@ export const AppHeader = component$(() => {
                 <LogOutIcon />
                 Sign Out
               </div>
-
             </div>
           )}
 
         </div>
       </div>
+      
+      {showLoginModal.value && (
+        <LoginModal 
+          onClose$={() => showLoginModal.value = false} 
+          onSuccess$={() => {
+            showLoginModal.value = false;
+            window.location.reload();
+          }} 
+        />
+      )}
     </header>
   );
 });

@@ -2,19 +2,20 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { CategoryBadge } from "~/components/create/badge/categoryBadge";
 import { CategoryHero } from "~/components/create/hero/categoryHero";
-import { CategorySectionCard } from "~/components/create/card/section/categorySectionCard";
-import { CategoryBrandCard } from "~/components/create/card/brand/categoryBrandCard";
-import { CategoryTestimonial } from "~/components/create/testimonial/categoryTestimonial";
+import { CategorySection } from "~/components/create/categorySection/categorySection";
+import { CategoryLogoBrand } from "~/components/create/logoBrand/categoryLogoBrand";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { NotFound } from "~/components/global/notFound/notFound";
 import createData from "../../../../public/data/createDetail.json";
-import { HomeBanner } from "~/components/home/banner/homeBanner";
 import { Footer } from "~/components/global/footer/footer";
+import { ProductSection } from "~/components/product/productSection/productSection";
+import { GlobalSelect } from "~/components/global/globalSelect/globalSelect";
 
 interface CardItem {
   badge: string;
   title: string;
   description: string;
+  img?: string;
 }
 
 interface HeroData {
@@ -88,7 +89,7 @@ export default component$(() => {
 
   return (
     <>
-      <HomeHeader />
+      <HomeHeader variant="light" />
 
       <CategoryHero
         badge={page.value.hero.badge}
@@ -97,31 +98,47 @@ export default component$(() => {
         subText={page.value.hero.subText}
         img={page.value.hero.img}
       />
+      <GlobalSelect
+        features={[
+          "NO DESIGN SKILLS NEEDED",
+          "READY IN 60 SECONDS",
+          "PROFESSIONAL QUALITY",
+          "DOWNLOAD & USE ANYWHERE",
+          "NO CREDIT CARD REQUIRED",
+          "FULLY CUSTOMIZABLE",
+          "FULLY CUSTOMIZABLE",
+        ]}
+        backgroundColor="var(--color-secondary-200)"
+        textColor="var(--color-primary-900)"
+      />
 
-      {/* CARD SECTION */}
       {page.value.categorySection.cards && (
-        <CategorySectionCard cards={page.value.categorySection.cards} />
+        <CategorySection cards={page.value.categorySection.cards} />
       )}
 
-      {/* BRAND LOGOS */}
       {page.value.brandLogos && (
-        <CategoryBrandCard
-          title={page.value.hero.title}
-          description={page.value.hero.description}
-          logos={page.value.brandLogos}
-        />
+        <CategoryLogoBrand logos={page.value.brandLogos} />
       )}
-
-      {/* TESTIMONIAL */}
-      {page.value.testimonials && (
-        <CategoryTestimonial testimonials={page.value.testimonials} />
-      )}
-
-      {/* CATEGORY BADGES */}
+      <ProductSection/>
       {page.value.categories && (
         <CategoryBadge categories={page.value.categories} />
       )}
-      <HomeBanner />
+
+      <GlobalSelect
+              features={[
+                "100% FREE TO START",
+                "FULLY CUSTOMIZABLE",
+                "NO DESIGN SKILLS NEEDED",
+                "10+ LOGO FORMATS",
+                "8+ UNIQUE STYLES",
+                "INSTANT DOWNLOAD",
+                "HIGH-RES FILES INCLUDED",
+                "UNLIMITED REVISIONS",
+              ]}
+              backgroundColor="var(--color-secondary-200)"
+              textColor="var(--color-primary-900)"
+            />
+      
       <Footer />
 
     </>

@@ -1,109 +1,24 @@
-/* =========================
-   Fonts
-   ========================= */
-
-@font-face {
-  font-family: "Lazzer-Light";
-  src: url("/fonts/lazzer/Lazzer-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lazzer-Regular";
-  src: url("/fonts/lazzer/Lazzer-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lazzer-Medium";
-  src: url("/fonts/lazzer/Lazzer-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lazzer-SemiBold";
-  src: url("/fonts/lazzer/Lazzer-SemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lazzer-Bold";
-  src: url("/fonts/lazzer/Lazzer-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* =========================
-   Normalize / Reset (Modern)
-   ========================= */
-
-/* Box sizing */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Remove default margin */
-* {
-    margin: 0;
-}
-
-/* HTML & body defaults */
 html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100vh;
-    text-rendering: optimizeLegibility;
-    font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-    color: #020617;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color:  var(--color-yellow-BG);
+  font-family: "Geist-Medium", system-ui, sans-serif;
 }
 
-/* Media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-/* Form elements inherit font */
-input,
-button,
-textarea,
-select {
-    font: inherit;
-    color: inherit;
-}
-
-/* Button reset */
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-/* Links */
 a {
     text-decoration: none;
     color: inherit;
@@ -117,226 +32,10 @@ ol {
     margin: 0;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: inherit;
-    font-weight: inherit;
+
+:root{
+  /* Container */
+    --container-max-width: 1164px;
 }
-
-/* Tables */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* Forms */
-textarea {
-    resize: vertical;
-}
-
-/* Remove animations for people who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-body {
-    background-color: #ffffff;
-    font-family: "Rubik", system-ui, sans-serif;
-}
-
-
-
-@media (max-width: 1300px) {
-    :root {
-        --page-padding: 40px;
-        --title-fz: 44px;
-        --title-lh: 1.2;
-        --title-ls: -0.02em;
-        --desc-fz: 18px;
-        --desc-lh: 1.6;
-        --desc-ls: 0.01em;
-    }
-}
-
-@media (max-width: 1000px) {
-    :root {
-        --page-padding: 32px;
-        --title-fz: 38px;
-        --title-lh: 1.2;
-        --title-ls: -0.01em;
-        --desc-fz: 18px;
-        --desc-lh: 1.6;
-        --desc-ls: 0.01em;
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        --page-padding: 30px;
-        --title-fz: 36px;
-        --title-lh: 1.3;
-        --title-ls: -0.01em;
-        --desc-fz: 16px;
-        --desc-lh: 1.6;
-        --desc-ls: 0.01em;
-    }
-}
-
-@media (max-width: 640px) {
-    :root {
-        --page-padding: 24px;
-        --title-fz: 34px;
-        --title-lh: 1.3;
-        --title-ls: -0.01em;
-        --desc-fz: 16px;
-        --desc-lh: 1.6;
-        --desc-ls: 0.01em;
-    }
-}
-
-@media (max-width: 430px) {
-    :root {
-        --page-padding: 20px;
-        --title-fz: 32px;
-        --title-lh: 1.4;
-        --title-ls: 0;
-        --desc-fz: 16px;
-        --desc-lh: 1.6;
-        --desc-ls: 0.01em;
-    }
-}
-
-.page-container {
-    padding-left: var(--page-padding);
-    padding-right: var(--page-padding);
-
-}
-
-/* =========================
-   Button System
-   ========================= */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    gap: 8px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-/* Button Type 1: Primary (Dark) */
-.btn-primary {
-    background-color: #171717;
-    color: #FFFFFF;
-}
-
-.btn-primary:hover {
-    background-color: #383838;
-}
-
-/* Button Type 2: Secondary (Outline) */
-.btn-secondary {
-    background-color: #FFFFFF;
-    border: 1px solid #E6E6E6;
-    color: #171717;
-}
-
-.btn-secondary:hover {
-    background-color: #F2F2F2;
-}
-
-/* Icon support */
-.btn-with-icon {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-/* =========================
-   Typography
-   ========================= */
-
-.main-title {
-    font-size: var(--title-fz);
-    font-weight: 700;
-    line-height: var(--title-lh);
-    letter-spacing: var(--title-ls);
-    color: #0f172a;
-}
-
-.description {
-    font-size: var(--desc-fz);
-    line-height: var(--desc-lh);
-    letter-spacing: var(--desc-ls);
-    color: #475569;
-}
-
-
-
-
-:root {
-
-/* Colors */
-
-/* Hero */
-
-/* Yellow Hero */
-    --color-hero-bg-yellow: #FFFBDD;
-    --color-hero-bg-yellow-hover: #F4EFD3;
-    --color-hero-bg-yellow-badge-bg: #FFF083;
-    --color-hero-bg-yellow-badge-text: #222222;
-    --color-hero-bg-yellow-badge-dot: #222222;
-
-
-
-    --hero-padding-top: 80px;
-
-    /* Black Button Variables */
-    --btn-black-bg: #171717;
-    --btn-black-bg-hover: #383838;
-    --btn-black-text: #FFFFFF;
-
-    --font-lazzer-Light: "Lazzer-Light", system-ui, sans-serif;
-    --font-lazzer-Regular: "Lazzer-Regular", system-ui, sans-serif;
-    --font-lazzer-Medium: "Lazzer-Medium", system-ui, sans-serif;
-    --font-lazzer-SemiBold: "Lazzer-SemiBold", system-ui, sans-serif;
-    --font-lazzer-Bold: "Lazzer-Bold", system-ui, sans-serif;
-
-
-
-    --color-heading-h1: #171717;
-}
-
 
 

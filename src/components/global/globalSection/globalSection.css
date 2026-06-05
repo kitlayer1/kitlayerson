@@ -1,0 +1,266 @@
+.global-section {
+  width: 100%;
+  padding: 75px 24px 150px 24px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-yellow-BG);
+  overflow: hidden;
+}
+
+.global-container {
+  max-width: var(--container-max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.global-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+}
+
+.global-title {
+  font-family: var(--font-National-Bold);
+  font-size: clamp(44px, 8vw, 50px);
+  line-height: var(--lh-heading-1);
+  letter-spacing: var(--ls-tight-md);
+  color: var(--color-heading-dark-2);
+  
+}
+
+.global-description {
+  font-family: var(--font-Geist-Medium);
+  font-size: var(--subtitle-6);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-subtitle-dark-1);
+}
+
+.global-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: fit-content;
+  background-color: var(--color-button-green-BG);
+  color: var(--color-button-green-text);
+  border: none;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: var(--space-4);
+  text-decoration: none;
+}
+
+.global-button-text {
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 15px;
+  line-height: var(--lh-button);
+  letter-spacing: var(--ls-tight-md);
+  color: inherit;
+}
+
+.global-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-button-green-icon-box);
+  color: var(--color-button-green-icon);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+.global-button:hover {
+  background-color: var(--color-button-green-hover);
+}
+
+
+.global-right {
+  width: 100%;
+}
+
+.global-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 550 / 450;
+}
+
+.global-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1300px) {
+  .global-section {
+    padding: 70px 40px;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .global-section {
+    padding: 60px 32px;
+  }
+
+
+ .global-button {
+    margin-top: 16px;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  .global-section {
+    padding: 50px 32px;
+  }
+
+  .global-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  
+  .global-left {
+    max-width: 100%;
+    order: 1;
+    gap: 18px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .global-right {
+    order: 2;
+  }
+
+  .global-image-wrapper {
+    max-width: 100%;
+  }
+
+  .global-title {
+    max-width: 650px;
+}
+
+  .global-description {
+    max-width: 900px;
+  }
+
+  .global-button {
+    width: fit-content;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .global-section {
+    padding: 45px 30px;
+  }
+
+   .global-container {
+    gap: 24px;
+  }
+
+   .global-left {
+    gap: 18px
+  }
+
+  .global-image-wrapper {
+    aspect-ratio: 1 / 1.1;
+    border-radius: var(--radius-sm);
+  }
+
+
+ .global-title {
+    max-width: 550px;
+}
+
+  .global-description {
+ max-width: 650px;
+}
+
+  .global-button {
+    width: fit-content;
+    margin-top: 16px;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .global-section {
+    padding: 40px 24px;
+  }
+
+   .global-container {
+    gap: 20px;
+  }
+
+   .global-left {
+    gap: 16px
+  }
+
+  .global-image-wrapper {
+    aspect-ratio: 1 / 1.1;
+    border-radius: var(--radius-sm);
+  }
+
+   .global-title {
+    max-width: 450px;
+}
+
+
+  .global-description {
+  max-width: 550px;
+}
+
+  .global-button {
+    width: fit-content;
+    margin-top: 16px;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+  .global-section {
+    padding: 40px 20px;
+  }
+
+   .global-container {
+    gap: 32px;
+  }
+
+  .global-image-wrapper {
+    height: 450px;
+    aspect-ratio: auto;
+  }
+
+
+  .global-title {
+    max-width: 380px;
+}
+
+  .global-description {
+  margin-bottom: 6px;
+  max-width: 380px;
+}
+
+    .global-left {
+    gap: 12px
+  }
+
+   .global-button {
+    width: fit-content;
+    margin-top: 12px;
+  }
+
+}

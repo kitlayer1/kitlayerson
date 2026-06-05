@@ -1,0 +1,137 @@
+.policy-container {
+ max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 160px 0 80px;
+}
+
+.policy-title {
+   font-family: var(--font-National-Bold);
+  font-size: clamp(52px, 8vw, 60px);
+  line-height: var(--lh-heading-1);
+  color: var(--color-heading-dark-1);
+  letter-spacing: var(--ls-tight-xl);
+  margin-bottom: 32px;
+}
+
+.policy-meta {
+ margin-bottom: 32px;
+}
+
+.policy-meta-label {
+   font-family: var(--font-Geist-Medium);
+  color: var(--color-subtitle-1);
+  font-size: var(--subtitle-6);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.policy-meta-date {
+  font-family: var(--font-Geist-SemiBold);
+  color: var(--color-caption-1);
+  font-size: var(--subtitle-6);
+}
+
+.policy-content p {
+   font-family: var(--font-Geist-Medium);
+  font-size: var(--subtitle-6);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
+  margin-bottom: var( --space-5);
+  color: var(--color-subtitle-dark-1);
+}
+
+.policy-section-title {
+  font-family: var(--font-National-Bold);
+   font-size: clamp(28px, 8vw, 34px);
+  line-height: var( --lh-heading-1);
+  letter-spacing: var(--ls-tight-xl);
+  margin-bottom: 20px;
+  margin-top: 52px;
+  color: var(--color-heading-dark-2);
+}
+
+.policy-list {
+  list-style: disc;
+  margin-left: 24px;
+  margin-bottom: 32px;
+  color: var(--color-caption-dark-1);
+}
+
+.policy-list li {
+   font-family: var(--font-Geist-Medium);
+  font-size: 16px;
+   line-height: var( --lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
+  margin-bottom: 8px;
+  color: var(--color-caption-dark-1);
+}
+
+.policy-content a {
+  text-decoration: underline;
+  font-family: var(--font-Geist-SemiBold);
+  color: var(--color-caption-1);
+}
+
+@media (max-width: 1300px) {
+
+  .policy-container {
+     padding: 160px 40px 80px;
+  }
+
+    .policy-section-title {
+    margin-top: 52px;
+}
+}
+
+@media (max-width: 1200px) {
+
+  .policy-container {
+     padding: 160px 32px 80px;
+  }
+
+    .policy-section-title {
+    margin-top: 52px;
+}
+}
+
+@media (max-width: 1000px) {
+
+  .policy-container {
+     padding: 150px 32px 80px;
+  }
+
+    .policy-section-title {
+    margin-top: 50px;
+}
+}
+
+@media (max-width: 768px) {
+ 
+  .policy-container {
+     padding: 150px 30px 80px;
+  }
+
+    .policy-section-title {
+    margin-top: 48px;
+}
+}
+
+@media (max-width: 640px) {
+ 
+  .policy-container {
+     padding: 160px 24px 80px;
+  }
+    .policy-section-title {
+    margin-top: 42px;
+}
+}
+
+@media (max-width: 430px) {
+  .policy-container {
+   padding: 160px 20px 80px;
+  }
+
+  .policy-section-title {
+    margin-top: 40px;
+}
+}

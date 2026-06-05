@@ -1,16 +1,20 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import { Footer } from "~/components/global/footer/footer";
 import { HomeHeader } from "~/components/global/header/homeHeader";
-import styles from "./index.css?inline";
+import styles from "../policy.css?inline";
+import "~/styles/tokens/spacing.css";
+import "~/styles/tokens/colors.css";
+import "~/styles/tokens/typography.css";
+import "~/styles/tokens/radius.css"
 
 export default component$(() => {
     useStyles$(styles);
 
     return (
         <>
-            <HomeHeader />
+            <HomeHeader variant="cream" />
             <div class="policy-container">
-                <h1 class="policy-title">Cookie Policy</h1>
+                <h1 class="policy-title">COOKIE POLICY</h1>
 
                 <div class="policy-meta">
                     <span class="policy-meta-label">Last updated</span>
@@ -18,19 +22,19 @@ export default component$(() => {
                 </div>
 
                 <div class="policy-content">
-                    <h2 class="policy-section-title">1. Introduction</h2>
+                    <h2 class="policy-section-title">1. INTRODUCTION</h2>
                     <p>
                         This Cookie Policy explains how Kitlayer (“Platform”, “Site”, “we”) uses cookies and similar tracking technologies. By using the Platform, you consent to this policy..
                     </p>
 
-                    <h2 class="policy-section-title">2. What are cookies?</h2>
+                    <h2 class="policy-section-title">2. WHAT ARE COOKIES?</h2>
                     <p>
                         A cookie is a small data file sent by a website to your device (computer, tablet, phone). Cookies are used to enhance site functionality, improve user experience, and perform analytics.
                     </p>
 
-                    <h2 class="policy-section-title">3. Types of Cookies We Use</h2>
+                    <h2 class="policy-section-title">3. TYPES OF COOKIES WE USE</h2>
                     <p>
-                        1. Essential / Necessary Cookies:
+                        1. ESSENTIAL / NECESSARY COOKIES:
                     </p>
                     <ul class="policy-list">
                         <li>Required for site operation and security</li>
@@ -38,7 +42,7 @@ export default component$(() => {
                     </ul>
 
                     <p>
-                        2. Performance & Analytics Cookies:
+                        2. PERFORMANCE & ANALYTICS COOKIES:
                     </p>
                     <ul class="policy-list">
                         <li>Track site traffic, user behavior, and performance</li>
@@ -46,7 +50,7 @@ export default component$(() => {
                     </ul>
 
                     <p>
-                        3. Functional Cookies:
+                        3. FUNCTIONAL COOKIES:
                     </p>
                     <ul class="policy-list">
                         <li>Remember user preferences and personalize experience</li>
@@ -54,14 +58,14 @@ export default component$(() => {
                     </ul>
 
                     <p>
-                        4. Advertising & Marketing Cookies:
+                        4. ADVERTISING & MARKETING COOKIES:
                     </p>
                     <ul class="policy-list">
                         <li>Used to show targeted ads and measure campaigns</li>
                         <li>Example: Retargeting, Google AdSense</li>
                     </ul>
 
-                    <h2 class="policy-section-title">4. Purposes of Cookies</h2>
+                    <h2 class="policy-section-title">4. PURPOSES OF COOKIES</h2>
                     <p>
                         Overall, cookies help us provide you with a better website by enabling us to monitor which pages, functions, and content you find useful and which you do not.
                     </p>
@@ -74,7 +78,7 @@ export default component$(() => {
                         <li>Ensure security measures</li>
                     </ul>
 
-                    <h2 class="policy-section-title">5. Cookie Consent and Management</h2>
+                    <h2 class="policy-section-title">5. COOKIE CONSENT AND MANAGEMENT</h2>
 
                     <ul class="policy-list">
                         <li>You will be asked to consent to cookies on your first visit</li>
@@ -82,7 +86,7 @@ export default component$(() => {
                         <li>You can manage your cookie preferences via your browser settings or our cookie panel.</li>
                     </ul>
 
-                    <h2 class="policy-section-title">6. Third-Party Cookies</h2>
+                    <h2 class="policy-section-title">6. THIRD-PARTY COOKIES</h2>
                     <p>
                         The Platform may use cookies from third-party service providers, including:
                     </p>
@@ -97,7 +101,7 @@ export default component$(() => {
                         Management and privacy of these cookies are controlled by the respective third-party providers.
                     </p>
 
-                    <h2 class="policy-section-title">7. Disabling Cookies</h2>
+                    <h2 class="policy-section-title">7. DISABLING COOKIES</h2>
 
                      <p>
                         You can disable cookies through your browser settings. However, if certain cookies are disabled:
@@ -108,7 +112,7 @@ export default component$(() => {
                         <li>User experience may be limited</li>
                     </ul>
 
-                      <h2 class="policy-section-title">8. Changes</h2>
+                      <h2 class="policy-section-title">8. CHANGES</h2>
 
                      <p>
                         The Platform reserves the right to modify this Cookie Policy at any time without prior notice:
@@ -119,7 +123,7 @@ export default component$(() => {
                         <li>It is the user’s responsibility to review periodically</li>
                     </ul>
 
-                     <h2 class="policy-section-title">9. Contact</h2>
+                     <h2 class="policy-section-title">9. CONTACT</h2>
                     <p>
                      For any questions regarding this Policy, you may contact us via <a href="mailto:help@kitlayer.com">help@kitlayer.com</a>
                     </p>

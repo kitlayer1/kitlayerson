@@ -1,5 +1,6 @@
 import { component$, useStore, $, useVisibleTask$ } from "@builder.io/qwik";
 import { LoadingOverlay } from "./components/loading/loadingOverlay";
+import { Step7Loading } from "./components/loading/Step7Loading";
 import { Step1BrandName } from "./step1BrandName";
 import { Step2Category } from "./step2Category";
 import { Step3Favicons } from "./step3Favicons";
@@ -7,6 +8,10 @@ import { Step4Colors } from "./step4Colors";
 import { Step5Style } from "./step5Style";
 import { Step6GeneratedLogos } from "./step6GeneratedLogos";
 import { Step7Preview } from "./step7Preview";
+import { AppHeader } from "./components/header/header";
+import { SelectionSummary } from "./components/selection-summary/SelectionSummary";
+import { colorOptions } from "./colorOption";
+import { styleOptions } from "./styleOptions";
 
 export default component$(() => {
   const state = useStore({
@@ -23,6 +28,7 @@ export default component$(() => {
 
     saving: false,
     loading: false,
+    isStep7Transition: false,
   });
 
   /* ------------------------------------------------ */
@@ -174,9 +180,16 @@ export default component$(() => {
 
   const goToStep = $(async (step: number, showLoading: boolean = true) => {
     if (showLoading) {
-      state.loading = true;
-      await new Promise((resolve) => setTimeout(resolve, 400));
+      if (step === 7) {
+        state.isStep7Transition = true;
+        await new Promise((resolve) => setTimeout(resolve, 6000));
+        state.isStep7Transition = false;
+      } else {
+        state.loading = true;
+        await new Promise((resolve) => setTimeout(resolve, 300));
+      }
     }
+
 
     /* ------------------------------------------------ */
     /* STEP 1 RESET */
@@ -265,65 +278,87 @@ export default component$(() => {
   return (
     <div class="app">
       {state.loading && <LoadingOverlay />}
+      {state.isStep7Transition && <Step7Loading />}
 
-      {state.currentStep === 1 && (
-        <Step1BrandName
-          initialBrandName={state.brandName}
-          onNext$={nextBrand}
-        />
-      )}
-
-      {state.currentStep === 2 && (
-        <Step2Category
-          initialCategory={state.category}
-          onNext$={nextCategory}
-          onBack$={() => goToStep(1, false)}
-        />
-      )}
-
-      {state.currentStep === 3 && (
-        <Step3Favicons
-          category={state.category}
-          onNext$={nextFavicons}
-          onBack$={() => goToStep(2, false)}
-        />
-      )}
-
-      {state.currentStep === 4 && (
-        <Step4Colors
-          initialSelected={state.colors}
-          onNext$={nextColors}
-          onBack$={() => goToStep(3, false)}
-        />
-      )}
-
-      {state.currentStep === 5 && (
-        <Step5Style
-          initialStyleId={state.selectedFontStyleId}
-          onNext$={nextStyle}
-          onBack$={() => goToStep(4, false)}
-        />
+      {state.currentStep !== 7 && (
+        <AppHeader />
       )}
 
       {state.currentStep === 6 && (
-        <Step6GeneratedLogos
+        <SelectionSummary
           brandName={state.brandName}
-          selectedStyleIds={state.selectedStyleIds}
-          colors={state.colors}
-          selectedFontStyleId={state.selectedFontStyleId}
-          onSelect$={selectLogo}
+          category={state.category}
+          colors={colorOptions
+            .filter((c) => state.colors.includes(c.id))
+            .map((c) => c.title)
+            .join(" - ")}
+          style={
+            styleOptions.find((s) => s.id === state.selectedFontStyleId)?.name ||
+            ""
+          }
         />
       )}
 
-      {state.currentStep === 7 && (
-        <Step7Preview
-          brandName={state.brandName}
-          selectedStyleIds={state.selectedStyleIds}
-          colors={state.colors}
-          selectedFontStyleId={state.selectedFontStyleId}
-          selectedLogoIndex={state.selectedLogoIndex}
-        />
-      )}
+      <div class="page-transition" key={state.currentStep}>
+        {state.currentStep === 1 && (
+          <Step1BrandName
+            initialBrandName={state.brandName}
+            onNext$={nextBrand}
+          />
+        )}
+
+        {state.currentStep === 2 && (
+          <Step2Category
+            initialCategory={state.category}
+            onNext$={nextCategory}
+            onBack$={() => goToStep(1, false)}
+          />
+        )}
+
+        {state.currentStep === 3 && (
+          <Step3Favicons
+            category={state.category}
+            onNext$={nextFavicons}
+            onBack$={() => goToStep(2, false)}
+          />
+        )}
+
+        {state.currentStep === 4 && (
+          <Step4Colors
+            initialSelected={state.colors}
+            onNext$={nextColors}
+            onBack$={() => goToStep(3, false)}
+          />
+        )}
+
+        {state.currentStep === 5 && (
+          <Step5Style
+            initialStyleId={state.selectedFontStyleId}
+            onNext$={nextStyle}
+            onBack$={() => goToStep(4, false)}
+          />
+        )}
+
+        {state.currentStep === 6 && (
+          <Step6GeneratedLogos
+            brandName={state.brandName}
+            selectedStyleIds={state.selectedStyleIds}
+            colors={state.colors}
+            selectedFontStyleId={state.selectedFontStyleId}
+            onSelect$={selectLogo}
+          />
+        )}
+
+        {state.currentStep === 7 && (
+          <Step7Preview
+            brandName={state.brandName}
+            selectedStyleIds={state.selectedStyleIds}
+            colors={state.colors}
+            selectedFontStyleId={state.selectedFontStyleId}
+            selectedLogoIndex={state.selectedLogoIndex}
+          />
+        )}
+      </div>
     </div>
   );
 });

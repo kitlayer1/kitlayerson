@@ -3,10 +3,10 @@
     "food-brand-maker": {
       "hero": {
         "badge": "Success Stories",
-        "title": "Profitability's secret ingredient.",
+        "title": "Profitability's secret ingreldient.",
         "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place.",
         "subText": "No design skills needed — no payment required.",
-        "img": "/images/home/hero/homeHero.svg"
+        "img": "/images/about/hero/aboutHero.jpg"
       },
 
       "categorySection": {
@@ -14,17 +14,14 @@
           {
             "badge": "Product",
             "title": "Profitability's secret ingredient.",
-            "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that  Streamline your entire operations."
+            "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that  Streamline your entire operations.",
+            "img": "/images/about/hero/aboutHero.jpg"
           },
           {
             "badge": "Product",
             "title": "Profitability's secret ingredient.",
-            "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that  Streamline your entire operations."
-          },
-          {
-            "badge": "Product",
-            "title": "Profitability's secret ingredient.",
-            "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that  Streamline your entire operations."
+            "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that  Streamline your entire operations.",
+            "img": "/images/about/hero/aboutHero.jpg"
           }
         ]
       },
@@ -54,29 +51,9 @@
         { "img": "/images/brands/paydown.svg", "bg": "#FF0A78" },
         { "img": "/images/brands/baloo.svg", "bg": "#0E7B3C" },
         { "img": "/images/brands/syncone.svg", "bg": "#2B0014" },
-        { "img": "/images/brands/faro.svg", "bg": "#FF5B2E" },
-        { "img": "/images/brands/roadsoft.svg", "bg": "#1E4EB2" },
-        { "img": "/images/brands/signflow.svg", "bg": "#E9DDD6" },
-        { "img": "/images/brands/paydown.svg", "bg": "#FF0A78" }
+        { "img": "/images/brands/faro.svg", "bg": "#FF5B2E" }
       ],
 
-      "testimonials": [
-        {
-          "img": "/images/home/testimonial/testimonial1.svg",
-          "title": "Profitability's secret ingredient",
-          "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place."
-        },
-        {
-          "img": "/images/home/testimonial/testimonial2.svg",
-          "title": "Profitability's secret ingredient",
-          "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place."
-        },
-        {
-          "img": "/images/home/testimonial/testimonial3.svg",
-          "title": "Profitability's secret ingredient",
-          "description": "Streamline your entire operations. Boost your margins. Cut waste. Meet the AI-powered restaurant management system that serves up full control of your business, all in one place."
-        }
-      ],
 
       "categories": [
         { "label": "Technology", "slug": "tech-brand-maker" },

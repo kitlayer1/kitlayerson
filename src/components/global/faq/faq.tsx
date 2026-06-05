@@ -51,26 +51,28 @@ export default component$<FAQProps>(({ items }) => {
       <div class="faq-container">
         <div class="faq-left">
           <p class="faq-sub">Frequently asked questions</p>
-          <h2 class="faq-title">Everything you<br />need to get started</h2>
+          <h2 class="faq-title">EVERYTHING YOU<br />NEED TO GET STARTED</h2>
           <p class="faq-description">
-            Find clear answers to the most common questions about<br />our platform, features, and services.
+            Find clear answers to the most common questions about our platform, features, and services.
           </p>
           <a href="mailto:help@kitlayer.com" class="faq-contact">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="mail-icon"
-            >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            help@kitlayer.com
+            <div class="faq-contact-icon-box">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mail-icon"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span class="faq-contact-text">help@kitlayer.com</span>
           </a>
         </div>
 
@@ -86,12 +88,12 @@ export default component$<FAQProps>(({ items }) => {
                   <span>{item.question}</span>
                   <div class="faq-icon-box">
                     <svg
-                      width="20"
-                      height="20"
+                      width="24"
+                      height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       class="faq-icon"

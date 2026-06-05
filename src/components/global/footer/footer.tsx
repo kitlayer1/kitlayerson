@@ -35,10 +35,31 @@ export const Footer = component$(() => {
   return (
     <footer class="footer">
       <div class="footer-container">
+        
+        {/* CTA Banner Section */}
+        <div class="footer-cta-banner">
+          <div class="footer-cta-content">
+            <h2 class="footer-cta-title">TURN YOUR VISION INTO A BRAND<br/>WORTH REMEMBERING</h2>
+            <p class="footer-cta-description">Find clear answers to the most common questions about<br/>our platform, features, and services.</p>
+            <a href="/app" class="footer-cta-button">
+  Get Started
+  <span class="icon-container">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+          </div>
+          <div class="footer-cta-image">
+            <img src="/images/global/footer/banner/footerBanner.svg" alt="Brew Box" />
+          </div>
+        </div>
+
         <div class="footer-grid">
           {/* Brand Section */}
           <div class="footer-brand">
-            <h2 class="brand-logo">Kitlayer.com</h2>
+            <h2 class="brand-logo">Kitlayer</h2>
             <div class="copyright-info">
               <p>© {currentYear} Kitlayer</p>
               <p>All Rights Reserved.</p>
@@ -54,12 +75,11 @@ export const Footer = component$(() => {
               </h3>
               <ul class="footer-links">
                 <li><a href="/about">About</a></li>
-                <li><a href="/faq">Faq's</a></li>
                 <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/terms">Terms of Service</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/cookie">Cookie Policy</a></li>
+                <li><a href="/pricing-policy">Pricing</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/cookie-policy">Cookie Policy</a></li>
               </ul>
             </div>
 
@@ -76,6 +96,7 @@ export const Footer = component$(() => {
                 <li><a href="/design/travel">Travel Logo Maker</a></li>
                 <li><a href="/design/beauty">Beauty Logo Maker</a></li>
                 <li><a href="/design/technology">Technology Logo Maker</a></li>
+                <li><a href="/design/fashion">Fashion Logo Maker</a></li>
               </ul>
             </div>
 
@@ -86,13 +107,12 @@ export const Footer = component$(() => {
                 <Chevron />
               </h3>
               <ul class="footer-links">
-                <li><a href="/blog/1">Blog Content One</a></li>
-                <li><a href="/blog/2">Blog Content Two</a></li>
-                <li><a href="/blog/3">Blog Content Three</a></li>
-                <li><a href="/blog/4">Blog Content Four</a></li>
-                <li><a href="/blog/5">Blog Content Five</a></li>
-                <li><a href="/blog/6">Blog Content Six</a></li>
-                <li><a href="/blog/7">Blog Content Seven</a></li>
+                <li><a href="/blog/1">Blog Content 1</a></li>
+                <li><a href="/blog/2">Blog Content 2</a></li>
+                <li><a href="/blog/3">Blog Content 3</a></li>
+                <li><a href="/blog/4">Blog Content 4</a></li>
+                <li><a href="/blog/5">Blog Content 5</a></li>
+                <li><a href="/blog/6">Blog Content 6</a></li>
               </ul>
             </div>
 
@@ -109,7 +129,7 @@ export const Footer = component$(() => {
                 <li><a href="https://tiktok.com/kitlayercom" target="_blank" rel="noopener">Tiktok</a></li>
                 <li><a href="https://dribbble.com/kitlayercom" target="_blank" rel="noopener">Dribbble</a></li>
                 <li><a href="https://pinterest.com/kitlayercom" target="_blank" rel="noopener">Pinterest</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noopener">Linkedin</a></li>
+                <li><a href="https://linkedin.com/kitlayer" target="_blank" rel="noopener">Linkedin</a></li>
               </ul>
             </div>
           </div>
@@ -118,7 +138,7 @@ export const Footer = component$(() => {
       
       {/* Bottom Bar */}
       <div class="footer-bottom">
-        <p>Designed with love for you in Istanbul  ❤️</p>
+        <p>Designed with love for you in Istanbul ❤️</p>
       </div>
     </footer>
   );

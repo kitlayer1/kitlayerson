@@ -1,0 +1,116 @@
+:root {
+
+/* Background */ 
+--color-white: #FFFFFF;
+
+/* Yellow */
+    --color-yellow-BG:       #F6F4E8;
+    --color-yellow-light-BG: #EAE8DD;
+    --color-yellow-dark-BG:  #DFDDD2;
+
+/* Green */
+    --color-green-BG:       #022C12;
+    --color-green-light-BG: #003A16;
+    --color-green-dark-BG:  #003414;
+
+
+
+/* Primary */
+    --color-primary-50:  #EFFEF3;
+    --color-primary-100: #DAFEE6;
+    --color-primary-200: #B7FBCE;
+    --color-primary-300: #7FF6A9;
+    --color-primary-400: #40E87C;
+    --color-primary-500: #17D059;
+    --color-primary-600: #0E873A;
+    --color-primary-700: #116A32;
+    --color-primary-800: #10572B;
+    --color-primary-900: #022C13;
+
+
+/* Secondary */
+    --color-secondary-50:  #FCFDE9;
+    --color-secondary-100: #F6FBC9;
+    --color-secondary-200: #EBF47B;
+    --color-secondary-300: #E6F05D;
+    --color-secondary-400: #DDE72E;
+    --color-secondary-500: #C9D218;
+    --color-secondary-600: #ACAE11;
+    --color-secondary-700: #888511;
+    --color-secondary-800: #6F6A14;
+    --color-secondary-900: #363308;
+
+
+/* Fonts */
+
+/* Heading */
+    --color-heading-dark-1:  #022C13;
+    --color-heading-dark-2:  #002810;
+    --color-heading-light-1: #F1F97E;
+    --color-heading-light-2: #EBF47B;
+    --color-heading-white-1: #FFFFFF;
+    --color-heading-white-2: #F4F4F4;
+
+
+/* Subtitle */
+    --color-subtitle-dark-1:  #001D0C;
+    --color-subtitle-dark-2:  #003114;
+    --color-subtitle-light-1: #EBF47B;
+    --color-subtitle-light-2: #F9FFA8;
+    --color-subtitle-white-1: #FFFFFF;
+    --color-subtitle-white-2: #F6F6F6;
+
+
+/* Caption */
+    --color-caption-dark-1:  #002710;
+    --color-caption-dark-2:  #001A0B;
+    --color-caption-light-1: #F7FF85;
+    --color-caption-light-2: #F8FF91;
+    --color-caption-white-1: #F7F7F7;
+    --color-caption-white-2: #EDEFEE;
+
+
+/* Buttons */
+
+/* Green Button */
+    --color-button-green-BG:       #022C13;
+    --color-button-green-text:     #F7F7F7;
+    --color-button-green-hover:    #0D5B2B;
+    --color-button-green-icon-box: #F1F97E;
+    --color-button-green-icon:     #022C13;
+
+
+/* Yellow Button */
+    --color-button-yellow-BG:       #F1F97E;
+    --color-button-yellow-text:     #00220E;
+    --color-button-yellow-hover:    #EBF47B;
+    --color-button-yellow-icon-box: #022C13;
+    --color-button-yellow-icon:     #F1F97E;
+
+
+/* White Button */
+    --color-button-white-BG:       #FFFFFF;
+    --color-button-white-text:     #000000;
+    --color-button-white-hover:    #EDEFEE;
+    --color-button-white-icon-box: #000000;
+    --color-button-white-icon:     #FFFFFF;
+
+
+/* Cards */
+
+/* Light Card */
+    --color-light-card-BG:    #EAE8DD;
+    --color-light-card-hover: #DFDDD2;
+
+
+/* Dark Card */
+    --color-dark-card-BG:    #DFDDD2;
+    --color-dark-card-hover: #DBD9C9;
+
+
+/* Green Card */
+    --color-green-light-card-BG:    #003A16;
+    --color-green-light-card-hover: #00260F;
+    --color-green-dark-card-BG:     #003414;
+    --color-green-dark-card-hover:  #002D11;
+}

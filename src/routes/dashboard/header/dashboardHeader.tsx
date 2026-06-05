@@ -1,8 +1,21 @@
 import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
-import ImgLogo from '~/media/images/logo.svg?jsx';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import './dashboardHeader.css';
+
+const getInitials = (name?: string, email?: string) => {
+  if (name && name.trim() !== '') {
+    const parts = name.trim().split(' ');
+    if (parts.length > 1) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  }
+  if (email) {
+    return email.substring(0, 2).toUpperCase();
+  }
+  return 'U';
+};
 
 export const DashboardHeader = component$(() => {
   const isUserMenuOpen = useSignal(false);
@@ -108,24 +121,6 @@ const BlogIcon = () => (
   </svg>
 );
 
-  const UserIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="users-icon"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
-    </svg>
-  );
-
   const HelpIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +219,7 @@ const BlogIcon = () => (
         {/* Logo */}
         <div class="dashboard-header-left">
           <Link href="/">
-            <ImgLogo style={{ width: '120px', height: 'auto' }} />
+            <img src="/logo.svg" alt="Kitlayer Logo" style={{ width: '130px', height: 'auto' }} />
           </Link>
         </div>
 
@@ -237,47 +232,56 @@ const BlogIcon = () => (
             {loading.value ? (
               <div class="skeleton-circle" />
             ) : (
-              <UserIcon />
+              getInitials(user.value?.user_metadata?.name, user.value?.email)
             )}
           </div>
 
           {isUserMenuOpen.value && user.value && (
             <div class="dashboard-user-menu-modal">
-
-              <div class="dashboard-user-menu-section-title">
-                Menu
+              {/* User Profile */}
+              <div class="dashboard-user-profile-section">
+                <div class="dashboard-user-avatar-large">
+                  {getInitials(user.value?.user_metadata?.name, user.value?.email)}
+                </div>
+                <div class="dashboard-user-info">
+                  <div class="dashboard-user-name">
+                    {user.value?.user_metadata?.name || 'Volkan Yılmaz'}
+                  </div>
+                  <div class="dashboard-user-email">
+                    {user.value?.email || 'volkansamiyilmaz00@gmail.com'}
+                  </div>
+                </div>
               </div>
 
               <div class="dashboard-user-menu-divider"></div>
 
-              <Link href="/app?reset=true" class="dashboard-user-menu-item">
-                <CreateIcon />
-                Create Logo
-              </Link>
+              {/* Create Banner */}
+              <div class="dashboard-create-banner">
+                <div class="dashboard-create-banner-text">
+                  <span class="dashboard-create-banner-title">Create Logo</span>
+                  <span class="dashboard-create-banner-desc">Create a free logo for your brand</span>
+                </div>
+                <button
+                  class="dashboard-create-banner-btn"
+                  onClick$={() => nav('/app?reset=true')}
+                >
+                  Create
+                </button>
+              </div>
 
               <Link href="/dashboard" class="dashboard-user-menu-item">
                 <DashboardIcon />
                 Dashboard
               </Link>
 
-              <Link href="/settings/account" class="dashboard-user-menu-item">
-                <SettingsIcon />
-                Settings
-              </Link>
-
               <div class="dashboard-user-menu-divider"></div>
-
-              <Link href="/learn" class="dashboard-user-menu-item">
-                <LearnIcon />
-                Learn
-              </Link>
 
               <Link href="/blog" class="dashboard-user-menu-item">
                 <BlogIcon />
                 Blog
               </Link>
 
-              <Link href="/help" class="dashboard-user-menu-item">
+              <Link href="/about" class="dashboard-user-menu-item">
                 <HelpIcon />
                 Help Center
               </Link>
@@ -291,7 +295,6 @@ const BlogIcon = () => (
                 <LogOutIcon />
                 Sign Out
               </div>
-
             </div>
           )}
         </div>

@@ -1,51 +1,69 @@
 {
-  "success": {
-    "/": {
-      "title": "Free Logo Maker - Create Professional Logos Online in Minutes | Kitlayer",
-      "description": "Create beautiful logos for your business, startup, or personal brand. Fast, simple, and completely online logo design tool."
-    },
-    "/about": {
-      "title": "About Kitlayer – Empowering Brands with Design",
-      "description": "Discover how Kitlayer helps entrepreneurs and businesses create professional logos effortlessly. Learn about our mission, vision, and commitment to empowering modern brands."
-    },
-    "/product": {
-      "title": "Design Your Perfect Logo in Minutes | Kitlayer",
-      "description": "Generate unique logo ideas, refine every detail with ease, and download ready-to-use, high-quality logo files. No design skills required."
-    },
+"success": {
+"/": {
+"title": "Free Logo Maker - Create Professional Logos Online in Minutes | Kitlayer",
+"description": "Create a professional logo in minutes with our free online logo maker. Design, customize, and download high-quality logos for your business, startup, or personal brand instantly."
+},
 
-    "/blog": {
-      "title": "Blog – Tips, Guides & Insights | Kitlayer",
-      "description": "Read expert advice, creative tips, and industry insights on logo creation and branding. Learn strategies to make your brand stand out."
-    },
+"/about": {
+  "title": "About Kitlayer - AI-Driven Logo Design Platform",
+  "description": "An AI-driven platform that helps you build a strong brand identity by generating modern, customizable logos in seconds. Simple, fast, and built for creators."
+},
 
-    "/app": {
-      "title": "Free Logo Maker - Get Custom Logo Designs in Minutes | Kitlayer",
-      "description": "Turn your brand vision into a professional logo in minutes. AI tools guide you from concept to high-resolution files, all within the app."
-    },
-    "/create/food-brand-maker": {
-      "title": "Food Brand Maker",
-      "description": "Create stunning food brand logos that capture the essence of your culinary vision. Our Food Brand Maker offers a variety of templates and customization options to help you design a logo that stands out in the food industry."
-    },
-    "/create/tech-brand-maker": {
-      "title": "Tech Brand Maker",
-      "description": "Design a futuristic and innovative logo for your tech brand with our Tech Brand Maker. Choose from a selection of modern templates and customize them to reflect your brand's cutting-edge identity."
-    },
-    "/create/fashion-brand-maker": {
-      "title": "Fashion Brand Maker",
-      "description": "Create a chic and stylish logo for your fashion brand with our Fashion Brand Maker. Explore a variety of trendy templates and personalize them to showcase your unique style."
-    },
-    "/create/real-estate-logo-maker": {
-      "title": "Real Estate Logo Maker",
-      "description": "Design a professional logo for your real estate business with our Real Estate Logo Maker. Choose from a selection of industry-specific templates and customize them to create a strong brand presence."
-    },
-    "/create/fitness-logo-creator": {
-      "title": "Fitness Logo Creator",
-      "description": "Create an energetic and dynamic logo for your fitness brand with our Fitness Logo Creator. Select from a variety of templates and customize them to represent your commitment to health and wellness."
-    },
+"/product": {
+  "title": "Logo Maker Tool - Design & Download Logos Easily | Kitlayer",
+  "description": "Design your perfect logo with our powerful logo maker tool. Customize every detail, explore unique ideas, and download high-resolution logo files in PNG, SVG, and more."
+},
 
-    "/blog/2026-logo-design-trends": {
-      "title": "2026 Logo Design Trends",
-      "description": "Explore the latest logo design trends shaping the future of branding in 2026."
-    }
-  }
+"/blog": {
+  "title": "Blog – Logo Design Tips, Guides & Branding Insights | Kitlayer",
+  "description": "Explore logo design tips, branding strategies, and the latest design trends. Learn how to create a memorable brand identity with expert insights and practical guides."
+},
+
+"/app": {
+  "title": "AI Logo Generator - Create Custom Logos Instantly | Kitlayer",
+  "description": "Generate unique logos with our AI-powered logo maker. Turn your ideas into professional designs and download ready-to-use logo files in seconds."
+},
+
+"/pricing": {
+  "title": "Pricing – Choose the Right Plan for Your Brand | Kitlayer",
+  "description": "Get full access to AI logo design tools with flexible pricing plans. Create, customize, and download professional logos with features that fit your needs and scale your brand."
+},
+
+"/contact": {
+  "title": "Contact Kitlayer – We’re Here to Help You",
+  "description": "Get in touch with our support team for any questions about our AI logo platform. We’re ready to assist you with design, billing, or technical support."
+},
+
+"/privacy-policy": {
+  "title": "Privacy Policy Kitlayer – How We Protect Your Data",
+  "description": "Learn how we collect, use, and protect your personal information when you use our AI logo platform. Your privacy and data security are our top priority."
+},
+
+"/cookie-policy": {
+  "title": "Cookie Policy Kitlayer – How We Use Cookies",
+  "description": "Learn how we use cookies to improve your experience, analyze usage, and personalize content while using our AI logo platform."
+},
+
+"/terms-of-service": {
+  "title": "Terms of Service Kitlayer – Rules for Using Our Platform",
+  "description": "Read the terms and conditions for using our AI logo generator. This page explains your rights, responsibilities, and the rules for accessing and using our services."
+},
+
+"/login": {
+  "title": "Login – Sign in to Your Account",
+  "description": "Access your AI logo generator account and continue designing your brand in seconds."
+},
+
+"/dashboard": {
+  "title": "Dashboard – Manage Your AI Logos & Brand Assets",
+  "description": "All your logos, designs, and brand assets in one workspace. Create new logos, edit existing projects, and download high-quality files anytime."
+},
+
+"/create/food-brand-maker": {
+  "title": "Food Logo Maker - Create Restaurant & Food Brand Logos | Kitlayer",
+  "description": "Design mouth-watering food logos for restaurants, cafes, and food brands. Customize templates and create a unique brand identity in minutes."
+}
+
+}
 }

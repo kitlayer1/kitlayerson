@@ -1,60 +1,73 @@
 .comment-section {
-  padding: 100px 24px;
+  padding: 75px 24px;
   text-align: center;
- background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
 }
 
 .comment-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: var(--space-5);
 }
 
 /* Üst başlık */
 .comment-header h2 {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: 46px;
-  color: #171717;
-  margin-bottom: 32px;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  font-family: var(--font-National-Bold);
+  font-size: clamp(42px, 8vw, 60px);
+  line-height: var(--lh-heading-1);
+  letter-spacing: var(--ls-tight-md);
+  color: var(--color-heading-dark-2);
+  max-width: 700px;
+  margin: 0 auto var(--space-4) auto;
+}
+
+
+.comment-description {
+  font-family: var(--font-Geist-Medium);
+  font-size: var(--subtitle-6);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-subtitle-dark-1);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 /* Grid yapısı */
 .comment-grid {
-  max-width: 1232px;
+  max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
+  gap: var(--space-3);
   text-align: left;
 }
 
 /* Kart tasarımı */
 .comment-card {
-  border-radius: 8px;
-  min-height: 210px;
-  padding: 24px;
+  border-radius: var(--radius-sm);
+  min-height: 220px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.2s ease;
-  background-color: #F4EFD3;
+  background-color: var(--color-yellow-light-BG);
 }
 
 /* Kart metni */
 .comment-text {
-font-family: var(--font-lazzer-SemiBold);
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 24px;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--subtitle-6);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
+  color: var(--color-subtitle-dark-1);
+  margin-bottom: 32px;
 }
 
 /* Footer (avatar + isim) */
 .comment-footer {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .comment-avatar {
@@ -65,51 +78,89 @@ font-family: var(--font-lazzer-SemiBold);
 }
 
 .comment-name {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: 16px;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 15px;
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
   margin: 0;
-  padding-bottom: 5px;
-  color: var( --color-heading-h1);
+  padding-bottom: var(--space-1);
+  color: var(--color-subtitle-dark-2);
 }
 
 .comment-title {
-  font-family: var(--font-lazzer-Medium);
-  font-size: 14px;
-  color: var(  --color-description-p1);
+  font-family: var(--font-Geist-Medium);
+  font-size: 13px;
+  line-height: var(--lh-button);
+  letter-spacing: var(--ls-tight-md);
+  color: var(--color-caption-dark-2);
   margin: 0;
 }
 
 @media (max-width: 1300px) {
   .comment-section {
-    padding: 90px 40px;
+    padding: 70px 40px;
   }
 
-  .comment-header h2 {
-    font-size: 46px;
+
+}
+
+@media (max-width: 1200px) {
+  .comment-section {
+    padding: 60px 32px;
   }
 }
 
 @media (max-width: 1000px) {
   .comment-section {
-    padding: 80px 32px;
-    text-align: center;
-  }
-  .comment-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2’li kolon */
+    padding: 50px 32px;
+    text-align: left;
   }
 
   .comment-header h2 {
-    font-size: 38px;
+    max-width: 600px;
+    margin: 0 0 16px 0;
   }
+
+
+  .comment-description {
+    max-width: 550px;
+    margin: 0;
+  }
+
+  .comment-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2’li kolon */
+  }
+
+  .comment-header {
+    margin-bottom: 32px;
+    /* H2 ile kartlar arası boşluk */
+    text-align: left;
+  }
+
+
 }
 
 @media (max-width: 768px) {
   .comment-section {
-    padding: 72px 0 72px 30px;
+    padding: 50px 0 50px 30px;
   }
 
   .comment-header {
-    margin-bottom: 32px; /* H2 ile kartlar arası boşluk */
+    margin-bottom: 32px;
+    /* H2 ile kartlar arası boşluk */
+    text-align: left;
+  }
+
+  .comment-header h2 {
+    max-width: 550px;
+    margin: 0 0 16px 0;
+  }
+
+
+  .comment-description {
+    max-width: 550px;
+    margin: 0;
   }
 
   .comment-grid {
@@ -120,12 +171,9 @@ font-family: var(--font-lazzer-SemiBold);
     scrollbar-width: none;
   }
 
-  .comment-header h2 {
-    font-size: 38px;
-  }
 
   .comment-card {
-    max-width: 420px;
+    max-width: 440px;
     scroll-snap-align: center;
     flex-shrink: 0;
   }
@@ -148,11 +196,25 @@ font-family: var(--font-lazzer-SemiBold);
 
 @media (max-width: 640px) {
   .comment-section {
-    padding: 60px 0 60px 24px;
+    padding: 40px 0 40px 24px;
   }
 
   .comment-header {
-    margin-bottom: 32px; /* H2 ile kartlar arası boşluk */
+    margin-bottom: var(--space-5);
+    /* H2 ile kartlar arası boşluk */
+    text-align: left;
+  }
+
+
+  .comment-header h2 {
+    max-width: 500px;
+    margin: 0 0 16px 0;
+  }
+
+
+  .comment-description {
+    max-width: 450px;
+    margin: 0;
   }
 
   .comment-grid {
@@ -160,11 +222,6 @@ font-family: var(--font-lazzer-SemiBold);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
-  }
-
-  .comment-header h2 {
-    font-size: 38px;
-    margin: 0 24px 0 0;
   }
 
   .comment-card {
@@ -179,7 +236,8 @@ font-family: var(--font-lazzer-SemiBold);
     line-height: 1.5;
     margin-bottom: 20px;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Maksimum 2 satır */
+    -webkit-line-clamp: 4;
+    /* Maksimum 2 satır */
     -webkit-box-orient: vertical;
     display: box;
     box-orient: vertical;
@@ -189,25 +247,34 @@ font-family: var(--font-lazzer-SemiBold);
   }
 }
 
+@media (max-width: 550px) {
+
+  .comment-header h2 {
+    max-width: 450px;
+  }
+
+  .comment-description {
+    max-width: 420px;
+
+  }
+}
+
 @media (max-width: 430px) {
   .comment-section {
-    padding: 50px 0px 50px 20px;
+    padding: 40px 0px 40px 20px;
   }
 
   .comment-header {
-    margin-bottom: 32px; /* H2 ile kartlar arası boşluk */
+    margin-bottom: 24px;
+    text-align: left;
   }
 
-  .comment-header h2 {
-    font-size: 36px;
-    margin: 0 20px 0 0;
-  }
 
   .comment-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 16px;
+    gap: 12px;
   }
 
   .comment-card {

@@ -1,7 +1,5 @@
 import { component$, useStore, useVisibleTask$, QRL } from "@builder.io/qwik";
 import "./step1BrandName.css";
-import { AppHeader } from "./components/header/header";
-import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step1BrandName = component$(
   (props: {
@@ -25,21 +23,18 @@ export const Step1BrandName = component$(
 
     return (
       <div class="step1">
-        <AppHeader />
         <div class="step1-content">
-
           <div class="step1-header">
             <div class="step1-text">
-              <h2>Enter Your Brand Name</h2>
+              <h2>Let’s Start by Entering Your Brand Name</h2>
               <p class="step1-description">
-                Type in your brand name to start creating your logo. This name
-                will be the foundation of your entire design process.
+                Enter your brand name to generate logo ideas tailored to your identity and style
               </p>
             </div>
           </div>
 
           <div class="step1-input-container">
-            <div class="input-wrapper">
+            <div class="inputs-wrapper">
               <input
                 type="text"
                 value={state.brandName}
@@ -63,20 +58,26 @@ export const Step1BrandName = component$(
           </div>
 
           <div class="step1-continue-container">
+            <div class="step1-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
             <button
               class="step1-continue-right"
               disabled={!state.brandName}
               onClick$={() => props.onNext$(state.brandName)}
             >
               Continue
-              <span class="arrow-circle">
+              <span class="arrow-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="white"
+                  stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -87,8 +88,6 @@ export const Step1BrandName = component$(
               </span>
             </button>
           </div>
-
-          <StepIndicator currentStep={1} />
         </div>
       </div>
     );

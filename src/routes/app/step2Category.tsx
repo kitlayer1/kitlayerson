@@ -1,7 +1,5 @@
 import { component$,useStore,useSignal,$,useVisibleTask$, QRL} from "@builder.io/qwik";
 import "./step2Category.css";
-import { AppHeader } from "./components/header/header";
-import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step2Category = component$(
   (props: {
@@ -141,14 +139,11 @@ export const Step2Category = component$(
 
     return (
       <div class="step2">
-        <AppHeader />
-
         <div class="step2-content">
-          {/* HEADER */}
 
           <div class="step2-header">
             <div class="step2-text">
-              <h2>Choose Brand Category</h2>
+              <h2>Choose the Category That Fits Your Brand</h2>
 
               <p class="step2-description">
                 Select the category that best represents your brand. This helps
@@ -240,7 +235,7 @@ export const Step2Category = component$(
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="white"
-                  stroke-width="2"
+                  stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
@@ -250,7 +245,7 @@ export const Step2Category = component$(
               </span>
             </button>
           </div>
-          <StepIndicator currentStep={2} />
+          
         </div>
       </div>
     );

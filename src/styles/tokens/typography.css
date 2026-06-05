@@ -1,0 +1,116 @@
+/* Font Family */
+
+/* National  */
+@font-face {
+  font-family: "National-Bold";
+  src: url("/fonts/national/national-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Geist  */
+@font-face {
+  font-family: "Geist-Regular";
+  src: url("/fonts/geist/Geist-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist-Medium";
+  src: url("/fonts/geist/Geist-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist-SemiBold";
+  src: url("/fonts/geist/Geist-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist-Bold";
+  src: url("/fonts/geist/Geist-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+
+/* Font Size  */
+
+  /* ===== HEADINGS (7 level) ===== */
+  --heading-hero: 5rem; /* 80px */
+  --heading-1: 4rem;   /* 64px */
+  --heading-2: 3.75rem;   /* 60px */
+  --heading-3: 3rem;     /* 48px */
+  --heading-4: 2.625rem;   /* 42px */
+  --heading-5: 2.375rem;     /* 38px */
+  --heading-6: 2rem;   /* 32px */
+  --heading-7: 1.75rem;  /* 28px */
+  --heading-8: 1.5rem;  /* 24px */
+
+  /* ===== SUBTITLE (7 level) ===== */
+  --subtitle-1: 1.75rem;   /* 28px */
+  --subtitle-2: 1.5rem; /* 24px */
+  --subtitle-3: 1.375rem;  /* 22px */
+  --subtitle-4: 1.25rem; /* 20px */
+  --subtitle-5: 1.125rem;     /* 18px */
+  --subtitle-6: 1rem; /* 16px */
+  --subtitle-7: 0.875rem;  /* 14px */
+  --subtitle-8: 0.75rem;  /* 12px */
+
+  /* ===== CAPTION (6 level) ===== */
+  --caption-1: 1.25rem; /* 20px */
+  --caption-2: 1.125rem; /* 18px */
+  --caption-3: 1rem; /* 16px */
+  --caption-4: 0.875rem; /* 14px */
+  --caption-5: 0.75rem; /* 12px */
+  --caption-6: 0.6875rem; /* 11px */
+  --caption-7: 0.625rem; /* 10px */
+
+  /* ===== BUTTON TEXT (4 level) ===== */
+  --btn-text-1: 1.125rem;  /* 18px */
+  --btn-text-2: 1rem;     /* 16px */
+  --btn-text-3: 0.875rem; /* 14px */
+  --btn-text-4: 0.75rem;  /* 12px */
+  --btn-text-5: 0.6875rem; /* 11px */
+
+
+
+    /* ===== LINE HEIGHT ===== */
+  --lh-heading-1: 100%;
+  --lh-heading-2: 110%;
+  --lh-heading-3: 120%;
+  --lh-subtitle: 140%;
+  --lh-caption: 130%;
+  --lh-button: 120%;
+
+
+  /* ===== LETTER SPACING ===== */
+  --ls-tight-xl: -0.0025em; /* -0.04px */
+  --ls-tight-lg: -0.001875em; /* -0.03px */
+  --ls-tight-md: -0.00125em; /* -0.02px */
+  --ls-normal: 0em;  /* 0px */
+
+
+
+/* National Fonts */
+  --font-National-Bold: "National-Bold", system-ui, sans-serif;
+
+
+/* Geist Fonts */
+  --font-Geist-Regular: "Geist-Regular", system-ui, sans-serif;
+  --font-Geist-Medium: "Geist-Medium", system-ui, sans-serif;
+  --font-Geist-SemiBold: "Geist-SemiBold", system-ui, sans-serif;
+  --font-Geist-Bold: "Geist-Bold", system-ui, sans-serif;
+
+}

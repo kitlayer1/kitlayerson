@@ -1,37 +1,21 @@
 .step-indicator-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
   width: 100%;
-  margin-top: 24px;
+  display: flex;
+  justify-content: center;
 }
 
-.step-dot {
-  background-color: #E2DFCA; /* Light beige/inactive color */
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.1, 1);
+.step-indicator-track {
+  width: 100%;
+  width: 280px;
+  height: 4px;
+  background-color: #EDEDED; /* gri arka */
+  border-radius: 999px;
+  overflow: hidden;
 }
 
-.step-dot.active {
-  background-color: #000000;
-  width: 32px; /* Long pill shape */
-}
-
-@media (max-width: 640px) {
-  .step-indicator-container {
-    gap: 8px;
-    margin-top: 16px;
-  }
-  
-  .step-dot {
-    width: 6px;
-    height: 6px;
-  }
-  
-  .step-dot.active {
-    width: 24px;
-  }
+.step-indicator-progress {
+  height: 100%;
+  background-color: #506BF2; /* mavi dolu kısım */
+  border-radius: 999px;
+  transition: width 0.4s ease;
 }

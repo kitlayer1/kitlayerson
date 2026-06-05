@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- MAIN PAGES -->
+  <url>
+    <loc>https://kitlayer.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/app</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/pricing</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/about</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/blog</loc>
+  </url>
+
+  <!-- CATEGORY PAGES -->
+  <url>
+    <loc>https://kitlayer.com/create/food-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/business-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/education-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/fashion-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/fitness-logo-maker</loc>
+  </url>
+
+</urlset>

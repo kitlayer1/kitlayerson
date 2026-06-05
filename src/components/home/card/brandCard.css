@@ -1,44 +1,43 @@
 /* SECTION */
 .category-section {
-  padding: 32px 24px  150px  24px;
-  background-color: #FFFBDD;
+  padding: 0 24px 75px 24px;
 }
 
-/* GRID */
+
 .category-grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  max-width: 1232px;
+  gap: var(--space-3);
+  max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
 }
 
 /* CARD */
 .category-card {
-  border-radius: 8px;
-  max-height: 53px;
-  padding: 16px 8px 16px 16px;
+  border-radius: var(--radius-sm);
+  max-height: 60px;
+  padding: 16px 12px 16px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  background-color: #F4EFD3;
-  color: var(--color-heading-h1);
+  background-color: var(--color-yellow-light-BG);
   overflow: hidden;
 }
 
 .category-card:hover {
-  background: #EDE7C3;
+  background: var(--color-yellow-dark-BG);
 }
 
 /* NAME */
 .category-name {
- font-family: var(--font-lazzer-SemiBold);
-  font-size: 16px;
-  letter-spacing: -0.4px;
-  color: #171717;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var( --subtitle-7);
+  line-height: var( --lh-subtitle);
+  letter-spacing: var(--ls-tight-lg);
+   color: var(--color-subtitle-dark-2);
 }
 
 /* IMAGE */
@@ -46,68 +45,77 @@
   width: 40px;
   height: auto;
   object-fit: contain;
+  justify-content: center;
+  align-items: center;
 }
 
 /* RESPONSIVE */
-@media (max-width: 1200px) {
-  .category-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-   .category-section {
-    padding: 0 0 80px 32px;
+@media (max-width: 1300px) {
+  .category-section {
+    padding: 0 0 70px 40px;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .category-title {
-    font-size: 28px;
-    margin: 24px auto;
-  }
+    font-size: var(--subtitle-5);
+    margin: 60px auto 32px auto;
+     padding-right: 32px;
+ }
 
+ .category-section {
+   padding: 0 0 60px 32px;
+ }
+
+ .category-grid {
+   display: grid;
+   grid-template-rows: repeat(2, auto);
+   grid-auto-flow: column;
+   gap: 16px;
+   overflow-x: auto;
+   overflow-y: hidden;
+   scroll-snap-type: x mandatory;
+   -webkit-overflow-scrolling: touch;
+ }
+
+ .category-card {
+   width: 220px;
+   scroll-snap-align: start;
+ }
+
+ .category-grid::-webkit-scrollbar {
+   display: none;
+ }
+
+ .category-grid {
+   scrollbar-width: none; /* Firefox */
+ }
+
+ .category-image img {
+   width: 50px;
+   height: auto;
+   object-fit: contain;
+ }
+}
+
+@media (max-width: 1000px) {
   .category-section {
-    padding: 0 0 80px 32px;
-  }
-
-  .category-grid {
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    grid-auto-flow: column;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .category-card {
-    width: 220px;
-    scroll-snap-align: start;
-  }
-
-  .category-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .category-grid {
-    scrollbar-width: none; /* Firefox */
-  }
-  .category-image img {
-    width: 50px;
-    height: auto;
-    object-fit: contain;
+    padding: 0 0 50px 30px;
   }
 }
 
 @media (max-width: 768px) {
   .category-section {
-    padding: 0 0 50px 30px;
+    padding: 0 0 45px 30px;
   }
   .category-title {
-    font-size: 26px;
-    margin: 24px auto;
+    font-size: var(--subtitle-5);
+     margin: 60px auto 32px auto;
+      padding-right: 30px;
   }
 
   .category-grid {
+    grid-template-rows: repeat(2, auto);
     gap: 12px;
   }
 
@@ -120,11 +128,13 @@
 
 @media (max-width: 640px) {
   .category-title {
-    font-size: 24px;
-    margin: 20px auto;
+    font-size: var(  --subtitle-6);
+    max-width: 500px;
+    margin: 50px auto 24px auto;
+    padding-right: 24px;
   }
   .category-section {
-    padding: 0 0 45px 24px;
+    padding: 0 0 40px 24px;
   }
 
   .category-image img {
@@ -136,11 +146,17 @@
 
 @media (max-width: 430px) {
   .category-section {
-    padding: 0 0 42px 20px;
+    padding: 0 0 40px 20px;
   }
 
-  .category-name {
-    font-size: 15px;
+   .category-title {
+    font-size: var(--subtitle-6);
+    margin: 40px auto 24px auto;
+    padding-right: 20px;
+  }
+
+  .category-grid {
+    gap: 12px;
   }
 
   .category-card {

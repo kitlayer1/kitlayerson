@@ -25,7 +25,9 @@ export const BlogCard = component$<BlogCardProps>(
               height="250"
             />
           </div>
-
+           <h2 class="blog-card-title">
+              {title}
+            </h2>
           <div class="blog-card-content">
             <div class="blog-card-meta">
               <span class="blog-card-category">{category}</span>
@@ -33,9 +35,7 @@ export const BlogCard = component$<BlogCardProps>(
               <span class="blog-card-date">{date}</span>
             </div>
 
-            <h2 class="blog-card-title">
-              {title}
-            </h2>
+           
           </div>
 
         </article>

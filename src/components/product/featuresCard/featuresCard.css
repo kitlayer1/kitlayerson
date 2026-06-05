@@ -1,57 +1,58 @@
 .fc_section {
   width: 100%;
-  padding: 80px 20px;
-  background-color: #ffffff;
+  padding: 50px 20px 75px 20px;
+  background: var(--color-bg-white);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .fc_container {
-  max-width: 1232px;
+  max-width: 1164px;
   width: 100%;
 }
 
 .fc_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
 .fc_card {
-  background-color: #140018;
-  border-radius: 8px;
-  padding: 24px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 18px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 260px;
-  color: #ffffff;
+  min-height: 190px;
+  color: var(--card-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 
 .fc_title {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: 90px;
-  line-height: 1;
+  font-family: var(--font-National-Bold);
+  font-size: 68px;
+  line-height: var(--lh-heading-1);
+  letter-spacing: -0.08px;
   margin: 0 0 40px 0;
-  letter-spacing: -0.04em;
 }
 
 .fc_desc {
-  font-family: var(--font-lazzer-Medium);
-  font-size: 16px;
-  line-height: 1.3;
+  font-family: var(--font-Geist-Medium);
+  font-size: var( --subtitle-7);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var( --ls-tight-md);
   margin: 0;
-  color: white;
-  letter-spacing: -0.01em;
+  color: var(--card-desc-color, #E7E7E7);
+  
 }
 
 @media (max-width: 1300px) {
   .fc_section {
-  padding: 80px 40px;
+  padding: 50px 40px 70px 40px;
 }
 
   .fc_title {
@@ -61,7 +62,7 @@
 
 @media (max-width: 1200px) {
   .fc_section {
-  padding: 80px 40px;
+  padding: 50px 32px 60px 32px;
 }
 
   .fc_title {
@@ -73,50 +74,56 @@
     min-height: 250px;
   }
 
+   .fc_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
 
 @media (max-width: 1000px) {
     .fc_section {
-  padding: 80px 32px;
+  padding: 50px 32px 50px 32px;
 }
 
  .fc_title {
     font-size: 80px;
-    margin-bottom: 60px;
-  }
-
-  .fc_desc {
-  font-size: 18px;
-}
-  
-  .fc_card {
-    padding: 28px;
-    min-height: 220px;
-  }
-
-  .fc_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .fc_section {
-    padding: 60px 30px;
-  }
-  
-  .fc_title {
-    font-size: 72px;
-    margin-bottom: 60px;
+    margin-bottom: 55px;
   }
 
   .fc_desc {
   font-size: 16px;
 }
   
+  .fc_card {
+    padding: 28px;
+    min-height: 220px;
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  .fc_section {
+    padding: 50px 30px 45px 30px;
+  }
+  
+  .fc_title {
+    font-size: 74px;
+    margin-bottom: 60px;
+  }
+
+  .fc_desc {
+  font-size: 17px;
+  max-width: 500px;
+}
+  
   
   .fc_card {
     padding: 28px;
     min-height: 220px;
+  }
+
+   .fc_grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -126,14 +133,14 @@
   }
 
   .fc_title {
-    font-size: 70px;
+    font-size: 72px;
     margin-bottom: 50px;
   }
 
-      .fc_desc {
+   .fc_desc {
   font-size: 16px;
 }
-  
+
   
   .fc_card {
     padding: 24px;
@@ -142,7 +149,7 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 430px) {
   .fc_section {
     padding: 40px 20px;
   }
@@ -152,12 +159,9 @@
     margin-bottom: 50px;
   }
 
-    .fc_desc {
-  font-size: 16px;
-}
   
   .fc_card {
-    padding: 2px;
+    padding: 20px;
     min-height: 200px;
   }
 }

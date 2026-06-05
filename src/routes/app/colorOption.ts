@@ -3,6 +3,7 @@
 export type ColorPalette = {
   background: string;
   text: string;
+  icon?: string;
 };
 
 export type ColorOption = {
@@ -21,7 +22,7 @@ export const colorOptions: ColorOption[] = [
     description: 'Prestigious, luxurious, radiant, timeless, sophisticated',
     image: '/images/app/color/yellow.svg',
     palettes: [
-      { background: '#FFD700', text: '#442604' },
+      { background: '#00220E', text: '#ffffffff', icon: '#5ec668ff'},
       { background: '#E6BE8A', text: '#834429' },
       { background: '#D4AF37', text: '#382010' },
       { background: '#C5B358', text: '#5A4229' },

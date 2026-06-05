@@ -8,14 +8,17 @@ interface StepIndicatorProps {
 export const StepIndicator = component$<StepIndicatorProps>(({ currentStep }) => {
   useStylesScoped$(styles);
 
+  const totalSteps = 5;
+  const progress = (currentStep / totalSteps) * 100;
+
   return (
     <div class="step-indicator-container">
-      {[1, 2, 3, 4, 5].map((step) => (
+      <div class="step-indicator-track">
         <div
-          key={step}
-          class={["step-dot", step === currentStep ? "active" : ""]}
+          class="step-indicator-progress"
+          style={{ width: `${progress}%` }}
         />
-      ))}
+      </div>
     </div>
   );
 });

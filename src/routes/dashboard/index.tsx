@@ -4,7 +4,6 @@ import { supabase } from "~/lib/supabaseClient";
 import { DashboardHeader } from "./header/dashboardHeader";
 import { LogoPreviewModal } from "./previewModal/previewModal";
 import { DashboardButton } from "./button/dashboardButtons";
-import ImgDenemelik from '~/media/images/dashboard/card/denemelik.svg?jsx';
 
 export default component$(() => {
   const state = useStore({
@@ -82,6 +81,12 @@ export default component$(() => {
       .replace(/on\w+\s*=\s*["'][^"']*["']/gi, "");
   };
 
+  const extractBgColor = (svg: string): string => {
+    if (!svg) return "var(--color-bg-white)";
+    const match = svg.match(/<rect[^>]*fill="([^"]+)"/);
+    return match ? match[1] : "var(--color-bg-white)";
+  };
+
   const visibleLogos = state.showAll ? state.logos : state.logos.slice(0, 10);
 
   return (
@@ -93,133 +98,95 @@ export default component$(() => {
           <DashboardButton />
 
           <div class="section">
-            {state.logos.length === 0 ? (
-              <div class="empty-banner">
-                <div class="empty-inner no-click">
-                  <svg class="empty-image" viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style={{ margin: '0 auto', display: 'block' }}>
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                    <polyline points="21 15 16 10 5 21"></polyline>
-                  </svg>
-                  <div class="empty-texts">
-                    <h3>You haven't created a logo yet.</h3>
-                    <p>
-                      Create your first logo and manage all your designs in one place.
-                    </p>
+            <div class="logos-grid">
+              {/* Yeni Logo Oluşturma Kartı */}
+              <div
+                class="logo-card"
+                onClick$={() => (window.location.href = "/app?reset=true")}
+              >
+                <div class="logo-preview" style="background: white; border: 1px solid #E0E0E0;">
+                  <div class="fallback-svg" style="background: transparent;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px; color: #B2B2B2;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+                      <path d="M5 12h14"/>
+                      <path d="M12 5v14"/>
+                    </svg>
                   </div>
+                </div>
+                <div class="logo-footer">
+                  <span class="logo-name">Create new logo</span>
                 </div>
               </div>
-            ) : (
-              <>
-                <div class="logos-grid">
-                  {/* Yeni logo oluştur kartı */}
+
+              {/* Logo kartları */}
+              {visibleLogos.map((logo) => {
+                const date = new Date(logo.created_at || Date.now());
+                const diffTime = Math.abs(Date.now() - date.getTime());
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                let timeText = `created ${diffDays} days ago`;
+                if (diffDays === 0) timeText = "created today";
+                if (diffDays === 1) timeText = "created 1 day ago";
+
+                return (
                   <div
-                    class="create-logo-card"
-                    onClick$={() => (window.location.href = "/app?reset=true")}
+                    class="logo-card"
+                    key={logo.id}
+                    onClick$={() => {
+                      state.selectedLogo = logo;
+                      modalKey.value++;
+                    }}
                   >
-                    <div class="create-logo-inner">
-                      <ImgDenemelik class="create-logo-image" />
-                      <div class="create-logo-texts">
-                        <h3 class="create-logo-title">Create Logo</h3>
-                        <p class="create-logo-description">
-                          Generate a professional logo in seconds
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Logo kartları */}
-                  {visibleLogos.map((logo) => (
-                    <div
-                      class="logo-card"
-                      key={logo.id}
-                      onClick$={() => {
-                        state.selectedLogo = logo;
-                        modalKey.value++; // Modal açıldığında key değişsin
-                      }}
-                    >
-                      <div class="logo-card-inner">
-                        <div class="logo-content-wrapper">
-                          {/* PREVIEW */}
-                          <div class="logo-preview">
-                            {logo.paid && <span class="premium-badge">PRO</span>}
-                            {sanitizeSvg(logo.preview_svg || "") ? (
-                              <div
-                                class="svg-wrapper"
-                                dangerouslySetInnerHTML={sanitizeSvg(logo.preview_svg)}
-                              />
-                            ) : (
-                              <div class="fallback-svg">
-                                <svg viewBox="0 0 200 200">
-                                  <rect width="200" height="200" fill="#f3f4f6" />
-                                  <text x="100" y="105" text-anchor="middle" font-size="64" fill="#9ca3af">
-                                    ?
-                                  </text>
-                                </svg>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* INFO */}
-                          <div class="logo-info">
-                            <div class="info-header">
-                              <div class="info-texts">
-                                <p class="brand-name">
-                                  <strong>{logo.brand_name || "No Name Logo"}</strong>
-                                </p>
-                                <p class="created-date">
-                                  {new Date(logo.created_at).toLocaleDateString("tr-TR", {
-                                    day: "numeric",
-                                    month: "numeric",
-                                    year: "numeric",
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                  })}
-                                </p>
-                              </div>
-
-                              <button
-                                class="more-btn"
-                                onClick$={(e) => {
-                                  e.stopPropagation();
-                                  state.selectedLogo = logo;
-                                  modalKey.value++; // Modal açıldığında key değişsin
-                                }}
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="20"
-                                  height="20"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="1.5"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path d="M7 7h10v10" />
-                                  <path d="M7 17 17 7" />
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
+                    <div class="logo-preview" style={{ background: extractBgColor(logo.preview_svg || "") }}>
+                      {logo.paid && <span class="premium-badge">PRO</span>}
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        pointerEvents: 'none',
+                        opacity: 0.04,
+                        fontSize: '3rem',
+                        fontWeight: '900',
+                        color: '#000',
+                        transform: 'rotate(-30deg)',
+                        whiteSpace: 'nowrap',
+                        userSelect: 'none',
+                        zIndex: 10,
+                        fontFamily: 'sans-serif'
+                      }}>kitlayer</div>
+                      {sanitizeSvg(logo.preview_svg || "") ? (
+                        <div
+                          class="svg-wrapper"
+                          dangerouslySetInnerHTML={sanitizeSvg(logo.preview_svg)}
+                        />
+                      ) : (
+                        <div class="fallback-svg">
+                          <svg viewBox="0 0 200 200">
+                            <rect width="200" height="200" fill="#f3f4f6" />
+                            <text x="100" y="105" text-anchor="middle" font-size="64" fill="#9ca3af">?</text>
+                          </svg>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  ))}
-                </div>
 
-                {state.logos.length > 10 && (
-                  <div class="see-all-container">
-                    <button
-                      class="see-all-btn"
-                      onClick$={() => (state.showAll = !state.showAll)}
-                    >
-                      {state.showAll ? "See Less" : "See All"}
-                    </button>
+                    <div class="logo-footer">
+                      <span class="logo-name">{logo.brand_name || "Untitled"}</span>
+                      <span class="logo-date">{timeText}</span>
+                    </div>
                   </div>
-                )}
-              </>
+                );
+              })}
+            </div>
+
+            {state.logos.length > 10 && (
+              <div class="see-all-container">
+                <button
+                  class="see-all-btn"
+                  onClick$={() => (state.showAll = !state.showAll)}
+                >
+                  {state.showAll ? "See Less" : "See All"}
+                </button>
+              </div>
             )}
           </div>
         </div>

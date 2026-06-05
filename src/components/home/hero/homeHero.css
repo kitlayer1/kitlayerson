@@ -1,6 +1,6 @@
 .homehero {
-  padding: 150px var(--hero-padding-top) 100px;
-  background-color: var(--color-hero-bg-yellow);
+  padding: 160px 20px 160px;
+  background: var(--color-yellow-light-BG);
 }
 
 .homehero-container {
@@ -21,123 +21,130 @@
 }
 
 .homehero-badge {
-  font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--caption-4);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  font-size: 14px;
-  color: var(--color-hero-bg-yellow-badge-text);
-  background: var(--color-hero-bg-yellow-badge-bg);
-  border-radius: 100px;
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-tight-md);
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-caption-dark-2);
+  background: var(--color-yellow-dark-BG);
+  border-radius: var(--radius-sm);
   margin-bottom: 20px;
 }
 
-.homehero-badge .badge-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-hero-bg-yellow-badge-dot);
-  border-radius: 50%;
-  display: block;
-  flex-shrink: 0;
-}
 
 .homehero-title {
-  font-family: var(--font-lazzer-SemiBold);
-  font-size: 78px;
- line-height: 1.1;
-  letter-spacing: -0.04em;
-  color: var(--color-heading-h1);
+  font-family: var(--font-National-Bold);
+  font-size: clamp(54px, 8vw, 84px);
+  line-height: var(--lh-heading-1);
+  letter-spacing: var(--ls-tight-md);
+  color: var(--color-heading-dark-1);
   margin-bottom: 20px;
-  max-width: 850px;
+  max-width: 900px;
 }
 
 .homehero-description {
-  font-family: var(--font-lazzer-Medium);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  font-family: var(--font-Geist-Medium);
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-normal);
   text-align: center;
-  font-size: 18px;
-  color: var(--color-description-p1);
-  margin: 0 auto 24px auto;
-  max-width: 500px;
+  color: var(--color-subtitle-dark-1);
+  margin: 0 auto var(--space-6) auto;
+  max-width: 490px;
   box-sizing: border-box;
 }
 
 .homehero-sub {
-  font-family: var(--font-lazzer-Medium);
-  font-size: var(--font-size-xs);
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: var(--color-description-p2);
-  margin-top: 24px;
+  font-family: var(--font-Geist-Medium);
+  font-size: clamp(14px, 2.2vw, 15px);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-caption-dark-1);
+  margin-top: var(--space-5);
 }
 
 .homehero-input {
-  font-family: var(--font-lazzer-Medium);
+  font-family: var(--font-Geist-Medium);
   display: flex;
-  background: var(--color-hero-bg-yellow-hover);
-  border-radius: 8px;
-  padding: 5px;
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-1-5);
   width: 600px;
   max-width: 100%;
-  max-height: 58px;
-  color: var(--color-heading-h1);
+  max-height: 68px;
   box-sizing: border-box;
 }
 
 .homehero-input:focus-within {
-  border-color: var( --color-heading-h1);
+  border-color: var(--color-heading-h1);
 }
 
 .homehero-input-field {
-  font-family: var(--font-lazzer-SemiBold);
-  color: var(--color-heading-h1);
-  letter-spacing: -0.02em;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--subtitle-6);
+  color: var(--color-heading-1);
+  letter-spacing: var(--ls-tight-xl);
   flex: 1;
   border: none;
   outline: none;
-  padding: 16px 12px;
-  border-radius: 6px;
-  font-size: 15px;
-  background-color: #f4efd3;
+  padding: 18px 14px;
+  border-radius: var(--radius-xs);
+  background-color: white;
   box-sizing: border-box;
   min-width: 0;
 }
 
 .homehero-input-field::placeholder {
-  color: var(--color-heading-h1);
+  color: #7d8780;
 }
 
 .homehero-input-button {
-  font-family: var(--font-lazzer-SemiBold);
-  background: var(--btn-black-bg);
-  color: var(--btn-black-text);
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--btn-text-2);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-tight-md);
+  background: var(--color-button-green-BG);
+  color: var(--color-button-green-text);
   border: none;
-  border-radius: 6px;
-  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  padding: var(--space-1-5) var(--space-1-5) var(--space-1-5) var(--space-5);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  line-height: 1;
+  gap: var(--space-5);
   white-space: nowrap;
   transition:
-    background 0.15s ease,
+    background 0.2s ease,
+    color 0.2s ease,
     transform 0.1s ease;
 }
 
+.button-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--color-button-green-icon-box);
+  color: var(--color-button-green-icon);
+  border-radius: var(--radius-sm);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
 .homehero-input-button svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
 }
 
 .homehero-input-button:hover {
-  background: var(--btn-black-bg-hover);
-}
-
-.homehero-input-button:active {
-  transform: translateY(1px);
+  background: var(--color-button-green-hover);
 }
 
 .homehero-right {
@@ -147,34 +154,84 @@
 /* 1300px */
 @media (max-width: 1300px) {
   .homehero {
-    padding: 140px 40px 80px;
+    padding: 180px 40px 160px;
   }
 
   .homehero-container {
     gap: clamp(60px, 8vw, 130px);
   }
 
+  .homehero-input {
+    width: 100%;
+    max-width: 700px;
 
-  
+  }
+
 }
 
 @media (max-width: 1200px) {
   .homehero {
-    padding: 130px 40px 80px;
+    padding: 200px 40px 160px;
   }
 
-   .homehero-title {
-    font-size: 70px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    max-width: 800px;
+  .homehero-badge {
+    font-size: var(--caption-3);
+    margin-bottom: var(--space-5);
   }
+
+  .homehero-title {
+    max-width: 1000px;
+    margin-bottom: var(--space-5);
+  }
+
+  .homehero-description {
+    max-width: 600px;
+    margin-bottom: var(--space-6);
+  }
+
+  .homehero-input {
+    width: 650px;
+    max-width: 100%;
+    max-height: 76px;
+    box-sizing: border-box;
+  }
+
 }
 
-/* 1000px */
+@media (max-width: 1100px) {
+
+  .homehero-title {
+    max-width: 900px;
+  }
+
+}
+
 @media (max-width: 1000px) {
   .homehero {
-    padding: 130px 32px 80px;
+    padding: 180px 32px 160px;
+  }
+
+  .homehero-title {
+    max-width: 850px;
+  }
+
+  .homehero-description {
+    max-width: 550px;
+  }
+
+  .homehero-input {
+    width: 650px;
+    max-width: 100%;
+    max-height: 74px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+  .homehero {
+    padding: 160px 32px 140px;
   }
 
   .homehero-container {
@@ -192,25 +249,95 @@
     align-items: center;
   }
 
+
   .homehero-title {
-    font-size: 56px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    max-width: 800px;
+    max-width: 770px;
   }
 
   .homehero-description {
-    font-size: 16px;
-    width: auto;
-    max-width: 600px;
-    margin-bottom: 32px;
+    max-width: 500px;
   }
 
   .homehero-input {
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 640px;
+    height: auto;
+    max-height: none;
+    border: none;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .homehero-input-field {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--radius-lg);
+    min-height: 74px;
+    height: 74px;
+    line-height: 74px;
+    padding: 0 16px;
+  }
+
+  .homehero-input-field:focus {
+    border-color: var(--color-heading-h1);
+  }
+
+  .homehero-input-button {
+    font-size: var(--subtitle-5);
+    border-radius: var(--radius-md);
+    width: 100%;
+    height: 62px;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+  }
+
+  .button-icon-wrapper {
+    border-radius: var(--radius-sm);
+  }
+
+  .homehero-input-button .button-icon-wrapper {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .homehero-sub {
+    margin-top: var(--space-5);
+    max-width: 400px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .homehero {
+    padding: 180px 30px 140px;
+  }
+
+  .homehero-badge {
+    font-size: 15px;
+    margin-bottom: var(--space-5);
+  }
+
+  .homehero-title {
+    max-width: 650px;
+    margin-bottom: var(--space-4);
+  }
+
+  .homehero-description {
+    max-width: 450px;
+    margin-bottom: var(--space-5);
+  }
+
+  .homehero-input {
+    flex-direction: column;
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 100%;
     height: auto;
     max-height: none;
     border: none;
@@ -221,196 +348,99 @@
   .homehero-input-field {
     width: 100%;
     box-sizing: border-box;
-    border-radius: 8px;
-    min-height: 60px;
-    height: 60px;
-    line-height: 60px;
-    padding: 0 16px;
-  }
-
-  .homehero-input-field:focus {
-    border-color: var(--color-heading-h1);
+    border-radius: var(--radius-lg);
+    min-height: 68px;
   }
 
   .homehero-input-button {
-    width: 100%;
-    border-radius: 8px;
-    height: 52px;
-    justify-content: center;
-  }
-    .homehero-sub {
-    margin-top: 24px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .homehero {
-    padding: 120px 30px 80px;
+    border-radius: var(--radius-md);
+    font-size: var(--subtitle-5);
+    min-height: 56px;
   }
 
-  .homehero-title {
-    font-size: 54px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-
-  .homehero-description {
-    font-size: 16px;
-    width: auto;
-    max-width: 600px;
-    margin-bottom: 32px;
+  .button-icon-wrapper {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-sm);
   }
 
   .homehero-input {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
     width: 100%;
-    max-width: 100%;
+    max-width: 550px;
     height: auto;
     max-height: none;
     border: none;
     padding: 0;
+    background: transparent;
   }
 
   .homehero-input-field {
     width: 100%;
     box-sizing: border-box;
-    border-radius: 8px;
-    min-height: 56px;
-    height: 56px;
-    line-height: 56px;
-    padding: 0 16px;
-  }
-
-  .homehero-input-field:focus {
-    border-color: var(--color-heading-h1);
+    border-radius: var(--radius-lg);
+    max-height: 64px;
   }
 
   .homehero-input-button {
-    width: 100%;
-    border-radius: 8px;
-    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--subtitle-5);
+    max-height: 58px;
   }
 
-    .homehero-sub {
-    margin-top: 24px;
-    font-size: 16px;
+  .button-icon-wrapper {
+    border-radius: var(--radius-sm);
+  }
+
+  .homehero-sub {
+    max-width: 400px;
   }
 }
 
 
-/* 640px */
 @media (max-width: 640px) {
   .homehero {
-    padding: 120px 24px 80px;
+    padding: 180px 24px 150px;
+  }
+
+  .homehero-badge {
+    font-size: var(--caption-4);
+    margin-bottom: var(--space-4);
   }
 
   .homehero-title {
-    font-size: 52px;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    max-width: 550px;
+    margin-bottom: var(--space-4);
   }
 
   .homehero-description {
-    font-size: 16px;
-    width: auto;
-    max-width: 500px;
+    max-width: 400px;
+    margin-bottom: var(--space-5);
   }
 
   .homehero-input {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
     width: 100%;
-    max-width: 100%;
+    max-width: 500px;
     height: auto;
     max-height: none;
     border: none;
     padding: 0;
+    background: transparent;
   }
 
-  .homehero-input-field {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    min-height: 56px;
-    height: 56px;
-    line-height: 56px;
-    padding: 0 16px;
-  }
+  .homehero-sub {
+    max-width: 330px;
 
-  .homehero-input-field:focus {
-    border-color: var(--color-heading-h1);
-  }
-
-  .homehero-input-button {
-    width: 100%;
-    border-radius: 8px;
-    justify-content: center;
-  }
-
-    .homehero-sub {
-    margin-top: 20px;
-    font-size: 16px;
   }
 }
 
 /* 430px */
 @media (max-width: 430px) {
   .homehero {
-    padding: 120px 20px 80px;
+    padding: 160px 20px 120px;
   }
 
-  .homehero-container {
-    gap: 40px;
-  }
-
-  .homehero-badge {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .homehero-title {
-    font-size: 48px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-
-  .homehero-description {
-    font-size: 16px;
-    width: auto;
-    margin-bottom: 32px;
-  }
-
-
-  .homehero-input {
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: none;
-    border: none;
-    padding: 0;
-    background: transparent;
-  }
-
-  .homehero-input-field {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    min-height: 56px;
-  }
-
-  .homehero-input-button {
-    width: 100%;
-    border-radius: 8px;
-    padding: 16px;
-    justify-content: center;
-  }
-
-  .homehero-sub {
-    margin-top: 20px;
-    font-size: 15px;
-  }
 }

@@ -2,9 +2,27 @@ import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import './homeHeader.css';
+import "~/styles/tokens/spacing.css";
+import "~/styles/tokens/colors.css";
+import "~/styles/tokens/typography.css";
+import "~/styles/tokens/radius.css";
+
+const getInitials = (name?: string, email?: string) => {
+  if (name && name.trim() !== '') {
+    const parts = name.trim().split(' ');
+    if (parts.length > 1) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  }
+  if (email) {
+    return email.substring(0, 2).toUpperCase();
+  }
+  return 'U';
+};
 
 interface Props {
-  variant?: 'light' | 'dark';
+  variant?: 'light' | 'dark' | 'cream';
 }
 
 export const HomeHeader = component$<Props>((props) => {
@@ -73,11 +91,28 @@ export const HomeHeader = component$<Props>((props) => {
     if (!user.value) {
       nav('/login');
     } else {
-      isUserMenuOpen.value = !isUserMenuOpen.value;
+      nav('/dashboard');
+    }
+  });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ track }) => {
+    track(() => isMenuOpen.value);
+    if (isMenuOpen.value) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
     }
   });
 
   /* ---------------- ICONS ---------------- */
+  const ChevronRight = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+
   const CreateIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10" />
@@ -101,8 +136,6 @@ export const HomeHeader = component$<Props>((props) => {
       <circle cx="12" cy="12" r="3" />
     </svg>
   );
-
-
 
   const BlogIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -132,7 +165,7 @@ export const HomeHeader = component$<Props>((props) => {
   );
 
   return (
-    <header class={["home-header", isScrolled.value ? "scrolled" : "", props.variant === 'light' ? 'light' : ""]}>
+    <header class={["home-header", isScrolled.value ? "scrolled" : "", props.variant === 'light' ? 'light' : props.variant === 'cream' ? 'cream' : ""]}>
       <div class="header-content">
         <div class="header-left">
           <div class="logosme">
@@ -152,17 +185,16 @@ export const HomeHeader = component$<Props>((props) => {
 
         <div class="header-right desktop-right">
           <div
-            class="user-icon"
+            class={["user-icon", !user.value && !loading.value ? "has-text" : "", user.value && !loading.value ? "logged-in" : ""]}
             onClick$={handleUserIconClick}
             style={{ cursor: 'pointer' }}
           >
             {loading.value ? (
               <div class="skeleton-circle" style={{ width: 22, height: 22 }}></div>
+            ) : user.value ? (
+              getInitials(user.value?.user_metadata?.name, user.value?.email)
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+              <span class="nav-login-text">Login</span>
             )}
           </div>
 
@@ -174,24 +206,19 @@ export const HomeHeader = component$<Props>((props) => {
           </button>
         </div>
 
-        <button
-          class="hamburger-menu"
-          onClick$={() => (isMenuOpen.value = !isMenuOpen.value)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen.value ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          ) : (
+        {!isMenuOpen.value && (
+          <button
+            class="hamburger-menu"
+            onClick$={() => (isMenuOpen.value = !isMenuOpen.value)}
+            aria-label="Toggle menu"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 5h16" />
               <path d="M4 12h16" />
               <path d="M4 19h16" />
             </svg>
-          )}
-        </button>
+          </button>
+        )}
 
         {isUserMenuOpen.value && user.value && (
           <div class="home-header-user-menu-modal">
@@ -227,21 +254,61 @@ export const HomeHeader = component$<Props>((props) => {
       </div>
 
       {isMenuOpen.value && (
-        <div class="mobile-menu">
-          <Link href="/product" class="mobile-nav-item">Product</Link>
-          <Link href="/about" class="mobile-nav-item">About</Link>
-          <Link href="/pricing" class="mobile-nav-item">Pricing</Link>
-          <Link href="/blog" class="mobile-nav-item">Blog</Link>
+        <div class="mobile-menu-overlay">
+          <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+              <span class="mobile-menu-brand">Kitlayer</span>
+              <button
+                class="mobile-menu-close"
+                onClick$={() => (isMenuOpen.value = false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </div>
 
-          <button
-            class="mobile-consult-btn"
-            onClick$={() => {
-              window.location.href = '/app';
-              isMenuOpen.value = false;
-            }}
-          >
-            <span>Get Started</span>
-          </button>
+            <nav class="mobile-menu-nav">
+              <Link href="/product" onClick$={() => (isMenuOpen.value = false)} class="mobile-menu-item">
+                <span>Product</span>
+                <ChevronRight />
+              </Link>
+              <Link href="/about" onClick$={() => (isMenuOpen.value = false)} class="mobile-menu-item">
+                <span>About</span>
+                <ChevronRight />
+              </Link>
+              <Link href="/pricing" onClick$={() => (isMenuOpen.value = false)} class="mobile-menu-item">
+                <span>Pricing</span>
+                <ChevronRight />
+              </Link>
+              <Link href="/blog" onClick$={() => (isMenuOpen.value = false)} class="mobile-menu-item">
+                <span>Blog</span>
+                <ChevronRight />
+              </Link>
+            </nav>
+
+            <div class="mobile-menu-footer">
+              <button
+                class="mobile-menu-btn login-btn"
+                onClick$={() => {
+                  nav('/login');
+                  isMenuOpen.value = false;
+                }}
+              >
+                Login
+              </button>
+              <button
+                class="mobile-menu-btn start-btn"
+                onClick$={() => {
+                  window.location.href = '/app';
+                  isMenuOpen.value = false;
+                }}
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>

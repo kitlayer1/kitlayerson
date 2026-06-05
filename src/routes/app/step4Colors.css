@@ -1,54 +1,56 @@
 .step4 {
   min-height: 100vh;
   box-sizing: border-box;
- background: linear-gradient(to bottom, #fffefa 0%, #FFFBDD 52%,  #FFFBDD 100%);
+  background: #F8F8F7;
   justify-content: center;
 }
 
 .step4-content {
   width: 100%;
   padding-top: 120px;
-  max-width: 800px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   margin: 0 auto;
 }
 
 .step4-header {
-  text-align: center;
+  text-align: left;
 }
 
 .step4-text {
-  max-width: 520px;
+  max-width: 600px;
 }
 
 .step4-header h2 {
- font-family: var(--font-lazzer-SemiBold);
-  font-size: 52px;
- line-height: 1.1;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 32px;
+  line-height: var(--lh-heading-3);
   letter-spacing: -0.04em;
-  color: var(--color-heading-h1);
-  margin-bottom: 20px;
-  max-width: 500px;
+  color: var(--color-heading-dark-1);
+  margin-bottom: 16px;
+  max-width: 450px;
+  text-align: left;
 }
 
 .step4-description {
-  font-family: var(--font-lazzer-Medium);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  text-align: center;
-  font-size: 18px;
-  color: var(--color-description-p1);
-  margin: 0 auto 32px auto;
-  max-width: 500px;
+  font-family: var(--font-Geist-Medium);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
+  text-align: left;
+  font-size: 16px;
+  color: var(--color-subtitle-dark-2);
+  margin: 0 0 24px 0;
+  max-width: 700px;
   box-sizing: border-box;
 }
 
 .step4-options {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Desktop: 4 items side by side */
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  /* Desktop: 4 items side by side */
+  gap: 8px;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -59,21 +61,43 @@
   aspect-ratio: 1;
   height: 150px;
   background-color: #ffffff;
-  border: 1.5px solid var(--color-border-b3);
-  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  box-shadow: inset 0 0 0 1.5px #E5E7EB;
+  border-radius: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   cursor: pointer;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  outline: none;
+  transition: box-shadow 0.2s ease;
 }
 
 .step4-color:hover {
-  border: 1.5px solid var(--color-heading-h1);
+  box-shadow: inset 0 0 0 1.5px #121212;
 }
 
 .step4-color.selected {
-  border: 1.5px solid var(--color-heading-h1);
+  box-shadow: inset 0 0 0 1.5px #121212;
+}
+
+.check-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #121212;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .color-overlay {
@@ -84,17 +108,20 @@
 }
 
 .color-title {
-   font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-Geist-SemiBold);
   font-size: 15px;
+  line-height: var(--lh-heading-2);
+  letter-spacing: var(--ls-tight-xl);
   margin: 0 0 8px;
 
 }
 
 .color-desc {
-   font-family: var(--font-lazzer-Medium);
+  font-family: var(--font-Geist-Medium);
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-tight-md);
   font-size: 12px;
   margin: 0;
-  line-height: 1.3;
 }
 
 .step4-continue-container {
@@ -103,108 +130,110 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 28px;
+  padding: 24px 0;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .step4-continue-right {
- font-family: var(--font-lazzer-SemiBold);
-  font-size: var(--font-size-xs);
-  width: 100%;
-  width: 150px;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--btn-text-3);
   height: 44px;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 16px 8px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   border: none;
-  border-radius: 8px;
-  background: var(--btn-black-bg);
+  border-radius: 10px;
+  background: var(--color-button-green-BG);
   cursor: pointer;
-   color: var(--btn-black-text);
+  color: var(--color-button-green-text);
   transition: all 0.2s ease;
-   margin-bottom: 40px;
+  margin-left: auto;
 }
 
 .step4-continue-right:hover {
-  background: var(--btn-black-bg-hover);
+  background: #3249E6;
+  color: #ffffff;
 }
 
 .step4-continue-right:disabled {
-    background: #2c2c2c;
+  background: #F1F1F1;
   cursor: not-allowed;
-  opacity: 0.5;
+  color: #191919;
 }
 
 /* ARROW CIRCLE */
 
 .arrow-circle {
-  width: 36px;
-  height: 36px;
   background-color: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.step4-continue-right .arrow-circle {
+  background: transparent;
+}
+
 .step4-continue-right:hover .arrow-circle {
-   background: var(--btn-black-bg-hover);
+  background: transparent;
 }
 
 .step4-continue-right:disabled .arrow-circle {
- background: #2c2c2c;
-  cursor: not-allowed;
-  opacity: 0.5;
+  background: transparent;
+  color: #191919;
+}
+
+.step4-continue-right:disabled .arrow-circle svg {
+  stroke: #191919;
 }
 
 .step4-back-button {
-   font-family: var(--font-lazzer-SemiBold);
-  font-size: var(--font-size-xs);
-  height: 44px;
-  padding: 8px 18px 8px 12px;
+  font-family: var(--font-Geist-SemiBold);
+  font-size: var(--btn-text-3);
+  padding: 10px 18px 10px 12px;
   display: flex;
   align-items: center;
   gap: 4px;
+  border: 1px solid #E7E7E7;
   border-radius: 8px;
-  border: 1px solid var(--color-border-b2);
-  background: #ded9bd;
-  font-size: 14px;
+  background: white;
   cursor: pointer;
-  color: var(--color-description-p1);
+  color: #191919;
   transition: all 0.2s ease;
-  margin-bottom: 40px;
 }
 
 .step4-back-button:hover {
-  background: #c6c2ab;
-  border-color: var(--color-border-b2);
-  color: var(--color-heading-h1);
+  background: #F1F1F1;
+  border-color: #F1F1F1;
 }
 
 @media (max-width: 1000px) {
   .step4 {
-  padding: 0 32px;
-}
+    padding: 0 32px;
+  }
+
   .step4-content {
     padding-top: 140px;
   }
 
   .step4-content h2 {
-      font-size: 48px;
-    max-width: 400px;
-    margin: 0 auto;
+    font-size: 42px;
+    margin: 0;
+    text-align: left;
   }
 
   .step4-description {
-  font-size: 18px;
+    font-size: 18px;
     margin-bottom: 32px;
     margin-top: 20px;
   }
 
-    .step4-continue-container {
+  .step4-continue-container {
     padding-top: 32px;
-}
+  }
 
 }
 
@@ -212,24 +241,26 @@
   .step4 {
     padding: 0 30px;
   }
+
   .step4-content {
-  padding-top: 120px;
+    padding-top: 120px;
   }
 
 
   .step4-content h2 {
-     font-size: 40px;
+    font-size: 40px;
+    text-align: left;
   }
 
   .step4-description {
-     font-size: 16px;
+   font-size: 16px;
     margin-bottom: 28px;
     margin-top: 18px;
   }
 
   .step4-options {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
 
   .step4-color {
@@ -237,25 +268,25 @@
   }
 
   .step4-continue-container {
-     position: fixed;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     max-width: 100%;
     padding: 16px 30px;
-    background-color: #F4EFD3;
+    background-color: #F8F8F7;
     border-top: 1px solid var(--color-border-b2);
     justify-content: center;
     z-index: 999;
     gap: 16px;
   }
 
-   .step4-continue-right {
+  .step4-continue-right {
     width: 100%;
     max-width: 100%;
     height: 52px;
     font-size: 16px;
-      margin: 0;
+    margin: 0;
   }
 
   .arrow-circle {
@@ -263,40 +294,41 @@
     height: 28px;
   }
 
-   .step4-back-button {
+  .step4-back-button {
     width: 30%;
     font-size: 16px;
     height: 52px;
     padding: 8px 18px 8px 12px;
     justify-content: center;
-      margin: 0;
+    margin: 0;
   }
 
 
 }
 
 @media (max-width: 640px) {
-    .step4 {
-         padding: 0 24px;
+  .step4 {
+    padding: 0 24px;
   }
+
   .step4-content {
     padding-top: 120px;
   }
 
   .step4-content h2 {
-    font-size: 38px;
-    max-width: 400px;
-    margin: 0 auto;
+     font-size: 38px;
+    margin: 0;
+    text-align: left;
   }
 
   .step4-description {
     font-size: 16px;
     margin-bottom: 28px;
-    margin-top: 18px;
+    margin-top: 18px;;
   }
 
   .step4-color {
-     height: 150px;
+    height: 150px;
   }
 
 
@@ -307,23 +339,29 @@
 
 
 @media (max-width: 430px) {
-    .step4 {
+  .step4 {
     padding: 0 20px;
   }
+
   .step4-content {
     padding-top: 120px;
   }
 
   .step4-content h2 {
-      font-size: 36px;
-    max-width: 300px;
-    margin: 0 auto;
+    font-size: 36px;
+    margin: 0;
+    text-align: left;
   }
 
   .step4-description {
-      font-size: 16px;
-    margin-bottom: 28px;
-    margin-top: 18px;
+    font-size: 16px;
+    margin-bottom: 24px;
+    margin-top: 16px;
+  }
+
+   .step4-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .step4-color {
@@ -335,4 +373,3 @@
     padding: 16px 20px;
   }
 }
-

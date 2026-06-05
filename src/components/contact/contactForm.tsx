@@ -60,45 +60,18 @@ export const ContactForm = component$(() => {
         {/* Left Side */}
         <div class="contact-info">
           <div class="contact-badge">
-            <span class="dot"></span>
             Contact Us
           </div>
-          <h1>Have Questions or Need Support?</h1>
+          <h1>HAVE QUESTIONS OR NEED SUPPORT?</h1>
           <p class="subtitle">
             Have a question, need assistance, or want to share your feedback? Reach out to our team anytime, and we’ll provide clear answers and guidance so you can make the most of our platform quickly and effortlessly.
           </p>
-
-          <div class="info-links">
-            <a href="/about" class="info-card">
-              <div class="card-content">
-                <h3>About</h3>
-                <p>Discover Lazzer and our mission to make professional logo creation simple, fast, and accessible. Learn how our platform works, explore its features, and see how we help brands bring their ideas to life.</p>
-              </div>
-              <div class="arrows">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </a>
-
-            <a href="/faq" class="info-card">
-              <div class="card-content">
-                <h3>Faq's</h3>
-                <p>Find clear answers to all your questions about Lazzer. From logo creation and customization to download options, usage rights, and payments, our FAQ section guides you step by step.</p>
-              </div>
-              <div class="arrows">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </a>
-          </div>
         </div>
 
         {/* Right Side - Form */}
         <div class="contact-form-card">
           <div class="form-header">
-            <h2>Do you have any questions? Contact us.</h2>
+            <h2>CONTACT US</h2>
             <p>Fill out the form below and our team will get back to you quickly with helpful answers and guidance.</p>
           </div>
 
@@ -149,7 +122,7 @@ export const ContactForm = component$(() => {
                   value={formData.subject}
                   onChange$={(e) => (formData.subject = (e.target as HTMLSelectElement).value)}
                 >
-                  <option value="" disabled selected={!formData.subject}>Select Subject</option>
+                  <option value="" disabled selected={!formData.subject}>Subject</option>
                   <option value="payment">Payment Operations</option>
                   <option value="technical">Technical Support</option>
                   <option value="general">General Inquiry</option>

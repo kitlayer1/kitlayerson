@@ -2,8 +2,8 @@ import { component$, useStore, $, type QRL } from '@builder.io/qwik';
 import { allFavicons } from './allFavicons';
 import { allFonts } from './allFonts';
 import { colorOptionById } from './colorOption';
+import { getLogoIndices } from './logoUtils';
 import "./step6GeneratedLogos.css";
-import { AppHeader } from './components/header/header';
 
 export const Step6GeneratedLogos = component$((props: {
   brandName: string;
@@ -34,29 +34,30 @@ export const Step6GeneratedLogos = component$((props: {
 
   return (
     <div class="step6">
-         <AppHeader />
       <div class="step6-content">
      
 
         <div class="step6-header">
           <div class="step6-text">
-            <h2>Pick a logo to customize</h2>
+            <h2>Your Logo Ideas Are Ready to Explore</h2>
             <p class="step6-description">
-              Beğendiğin logoya tıkla ve devam et.
+               Based on your selections, we’ve generated unique logo concepts tailored to your brand.
             </p>
           </div>
         </div>
 
         <div class="step6-options">
           {Array.from({ length: Math.min(state.visibleCount, 1000) }).map((_, i) => {
-            const f = usableFavicons[i % usableFavicons.length];
+            const { fIndexHash, fontIndexHash, cIndexHash, pIndexHash } = getLogoIndices(i, props.brandName);
+
+            const f = usableFavicons[fIndexHash % usableFavicons.length];
 
             const font =
               usableFonts.length > 0
-                ? usableFonts[i % usableFonts.length].fontFamily
+                ? usableFonts[fontIndexHash % usableFonts.length].fontFamily
                 : 'sans-serif';
 
-            const selectedId = props.colors[i % props.colors.length];
+            const selectedId = props.colors[cIndexHash % props.colors.length];
             const option = colorOptionById[selectedId];
 
             const palettes =
@@ -64,7 +65,7 @@ export const Step6GeneratedLogos = component$((props: {
                 { background: '#f9f9f9', text: '#222' },
               ];
 
-            const palette = palettes[i % palettes.length];
+            const palette = palettes[pIndexHash % palettes.length];
 
             return (
               <div
@@ -78,21 +79,45 @@ export const Step6GeneratedLogos = component$((props: {
                   alignItems: 'center',
                   justifyContent: 'center',
                   cursor: 'pointer',
-                  borderRadius: '10px',
+                  borderRadius: '8px',
                   minHeight: '240px',
                   transition: 'all 0.2s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
                 onClick$={() => handleSelect(i)}
               >
-                <img
-                  src={f.iconPath}
-                  alt="icon"
-                  width="85"
-                  height="85"
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  pointerEvents: 'none',
+                  opacity: 0.04,
+                  fontSize: '3.5rem',
+                  fontWeight: '900',
+                  color: palette.text,
+                  transform: 'rotate(-30deg)',
+                  whiteSpace: 'nowrap',
+                  userSelect: 'none',
+                  zIndex: 10,
+                  fontFamily: 'sans-serif'
+                }}>kitlayer</div>
+                <div
                   style={{
                     width: '85px',
                     height: '85px',
                     marginBottom: '2rem',
+                    backgroundColor: palette.icon || palette.text,
+                    WebkitMaskImage: `url(${f.iconPath})`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url(${f.iconPath})`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
                   }}
                 />
                 <span

@@ -1,15 +1,10 @@
 import { component$ } from "@builder.io/qwik";
-import "./loadingOverlay.css";
+import "./loading.css";
 
 export const LoadingOverlay = component$(() => {
   return (
     <div class="loading-overlay">
-      <div class="loading-center">
-
-        {/* İstersen buraya SVG logo koyabilirsin */}
-        <div class="loading-box" />
-
-      </div>
+      <div class="spinner"></div>
     </div>
   );
 });

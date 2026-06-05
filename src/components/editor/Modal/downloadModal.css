@@ -20,14 +20,17 @@
   pointer-events: auto;
 }
 
-.canva2025-modal {
+.canva2025-modal-v2 {
   background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 450px;
   max-width: calc(100vw - 40px);
   pointer-events: auto;
-  animation: canva2025-slideIn 0.2s ease;
+  animation: canva2025-slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
 }
 
 .canva2025-modal-mobile {
@@ -38,330 +41,379 @@
   top: auto;
   width: 100%;
   max-width: 100%;
-  border-radius: 20px 20px 0 0;
-  animation: canva2025-slideUp 0.3s ease;
+  border-radius: 24px 24px 0 0;
+  animation: canva2025-slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .canva2025-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px 16px ;
-  border-bottom: 1px solid #f1f1f1;
+  padding: 16px;
+  border-bottom: 1px solid #F0F0F0;
+  gap: 8px;
 }
 
 .canva2025-header h2 {
-  font-family: var(--font-lazzer-SemiBold);
+  font-family: var(--font-Geist-SemiBold);
   margin: 0;
-  font-size: 14px;
-  color: #0e1318;
+  font-size: 16px;
+  color: var(var( --color-heading-dark-1));
+  line-height: var( --lh-heading-2);
+  letter-spacing: var(--ls-tight-md);
 }
 
-.canva2025-close-btn {
-  background: none;
+.canva2025-back-btn {
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 4px;
-  color: #0e1318;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
-}
-
-.canva2025-close-btn:hover {
-  opacity: 0.7;
+  padding: 0;
+  color: var( --color-heading-dark-1);
 }
 
 .canva2025-content {
-  padding: 20px 16px 0;
-  
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.canva2025-section {
-  margin-bottom: 28px;
+.canva2025-section-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.canva2025-label {
-  font-family: var(--font-lazzer-SemiBold);
-  display: block;
-  font-size: 12px;
-  color: #0e1318;
-  margin-bottom: 10px;
+.canva2025-label-v2 {
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var( --color-heading-dark-2);
+}
+
+.canva2025-section-desc {
+  font-family: var(--font-Geist-Medium);
+  font-size: 14px;
+  color: var(--color-subtitle-dark-2);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
 }
 
 .canva2025-select-wrapper {
   position: relative;
 }
 
-.canva2025-select-trigger {
+.canva2025-select-trigger-v2 {
   width: 100%;
-  padding: 12px 14px;
-  background: #fbfbfb;
-  border: 1px solid #e2e4e7;
-  border-radius: 6px;
+  height: 48px;
+  padding: 0 16px;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
 }
 
-.canva2025-select-trigger:hover {
-  background: #f5f6f8;
-  border-color: #d1d5db;
+.canva2025-select-trigger-v2:hover {
+  background: #f9fafb;
+  border-color: #D1D5DB;
+}
+
+.canva2025-select-trigger-v2.active {
+  background: #ffffff;
+  border-color: blue;
+  box-shadow: 0 0 0 1px blue;
 }
 
 .canva2025-selected-value {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.canva2025-select-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0e1318;
-}
-
-.canva2025-select-text {
-   font-family: var(--font-lazzer-SemiBold);
-  font-size: 14px;
-   line-height: 1.1;
-  letter-spacing: -0.04em;
-  color: #0e1318;
-}
-
-.canva2025-badge-free {
-  background: #def6ec;
-  color: #00aa55;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.canva2025-badge-premium {
-  background: #f3e8ff;
-  color: #7c3aed;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.canva2025-badge-business {
-  background: #0e1318;
-  color: #ffffff;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.canva2025-select-trigger.active {
-  background: #ffffff;
-  border-color: #8B3DFF;
-  box-shadow: 0 0 0 1px #8B3DFF;
-}
-
-.canva2025-select-arrow {
-  color: #0e1318;
-  transition: transform 0.2s ease;
-}
-
-.canva2025-select-arrow.open {
-  transform: rotate(180deg);
-}
-
-.canva2025-checkbox-wrapper {
-  display: flex;
-  align-items: flex-start;
   gap: 12px;
 }
 
-.canva2025-checkbox {
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  margin-top: 2px;
-  accent-color: #0e1318;
-  border-radius: 4px;
-  border: 1px solid #e2e4e7;
+.dropdown-file-icon {
+  color: #111827;
 }
 
-.canva2025-checkbox:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+.canva2025-select-icon-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8e8e93;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  color: white;
 }
 
-.canva2025-checkbox-label {
-  cursor: pointer;
+.canva2025-select-text-v2 {
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 15px;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.canva2025-select-arrow-v2 {
+  color: #242424;
+  transition: transform 0.3s ease;
+}
+
+.canva2025-select-arrow-v2.open {
+  transform: rotate(180deg);
+}
+
+/* Include All Feature Section */
+.canva2025-include-all-v2 {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  flex: 1;
+  gap: 16px;
+  padding-top: 8px;
+  position: relative;
 }
 
-.canva2025-checkbox-texts {
+.canva2025-checkbox-container-v2 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.canva2025-checkbox-container-v2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  z-index: 2;
+}
+
+.canva2025-checkbox-v2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #e6e6e6;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.canva2025-checkbox-container-v2 input:checked ~ .canva2025-checkbox-v2 {
+  background-color: #242424;
+}
+
+.canva2025-checkbox-v2:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #d6d6d6;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.canva2025-checkbox-container-v2 input:checked ~ .canva2025-checkbox-v2:after {
+  display: block;
+}
+
+.canva2025-include-texts-v2 {
+  flex: 1;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 32px;
+}
+
+.canva2025-include-title-v2 {
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 14px;
+  color: #242424;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.canva2025-include-desc-v2 {
+  font-family: var(--font-Geist-Regular);
+  font-size: 14px;
+  color: var( --color-subtitle-1);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.canva2025-include-crown-v2 {
+  margin-left: auto;
+  color: #a45cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* Dropdown Menu Styles */
+.canva2025-dropdown-menu-v2 {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  animation: canva2025-slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.canva2025-dropdown-content {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.canva2025-dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.2s;
+  gap: 16px;
+  background-color: transparent;
+}
+
+.canva2025-dropdown-option:hover {
+  background-color: #e5e7eb;
+}
+
+.canva2025-dropdown-option.selected {
+  background-color: transparent;
+}
+
+.canva2025-dropdown-option-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.canva2025-dropdown-option-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.canva2025-checkbox-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #0e1318;
-}
-
-.canva2025-checkbox-desc {
-  font-size: 14px;
-  color: #5a6470;
-  line-height: 1.4;
-}
-
-.canva2025-premium-icon {
-  display: inline-flex;
+.canva2025-dropdown-option-label {
+  display: flex;
   align-items: center;
-  color: #e5a400; /* Canva premium crown gold */
-  margin-top: 2px;
+  gap: 8px;
 }
 
-.canva2025-premium-icon svg {
-  width: 18px;
-  height: 18px;
+.canva2025-dropdown-option-title {
+  font-family: var(--font-Geist-SemiBold);
+  font-size: 15px;
+  color: var(--color-heading-dark-2);
+  line-height: 1.2;
 }
 
-.canva2025-plan-warning {
-  margin-top: 12px;
-  padding-left: 34px;
-  color: #5a6470;
-}
-
-.canva2025-footer {
-  padding: 16px 16px 20px;
-}
-
-.canva2025-download-btn {
-  font-family: var(--font-lazzer-SemiBold);
-   line-height: 1.1;
-  letter-spacing: -0.04em;
-  width: 100%;
-  padding: 16px 24px;
-  background: #0e1318;
+.canva2025-badge-recommended {
+  background-color: #2563eb;
   color: white;
+  font-size: 11px;
+  font-family: var(--font-Geist-Medium);
+  padding: 2px 8px;
+  border-radius: 12px;
+  line-height: 1.2;
+}
+
+.canva2025-badge-free {
+  background-color: #10b981;
+  color: white;
+  font-size: 11px;
+  font-family: var(--font-Geist-Medium);
+  padding: 2px 8px;
+  border-radius: 12px;
+  line-height: 1.2;
+}
+
+.canva2025-dropdown-option-description {
+  font-family: var(--font-Geist-Medium);
+  font-size: 13px;
+  color: var(--color-subtitle-dark-2);
+  line-height: 1.4;
+  padding-left: 0;
+}
+
+.canva2025-dropdown-option-check-wrapper {
+  display: flex;
+  align-items: center;
+  color: #111827;
+}
+
+.canva2025-dropdown-option-check {
+  color: #111827;
+}
+
+/* Footer & Button */
+.canva2025-footer-v2 {
+  padding: 0 16px 24px;
+}
+
+.canva2025-download-btn-v2 {
+  font-family: var(--font-Geist-Medium);
+  width: 100%;
+  height: 48px;
+  padding: 0 ;
+  background: var(--color-button-green-BG);
+  color: var(--color-button-green-text);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.canva2025-download-btn:hover {
-  background: #1a232c;
+.canva2025-download-btn-v2:hover {
+  background: var(--color-button-green-hover);
 }
 
-.canva2025-download-btn:disabled {
-  background: #a9b1ba;
+.canva2025-download-btn-v2:active {
+  transform: translateY(0);
+}
+
+.canva2025-download-btn-v2:disabled {
+  background: #cccccc;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Dropdown Menu Styles */
-.canva2025-dropdown-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 90;
-}
-
-.canva2025-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  width: 100%;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 100;
-  border: 1px solid #e2e4e7;
-  overflow: hidden;
-  animation: canva2025-slideDown 0.15s ease;
-}
-
-.canva2025-dropdown-content {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 8px 0;
-}
-
-.canva2025-dropdown-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.canva2025-dropdown-option:hover {
-  background-color: #f5f6f8;
-}
-
-.canva2025-dropdown-option.selected {
-  background-color: #e9e9e9;
-}
-
-.canva2025-dropdown-option-content {
-  flex: 1;
-}
-
-.canva2025-dropdown-option-label {
-  font-size: 15px;
-  font-family: "Graphik-Medium", sans-serif;
-  color: #0e1318;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.canva2025-badge-blue {
-  display: none;
-}
-
-.canva2025-format-premium-icon {
-  display: none;
-}
-
-.canva2025-dropdown-option-description {
-  font-size: 13px;
-  color: #5a6470;
-  padding-left: 30px;
-}
-
-.canva2025-dropdown-option-check {
-  color: #0e1318;
-  margin-left: 12px;
-}
-
+/* Animations */
 @keyframes canva2025-slideIn {
   from {
     opacity: 0;
-    transform: scale(0.97);
+    transform: scale(0.95) translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -377,7 +429,7 @@
 @keyframes canva2025-slideDown {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;

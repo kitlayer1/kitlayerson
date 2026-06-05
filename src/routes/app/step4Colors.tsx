@@ -1,9 +1,7 @@
 // src/components/Step4Colors.tsx
 import { component$, useStore, $, QRL } from '@builder.io/qwik';
-import { colorOptions } from './colorOption';
+import { colorOptions } from "./colorOption";
 import "./step4Colors.css";
-import { AppHeader } from './components/header/header';
-import { StepIndicator } from "./components/step-indicator/StepIndicator";
 
 export const Step4Colors = component$((props: { 
   initialSelected?: number[];       // Parent'ten gelirse dolu gelsin
@@ -24,13 +22,12 @@ export const Step4Colors = component$((props: {
 
   return (
     <div class="step4">
-          <AppHeader />
       <div class="step4-content">
         <div class="step4-header">
           <div class="step4-text">
-            <h2>Pick some colors you like</h2>
+            <h2>Pick Colors That Represent Your Brand</h2>
             <p class="step4-description">
-              Birden fazla renk seçebilirsin.
+              Select colors that will define the visual identity of your logo and brand assets.
             </p>
           </div>
 
@@ -53,7 +50,23 @@ export const Step4Colors = component$((props: {
         <p class="color-desc">{option.description}</p>
       </div>
 
-      {state.selected.includes(option.id) }
+      {state.selected.includes(option.id) && (
+        <div class="check-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+      )}
     </button>
   ))}
 </div>
@@ -90,7 +103,7 @@ export const Step4Colors = component$((props: {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="white"
-                stroke-width="2"
+                stroke-width="1.8"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
@@ -100,7 +113,7 @@ export const Step4Colors = component$((props: {
             </span>
           </button>
         </div>
-        <StepIndicator currentStep={4} />
+        
       </div>
     </div>
   );

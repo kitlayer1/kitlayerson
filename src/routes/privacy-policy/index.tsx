@@ -1,16 +1,20 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import { Footer } from "~/components/global/footer/footer";
 import { HomeHeader } from "~/components/global/header/homeHeader";
-import styles from "./index.css?inline";
+import styles from "../policy.css?inline";
+import "~/styles/tokens/spacing.css";
+import "~/styles/tokens/colors.css";
+import "~/styles/tokens/typography.css";
+import "~/styles/tokens/radius.css";
 
 export default component$(() => {
     useStyles$(styles);
 
     return (
         <>
-            <HomeHeader />
+            <HomeHeader variant="cream" />
             <div class="policy-container">
-                <h1 class="policy-title">Privacy Policy</h1>
+                <h1 class="policy-title">PRIVACY POLICY</h1>
 
                 <div class="policy-meta">
                     <span class="policy-meta-label">Last updated</span>
@@ -18,7 +22,7 @@ export default component$(() => {
                 </div>
 
                 <div class="policy-content">
-                    <h2 class="policy-section-title">1. Introduction</h2>
+                    <h2 class="policy-section-title">1. INRTODUCTION</h2>
                     <p>
                         This Privacy Policy (“Policy”) governs how Kitlayer (“Platform”, “Site”, “we”) collects, processes, stores, and protects personal data and other information of users (“User”, “you”) who access and use our logo creation and digital design services.
                     </p>
@@ -26,7 +30,7 @@ export default component$(() => {
                         By accessing the Platform, creating an account, or using any part of our services, you acknowledge that you have read, understood, and agreed to the terms outlined in this Policy. If you do not agree, you must discontinue use of the Site.
                     </p>
 
-                    <h2 class="policy-section-title">2. Data We Collect</h2>
+                    <h2 class="policy-section-title">2. DATA WE COLLECT</h2>
                     <p>
                         We may collect various types of data to provide and improve our services:
                     </p>
@@ -44,7 +48,7 @@ export default component$(() => {
                         <li>Performance and usage data</li>
                     </ul>
 
-                    <h2 class="policy-section-title">3. Purpose of Data Processing</h2>
+                    <h2 class="policy-section-title">3. PURPOSE OF DATA PROCESSING</h2>
                    <p>
                        Collected data is processed for the following purposes:
                     </p>
@@ -58,7 +62,7 @@ export default component$(() => {
                         <li>Complying with legal obligations</li>
                     </ul>
 
-                    <h2 class="policy-section-title">4. Data Storage and Protection</h2>
+                    <h2 class="policy-section-title">4. DATA STORAGE AND PROTECTION</h2>
                     <p>
                    User data is stored only as long as necessary and in compliance with applicable laws. We implement appropriate technical and organizational measures to protect data from unauthorized access, loss, misuse, or disclosure.
                     </p>
@@ -66,7 +70,7 @@ export default component$(() => {
                    However, no system can be guaranteed to be 100% secure due to the nature of internet transmissions.
                     </p>
 
-                      <h2 class="policy-section-title">5. Third-Party Services</h2>
+                      <h2 class="policy-section-title">5. THIRD PARTY SERVICES</h2>
                       <p>
                       We may use third-party services for:
                     </p>
@@ -80,7 +84,7 @@ export default component$(() => {
                       These providers operate under their own privacy policies, and we do not control their practices.
                     </p>
 
-                      <h2 class="policy-section-title">6. User Rights</h2>
+                      <h2 class="policy-section-title">6. USER RIGHTS</h2>
                       <p>
                       Users may have the following rights under applicable data protection laws:
                     </p>
@@ -90,7 +94,7 @@ export default component$(() => {
                         <li>Request deletion of data</li>
                         <li>Object to data processing</li>
                     </ul>
-                       <h2 class="policy-section-title">7. Disclaimer</h2>
+                       <h2 class="policy-section-title">7. DISCLAMER</h2>
                      <p>
                        All logos, designs, and content generated through the Platform are based entirely on:
                     </p>
@@ -119,7 +123,7 @@ export default component$(() => {
                     </ul>
                    
 
-                     <h2 class="policy-section-title">8. “As-Is” Service Clause</h2>
+                     <h2 class="policy-section-title">8. AS-IS SERVICE CLAUSE</h2>
                     <p>
                       All services are provided on an “as-is” and “as-available” basis. We do not guarantee that the service will be.
                     </p>
@@ -128,11 +132,11 @@ export default component$(() => {
                         <li>Error-free</li>
                         <li>Suitable for specific expectations</li>
                     </ul>
-                     <h2 class="policy-section-title">9. Policy Updates</h2>
+                     <h2 class="policy-section-title">9. POLICY UPDATES</h2>
                     <p>
                      This Policy may be updated without prior notice. The updated version becomes effective as soon as it is published on the Site. Therefore, it is the user’s responsibility to review this Policy periodically for any changes.
                     </p>
-                     <h2 class="policy-section-title">10. Contact</h2>
+                     <h2 class="policy-section-title">10. CONTACT</h2>
                     <p>
                      For any questions regarding this Policy, you may contact us via <a href="mailto:help@kitlayer.com">help@kitlayer.com</a>
                     </p>

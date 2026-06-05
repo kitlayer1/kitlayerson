@@ -6,26 +6,28 @@ export interface CommentItem {
   name: string;
   title: string;
   image: string;
-  bg: string;
   color: string;
 }
 
 interface CommentSectionProps {
   title?: string;
+  description?: string;
   comments: CommentItem[];
 }
 
 export default component$<CommentSectionProps>(
-  ({  comments }) => {
+  ({ title, description, comments }) => {
     return (
       <section class="comment-section">
          <div class="comment-header">
         <h2>
-       Real Stories from Our 
-
-          <br />
-           Happy Users
+          {title || (
+            <>
+              SEE WHAT REAL USERS SAY ABOUT THEIR LOGO DESIGN EXPERIENCE
+            </>
+          )}
         </h2>
+        {description && <p class="comment-description">{description}</p>}
       </div>
 
         <div class="comment-grid">
@@ -33,7 +35,7 @@ export default component$<CommentSectionProps>(
             <div
               key={index}
               class="comment-card"
-              style={{ backgroundColor: item.bg, color: item.color }}
+              style={{ color: item.color }}
             >
               <p class="comment-text">{item.text}</p>
 

@@ -1,8 +1,7 @@
 // src/components/Step5Style.tsx
 import { component$, useStore, $, QRL } from "@builder.io/qwik";
 import "./step5Style.css";
-import { AppHeader } from "./components/header/header";
-import { StepIndicator } from "./components/step-indicator/StepIndicator";
+import { styleOptions } from "./styleOptions";
 
 export const Step5Style = component$(
   (props: {
@@ -21,27 +20,16 @@ export const Step5Style = component$(
       props.onNext$(state.selectedStyleId);
     });
 
-    const styles = [
-      { id: 1, name: "Classics", image: "/images/app/font/modern.svg" },
-      { id: 2, name: "Retro", image: "/images/app/font/elegant.svg" },
-      { id: 3, name: "Modern", image: "/images/app/font/slab.svg" },
-      { id: 4, name: "Funky", image: "/images/app/font/playful.svg" },
-      { id: 5, name: "Elegant", image: "/images/app/font/handwritter.svg" },
-      { id: 6, name: "Playful", image: "/images/app/font/minimal.svg" },
-      { id: 7, name: "Tech", image: "/images/app/font/future.svg" },
-      { id: 8, name: "Luxury", image: "/images/app/font/luxury.svg" },
-    ];
+    const styles = styleOptions;
 
     return (
       <div class="step5">
-        <AppHeader />
         <div class="step5-content">
           <div class="step5-header">
             <div class="step5-text">
-              <h2>Pick some styles you like</h2>
+              <h2>Choose Your Brand Style</h2>
               <p class="step5-description">
-                Use Looka’s AI-powered platform to design a logo and brand you
-                love.
+               Select the style that best represents your brand identity and logo direction.
               </p>
             </div>
           </div>
@@ -94,7 +82,7 @@ export const Step5Style = component$(
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="white"
-                  stroke-width="2"
+                  stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
@@ -104,7 +92,7 @@ export const Step5Style = component$(
               </span>
             </button>
           </div>
-          <StepIndicator currentStep={5} />
+          
         </div>
       </div>
     );
