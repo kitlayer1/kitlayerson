@@ -8,14 +8,14 @@ import "./step3Favicons.css";
 // Gerçek favicon (category + styleId) allFavicons.ts'den getFavicon() ile alınır.
 // ─────────────────────────────────────────────────────────────────────────────
 const styleIcons: { styleId: number; iconPath: string; label: string }[] = [
-  { styleId: 1, iconPath: '/images/app/favicon/agriculture/logo1.svg', label: 'Style 1' },
-  { styleId: 2, iconPath: '/images/app/favicon/agriculture/logo2.svg', label: 'Style 2' },
-  { styleId: 3, iconPath: '/images/app/favicon/agriculture/logo3.svg', label: 'Style 3' },
-  { styleId: 4, iconPath: '/images/app/favicon/agriculture/logo4.svg', label: 'Style 4' },
-  { styleId: 5, iconPath: '/images/app/favicon/agriculture/logo5.svg', label: 'Style 5' },
-  { styleId: 6, iconPath: '/images/app/favicon/agriculture/logo6.svg', label: 'Style 6' },
-  { styleId: 7, iconPath: '/images/app/favicon/agriculture/logo7.svg', label: 'Style 7' },
-  { styleId: 8, iconPath: '/images/app/favicon/agriculture/logo7.svg', label: 'Style" 7' },
+  { styleId: 1, iconPath: '/images/app/styles/favicon-style-1.svg', label: 'Style 1' },
+  { styleId: 2, iconPath: '/images/app/styles/favicon-style-2.svg', label: 'Style 2' },
+  { styleId: 3, iconPath: '/images/app/styles/favicon-style-3.svg', label: 'Style 3' },
+  { styleId: 4, iconPath: '/images/app/styles/favicon-style-4.svg', label: 'Style 4' },
+  { styleId: 5, iconPath: '/images/app/styles/favicon-style-5.svg', label: 'Style 5' },
+  { styleId: 6, iconPath: '/images/app/styles/favicon-style-6.svg', label: 'Style 6' },
+  { styleId: 7, iconPath: '/images/app/styles/favicon-style-7.svg', label: 'Style 7' },
+  { styleId: 8, iconPath: '/images/app/styles/favicon-style-8.svg', label: 'Style" 7' },
 ];
 
 export const Step3Favicons = component$(
