@@ -2,6 +2,7 @@ import { component$, useSignal, useComputed$, $, useOnDocument, useVisibleTask$,
 import "./previewModal.css";
 import { DownloadModal } from "../../../components/editor/Modal/downloadModal";
 import { PricingModal } from "~/components/pricing/pricingModal";
+import { adjustSvgLayout } from "~/routes/app/logoUtils";
 
 type LogoMode = "color" | "black" | "white" | "transparent" | "invert";
 
@@ -30,33 +31,47 @@ export const LogoPreviewModal = component$(
     const downloadBtnRef = useSignal<Element | undefined>();
 
     const currentSvg = useComputed$(() => {
+      let rawSvg = "";
       switch (mode.value) {
         case "black":
-          return logo?.logo_svg_black || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_black || logo?.logo_svg_color || "";
+          break;
         case "white":
-          return logo?.logo_svg_white || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_white || logo?.logo_svg_color || "";
+          break;
         case "transparent":
-          return logo?.logo_svg_transparent || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_transparent || logo?.logo_svg_color || "";
+          break;
         case "invert":
-          return logo?.logo_svg_invert || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_invert || logo?.logo_svg_color || "";
+          break;
         default:
-          return logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_color || "";
+          break;
       }
+      return adjustSvgLayout(rawSvg);
     });
 
     const generateSvg = $(async (svgMode?: string) => {
+      let rawSvg = "";
       switch (svgMode) {
         case "black":
-          return logo?.logo_svg_black || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_black || logo?.logo_svg_color || "";
+          break;
         case "white":
-          return logo?.logo_svg_white || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_white || logo?.logo_svg_color || "";
+          break;
         case "transparent":
-          return logo?.logo_svg_transparent || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_transparent || logo?.logo_svg_color || "";
+          break;
         case "invert":
-          return logo?.logo_svg_invert || logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_invert || logo?.logo_svg_color || "";
+          break;
         default:
-          return logo?.logo_svg_color || "";
+          rawSvg = logo?.logo_svg_color || "";
+          break;
       }
+      return adjustSvgLayout(rawSvg);
     });
 
     const hasSvg = useComputed$(() => !!currentSvg.value);

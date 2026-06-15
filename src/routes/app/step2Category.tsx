@@ -1,4 +1,4 @@
-import { component$,useStore,useSignal,$,useVisibleTask$, QRL} from "@builder.io/qwik";
+import { component$, useStore, useSignal, $, useVisibleTask$, QRL } from "@builder.io/qwik";
 import "./step2Category.css";
 
 export const Step2Category = component$(
@@ -23,32 +23,28 @@ export const Step2Category = component$(
   ========================= */
 
     const categories = [
-      "Agriculture",
-      "Art & Design",
       "Automotive",
       "Beauty",
-      "Community",
+      "Business",
+      "Commerce",
       "Construction",
-      "Crypto",
-      "E-commerce",
       "Education",
-      "Energy",
-      "Events",
+      "Event & Wedding",
       "Fashion",
       "Finance",
-      "Food & Drink",
+      "Fitness & Gym",
+      "Food and Drink",
       "Gaming",
       "Health & Medical",
+      "Jewellery",
       "Kids",
-      "Legal & Security",
-      "Media",
-      "Pets & Animals",
+      "Photography",
       "Real Estate",
-      "Software",
+      "Restaurant",
       "Sports",
+      "Startup",
       "Technology",
-      "Transport",
-      "Travel",
+      "Travel"
     ];
 
     /* =========================
@@ -245,7 +241,7 @@ export const Step2Category = component$(
               </span>
             </button>
           </div>
-          
+
         </div>
       </div>
     );

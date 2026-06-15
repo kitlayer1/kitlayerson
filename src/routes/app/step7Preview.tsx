@@ -60,6 +60,7 @@ const getColorsByMode = (mode: LogoMode, palette: { background: string; text: st
 export const Step7Preview = component$(
   (props: {
     brandName: string;
+    selectedCategory: string;
     selectedStyleIds: number[];
     colors: number[];
     selectedFontStyleId: number;
@@ -86,6 +87,7 @@ export const Step7Preview = component$(
     ====================== */
 
     const usableFavicons = allFavicons.filter((f) =>
+      f.category === props.selectedCategory &&
       props.selectedStyleIds.includes(f.styleId),
     );
 
@@ -128,7 +130,7 @@ export const Step7Preview = component$(
         logoIndex: activeIndex.value,
         faviconId: favicon.id
       });
-      
+
       // Basit bir hash fonksiyonu
       let hash = 0;
       for (let i = 0; i < dataString.length; i++) {
@@ -173,37 +175,49 @@ export const Step7Preview = component$(
       try {
         const effectiveMode = forcedMode || logoMode.value;
         const colors = getColorsByMode(effectiveMode, palette);
-        
-        let iconUrl = favicon?.iconPath;
-        if (effectiveMode !== "color") {
-          try {
-            const res = await fetch(favicon?.iconPath);
-            let svgText = await res.text();
-            
-            // Renkleri değiştir
-            svgText = svgText
-              .replace(/fill="((?!none)[^"]+)"/gi, `fill="${colors.icon}"`)
-              .replace(/stroke="((?!none)[^"]+)"/gi, `stroke="${colors.icon}"`);
-              
-            // Stil içindeki fill/stroke'ları da dene (opsiyonel ama daha güvenli)
-            svgText = svgText.replace(/fill:\s*((?!none)[^;"]+)/gi, `fill:${colors.icon}`);
-            svgText = svgText.replace(/stroke:\s*((?!none)[^;"]+)/gi, `stroke:${colors.icon}`);
 
-            const encoded = btoa(unescape(encodeURIComponent(svgText)));
-            iconUrl = `data:image/svg+xml;base64,${encoded}`;
-          } catch (e) {
-            console.warn("SVG coloring failed, using original:", e);
-          }
+        let iconElement = "";
+
+        try {
+          const res = await fetch(favicon?.iconPath);
+          let svgText = await res.text();
+
+          // Mevcut fill ve stroke'ları değiştir
+          svgText = svgText
+            .replace(/fill="((?!none)[^"]+)"/gi, `fill="${colors.icon}"`)
+            .replace(/stroke="((?!none)[^"]+)"/gi, `stroke="${colors.icon}"`);
+
+          // CSS içindeki fill/stroke'ları değiştir
+          svgText = svgText
+            .replace(/fill:\s*((?!none)[^;"]+)/gi, `fill:${colors.icon}`)
+            .replace(/stroke:\s*((?!none)[^;"]+)/gi, `stroke:${colors.icon}`);
+
+          // fill'i olmayan SVG elemanlarına fill ekle
+          svgText = svgText
+            .replace(/<path(?![^>]*fill=)/gi, `<path fill="${colors.icon}"`)
+            .replace(/<circle(?![^>]*fill=)/gi, `<circle fill="${colors.icon}"`)
+            .replace(/<rect(?![^>]*fill=)/gi, `<rect fill="${colors.icon}"`)
+            .replace(/<polygon(?![^>]*fill=)/gi, `<polygon fill="${colors.icon}"`)
+            .replace(/<ellipse(?![^>]*fill=)/gi, `<ellipse fill="${colors.icon}"`);
+
+          const viewBoxMatch = svgText.match(/viewBox="([^"]+)"/i);
+          const viewBoxAttr = viewBoxMatch ? viewBoxMatch[0] : 'viewBox="0 0 24 24"';
+          
+          svgText = svgText.replace(/<svg[^>]*>/i, `<svg x="112" y="82" width="176" height="176" ${viewBoxAttr}>`);
+          iconElement = svgText;
+        } catch (e) {
+          console.warn("SVG coloring failed, using fallback:", e);
+          const iconUrl = favicon?.iconPath;
+          const iconBase64 = iconUrl.startsWith("data:") ? iconUrl : await toBase64(iconUrl);
+          iconElement = `<image href="${iconBase64}" x="112" y="82" width="176" height="176" />`;
         }
-
-        const iconBase64 = iconUrl.startsWith("data:") ? iconUrl : await toBase64(iconUrl);
 
         let textElement = `
         <text
           x="200"
-          y="320"
+          y="290"
           font-family="${fontFamily}"
-          font-size="40"
+          font-size="52"
           fill="${colors.text}"
           text-anchor="middle"
           dominant-baseline="middle"
@@ -219,7 +233,7 @@ export const Step7Preview = component$(
             const buffer = await res.arrayBuffer();
             const font = opentype.parse(buffer);
 
-            const path = font.getPath(props.brandName, 0, 0, 32);
+            const path = font.getPath(props.brandName, 0, 0, 42);
             const d = path.toPathData(2);
 
             const box = path.getBoundingBox();
@@ -227,7 +241,7 @@ export const Step7Preview = component$(
             const h = box.y2 - box.y1;
 
             const x = 200 - (box.x1 + w / 2);
-            const y = 320 - (box.y1 + h / 2) + 8;
+            const y = 290 - (box.y1 + h / 2) + 10;
 
             textElement = `<path d="${d}" fill="${colors.text}" transform="translate(${x} ${y})" />`;
           } catch (e) {
@@ -239,9 +253,9 @@ export const Step7Preview = component$(
         }
 
         return `
-        <svg width="500" height="500" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
           ${colors.background !== "transparent" ? `<rect width="400" height="400" fill="${colors.background}" />` : ""}
-          <image href="${iconBase64}" x="125" y="80" width="150" height="150" />
+          ${iconElement}
           ${textElement}
         </svg>
       `.trim();
@@ -298,17 +312,17 @@ export const Step7Preview = component$(
     const saveToSupabase = $(async () => {
       // Önce mevcut session var mı kontrol et (TÜM PARAMETRELERLE)
       const existingSession = await findExistingSessionByData();
-      
+
       if (existingSession) {
         console.log("Mevcut session kullanılıyor:", existingSession.id);
         sessionId.value = existingSession.id;
         isPaid.value = existingSession.paid || false;
         planType.value = existingSession.plan_type || null;
-        
+
         // Data hash'ine göre localStorage'a kaydet
         const dataHash = await getDataHash();
         localStorage.setItem(`logo_session_${dataHash}`, existingSession.id);
-        
+
         return existingSession.id;
       }
 
@@ -345,7 +359,7 @@ export const Step7Preview = component$(
           if (!svgs[m]) {
             throw new Error(`${m} modu için SVG oluşturulamadı`);
           }
-          
+
           await new Promise(resolve => setTimeout(resolve, 100));
         }
 
@@ -386,11 +400,11 @@ export const Step7Preview = component$(
           sessionId.value = data.id;
           isPaid.value = data.paid || false;
           planType.value = data.plan_type || null;
-          
+
           // Data hash'ine göre localStorage'a kaydet
           const dataHash = await getDataHash();
           localStorage.setItem(`logo_session_${dataHash}`, data.id);
-          
+
           console.log("Yeni logo başarıyla kaydedildi, ID:", data.id);
           return data.id;
         }
@@ -408,25 +422,25 @@ export const Step7Preview = component$(
     const loadExistingSession = $(async (id: string) => {
       try {
         console.log("Mevcut session yükleniyor, ID:", id);
-        
+
         const { data, error } = await supabase
           .from("logo_sessions")
           .select("paid, plan_type")
           .eq("id", id)
           .single();
-        
+
         if (error) {
           console.error("Session verisi getirme hatası:", error);
           return false;
         }
-        
+
         if (data) {
           sessionId.value = id;
           isPaid.value = data.paid || false;
           planType.value = data.plan_type || null;
           return true;
         }
-        
+
         return false;
       } catch (error) {
         console.error("Session verisi getirme hatası:", error);
@@ -437,18 +451,18 @@ export const Step7Preview = component$(
     // Satın alma başarılı olduğunda
     const handlePurchaseSuccess = $((purchasedPlanType: 'started' | 'business') => {
       console.log("Satın alma başarılı, plan:", purchasedPlanType);
-      
+
       isPaid.value = true;
       planType.value = purchasedPlanType;
       showPricingModal.value = false;
       showModal.value = true;
-      
+
       if (sessionId.value) {
         supabase
           .from("logo_sessions")
-          .update({ 
+          .update({
             paid: true,
-            plan_type: purchasedPlanType 
+            plan_type: purchasedPlanType
           })
           .eq("id", sessionId.value)
           .then(({ error }) => {
@@ -501,7 +515,7 @@ export const Step7Preview = component$(
 
         // LocalStorage'dan kontrol et
         const storedSessionId = localStorage.getItem(`logo_session_${dataHash}`);
-        
+
         if (storedSessionId) {
           console.log("LocalStorage'dan session bulundu:", storedSessionId);
           const loaded = await loadExistingSession(storedSessionId);
@@ -538,7 +552,7 @@ export const Step7Preview = component$(
         } else {
           console.log("Kullanıcı giriş yapmamış, session oluşturulmadı");
         }
-        
+
       } catch (error) {
         console.error("Initialization hatası:", error);
       } finally {
@@ -584,13 +598,13 @@ export const Step7Preview = component$(
             {!isPaid.value && (
               <button class="upgrade-btn-blue" onClick$={() => (showPricingModal.value = true)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a10 10 0 0 1 7.38 16.75"/>
-                  <path d="m16 12-4-4-4 4"/>
-                  <path d="M12 16V8"/>
-                  <path d="M2.5 8.875a10 10 0 0 0-.5 3"/>
-                  <path d="M2.83 16a10 10 0 0 0 2.43 3.4"/>
-                  <path d="M4.636 5.235a10 10 0 0 1 .891-.857"/>
-                  <path d="M8.644 21.42a10 10 0 0 0 7.631-.38"/>
+                  <path d="M12 2a10 10 0 0 1 7.38 16.75" />
+                  <path d="m16 12-4-4-4 4" />
+                  <path d="M12 16V8" />
+                  <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
+                  <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
+                  <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
+                  <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
                 </svg>
                 Upgrade
               </button>
@@ -602,7 +616,7 @@ export const Step7Preview = component$(
             >
               Download
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m6 9 6 6 6-6"/>
+                <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
           </div>
@@ -613,14 +627,14 @@ export const Step7Preview = component$(
           <div class={["step7-left-panel", isMobileMenuOpen.value && "is-open"]}>
             <div class="mobile-accordion-header" onClick$={() => isMobileMenuOpen.value = !isMobileMenuOpen.value}>
               <span>Ready to Launch</span>
-              <svg 
-                class={["chevron-icon", isMobileMenuOpen.value && "open"]} 
+              <svg
+                class={["chevron-icon", isMobileMenuOpen.value && "open"]}
                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               >
-                <path d="m6 9 6 6 6-6"/>
+                <path d="m6 9 6 6 6-6" />
               </svg>
             </div>
-            
+
             <div class="left-panel-content">
               <h1 class="pp-title">YOUR BRAND LOGO IS READY TO LAUNCH</h1>
               <p class="pp-desc">
@@ -667,7 +681,7 @@ export const Step7Preview = component$(
                       class={{ active: logoMode.value === item.id }}
                       onClick$={() => (logoMode.value = item.id as LogoMode)}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg>
                       {item.label}
                     </button>
                   ))}
@@ -677,7 +691,7 @@ export const Step7Preview = component$(
               <div class="preview-card-outer-container">
                 <div
                   class={[
-                    "pp-card-integrated", 
+                    "pp-card-integrated",
                     logoMode.value === "transparent" && "transparent-mode",
                     logoMode.value === "black" && "black-mode"
                   ]}
@@ -710,11 +724,11 @@ export const Step7Preview = component$(
                   <div ref={svgContainer} class="pp-logo-preview" />
                 </div>
               </div>
-              
+
               <div class="preview-pagination-dots">
-                {modes.map((mode, index) => (
-                  <span 
-                    key={mode} 
+                {modes.map((mode) => (
+                  <span
+                    key={mode}
                     class={["dot", logoMode.value === mode ? "active" : ""]}
                     onClick$={() => (logoMode.value = mode)}
                   ></span>

@@ -4,6 +4,7 @@ import { supabase } from "~/lib/supabaseClient";
 import { DashboardHeader } from "./header/dashboardHeader";
 import { LogoPreviewModal } from "./previewModal/previewModal";
 import { DashboardButton } from "./button/dashboardButtons";
+import { adjustSvgLayout } from "~/routes/app/logoUtils";
 
 export default component$(() => {
   const state = useStore({
@@ -75,6 +76,8 @@ export default component$(() => {
     if (!cleaned.includes('xmlns="http://www.w3.org/2000/svg"')) {
       cleaned = cleaned.replace(/<svg/i, '<svg xmlns="http://www.w3.org/2000/svg"');
     }
+
+    cleaned = adjustSvgLayout(cleaned);
 
     return cleaned
       .replace(/<script[\s\S]*?<\/script>/gi, "")

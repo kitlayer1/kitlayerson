@@ -342,6 +342,7 @@ export default component$(() => {
         {state.currentStep === 6 && (
           <Step6GeneratedLogos
             brandName={state.brandName}
+            selectedCategory={state.category}
             selectedStyleIds={state.selectedStyleIds}
             colors={state.colors}
             selectedFontStyleId={state.selectedFontStyleId}
@@ -352,6 +353,7 @@ export default component$(() => {
         {state.currentStep === 7 && (
           <Step7Preview
             brandName={state.brandName}
+            selectedCategory={state.category}
             selectedStyleIds={state.selectedStyleIds}
             colors={state.colors}
             selectedFontStyleId={state.selectedFontStyleId}

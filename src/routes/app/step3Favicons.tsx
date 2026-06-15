@@ -15,6 +15,7 @@ const styleIcons: { styleId: number; iconPath: string; label: string }[] = [
   { styleId: 5, iconPath: '/images/app/favicon/agriculture/logo5.svg', label: 'Style 5' },
   { styleId: 6, iconPath: '/images/app/favicon/agriculture/logo6.svg', label: 'Style 6' },
   { styleId: 7, iconPath: '/images/app/favicon/agriculture/logo7.svg', label: 'Style 7' },
+  { styleId: 8, iconPath: '/images/app/favicon/agriculture/logo7.svg', label: 'Style" 7' },
 ];
 
 export const Step3Favicons = component$(

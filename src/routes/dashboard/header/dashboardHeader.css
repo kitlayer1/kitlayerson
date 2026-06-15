@@ -10,12 +10,17 @@
 .dashboard-header-content {
   width: 100%;
   padding: 10px 32px;
-  background: var(--color-bg-white);
+  background-color: var(--color-bg-white);
   border-bottom: 1px solid #EBEBEB;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-header.scrolled .dashboard-header-content {
+  background-color: #F8F8F7;
 }
 
 /* Logo */
@@ -88,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-Geist-Bold), sans-serif;
+  font-family: var(--font-Geist-Bold);
   font-size: 18px;
   flex-shrink: 0;
 }

@@ -44,9 +44,9 @@
 
 .step6-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 sütun */
-  gap: 12px; /* boşluklar */
-  margin-top: 12px;
+  grid-template-columns: repeat(2, 1fr); /* 4 sütun */
+  gap: 20px; /* boşluklar */
+  margin-top:20px;
 }
 
 .step6-logo-item {
@@ -54,7 +54,7 @@
   padding: 24px;
   text-align: center;
   cursor: pointer;
-  height: 300px;
+  height: 350px;
 }
 
 .step6-logo-item:hover {

@@ -22,6 +22,7 @@ export const DashboardHeader = component$(() => {
   const user = useSignal<any>(null);
   const loading = useSignal(true);
   const nav = useNavigate();
+  const isScrolled = useSignal(false);
 
   /* ---------------- ICONS ---------------- */
 
@@ -201,6 +202,17 @@ const BlogIcon = () => (
     cleanup(() => document.removeEventListener('click', handleClickOutside));
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(() => {
+    const handleScroll = () => {
+      isScrolled.value = window.scrollY > 0;
+    };
+    // Initialize in case page is already scrolled
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
   const handleLogout = $(async () => {
     await supabase.auth.signOut();
     isUserMenuOpen.value = false;
@@ -213,7 +225,7 @@ const BlogIcon = () => (
   });
 
   return (
-    <header class="dashboard-header">
+    <header class={["dashboard-header", isScrolled.value && "scrolled"]}>
       <div class="dashboard-header-content">
 
         {/* Logo */}

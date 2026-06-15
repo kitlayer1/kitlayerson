@@ -9,6 +9,7 @@ export const Step6GeneratedLogos = component$((props: {
   brandName: string;
   selectedStyleIds: number[];
   colors: number[];
+  selectedCategory: string;
   selectedFontStyleId: number;
   onSelect$: QRL<(index: number) => void>;
 }) => {
@@ -17,8 +18,9 @@ export const Step6GeneratedLogos = component$((props: {
   });
 
   const usableFavicons = allFavicons.filter(f =>
-    props.selectedStyleIds.includes(f.styleId)
-  );
+  f.category === props.selectedCategory &&
+  props.selectedStyleIds.includes(f.styleId)
+);
 
   const usableFonts = allFonts.filter(
     f => f.styleId === props.selectedFontStyleId
@@ -106,9 +108,9 @@ export const Step6GeneratedLogos = component$((props: {
                 }}>kitlayer</div>
                 <div
                   style={{
-                    width: '85px',
-                    height: '85px',
-                    marginBottom: '2rem',
+                    width: '105px',
+                    height: '105px',
+                    marginBottom: '0.5rem',
                     backgroundColor: palette.icon || palette.text,
                     WebkitMaskImage: `url(${f.iconPath})`,
                     WebkitMaskSize: 'contain',
@@ -122,7 +124,7 @@ export const Step6GeneratedLogos = component$((props: {
                 />
                 <span
                   style={{
-                    fontSize: '2rem',
+                    fontSize: '3rem',
                     color: palette.text,
                   }}
                 >

@@ -36,6 +36,324 @@ ol {
 :root{
   /* Container */
     --container-max-width: 1164px;
+
+    
 }
 
+/* ================= HANDWRITTER (styleId: 5) ================= */
+
+@font-face {
+  font-family: "Agezka";
+  src: url("/fonts/handwritter/agezka/agezka.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Alena";
+  src: url("/fonts/handwritter/alena/alena.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Asgilla";
+  src: url("/fonts/handwritter/asgilla/asgilla.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avliana";
+  src: url("/fonts/handwritter/avliana/avliana.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Beatina";
+  src: url("/fonts/handwritter/beatina/beatina.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Beautiful";
+  src: url("/fonts/handwritter/beautiful/beautiful.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bicers";
+  src: url("/fonts/handwritter/bicers/bicers.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Birjhon";
+  src: url("/fonts/handwritter/birjhon/birjhon.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bistro";
+  src: url("/fonts/handwritter/bistro/bistro.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Brasskent";
+  src: url("/fonts/handwritter/brasskent/brasskent.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Broken";
+  src: url("/fonts/handwritter/broken/broken.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Brownie";
+  src: url("/fonts/handwritter/brownie/brownie.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Bumgreks";
+  src: url("/fonts/handwritter/bumgreks/bumgreks.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Cabosunset";
+  src: url("/fonts/handwritter/cabosunset/cabosunset.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Canessa";
+  src: url("/fonts/handwritter/canessa/canessa.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Chapney";
+  src: url("/fonts/handwritter/chapney/chapney.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Chillyot";
+  src: url("/fonts/handwritter/chillyot/chillyot.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Country";
+  src: url("/fonts/handwritter/country/country.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Creftins";
+  src: url("/fonts/handwritter/creftins/creftins.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Elvellon";
+  src: url("/fonts/handwritter/elvellon/elvellon.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Flower";
+  src: url("/fonts/handwritter/flower/flower.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gestclo";
+  src: url("/fonts/handwritter/gestclo/gestclo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "History-Birthday";
+  src: url("/fonts/handwritter/history-birthday/history-birthday.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Katie-Ginger";
+  src: url("/fonts/handwritter/katie-ginger/katieginger.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "klaty-lotleg";
+  src: url("/fonts/handwritter/klaty-lotleg/klaty-lotleg.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Liquid";
+  src: url("/fonts/handwritter/liquid/liquid.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Luce";
+  src: url("/fonts/handwritter/luce/luce.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lunar";
+  src: url("/fonts/handwritter/lunar/lunar.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Luxes";
+  src: url("/fonts/handwritter/luxes/luxes.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Luxurio";
+  src: url("/fonts/handwritter/luxurio/luxurio.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Maisonelle";
+  src: url("/fonts/handwritter/maisonelle/maisonelle.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Mandalica";
+  src: url("/fonts/handwritter/mandalica/mandalica.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Margareth";
+  src: url("/fonts/handwritter/margareth/margareth.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Matcha";
+  src: url("/fonts/handwritter/matcha/matcha.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Mayren";
+  src: url("/fonts/handwritter/mayren/mayren.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Melonica";
+  src: url("/fonts/handwritter/melonica/melonica.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Mildon";
+  src: url("/fonts/handwritter/mildon/mildon.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montege";
+  src: url("/fonts/handwritter/montege/montege.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Morey";
+  src: url("/fonts/handwritter/morey/morey.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Morisa";
+  src: url("/fonts/handwritter/morisa/morisa.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Murces";
+  src: url("/fonts/handwritter/murces/murces.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Nilfgard";
+  src: url("/fonts/handwritter/nilfgard/nilfgard.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Nirain";
+  src: url("/fonts/handwritter/nirain/nirain.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noira";
+  src: url("/fonts/handwritter/noira/noira.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Paladin";
+  src: url("/fonts/handwritter/paladin/paladin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Palm";
+  src: url("/fonts/handwritter/palm/palm.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Panera";
+  src: url("/fonts/handwritter/panera/panera.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Pattas";
+  src: url("/fonts/handwritter/pattas/pattas.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Qaugherty";
+  src: url("/fonts/handwritter/qaugherty/qaugherty.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Resika";
+  src: url("/fonts/handwritter/resika/resika.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Rofina";
+  src: url("/fonts/handwritter/rofina/rofina.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Ronaldtumb";
+  src: url("/fonts/handwritter/ronaldtumb/ronald-tumb.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Roselia";
+  src: url("/fonts/handwritter/roselia/roselia.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Rovale";
+  src: url("/fonts/handwritter/rovale/rovale.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Rustic";
+  src: url("/fonts/handwritter/rustic/rustic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Sanita";
+  src: url("/fonts/handwritter/sanita/sanita.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Semestha";
+  src: url("/fonts/handwritter/semestha/semestha.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Sepia";
+  src: url("/fonts/handwritter/sepia/sepia.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Seraphy";
+  src: url("/fonts/handwritter/seraphy/seraphy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Sergioromeo";
+  src: url("/fonts/handwritter/sergioromeo/sergio-romeo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Shilven";
+  src: url("/fonts/handwritter/shilven/shilven.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Sloovia";
+  src: url("/fonts/handwritter/sloovia/sloovia.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Weekend";
+  src: url("/fonts/handwritter/weekend/weekend.otf") format("opentype");
+}
 
