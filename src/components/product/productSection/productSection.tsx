@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import './productSection.css';
-import ImgProductsection from '~/media/images/product/section/productSection.svg?jsx';
+import ImgProductsection from '~/media/images/product/section/productSection.svg';
 
 export const ProductSection = component$(() => {
   const cardData = [
@@ -32,7 +32,7 @@ export const ProductSection = component$(() => {
         {/* Top Banner part */}
         <div class="ps-banner">
           <div class="ps-banner-image-wrapper">
-             <ImgProductsection class="ps-banner-image" />
+             <img src={ImgProductsection} class="ps-banner-image" alt="Product Section Logo Illustration" width="1200" height="800" />
           </div>
           <div class="ps-banner-content">
             <h2 class="ps-banner-title">CREATE YOUR<br/>LOGO FOR FREE</h2>
