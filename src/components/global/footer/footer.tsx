@@ -1,5 +1,6 @@
 import { component$, useStore, $ } from "@builder.io/qwik";
 import "./footer.css";
+import ImgFooterbanner from '~/media/images/global/footer/banner/footerBanner.svg?jsx';
 
 export const Footer = component$(() => {
   const currentYear = new Date().getFullYear();
@@ -52,7 +53,7 @@ export const Footer = component$(() => {
 </a>
           </div>
           <div class="footer-cta-image">
-            <img src="/images/global/footer/banner/footerBanner.svg" alt="Brew Box" />
+            <ImgFooterbanner />
           </div>
         </div>
 

@@ -11,6 +11,7 @@ import "./step7Preview.css";
 import { AppHeader } from "./components/header/header";
 import { PricingModal } from "~/components/pricing/pricingModal";
 import { LoginModal } from "~/components/login/LoginModal";
+import ImgStep7Docs from '~/media/images/app/step/step7-docs.svg?jsx';
 
 type LogoMode = "color" | "black" | "white" | "transparent" | "invert";
 
@@ -660,7 +661,7 @@ export const Step7Preview = component$(
               <div class="preview-internal-header">
                 <div class="preview-brand-info">
                   <div class="preview-brand-icon">
-                    <img src="/images/app/step/step7-docs.svg" alt="Brand Icon" />
+                    <ImgStep7Docs />
                   </div>
                   <div class="preview-brand-text">
                     <strong>{props.brandName || "Kitlayer"}</strong>

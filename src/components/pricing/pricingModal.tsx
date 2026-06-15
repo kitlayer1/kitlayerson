@@ -1,5 +1,4 @@
-// src/components/pricing/pricingModal.tsx
-import { component$, $, QRL, useVisibleTask$, useSignal } from "@builder.io/qwik";
+import { component$, $, QRL, useVisibleTask$ } from "@builder.io/qwik";
 import { supabase } from "~/lib/supabaseClient";
 import "./pricingModal.css";
 

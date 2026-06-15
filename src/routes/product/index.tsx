@@ -8,52 +8,6 @@ import { GlobalFuture } from "~/components/global/globalFuture/globalFuture";
 import { GlobalHero } from "~/components/global/globalHero/globalHero";
 import { ProductSection } from "~/components/product/productSection/productSection";
 
-const comments = [
-  {
-    text: `I don’t have any design background, but I was able to create a clean and professional-looking logo by following the steps. Everything felt clear and easy to use.`,
-    name: "Elissa Piraver",
-    title: "Small Business Owner",
-    image: "/images/global/comment/user/woman1.svg",
-    color: "var(--color-heading-1)",
-  },
-  {
-    text: `"Seeing my logo update in real time while adjusting colors and typography made the whole process much more intuitive than I expected."`,
-    name: "Cristian Makalulu",
-    title: "Content Creator",
-    image: "/images/global/comment/user/man1.svg",
-    color: "var(--color-heading-1)",
-  },
-  {
-    text: `I explored several styles and variations before choosing the final one, which really helped me understand what works best for my brand."`,
-    name: "Albert Mitrovic",
-    title: "Startup Founder",
-    image: "/images/global/comment/user/man2.svg",
-    color: "var(--color-heading-1)",
-  },
-  {
-    text: `"As someone who just wanted a solid logo without learning complex design tools, this platform was exactly what I needed."`,
-    name: "Guillermo Rauch",
-    title: "Freelance Consultant",
-    image: "/images/global/comment/user/man3.svg",
-    color: "var(--color-heading-1)",
-  },
-  {
-    text: `"The step-by-step flow made it easy to experiment, make changes, and improve the design without feeling overwhelmed."`,
-    name: "Peter Rashford",
-    title: "E-commerce Store Owner",
-    image: "/images/global/comment/user/man4.svg",
-    color: "var(--color-heading-1)",
-  },
-  {
-    text: `"I created a logo in a short time, and it looks good enough to use across my website and social media."`,
-    name: "Sabriana Convelti",
-    title: "Marketing Specialist",
-    image: "/images/global/comment/user/woman2.svg",
-    color: "var(--color-heading-1)",
-  },
-];
-
-
 export default component$(() => {
   return (
     <>

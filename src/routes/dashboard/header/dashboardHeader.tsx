@@ -2,6 +2,7 @@ import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import './dashboardHeader.css';
+import ImgLogo from '~/media/logo.svg?jsx';
 
 const getInitials = (name?: string, email?: string) => {
   if (name && name.trim() !== '') {
@@ -27,25 +28,6 @@ export const DashboardHeader = component$(() => {
   /* ---------------- ICONS ---------------- */
 
 
-  const CreateIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    class="create-icon"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <path d="M8 12h8" />
-    <path d="M12 8v8" />
-  </svg>
-);
-
 const DashboardIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -63,43 +45,6 @@ const DashboardIcon = () => (
     <path d="M10 4v4" />
     <path d="M2 8h20" />
     <path d="M6 4v4" />
-  </svg>
-);
-
-const SettingsIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-Width="2"
-    stroke-Linecap="round"
-    stroke-Linejoin="round"
-    class="settings-icon"
-  >
-    <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/>
-    <circle cx="12" cy="12" r="3"/>
-  </svg>
-);
-
-const LearnIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-Width="1.5"
-    stroke-Linecap="round"
-    stroke-Linejoin="round"
-    class="learn-icon"
-  >
-    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
-    <path d="m8 13 4-7 4 7"/>
-    <path d="M9.1 11h5.7"/>
   </svg>
 );
 
@@ -231,7 +176,7 @@ const BlogIcon = () => (
         {/* Logo */}
         <div class="dashboard-header-left">
           <Link href="/">
-            <img src="/logo.svg" alt="Kitlayer Logo" style={{ width: '130px', height: 'auto' }} />
+            <ImgLogo style={{ width: '130px', height: 'auto' }} />
           </Link>
         </div>
 

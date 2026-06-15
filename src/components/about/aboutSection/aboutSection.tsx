@@ -1,4 +1,4 @@
-import { component$, useStylesScoped$, $ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import styles from "./aboutSection.css?inline";
 

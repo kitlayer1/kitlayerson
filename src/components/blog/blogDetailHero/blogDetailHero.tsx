@@ -12,7 +12,7 @@ interface BlogDetailHeroProps {
 }
 
 export const BlogDetailHero = component$<BlogDetailHeroProps>(
-  ({ title, description, category, date, readingTime, coverImage }) => {
+  ({ title, description, coverImage }) => {
     return (
       <section class="blog-detail-hero">
         <div class="blog-detail-hero-inner">
@@ -32,6 +32,8 @@ export const BlogDetailHero = component$<BlogDetailHeroProps>(
                 src={coverImage} 
                 alt={title} 
                 class="blog-detail-hero-image"
+                width={520}
+                height={500}
               />
             )}
           </div>

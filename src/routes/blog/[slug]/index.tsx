@@ -1,5 +1,5 @@
-import { component$, $ } from '@builder.io/qwik';
-import { routeLoader$, Link, useLocation } from '@builder.io/qwik-city';
+import { component$ } from '@builder.io/qwik';
+import { routeLoader$, Link } from '@builder.io/qwik-city';
 import './blogDetail.css';
 import { BlogDetailHero } from '~/components/blog/blogDetailHero/blogDetailHero';
 import blogData from '../../../../public/data/blogDetail.json';
@@ -115,9 +115,10 @@ export default component$(() => {
         <div class="blog-post-body">
           {post.value.blocks.map((block, index) => {
             switch (block.type) {
-              case 'heading':
+              case 'heading': {
                 const Tag = `h${block.level || 2}` as any;
                 return <Tag key={index}>{block.content}</Tag>;
+              }
               
               case 'paragraph':
                 return <p key={index}>{block.content}</p>;
@@ -125,7 +126,7 @@ export default component$(() => {
               case 'image':
                 return (
                   <figure key={index} class="blog-image-block">
-                    <img src={block.src} alt={block.alt} />
+                    <img src={block.src} alt={block.alt} width={800} height={450} />
                     {(block.title || block.description) && (
                       <figcaption class="blog-image-caption">
                         {block.title && <strong>{block.title} </strong>}

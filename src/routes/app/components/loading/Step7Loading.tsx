@@ -1,5 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import "./loading.css";
+import ImgLoaderlogo from '~/media/images/app/loader/loaderLogo.svg?jsx';
 
 export const Step7Loading = component$(() => {
   const phase = useSignal(1);
@@ -15,7 +16,7 @@ export const Step7Loading = component$(() => {
   return (
     <div class="step7-loading-overlay">
       <div class="step7-loading-content">
-        <img src="/images/app/loader/loaderLogo.svg" alt="Loading Logo" class="step7-loader-logo" />
+        <ImgLoaderlogo class="step7-loader-logo" />
         
         <div class="step7-text-container" key={phase.value}>
           {phase.value === 1 ? (

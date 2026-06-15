@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import './homeSection.css';
+import ImgHomesection from '~/media/images/home/section/homeSection.png?jsx';
 
 export const HomeSection = component$(() => {
   return (
@@ -7,7 +8,7 @@ export const HomeSection = component$(() => {
       <div class="hs-container">
         <div class="hs-banner">
           <div class="hs-banner-image-wrapper">
-            <img src="/images/home/section/homeSection.png" alt="Banner" class="hs-banner-image" />
+            <ImgHomesection alt="Banner" class="hs-banner-image" />
           </div>
 
           <div class="hs-banner-content">

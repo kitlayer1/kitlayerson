@@ -1,4 +1,4 @@
-import { component$, useSignal, $ } from '@builder.io/qwik';
+import { component$, useSignal, $, type PropFunction } from '@builder.io/qwik';
 import { supabase } from '~/lib/supabaseClient';
 import { useNavigate } from '@builder.io/qwik-city';
 import './settingsModal.css';
@@ -19,16 +19,17 @@ const getInitials = (name?: string, email?: string) => {
 
 interface Props {
   user: any;
-  onClose$: () => void;
+  onClose$: PropFunction<() => void>;
 }
 
 export const SettingsModal = component$<Props>((props) => {
   const activeTab = useSignal<SettingsTab>('account');
   const nav = useNavigate();
+  const { onClose$ } = props;
 
   const handleLogout = $(async () => {
     await supabase.auth.signOut();
-    props.onClose$();
+    await onClose$();
     nav('/login');
   });
 
@@ -67,9 +68,9 @@ export const SettingsModal = component$<Props>((props) => {
   const email = props.user?.email || '';
 
   return (
-    <div class="settings-modal-overlay" onClick$={(e) => {
+    <div class="settings-modal-overlay" onClick$={async (e) => {
       if ((e.target as HTMLElement).classList.contains('settings-modal-overlay')) {
-        props.onClose$();
+        await onClose$();
       }
     }}>
       <div class="settings-modal-container">
@@ -121,7 +122,7 @@ export const SettingsModal = component$<Props>((props) => {
         {/* MAIN CONTENT */}
         <div class="settings-main">
           {/* Close */}
-          <button class="settings-close-btn" onClick$={props.onClose$}>
+          <button class="settings-close-btn" onClick$={onClose$}>
             <CloseIcon />
           </button>
 
