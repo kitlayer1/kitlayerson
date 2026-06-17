@@ -1,4 +1,4 @@
-import { component$, useStore, useVisibleTask$, QRL } from "@builder.io/qwik";
+import { component$, useStore, useVisibleTask$, QRL, useTask$ } from "@builder.io/qwik";
 import "./step1BrandName.css";
 
 export const Step1BrandName = component$(
@@ -8,13 +8,19 @@ export const Step1BrandName = component$(
     onBack$?: QRL<() => void>;
   }) => {
     const state = useStore({
-      brandName: "",
+      brandName: props.initialBrandName || "",
+    });
+
+    useTask$(({ track }) => {
+      const initial = track(() => props.initialBrandName);
+      if (initial) {
+        state.brandName = initial;
+      }
     });
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(() => {
       document.body.style.overflow = "hidden";
-      state.brandName = "";
 
       return () => {
         document.body.style.overflow = "auto";

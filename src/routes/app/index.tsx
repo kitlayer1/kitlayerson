@@ -112,6 +112,7 @@ export default component$(() => {
     const stepParam = params.get("step");
     const dataParam = params.get("data");
     const resumeParam = params.get("resume");
+    const brandNameParam = params.get("brandName");
 
     // Auth hash kontrolü (OAuth dönüşü için)
     const hasAuthHash = window.location.hash.includes("access_token") || 
@@ -162,13 +163,18 @@ export default component$(() => {
     } else {
       // Yeni başlangıç: her şeyi temizle
       localStorage.removeItem("logo_creator_state");
-      state.brandName = "";
+      state.brandName = brandNameParam || "";
       state.category = "";
       state.selectedStyleIds = [];
       state.colors = [];
       state.selectedFontStyleId = 0;
       state.selectedLogoIndex = -1;
       state.currentStep = 1;
+      
+      if (brandNameParam) {
+        // Remove the parameter from URL to clean it up, but keep state.
+        window.history.replaceState({}, "", window.location.pathname);
+      }
     }
 
     state.loading = false;

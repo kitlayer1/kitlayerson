@@ -177,7 +177,7 @@ export default component$(() => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("google")}
               >
-                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" width="24" height="24" />
+                <img src="https://www.vectorlogo.zone/logos/google/google-tile.svg" alt="Google" width="28" height="28" />
                 Continue with Google
               </button>
 
@@ -186,7 +186,7 @@ export default component$(() => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("facebook")}
               >
-                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="24" height="24" />
+                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="28" height="28" />
                 Continue with Facebook
               </button>
 
@@ -197,7 +197,7 @@ export default component$(() => {
               <input
                 type="email"
                 class={`email-input ${error.value ? "input-error" : ""}`}
-                placeholder="E-posta adresinizi girin"
+                placeholder="Enter your email address"
                 value={email.value}
                 onInput$={(e) =>
                   (email.value = (e.target as HTMLInputElement).value)
@@ -215,7 +215,7 @@ export default component$(() => {
                 disabled={loading.value || !email.value}
                 onClick$={handleEmailLogin}
               >
-                Devam et
+                Continue
               </button>
 
               <p class="terms">
@@ -282,7 +282,7 @@ export default component$(() => {
                 disabled={loading.value || otp.value.length !== 6}
                 onClick$={handleOtpVerify}
               >
-                Devam et
+                Continue
               </button>
             </div>
           )}
@@ -328,7 +328,7 @@ export default component$(() => {
       <div class="login-right">
         <div class="mockup-grid">
           {/* eslint-disable-next-line qwik/jsx-img */}
-          <img src="/images/global/globalSection/globalSection.svg" alt="Login mockup" class="mockup-image" width="600" height="400" />
+          <img src="/images/login/login.webp" alt="Login mockup" class="mockup-image" width="600" height="400" />
         </div>
       </div>
     </div>

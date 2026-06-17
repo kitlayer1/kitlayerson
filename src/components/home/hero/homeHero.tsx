@@ -1,4 +1,5 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import "./homeHero.css";
 import "~/styles/tokens/spacing.css";
 import "~/styles/tokens/colors.css";
@@ -15,6 +16,17 @@ interface Props {
 }
 
 export const HomeHero = component$((props: Props) => {
+  const nav = useNavigate();
+  const inputValue = useSignal("");
+
+  const handleGenerate = $(() => {
+    if (inputValue.value.trim()) {
+      nav(`/app?brandName=${encodeURIComponent(inputValue.value.trim())}`);
+    } else {
+      nav("/app");
+    }
+  });
+
   return (
     <section class="homehero">
       <div class="homehero-container">
@@ -36,9 +48,15 @@ export const HomeHero = component$((props: Props) => {
             <input
               class="homehero-input-field"
               placeholder={props.placeholder || "Enter brand name"}
+              bind:value={inputValue}
+              onKeyDown$={(e) => {
+                if (e.key === "Enter") {
+                  handleGenerate();
+                }
+              }}
             />
 
-            <button class="homehero-input-button">
+            <button class="homehero-input-button" onClick$={handleGenerate}>
               <span class="button-text">{props.buttonText || "Generate"}</span>
               <div class="button-icon-wrapper">
                 <svg

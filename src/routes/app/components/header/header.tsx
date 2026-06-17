@@ -143,7 +143,7 @@ export const AppHeader = component$(() => {
 
         {/* LEFT */}
         <div class="app-header-left">
-          <a href="/dashboard">
+          <a href={user.value ? "/dashboard" : "/"}>
             <img src="/logo.svg" alt="Logo" />
           </a>
         </div>

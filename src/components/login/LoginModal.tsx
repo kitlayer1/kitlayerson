@@ -153,7 +153,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("google")}
               >
-                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" width="20" height="20" />
+                <img src="https://www.vectorlogo.zone/logos/google/google-tile.svg" alt="Google" width="24" height="24" />
                 Google ile giriş
               </button>
 
@@ -162,7 +162,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("facebook")}
               >
-                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="20" height="20" />
+                <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="24" height="24" />
                 Facebook ile giriş
               </button>
 
