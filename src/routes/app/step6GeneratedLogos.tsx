@@ -81,7 +81,7 @@ export const Step6GeneratedLogos = component$((props: {
                   alignItems: 'center',
                   justifyContent: 'center',
                   cursor: 'pointer',
-                  borderRadius: '8px',
+                  borderRadius: '12px',
                   minHeight: '240px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
@@ -110,7 +110,7 @@ export const Step6GeneratedLogos = component$((props: {
                   style={{
                     width: '105px',
                     height: '105px',
-                    marginBottom: '0.5rem',
+                    marginBottom: '1.6rem',
                     backgroundColor: palette.icon || palette.text,
                     WebkitMaskImage: `url(${f.iconPath})`,
                     WebkitMaskSize: 'contain',
