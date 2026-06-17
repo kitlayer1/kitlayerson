@@ -16,6 +16,7 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        <meta name="google-site-verification" content="jyq2EtFtgQbt4pIcm2SWrZdNXym1AfW7Vu6u53gLFqU" />
         {!isDev && (
           <link
             rel="manifest"

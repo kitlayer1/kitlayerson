@@ -18,6 +18,7 @@ export default component$(() => {
   const redirectTo = loc.url.searchParams.get("redirect") || "/";
 
   const handleEmailLogin = $(async () => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -43,6 +44,7 @@ export default component$(() => {
   });
 
   const handleOtpVerify = $(async () => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -80,6 +82,7 @@ export default component$(() => {
   });
 
   const handleOAuthLogin = $(async (provider: "google" | "facebook") => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -130,6 +133,7 @@ export default component$(() => {
   });
 
   const handleProfileSave = $(async () => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 

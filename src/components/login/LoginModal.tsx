@@ -19,6 +19,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
 
   const handleEmailLogin = $(async () => {
     if (!email.value) return;
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -35,6 +36,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
 
   const handleOtpVerify = $(async () => {
     if (otp.value.length !== 6) return;
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -72,6 +74,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
   });
 
   const handleOAuthLogin = $(async (provider: "google" | "facebook") => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
@@ -91,6 +94,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
   });
 
   const handleProfileSave = $(async () => {
+    if (loading.value) return;
     loading.value = true;
     error.value = null;
 
