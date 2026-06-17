@@ -39,7 +39,12 @@ export default extendConfig(baseConfig, () => {
       },
     },
     plugins: [
-      vercelEdgeAdapter(),
+      vercelEdgeAdapter({
+        ssg: {
+          include: ['/*'],
+          sitemapOutFile: null,
+        },
+      }),
       {
         name: "replace-opentype-fs",
         transform(code, id) {

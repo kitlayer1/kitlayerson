@@ -1,1 +1,1 @@
- export const DATA = "http://localhost:5173/data";
+ export const DATA = "http://kitlayer.com/data";
