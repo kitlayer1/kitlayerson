@@ -24,7 +24,11 @@
 
   <!-- CATEGORY PAGES -->
   <url>
-    <loc>https://kitlayer.com/create/food-logo-maker</loc>
+    <loc>https://kitlayer.com/create/automotive-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/beauty-logo-maker</loc>
   </url>
 
   <url>
@@ -32,7 +36,19 @@
   </url>
 
   <url>
+    <loc>https://kitlayer.com/create/commerce-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/construction-logo-maker</loc>
+  </url>
+
+  <url>
     <loc>https://kitlayer.com/create/education-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/event-wedding-logo-maker</loc>
   </url>
 
   <url>
@@ -40,7 +56,59 @@
   </url>
 
   <url>
-    <loc>https://kitlayer.com/create/fitness-logo-maker</loc>
+    <loc>https://kitlayer.com/create/finance-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/fitness-gym-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/food-drink-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/gaming-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/health-medical-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/jewellery-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/kids-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/photography-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/real-estate-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/restaurant-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/sports-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/startup-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/technology-logo-maker</loc>
+  </url>
+
+  <url>
+    <loc>https://kitlayer.com/create/travel-logo-maker</loc>
   </url>
 
 </urlset>
