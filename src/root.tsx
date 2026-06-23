@@ -25,15 +25,15 @@ export default component$(() => {
         )}
         <RouterHead />
         <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
+        
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M8SEWM5GK"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RQ60GB7NT"></script>
         <script dangerouslySetInnerHTML={`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-8M8SEWM5GK');
+          gtag('config', 'G-7RQ60GB7NT');
         `} />
       </head>
       <body lang="en">
