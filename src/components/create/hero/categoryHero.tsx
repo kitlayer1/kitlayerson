@@ -1,5 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import "./categoryHero.css";
+import ImgGlobalherouser1 from '../../../../public/images/global/hero/user/globalHeroUser1.svg?jsx';
+import ImgGlobalherouser2 from '../../../../public/images/global/hero/user/globalHeroUser2.svg?jsx';
+import ImgGlobalherouser3 from '../../../../public/images/global/hero/user/globalHeroUser3.svg?jsx';
 
 interface Props {
   badge: string;
@@ -10,6 +14,17 @@ interface Props {
 }
 
 export const CategoryHero = component$((props: Props) => {
+  const nav = useNavigate();
+  const inputValue = useSignal("");
+
+  const handleGenerate = $(() => {
+    if (inputValue.value.trim()) {
+      nav(`/app?brandName=${encodeURIComponent(inputValue.value.trim())}`);
+    } else {
+      nav("/app");
+    }
+  });
+
   return (
     <section class="categoryhero">
       <div class="categoryhero-container">
@@ -32,9 +47,15 @@ export const CategoryHero = component$((props: Props) => {
             <input
               class="categoryhero-input-field"
               placeholder="Brand Name"
+              bind:value={inputValue}
+              onKeyDown$={(e) => {
+                if (e.key === "Enter") {
+                  handleGenerate();
+                }
+              }}
             />
 
-            <button class="categoryhero-input-button">
+            <button class="categoryhero-input-button" onClick$={handleGenerate}>
               Generate
               <div class="categoryhero-button-icon">
                 <svg
@@ -58,10 +79,20 @@ export const CategoryHero = component$((props: Props) => {
           {props.subText && (
             <div class="categoryhero-avatars-sub">
               <div class="categoryhero-avatars">
-                <div class="avatar-circle"></div>
-                <div class="avatar-circle"></div>
-                <div class="avatar-circle"></div>
+                <ImgGlobalherouser1
+                  class="avatar-circle"
+                  aria-label="User Avatar"
+                />
+                <ImgGlobalherouser2
+                  class="avatar-circle"
+                  aria-label="User Avatar"
+                />
+                <ImgGlobalherouser3
+                  class="avatar-circle"
+                  aria-label="User Avatar"
+                />
               </div>
+
               <p class="categoryhero-sub">
                 {props.subText}
               </p>
@@ -74,8 +105,8 @@ export const CategoryHero = component$((props: Props) => {
             class="categoryhero-mainimg"
             src={props.img}
             alt={props.title}
-            width="500"
-            height="410"
+            width="900"
+            height="400"
           />
         </div>
       </div>

@@ -260,8 +260,7 @@ export const Step7Preview = component$(
           ${textElement}
         </svg>
       `.trim();
-      } catch (error) {
-        console.error("SVG oluşturma hatası:", error);
+      } catch {
         return "";
       }
     });
@@ -289,19 +288,15 @@ export const Step7Preview = component$(
           .maybeSingle();
 
         if (error) {
-          console.error("Session sorgulama hatası:", error);
           return null;
         }
 
         if (data) {
-          console.log("Birebir eşleşen session bulundu:", data);
           return data;
         }
 
-        console.log("Eşleşen session bulunamadı, yeni kayıt oluşturulacak");
         return null;
-      } catch (error) {
-        console.error("Session bulma hatası:", error);
+      } catch {
         return null;
       }
     });
@@ -315,7 +310,6 @@ export const Step7Preview = component$(
       const existingSession = await findExistingSessionByData();
 
       if (existingSession) {
-        console.log("Mevcut session kullanılıyor:", existingSession.id);
         sessionId.value = existingSession.id;
         isPaid.value = existingSession.paid || false;
         planType.value = existingSession.plan_type || null;
@@ -334,7 +328,6 @@ export const Step7Preview = component$(
 
       const { data: sessionData } = await supabase.auth.getSession();
       if (!sessionData?.session?.user) {
-        console.log("Kullanıcı oturumu bulunamadı, kayıt yapılmıyor");
         return null;
       }
 

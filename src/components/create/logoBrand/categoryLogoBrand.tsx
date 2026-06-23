@@ -8,17 +8,19 @@ interface BrandLogo {
 
 interface CategoryLogoBrandProps {
   logos: BrandLogo[];
+  title?: string;
+  description?: string;
 }
 
-export const CategoryLogoBrand = component$<CategoryLogoBrandProps>(({ logos }) => {
+export const CategoryLogoBrand = component$<CategoryLogoBrandProps>(({ logos, title, description }) => {
   return (
     <section class="category-logo-brand">
       <div class="clb-header">
         <h2 class="clb-title">
-          EXPLORE REAL LOGO EXAMPLES DESIGNED FOR MODERN BRANDS
+          {title || "EXPLORE REAL LOGO EXAMPLES DESIGNED FOR MODERN BRANDS"}
         </h2>
         <p class="clb-subtitle">
-          Browse a collection of professionally designed logo examples showcasing a variety of styles to inspire your brand
+          {description || "Browse a collection of professionally designed logo examples showcasing a variety of styles to inspire your brand"}
         </p>
       </div>
 
@@ -27,7 +29,6 @@ export const CategoryLogoBrand = component$<CategoryLogoBrandProps>(({ logos }) 
           <div 
             key={index} 
             class="clb-card"
-            style={logo.bg ? { backgroundColor: logo.bg } : undefined}
           >
             <img 
               src={logo.img} 

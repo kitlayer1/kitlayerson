@@ -16,7 +16,7 @@ export const CategoryBrandCard = component$(() => {
     { id: 3, title: "Travel", image: "/images/home/section/category/travel.svg", href: "/create/travel-brand-maker" },
     { id: 4, title: "Gaming", image: "/images/home/section/category/gaming.svg", href: "/create/gaming-brand-maker" },
     { id: 5, title: "Real Estate", image: "/images/home/section/category/real-estate.svg", href: "/create/real-estate-brand-maker" },
-    { id: 6, title: "Beauty", image: "/images/home/section/category/beauty.svg", href: "/create/beauty-brand-maker" },
+    { id: 6, title: "Beauty", image: "/images/home/section/category/beauty.svg", href: "/create/beauty-logo-maker" },
     { id: 7, title: "Fashion", image: "/images/home/section/category/fashion.svg", href: "/create/fashion-brand-maker" },
     { id: 8, title: "Sports", image: "/images/home/section/category/sports.svg", href: "/create/sports-brand-maker" },
     { id: 9, title: "Education", image: "/images/home/section/category/education.svg", href: "/create/education-brand-maker" },

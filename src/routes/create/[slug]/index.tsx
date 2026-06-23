@@ -2,7 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { CategoryBadge } from "~/components/create/badge/categoryBadge";
 import { CategoryHero } from "~/components/create/hero/categoryHero";
-import { CategorySection } from "~/components/create/categorySection/categorySection";
 import { CategoryLogoBrand } from "~/components/create/logoBrand/categoryLogoBrand";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { NotFound } from "~/components/global/notFound/notFound";
@@ -10,6 +9,8 @@ import createData from "../../../../public/data/createDetail.json";
 import { Footer } from "~/components/global/footer/footer";
 import { ProductSection } from "~/components/product/productSection/productSection";
 import { GlobalSelect } from "~/components/global/globalSelect/globalSelect";
+import { CreateVisual } from "~/components/create/createVisual/createVisual";
+import FAQ from "~/components/global/faq/faq";
 
 interface CardItem {
   badge: string;
@@ -50,14 +51,27 @@ interface TestimonialItem {
   description: string;
 }
 
+interface VisualData {
+  title: string;
+  paragraphs: string[];
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface PageData {
   hero: HeroData;
   categorySection: SectionData;
   categories?: CategoryItem[];
   brandLogos?: BrandLogo[];
+  brandLogosTitle?: string;
+  brandLogosDescription?: string;
   testimonials?: TestimonialItem[];
+  visual?: VisualData;
+  faqs?: FAQItem[];
 }
-
 
 export const usePageData = routeLoader$<PageData | null>(
   async ({ params, status }) => {
@@ -68,7 +82,7 @@ export const usePageData = routeLoader$<PageData | null>(
       return null;
     }
 
-    const pages = (createData as any).success;
+    const pages = createData as any;
     const pageData = pages[slug];
 
     if (!pageData) {
@@ -112,16 +126,24 @@ export default component$(() => {
         textColor="var(--color-primary-900)"
       />
 
-      {page.value.categorySection.cards && (
-        <CategorySection cards={page.value.categorySection.cards} />
+      {page.value.visual && (
+        <CreateVisual visual={page.value.visual} />
       )}
 
       {page.value.brandLogos && (
-        <CategoryLogoBrand logos={page.value.brandLogos} />
+        <CategoryLogoBrand 
+          logos={page.value.brandLogos} 
+          title={page.value.brandLogosTitle}
+          description={page.value.brandLogosDescription}
+        />
       )}
       <ProductSection/>
       {page.value.categories && (
         <CategoryBadge categories={page.value.categories} />
+      )}
+
+       {page.value.faqs && (
+        <FAQ items={page.value.faqs} />
       )}
 
       <GlobalSelect
@@ -139,6 +161,8 @@ export default component$(() => {
               textColor="var(--color-primary-900)"
             />
       
+     
+
       <Footer />
 
     </>

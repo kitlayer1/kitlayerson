@@ -1,69 +1,165 @@
 {
-"success": {
-"/": {
-"title": "Free Logo Maker - Create Professional Logos Online in Minutes | Kitlayer",
-"description": "Create a professional logo in minutes with our free online logo maker. Design, customize, and download high-quality logos for your business, startup, or personal brand instantly."
-},
+  "success": {
+    "/": {
+      "title": "Free Logo Maker - Create Professional Logos Online in Minutes | Kitlayer",
+      "description": "Create a professional logo in minutes with our free online logo maker. Design, customize, and download high-quality logos for your business, startup, or personal brand instantly."
+    },
+    "/about": {
+      "title": "About Kitlayer - AI-Driven Logo Design Platform",
+      "description": "An AI-driven platform that helps you build a strong brand identity by generating modern, customizable logos in seconds. Simple, fast, and built for creators."
+    },
+    "/product": {
+      "title": "Logo Maker Tool - Design & Download Logos Easily | Kitlayer",
+      "description": "Design your perfect logo with our powerful logo maker tool. Customize every detail, explore unique ideas, and download high-resolution logo files in PNG, SVG, and more."
+    },
+    "/blog": {
+      "title": "Blog – Logo Design Tips, Guides & Branding Insights | Kitlayer",
+      "description": "Explore logo design tips, branding strategies, and the latest design trends. Learn how to create a memorable brand identity with expert insights and practical guides."
+    },
+    "/app": {
+      "title": "AI Logo Generator - Create Custom Logos Instantly | Kitlayer",
+      "description": "Generate unique logos with our AI-powered logo maker. Turn your ideas into professional designs and download ready-to-use logo files in seconds."
+    },
+    "/pricing": {
+      "title": "Pricing – Choose the Right Plan for Your Brand | Kitlayer",
+      "description": "Get full access to AI logo design tools with flexible pricing plans. Create, customize, and download professional logos with features that fit your needs and scale your brand."
+    },
+    "/contact": {
+      "title": "Contact Kitlayer – We’re Here to Help You",
+      "description": "Get in touch with our support team for any questions about our AI logo platform. We’re ready to assist you with design, billing, or technical support."
+    },
+    "/privacy-policy": {
+      "title": "Privacy Policy Kitlayer – How We Protect Your Data",
+      "description": "Learn how we collect, use, and protect your personal information when you use our AI logo platform. Your privacy and data security are our top priority."
+    },
+    "/cookie-policy": {
+      "title": "Cookie Policy Kitlayer – How We Use Cookies",
+      "description": "Learn how we use cookies to improve your experience, analyze usage, and personalize content while using our AI logo platform."
+    },
+    "/terms-of-service": {
+      "title": "Terms of Service Kitlayer – Rules for Using Our Platform",
+      "description": "Read the terms and conditions for using our AI logo generator. This page explains your rights, responsibilities, and the rules for accessing and using our services."
+    },
+    "/login": {
+      "title": "Login – Sign in to Your Account",
+      "description": "Access your AI logo generator account and continue designing your brand in seconds."
+    },
+    "/dashboard": {
+      "title": "Dashboard – Manage Your AI Logos & Brand Assets",
+      "description": "All your logos, designs, and brand assets in one workspace. Create new logos, edit existing projects, and download high-quality files anytime."
+    },
 
-"/about": {
-  "title": "About Kitlayer - AI-Driven Logo Design Platform",
-  "description": "An AI-driven platform that helps you build a strong brand identity by generating modern, customizable logos in seconds. Simple, fast, and built for creators."
-},
 
-"/product": {
-  "title": "Logo Maker Tool - Design & Download Logos Easily | Kitlayer",
-  "description": "Design your perfect logo with our powerful logo maker tool. Customize every detail, explore unique ideas, and download high-resolution logo files in PNG, SVG, and more."
-},
 
-"/blog": {
-  "title": "Blog – Logo Design Tips, Guides & Branding Insights | Kitlayer",
-  "description": "Explore logo design tips, branding strategies, and the latest design trends. Learn how to create a memorable brand identity with expert insights and practical guides."
-},
+    "/create/automotive-logo-maker": {
+      "title": "Automotive Logo Maker – Create Professional Car & Auto Logos Online | Kitlayer",
+      "description": "Create professional automotive logos online. Design custom car dealership, auto repair, garage, mechanic, vehicle rental, and automotive brand logos in minutes."
+    },
 
-"/app": {
-  "title": "AI Logo Generator - Create Custom Logos Instantly | Kitlayer",
-  "description": "Generate unique logos with our AI-powered logo maker. Turn your ideas into professional designs and download ready-to-use logo files in seconds."
-},
+    "/create/beauty-logo-maker": {
+      "title": "Beauty Logo Maker - Create Stunning Beauty Logos with AI | Kitlayer",
+      "description": "Design beautiful beauty logos in seconds with AI. Create logos for beauty salons, makeup artists, skincare brands, cosmetic businesses, lash technicians, nail salons, and more."
+    },
+    "/create/business-logo-maker": {
+      "title": "AI Business Logo Maker - Custom Corporate Logos | Kitlayer",
+      "description": "Build a powerful brand identity with our AI business logo maker. Instantly create custom, professional logos for startups, corporate enterprises, and agencies."
+    },
 
-"/pricing": {
-  "title": "Pricing – Choose the Right Plan for Your Brand | Kitlayer",
-  "description": "Get full access to AI logo design tools with flexible pricing plans. Create, customize, and download professional logos with features that fit your needs and scale your brand."
-},
+    "/create/commerce-logo-maker": {
+      "title": "E-Commerce Logo Maker - Custom Online Store Logos | Kitlayer",
+      "description": "Design a high-converting e-commerce logo with our AI logo maker. Create professional, trust-building logos for online stores, retail brands, and dropshipping."
+    },
 
-"/contact": {
-  "title": "Contact Kitlayer – We’re Here to Help You",
-  "description": "Get in touch with our support team for any questions about our AI logo platform. We’re ready to assist you with design, billing, or technical support."
-},
+    "/create/construction-logo-maker": {
+      "title": "Construction Logo Maker - Custom Builder & Contractor Logos | Kitlayer",
+      "description": "Build a solid brand foundation with our AI construction logo maker. Create strong, professional logos for builders, contractors, roofing, and architecture firms."
+    },
 
-"/privacy-policy": {
-  "title": "Privacy Policy Kitlayer – How We Protect Your Data",
-  "description": "Learn how we collect, use, and protect your personal information when you use our AI logo platform. Your privacy and data security are our top priority."
-},
+    "/create/education-logo-maker": {
+      "title": "Education Logo Maker - Custom School & EdTech Logos | Kitlayer",
+      "description": "Create an inspiring brand identity with our AI education logo maker. Instantly design professional logos for schools, online courses, tutoring, and EdTech."
+    },
 
-"/cookie-policy": {
-  "title": "Cookie Policy Kitlayer – How We Use Cookies",
-  "description": "Learn how we use cookies to improve your experience, analyze usage, and personalize content while using our AI logo platform."
-},
+    "/create/event-wedding-logo-maker": {
+      "title": "Event & Wedding Logo Maker - Custom Planner Logos | Kitlayer",
+      "description": "Create elegant event and wedding logos in seconds. Design beautiful brand identities for event planners, photographers, DJs, catering, and corporate events."
+    },
 
-"/terms-of-service": {
-  "title": "Terms of Service Kitlayer – Rules for Using Our Platform",
-  "description": "Read the terms and conditions for using our AI logo generator. This page explains your rights, responsibilities, and the rules for accessing and using our services."
-},
 
-"/login": {
-  "title": "Login – Sign in to Your Account",
-  "description": "Access your AI logo generator account and continue designing your brand in seconds."
-},
+    "/create/fashion-logo-maker": {
+      "title": "Fashion Logo Maker - Custom Clothing Brand Logos | Kitlayer",
+      "description": "Design a stylish fashion logo with our AI logo maker. Create premium logos for clothing brands, boutiques, streetwear, luxury labels, and apparel stores."
+    },
 
-"/dashboard": {
-  "title": "Dashboard – Manage Your AI Logos & Brand Assets",
-  "description": "All your logos, designs, and brand assets in one workspace. Create new logos, edit existing projects, and download high-quality files anytime."
-},
+    "/create/finance-logo-maker": {
+      "title": "Finance Logo Maker - Custom Accounting & Fintech Logos | Kitlayer",
+      "description": "Create a professional finance logo with our AI logo generator. Design trustworthy brand identities for accounting, wealth management, banking, and fintech."
+    },
 
-"/create/food-brand-maker": {
-  "title": "Food Logo Maker - Create Restaurant & Food Brand Logos | Kitlayer",
-  "description": "Design mouth-watering food logos for restaurants, cafes, and food brands. Customize templates and create a unique brand identity in minutes."
-}
+    "/create/fitness-gym-logo-maker": {
+      "title": "Fitness & Gym Logo Maker - Custom Trainer Logos | Kitlayer",
+      "description": "Design a powerful fitness logo with our AI logo generator. Create dynamic brand identities for gyms, personal trainers, yoga studios, and athletic brands."
+    },
 
-}
+    "/create/food-drink-logo-maker": {
+      "title": "Food & Drink Logo Maker - Custom Restaurant Logos | Kitlayer",
+      "description": "Appetizing food logos made easy with our AI logo generator. Create mouth-watering brand identities for restaurants, cafes, bakeries, food trucks, and beverages."
+    },
+
+    "/create/gaming-logo-maker": {
+      "title": "Gaming Logo Maker - Custom Esports & Twitch Logos | Kitlayer",
+      "description": "Design an epic gaming logo in seconds with our AI logo maker. Create custom, high-quality brand identities for esports teams, Twitch streamers, YouTube channels, and gaming clans."
+    },
+
+    "/create/health-medical-logo-maker": {
+      "title": "Health & Medical Logo Maker - Custom Clinic & Doctor Logos | Kitlayer",
+      "description": "Design a professional medical logo in seconds with our AI logo maker. Create trustworthy brand identities for clinics, hospitals, doctors, dentists, and healthcare professionals."
+    },
+
+    "/create/jewellery-logo-maker": {
+      "title": "Jewellery Logo Maker - Custom Diamond & Boutique Logos | Kitlayer",
+      "description": "Design a luxury jewellery logo in seconds with our AI logo maker. Create elegant brand identities for jewelers, diamond boutiques, accessory brands, and goldsmiths."
+    },
+
+    "/create/kids-logo-maker": {
+      "title": "Kids & Baby Logo Maker - Custom Toys & Childcare Logos | Kitlayer",
+      "description": "Design a playful kids logo in seconds with our AI logo maker. Create fun, colorful brand identities for childcare centers, toy stores, baby brands, and pediatricians."
+    },
+
+    "/create/photography-logo-maker": {
+      "title": "Photography Logo Maker - Custom Studio & Camera Logos | Kitlayer",
+      "description": "Design a stunning photography logo in seconds with our AI logo maker. Create professional digital watermarks and brand identities for photographers, studios, and videographers."
+    },
+
+    "/create/real-estate-logo-maker": {
+      "title": "Real Estate Logo Maker - Custom Realtor & Property Logos | Kitlayer",
+      "description": "Design a professional real estate logo in seconds with our AI logo maker. Create trustworthy brand identities for realtors, property managers, brokers, and real estate agencies."
+    },
+
+    "/create/restaurant-logo-maker": {
+      "title": "Restaurant Logo Maker - Custom Cafe & Dining Logos | Kitlayer",
+      "description": "Design a mouth-watering restaurant logo in seconds with our AI logo maker. Create appetizing brand identities for cafes, fine dining, fast food, and food trucks."
+    },
+
+    "/create/sports-logo-maker": {
+      "title": "Sports Logo Maker - Custom Team & Athletic Logos | Kitlayer",
+      "description": "Design a dynamic sports logo in seconds with our AI logo maker. Create powerful brand identities for athletic teams, sports clubs, fitness brands, and tournaments."
+    },
+
+    "/create/startup-logo-maker": {
+      "title": "Startup Logo Maker - Custom Tech & Business Logos | Kitlayer",
+      "description": "Design an innovative startup logo in seconds with our AI logo maker. Create modern, scalable brand identities for tech startups, SaaS companies, and disruptive entrepreneurs."
+    },
+
+    "/create/technology-logo-maker": {
+      "title": "Technology Logo Maker - Custom IT & Tech Logos | Kitlayer",
+      "description": "Design a futuristic technology logo in seconds with our AI logo maker. Create cutting-edge brand identities for IT companies, software developers, and tech hardware."
+    },
+
+    "/create/travel-logo-maker": {
+      "title": "Travel Logo Maker - Custom Agency & Tourism Logos | Kitlayer",
+      "description": "Design an inspiring travel logo in seconds with our AI logo maker. Create wanderlust-driven brand identities for travel agencies, tour guides, and hospitality brands."
+    }
+
+  }
 }
