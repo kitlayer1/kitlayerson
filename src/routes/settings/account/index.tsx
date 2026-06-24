@@ -102,6 +102,11 @@ export default component$(() => {
                 onInput$={(e) =>
                   (name.value = (e.target as HTMLInputElement).value)
                 }
+                data-mcp-form="settings-account"
+                data-mcp-field="name"
+                data-mcp-label="First Name"
+                data-mcp-required="true"
+                data-mcp-description="Account settings form: update user profile information"
               />
             </div>
 
@@ -114,13 +119,24 @@ export default component$(() => {
                 onInput$={(e) =>
                   (surname.value = (e.target as HTMLInputElement).value)
                 }
+                data-mcp-field="surname"
+                data-mcp-label="Surname"
+                data-mcp-required="false"
               />
             </div>
           </div>
 
           <div class="form-group email-group">
             <label>Email</label>
-            <input type="text" class="input" value={email.value} disabled />
+            <input
+              type="text"
+              class="input"
+              value={email.value}
+              disabled
+              data-mcp-field="email"
+              data-mcp-label="Email Address"
+              data-mcp-readonly="true"
+            />
           </div>
 
           {/* SAVE ROW + TOAST */}
@@ -166,6 +182,8 @@ export default component$(() => {
               class="settings-save-btn"
               disabled={loading.value}
               onClick$={handleSaveProfile}
+              data-mcp-action="save-profile"
+              data-mcp-label="Save Account Settings"
             >
               Save
             </button>

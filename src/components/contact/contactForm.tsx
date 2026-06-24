@@ -82,6 +82,8 @@ export const ContactForm = component$(() => {
             class="contact-form" 
             preventdefault:submit
             onSubmit$={handleSubmit}
+            data-mcp-form="contact"
+            data-mcp-description="Contact form for users to send messages to the support team"
           >
             <div class="input-group">
               <label for="name">Name</label>
@@ -91,6 +93,9 @@ export const ContactForm = component$(() => {
                 placeholder="Name" 
                 value={formData.name}
                 onInput$={(e) => (formData.name = (e.target as HTMLInputElement).value)}
+                data-mcp-field="name"
+                data-mcp-label="Name"
+                data-mcp-required="true"
               />
             </div>
 
@@ -102,6 +107,9 @@ export const ContactForm = component$(() => {
                 placeholder="Surname" 
                 value={formData.surname}
                 onInput$={(e) => (formData.surname = (e.target as HTMLInputElement).value)}
+                data-mcp-field="surname"
+                data-mcp-label="Surname"
+                data-mcp-required="true"
               />
             </div>
 
@@ -113,6 +121,9 @@ export const ContactForm = component$(() => {
                 placeholder="Mail" 
                 value={formData.email}
                 onInput$={(e) => (formData.email = (e.target as HTMLInputElement).value)}
+                data-mcp-field="email"
+                data-mcp-label="Email Address"
+                data-mcp-required="true"
               />
             </div>
 
@@ -124,6 +135,10 @@ export const ContactForm = component$(() => {
                   class="custom-select"
                   value={formData.subject}
                   onChange$={(e) => (formData.subject = (e.target as HTMLSelectElement).value)}
+                  data-mcp-field="subject"
+                  data-mcp-label="Subject"
+                  data-mcp-required="true"
+                  data-mcp-options="payment,technical,general,feature,partnership"
                 >
                   <option value="" disabled selected={!formData.subject}>Subject</option>
                   <option value="payment">Payment Operations</option>
@@ -143,6 +158,9 @@ export const ContactForm = component$(() => {
                 placeholder="Message"
                 value={formData.message}
                 onInput$={(e) => (formData.message = (e.target as HTMLTextAreaElement).value)}
+                data-mcp-field="message"
+                data-mcp-label="Message"
+                data-mcp-required="true"
               ></textarea>
             </div>
 
@@ -152,7 +170,13 @@ export const ContactForm = component$(() => {
               </div>
             )}
 
-            <button type="submit" class="send-btn" disabled={isLoading.value}>
+            <button
+              type="submit"
+              class="send-btn"
+              disabled={isLoading.value}
+              data-mcp-action="submit"
+              data-mcp-label="Send Message"
+            >
               {isLoading.value ? 'Sending...' : 'Send'}
             </button>
           </form>

@@ -182,6 +182,8 @@ export default component$(() => {
                 class="google-btn"
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("google")}
+                data-mcp-action="oauth-google"
+                data-mcp-label="Continue with Google"
               >
                 <img src="https://www.vectorlogo.zone/logos/google/google-tile.svg" alt="Google" width="28" height="28" />
                 Continue with Google
@@ -191,6 +193,8 @@ export default component$(() => {
                 class="facebook-btn"
                 disabled={loading.value}
                 onClick$={() => handleOAuthLogin("facebook")}
+                data-mcp-action="oauth-facebook"
+                data-mcp-label="Continue with Facebook"
               >
                 <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="28" height="28" />
                 Continue with Facebook
@@ -208,6 +212,11 @@ export default component$(() => {
                 onInput$={(e) =>
                   (email.value = (e.target as HTMLInputElement).value)
                 }
+                data-mcp-form="login-email"
+                data-mcp-field="email"
+                data-mcp-label="Email Address"
+                data-mcp-required="true"
+                data-mcp-description="Step 1 of 3: Enter email to receive a one-time passcode"
               />
 
               {error.value && (
@@ -220,6 +229,8 @@ export default component$(() => {
                 class="continue-btn"
                 disabled={loading.value || !email.value}
                 onClick$={handleEmailLogin}
+                data-mcp-action="submit-email"
+                data-mcp-label="Continue with Email"
               >
                 Continue
               </button>
@@ -246,7 +257,11 @@ export default component$(() => {
           )}
 
           {step.value === "otp" && (
-            <div class="otp-section">
+            <div
+              class="otp-section"
+              data-mcp-form="login-otp"
+              data-mcp-description="Step 2 of 3: Enter the 6-digit OTP code sent to the user's email"
+            >
               <h2 class="welcome-text">Enter your code</h2>
               <p class="info-text">
                 <span class="email-text">{email.value}</span>{" "}
@@ -264,13 +279,21 @@ export default component$(() => {
                   onInput$={(e) =>
                     (otp.value = (e.target as HTMLInputElement).value)
                   }
+                  data-mcp-field="otp"
+                  data-mcp-label="One-Time Passcode"
+                  data-mcp-required="true"
                 />
 
                 <div class="otp-timer-badge">
                   {resendCooldown.value > 0 ? (
                     <span>{resendCooldown.value}</span>
                   ) : (
-                    <button class="otp-resend-inline-btn" onClick$={handleResend}>
+                    <button
+                      class="otp-resend-inline-btn"
+                      onClick$={handleResend}
+                      data-mcp-action="resend-otp"
+                      data-mcp-label="Resend OTP Code"
+                    >
                       Resend Code
                     </button>
                   )}
@@ -287,6 +310,8 @@ export default component$(() => {
                 class="continue-btn otp-btn"
                 disabled={loading.value || otp.value.length !== 6}
                 onClick$={handleOtpVerify}
+                data-mcp-action="verify-otp"
+                data-mcp-label="Verify OTP and Continue"
               >
                 Continue
               </button>
@@ -294,7 +319,11 @@ export default component$(() => {
           )}
 
           {step.value === "profile" && (
-            <div class="otp-section">
+            <div
+              class="otp-section"
+              data-mcp-form="login-profile"
+              data-mcp-description="Step 3 of 3: New user profile setup — enter name and surname"
+            >
               <h2 class="welcome-text">Welcome</h2>
               <p class="info-text">Please fill in your details.</p>
 
@@ -306,6 +335,9 @@ export default component$(() => {
                 onInput$={(e) =>
                   (name.value = (e.target as HTMLInputElement).value)
                 }
+                data-mcp-field="name"
+                data-mcp-label="First Name"
+                data-mcp-required="true"
               />
               <input
                 type="text"
@@ -315,6 +347,9 @@ export default component$(() => {
                 onInput$={(e) =>
                   (surname.value = (e.target as HTMLInputElement).value)
                 }
+                data-mcp-field="surname"
+                data-mcp-label="Surname"
+                data-mcp-required="false"
               />
 
               {error.value && <p class="error-text">{error.value}</p>}
@@ -323,6 +358,8 @@ export default component$(() => {
                 class="continue-btn"
                 disabled={loading.value}
                 onClick$={handleProfileSave}
+                data-mcp-action="save-profile"
+                data-mcp-label="Save Profile and Continue"
               >
                 Continue
               </button>
