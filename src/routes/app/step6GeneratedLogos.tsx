@@ -1,9 +1,10 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useStore, $, type QRL } from '@builder.io/qwik';
 import { allFavicons } from './allFavicons';
 import { allFonts } from './allFonts';
 import { colorOptionById } from './colorOption';
 import { getLogoIndices } from './logoUtils';
-import "./step6GeneratedLogos.css";
+import style0 from "./step6GeneratedLogos.css?inline";
 
 export const Step6GeneratedLogos = component$((props: {
   brandName: string;
@@ -13,6 +14,8 @@ export const Step6GeneratedLogos = component$((props: {
   selectedFontStyleId: number;
   onSelect$: QRL<(index: number) => void>;
 }) => {
+  useStyles$(style0);
+
   const state = useStore({
     visibleCount: 12,
   });

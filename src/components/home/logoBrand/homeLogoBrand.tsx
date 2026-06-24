@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./homeLogoBrand.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./homeLogoBrand.css?inline";
 
 interface BrandCard {
   id: number;
@@ -10,6 +10,8 @@ interface BrandCard {
 }
 
 export const HomeLogoBrand = component$(() => {
+  useStyles$(style0);
+
   const brands: BrandCard[] = [
     {
       id: 1,

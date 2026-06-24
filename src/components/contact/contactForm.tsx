@@ -1,8 +1,11 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useStore, useSignal, $ } from '@builder.io/qwik';
 import { supabase } from '~/lib/supabaseClient';
-import './contactForm.css';
+import style0 from "./contactForm.css?inline";
 
 export const ContactForm = component$(() => {
+  useStyles$(style0);
+
   const formData = useStore({
     name: '',
     surname: '',

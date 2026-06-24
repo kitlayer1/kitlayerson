@@ -1,8 +1,11 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './homeSection.css';
-import ImgHomesection from '~/media/images/home/section/homeSection.png';
+import style0 from "./homeSection.css?inline";
+import ImgHomesection from '~/media/images/home/section/homeSection.webp';
 
 export const HomeSection = component$(() => {
+  useStyles$(style0);
+
   return (
     <section class="home-section">
       <div class="hs-container">

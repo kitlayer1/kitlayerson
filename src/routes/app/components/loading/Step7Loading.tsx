@@ -1,8 +1,10 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import "./loading.css";
+import { component$, useSignal, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./loading.css?inline";
 import ImgLoaderlogo from '~/media/images/app/loader/loaderLogo.svg?jsx';
 
 export const Step7Loading = component$(() => {
+  useStyles$(style0);
+
   const phase = useSignal(1);
 
   // eslint-disable-next-line qwik/no-use-visible-task

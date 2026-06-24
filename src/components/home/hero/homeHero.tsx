@@ -1,10 +1,10 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, useStyles$ } from '@builder.io/qwik';
 import { useNavigate } from "@builder.io/qwik-city";
-import "./homeHero.css";
-import "~/styles/tokens/spacing.css";
-import "~/styles/tokens/colors.css";
-import "~/styles/tokens/typography.css";
-import "~/styles/tokens/radius.css";
+import style0 from "./homeHero.css?inline";
+import style1 from "~/styles/tokens/spacing.css?inline";
+import style2 from "~/styles/tokens/colors.css?inline";
+import style3 from "~/styles/tokens/typography.css?inline";
+import style4 from "~/styles/tokens/radius.css?inline";
 
 interface Props {
   title: string;
@@ -16,6 +16,12 @@ interface Props {
 }
 
 export const HomeHero = component$((props: Props) => {
+  useStyles$(style0);
+  useStyles$(style1);
+  useStyles$(style2);
+  useStyles$(style3);
+  useStyles$(style4);
+
   const nav = useNavigate();
   const inputValue = useSignal("");
 

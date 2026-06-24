@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './globalFuture.css';
+import style0 from "./globalFuture.css?inline";
 
 export interface GlobalFutureProps {
   title: string;
@@ -9,6 +10,8 @@ export interface GlobalFutureProps {
 }
 
 export const GlobalFuture = component$<GlobalFutureProps>(({ title, description, image, reverse = false }) => {
+  useStyles$(style0);
+
   return (
     <section class="global-future-section">
       <div class={['global-future-container', reverse ? 'reverse' : '']}>

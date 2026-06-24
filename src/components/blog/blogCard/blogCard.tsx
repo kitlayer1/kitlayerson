@@ -1,6 +1,7 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import "./blogCard.css";
+import style0 from "./blogCard.css?inline";
 
 interface BlogCardProps {
   slug: string;
@@ -12,6 +13,8 @@ interface BlogCardProps {
 
 export const BlogCard = component$<BlogCardProps>(
   ({ slug, title, coverImage, date, category }) => {
+  useStyles$(style0);
+
     return (
       <Link href={`/blog/${slug}`} class="blog-card">
         <article>

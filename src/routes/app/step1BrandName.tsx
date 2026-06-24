@@ -1,5 +1,5 @@
-import { component$, useStore, useVisibleTask$, QRL, useTask$ } from "@builder.io/qwik";
-import "./step1BrandName.css";
+import { component$, useStore, useVisibleTask$, QRL, useTask$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./step1BrandName.css?inline";
 
 export const Step1BrandName = component$(
   (props: {
@@ -7,6 +7,8 @@ export const Step1BrandName = component$(
     onNext$: QRL<(name: string) => void>;
     onBack$?: QRL<() => void>;
   }) => {
+  useStyles$(style0);
+
     const state = useStore({
       brandName: props.initialBrandName || "",
     });

@@ -1,6 +1,6 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, useStyles$ } from '@builder.io/qwik';
 import { useNavigate } from "@builder.io/qwik-city";
-import "./categoryHero.css";
+import style0 from "./categoryHero.css?inline";
 import ImgGlobalherouser1 from '../../../../public/images/global/hero/user/globalHeroUser1.svg?jsx';
 import ImgGlobalherouser2 from '../../../../public/images/global/hero/user/globalHeroUser2.svg?jsx';
 import ImgGlobalherouser3 from '../../../../public/images/global/hero/user/globalHeroUser3.svg?jsx';
@@ -14,6 +14,8 @@ interface Props {
 }
 
 export const CategoryHero = component$((props: Props) => {
+  useStyles$(style0);
+
   const nav = useNavigate();
   const inputValue = useSignal("");
 

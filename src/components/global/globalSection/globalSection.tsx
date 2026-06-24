@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './globalSection.css';
+import style0 from "./globalSection.css?inline";
 
 export interface GlobalSectionProps {
   title?: string;
@@ -17,6 +18,8 @@ export default component$<GlobalSectionProps>(
     buttonLink,
     image,
   }) => {
+  useStyles$(style0);
+
     return (
       <section class="global-section">
         <div class="global-container">

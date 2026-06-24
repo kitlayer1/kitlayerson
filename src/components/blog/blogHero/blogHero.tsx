@@ -1,6 +1,7 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import "./blogHero.css";
+import style0 from "./blogHero.css?inline";
 
 interface Post {
   slug: string;
@@ -15,6 +16,8 @@ interface BlogHeroProps {
 }
 
 export const BlogHero = component$<BlogHeroProps>(({ posts }) => {
+  useStyles$(style0);
+
   if (!posts || posts.length === 0) return null;
 
   const ClockIcon = () => (

@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './comment.css';
+import style0 from "./comment.css?inline";
 
 export interface CommentItem {
   text: string;
@@ -17,6 +18,8 @@ interface CommentSectionProps {
 
 export default component$<CommentSectionProps>(
   ({ title, description, comments }) => {
+  useStyles$(style0);
+
     return (
       <section class="comment-section">
          <div class="comment-header">

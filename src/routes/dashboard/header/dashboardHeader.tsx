@@ -1,7 +1,8 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
-import './dashboardHeader.css';
+import style0 from "./dashboardHeader.css?inline";
 import ImgLogo from '~/media/logo.svg?jsx';
 
 const getInitials = (name?: string, email?: string) => {
@@ -19,6 +20,8 @@ const getInitials = (name?: string, email?: string) => {
 };
 
 export const DashboardHeader = component$(() => {
+  useStyles$(style0);
+
   const isUserMenuOpen = useSignal(false);
   const user = useSignal<any>(null);
   const loading = useSignal(true);

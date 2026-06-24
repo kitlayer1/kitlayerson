@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./homeLogoTypeCard.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./homeLogoTypeCard.css?inline";
 
 interface CardItem {
   label: string;
@@ -7,6 +7,8 @@ interface CardItem {
 }
 
 export const HomeLogoTypeCard = component$(() => {
+  useStyles$(style0);
+
   const items: CardItem[] = [
     { label: "PNG", icon: "/images/home/logoType/png.png" },
     { label: "SVG", icon: "/images/home/logoType/svg.png" },

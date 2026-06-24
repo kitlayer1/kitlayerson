@@ -1,5 +1,5 @@
 // src/routes/app/components/Step7Preview.tsx
-import { component$, $, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, $, useSignal, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
 
 import { supabase } from "~/lib/supabaseClient";
 import { allFavicons } from "./allFavicons";
@@ -7,7 +7,7 @@ import { allFonts } from "./allFonts";
 import { colorOptionById } from "./colorOption";
 import { getLogoIndices } from './logoUtils';
 import { DownloadModal } from "~/components/editor/Modal/downloadModal";
-import "./step7Preview.css";
+import style0 from "./step7Preview.css?inline";
 import { AppHeader } from "./components/header/header";
 import { PricingModal } from "~/components/pricing/pricingModal";
 import { LoginModal } from "~/components/login/LoginModal";
@@ -67,6 +67,8 @@ export const Step7Preview = component$(
     selectedFontStyleId: number;
     selectedLogoIndex: number;
   }) => {
+  useStyles$(style0);
+
     const svgContainer = useSignal<Element>();
     const showModal = useSignal(false);
     const showPricingModal = useSignal(false);

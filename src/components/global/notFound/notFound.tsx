@@ -1,6 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from '@builder.io/qwik';
 import { HomeHeader } from "~/components/global/header/homeHeader";
-import "./notFound.css";
+import style0 from "./notFound.css?inline";
 
 interface NotFoundProps {
   showHeader?: boolean; // Header gösterilsin mi? Varsayılan: true
@@ -8,6 +8,8 @@ interface NotFoundProps {
 }
 
 export const NotFound = component$((props: NotFoundProps) => {
+  useStyles$(style0);
+
   const { showHeader = true, customMessage } = props;
 
   return (

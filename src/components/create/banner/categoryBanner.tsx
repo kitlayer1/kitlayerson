@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./categoryBanner.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./categoryBanner.css?inline";
 
 interface Props {
   title: string;
@@ -10,6 +10,8 @@ interface Props {
 
 export const CategoryBanner = component$<Props>(
   ({ title, description, buttonText, buttonLink = "#" }) => {
+  useStyles$(style0);
+
     return (
       <section class="category-banner">
         <div class="category-banner-content">

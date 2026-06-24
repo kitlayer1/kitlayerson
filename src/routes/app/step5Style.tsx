@@ -1,6 +1,6 @@
 // src/components/Step5Style.tsx
-import { component$, useStore, $, QRL } from "@builder.io/qwik";
-import "./step5Style.css";
+import { component$, useStore, $, QRL, useStyles$ } from '@builder.io/qwik';
+import style0 from "./step5Style.css?inline";
 import { styleOptions } from "./styleOptions";
 
 export const Step5Style = component$(
@@ -9,6 +9,8 @@ export const Step5Style = component$(
     onNext$: QRL<(styleId: number) => void>;
     onBack$: QRL<() => void>;
   }) => {
+  useStyles$(style0);
+
     const state = useStore({
       selectedStyleId: props.initialStyleId || 0,
       showPopup: false,

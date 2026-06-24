@@ -1,7 +1,9 @@
-import { component$, useSignal } from "@builder.io/qwik";
-import "./dashboardButtons.css";
+import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
+import style0 from "./dashboardButtons.css?inline";
 
 export const DashboardButton = component$(() => {
+  useStyles$(style0);
+
   const activeTab = useSignal<"all" | "drafts" | "downloads" | "premium">("all");
 
   return (

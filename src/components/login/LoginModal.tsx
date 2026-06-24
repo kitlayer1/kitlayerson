@@ -1,6 +1,6 @@
-import { component$, useSignal, $, QRL } from "@builder.io/qwik";
+import { component$, useSignal, $, QRL, useStyles$ } from '@builder.io/qwik';
 import { supabase } from "~/lib/supabaseClient";
-import "./LoginModal.css";
+import style0 from "./LoginModal.css?inline";
 
 interface LoginModalProps {
   onClose$: QRL<() => void>;
@@ -8,6 +8,8 @@ interface LoginModalProps {
 }
 
 export const LoginModal = component$<LoginModalProps>((props) => {
+  useStyles$(style0);
+
   const step = useSignal<"email" | "otp" | "profile">("email");
   const email = useSignal("");
   const otp = useSignal("");

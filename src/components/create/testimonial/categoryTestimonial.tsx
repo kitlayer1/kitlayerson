@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./categoryTestimonial.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./categoryTestimonial.css?inline";
 
 interface TestimonialItem {
   img: string;
@@ -12,6 +12,8 @@ interface Props {
 }
 
 export const CategoryTestimonial = component$<Props>(({ testimonials }) => {
+  useStyles$(style0);
+
   return (
     <section class="testimonial-section">
       <div class="testimonial-container">

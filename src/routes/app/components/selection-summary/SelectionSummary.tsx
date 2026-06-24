@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './SelectionSummary.css';
+import style0 from "./SelectionSummary.css?inline";
 
 export interface SelectionSummaryProps {
   brandName: string;
@@ -9,6 +10,8 @@ export interface SelectionSummaryProps {
 }
 
 export const SelectionSummary = component$((props: SelectionSummaryProps) => {
+  useStyles$(style0);
+
   return (
     <div class="selection-summary-container">
       <div class="selection-summary-content">

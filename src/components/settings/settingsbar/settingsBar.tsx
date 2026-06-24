@@ -1,10 +1,12 @@
-import { component$, useComputed$ } from "@builder.io/qwik";
+import { component$, useComputed$, useStyles$ } from '@builder.io/qwik';
 import { Link, useLocation } from "@builder.io/qwik-city";
-import "./settingsBar.css";
+import style0 from "./settingsBar.css?inline";
 
 type Tab = "account" | "invoice" | "notification" | "privacy";
 
 export const SettingsBar = component$(() => {
+  useStyles$(style0);
+
   const loc = useLocation();
   const activeTab = useComputed$<Tab>(() => {
     const path = loc.url.pathname;

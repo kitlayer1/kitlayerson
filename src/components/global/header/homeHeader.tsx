@@ -1,11 +1,12 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
-import './homeHeader.css';
-import "~/styles/tokens/spacing.css";
-import "~/styles/tokens/colors.css";
-import "~/styles/tokens/typography.css";
-import "~/styles/tokens/radius.css";
+import style0 from "./homeHeader.css?inline";
+import style1 from "~/styles/tokens/spacing.css?inline";
+import style2 from "~/styles/tokens/colors.css?inline";
+import style3 from "~/styles/tokens/typography.css?inline";
+import style4 from "~/styles/tokens/radius.css?inline";
 
 const getInitials = (name?: string, email?: string) => {
   if (name && name.trim() !== '') {
@@ -26,6 +27,12 @@ interface Props {
 }
 
 export const HomeHeader = component$<Props>((props) => {
+  useStyles$(style0);
+  useStyles$(style1);
+  useStyles$(style2);
+  useStyles$(style3);
+  useStyles$(style4);
+
   const isMenuOpen = useSignal(false);
   const isUserMenuOpen = useSignal(false);
   const user = useSignal<any>(null);

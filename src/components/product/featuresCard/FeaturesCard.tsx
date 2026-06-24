@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
-import "./featuresCard.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./featuresCard.css?inline";
 
 export const FeaturesCard = component$(() => {
+  useStyles$(style0);
+
   const features = [
     { 
       title: "150K", 

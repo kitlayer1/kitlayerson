@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./createVisual.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./createVisual.css?inline";
 
 interface VisualData {
   title: string;
@@ -11,6 +11,8 @@ interface Props {
 }
 
 export const CreateVisual = component$<Props>(({ visual }) => {
+  useStyles$(style0);
+
   return (
     <section class="create-visual">
       <div class="create-visual-container">

@@ -1,8 +1,11 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './productSection.css';
+import style0 from "./productSection.css?inline";
 import ImgProductsection from '~/media/images/product/section/productSection.svg';
 
 export const ProductSection = component$(() => {
+  useStyles$(style0);
+
   const cardData = [
     {
       id: 1,

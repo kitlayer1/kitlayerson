@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./categorySectionCard.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./categorySectionCard.css?inline";
 
 interface CardItem {
   badge: string;
@@ -12,6 +12,8 @@ interface Props {
 }
 
 export const CategorySectionCard = component$<Props>(({ cards }) => {
+  useStyles$(style0);
+
   return (
     <section class="categorySectionCard">
       <div class="categorySectionCard-container">

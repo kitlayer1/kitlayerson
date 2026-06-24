@@ -1,5 +1,5 @@
-import { component$, useSignal, useComputed$, $, useOnDocument, useVisibleTask$, type PropFunction } from "@builder.io/qwik";
-import "./previewModal.css";
+import { component$, useSignal, useComputed$, $, useOnDocument, useVisibleTask$, type PropFunction, useStyles$ } from '@builder.io/qwik';
+import style0 from "./previewModal.css?inline";
 import { DownloadModal } from "../../../components/editor/Modal/downloadModal";
 import { PricingModal } from "~/components/pricing/pricingModal";
 import { adjustSvgLayout } from "~/routes/app/logoUtils";
@@ -23,6 +23,8 @@ export const LogoPreviewModal = component$(
     };
     onClose$: PropFunction<() => void>;
   }) => {
+  useStyles$(style0);
+
     const { logo, onClose$ } = props;
     const mode = useSignal<LogoMode>("color");
     const scrollPosition = useSignal(0);

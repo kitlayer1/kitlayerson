@@ -1,13 +1,16 @@
+import { useStyles$ } from '@builder.io/qwik';
 // src/components/Step4Colors.tsx
 import { component$, useStore, $, QRL } from '@builder.io/qwik';
 import { colorOptions } from "./colorOption";
-import "./step4Colors.css";
+import style0 from "./step4Colors.css?inline";
 
 export const Step4Colors = component$((props: { 
   initialSelected?: number[];       // Parent'ten gelirse dolu gelsin
   onNext$: QRL<(selectedIds: number[]) => void>; 
   onBack$: QRL<() => void>;
 }) => {
+  useStyles$(style0);
+
 
   // 🚀 Local state artık props.initialSelected ile başlatılıyor
   const state = useStore({ selected: props.initialSelected || [] as number[] });

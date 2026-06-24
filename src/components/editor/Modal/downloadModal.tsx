@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useSignal, $, QRL } from '@builder.io/qwik';
-import "./downloadModal.css";
+import style0 from "./downloadModal.css?inline";
 
 interface DownloadModalProps {
   brandName: string;
@@ -13,6 +14,8 @@ interface DownloadModalProps {
 }
 
 export const DownloadModal = component$<DownloadModalProps>((props) => {
+  useStyles$(style0);
+
   const showModal = useSignal(true);
   const modalPosition = useSignal({ top: 0, left: 0 });
   const selectedFormat = useSignal('jpg');

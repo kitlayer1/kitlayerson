@@ -1,5 +1,5 @@
-import { component$, useStore, $, QRL } from "@builder.io/qwik";
-import "./step3Favicons.css";
+import { component$, useStore, $, QRL, useStyles$ } from '@builder.io/qwik';
+import style0 from "./step3Favicons.css?inline";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STYLE ICONS
@@ -24,6 +24,8 @@ export const Step3Favicons = component$(
     onNext$: QRL<(selectedStyleIds: number[]) => void>;
     onBack$: QRL<() => void>;
   }) => {
+  useStyles$(style0);
+
     const state = useStore({
       selectedStyleIds: [] as number[],
     });

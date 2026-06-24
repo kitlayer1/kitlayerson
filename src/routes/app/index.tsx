@@ -1,4 +1,5 @@
 import { component$, useStore, $, useVisibleTask$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 import { LoadingOverlay } from "./components/loading/loadingOverlay";
 import { Step7Loading } from "./components/loading/Step7Loading";
 import { Step1BrandName } from "./step1BrandName";
@@ -14,10 +15,12 @@ import { colorOptions } from "./colorOption";
 import { styleOptions } from "./styleOptions";
 
 export default component$(() => {
+  const loc = useLocation();
+
   const state = useStore({
     currentStep: 1,
 
-    brandName: "",
+    brandName: loc.url.searchParams.get("brandName") || "",
     category: "",
 
     selectedStyleIds: [] as number[],

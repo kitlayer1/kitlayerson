@@ -1,6 +1,6 @@
-import { component$, $, QRL, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, $, QRL, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
 import { supabase } from "~/lib/supabaseClient";
-import "./pricingModal.css";
+import style0 from "./pricingModal.css?inline";
 
 const getIcon = (name: string) => {
   switch (name) {
@@ -25,6 +25,8 @@ export const PricingModal = component$(
     onClose$: QRL<() => void>;
     onSuccess$: QRL<(planType: 'started' | 'business') => void>;
   }) => {
+    useStyles$(style0);
+
     const handlePurchase = $(async (planType: 'started' | 'business') => {
       const { error } = await supabase
         .from("logo_sessions")

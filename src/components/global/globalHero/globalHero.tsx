@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './globalHero.css';
+import style0 from "./globalHero.css?inline";
 
 export interface GlobalHeroProps {
   badgeText?: string;
@@ -29,6 +30,8 @@ export const GlobalHero = component$<GlobalHeroProps>(
     image,
     imageAlt = 'Hero image',
   }) => {
+  useStyles$(style0);
+
     return (
       <section class="global-hero-section">
         <div class="gh-container">

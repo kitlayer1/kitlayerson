@@ -1,7 +1,8 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useSignal, $, type PropFunction } from '@builder.io/qwik';
 import { supabase } from '~/lib/supabaseClient';
 import { useNavigate } from '@builder.io/qwik-city';
-import './settingsModal.css';
+import style0 from "./settingsModal.css?inline";
 
 type SettingsTab = 'account' | 'notification' | 'billing' | 'privacy';
 
@@ -23,6 +24,8 @@ interface Props {
 }
 
 export const SettingsModal = component$<Props>((props) => {
+  useStyles$(style0);
+
   const activeTab = useSignal<SettingsTab>('account');
   const nav = useNavigate();
   const { onClose$ } = props;

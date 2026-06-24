@@ -1,5 +1,5 @@
-import { component$, useStore, useSignal, $, useVisibleTask$, QRL } from "@builder.io/qwik";
-import "./step2Category.css";
+import { component$, useStore, useSignal, $, useVisibleTask$, QRL, useStyles$ } from '@builder.io/qwik';
+import style0 from "./step2Category.css?inline";
 
 export const Step2Category = component$(
   (props: {
@@ -7,6 +7,8 @@ export const Step2Category = component$(
     onNext$: QRL<(cat: string) => void>;
     onBack$: QRL<() => void>;
   }) => {
+  useStyles$(style0);
+
     /* =========================
      STATE
   ========================= */

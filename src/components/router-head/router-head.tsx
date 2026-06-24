@@ -29,6 +29,20 @@ export const RouterHead = component$(() => {
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      
+      {/* Font Preloads */}
+      <link rel="preload" href="/fonts/national/national-bold.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/geist/Geist-Medium.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/geist/Geist-SemiBold.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+
+      {/* External Domain Preconnects */}
+      <link rel="preconnect" href="https://assets.lemonsqueezy.com" />
+      <link rel="dns-prefetch" href="https://assets.lemonsqueezy.com" />
+
+      {/* Deferred Fonts CSS */}
+      <link rel="preload" href="/fonts-faces.css" as="style" />
+      <link rel="stylesheet" href="/fonts-faces.css" media="print" onLoad$={(e, t) => t.media = 'all'} />
+      <noscript><link rel="stylesheet" href="/fonts-faces.css" /></noscript>
 
       {description && <meta name="description" content={description} />}
 

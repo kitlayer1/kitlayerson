@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import "./categoryLogoBrand.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./categoryLogoBrand.css?inline";
 
 interface BrandLogo {
   img: string;
@@ -13,6 +13,8 @@ interface CategoryLogoBrandProps {
 }
 
 export const CategoryLogoBrand = component$<CategoryLogoBrandProps>(({ logos, title, description }) => {
+  useStyles$(style0);
+
   return (
     <section class="category-logo-brand">
       <div class="clb-header">

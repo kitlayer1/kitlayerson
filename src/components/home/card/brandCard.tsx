@@ -1,6 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from '@builder.io/qwik';
 import { Link } from "@builder.io/qwik-city";
-import "./brandCard.css";
+import style0 from "./brandCard.css?inline";
 
 interface Category {
   id: number;
@@ -10,6 +10,8 @@ interface Category {
 }
 
 export const CategoryBrandCard = component$(() => {
+  useStyles$(style0);
+
   const categories: Category[] = [
     { id: 1, title: "Food", image: "/images/home/section/category/food.svg", href: "/create/food-logo-maker" },
     { id: 2, title: "Technology", image: "/images/home/section/category/technology.svg", href: "/create/technology-logo-maker" },

@@ -1,6 +1,7 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import { routeLoader$, Link } from '@builder.io/qwik-city';
-import './blogDetail.css';
+import { routeLoader$, Link, type DocumentHead } from '@builder.io/qwik-city';
+import style0 from "./blogDetail.css?inline";
 import { BlogDetailHero } from '~/components/blog/blogDetailHero/blogDetailHero';
 import blogData from '../../../../public/data/blogDetail.json';
 import { HomeHeader } from '~/components/global/header/homeHeader';
@@ -45,6 +46,8 @@ export const useBlogPost = routeLoader$<BlogPost | null>(async (event) => {
 });
 
 export default component$(() => {
+  useStyles$(style0);
+
   const post = useBlogPost();
   
   if (!post.value) {
@@ -56,8 +59,35 @@ export default component$(() => {
     );
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://kitlayer.com/blog/${post.value.slug}`
+    },
+    "headline": post.value.seoTitle || post.value.title,
+    "description": post.value.seoDescription || post.value.excerpt,
+    "image": `https://kitlayer.com${post.value.coverImage}`,
+    "author": {
+      "@type": "Organization",
+      "name": "Kitlayer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kitlayer",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kitlayer.com/logo.png"
+      }
+    },
+    "datePublished": post.value.date,
+    "dateModified": post.value.date
+  };
+
   return (
     <article class="blog-detail-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={JSON.stringify(jsonLd)} />
       <HomeHeader variant="light" />
       {/* ================= HERO ================= */}
       <BlogDetailHero
@@ -126,7 +156,7 @@ export default component$(() => {
               case 'image':
                 return (
                   <figure key={index} class="blog-image-block">
-                    <img src={block.src} alt={block.alt} width={800} height={450} />
+                    <img src={block.src} alt={block.alt || block.title || 'Blog post image'} width={800} height={450} loading="lazy" />
                     {(block.title || block.description) && (
                       <figcaption class="blog-image-caption">
                         {block.title && <strong>{block.title} </strong>}
@@ -148,3 +178,36 @@ export default component$(() => {
   );
 });
 
+export const head: DocumentHead = ({ resolveValue, url }) => {
+  const post = resolveValue(useBlogPost);
+  
+  if (!post) {
+    return {
+      title: 'Blog Post Not Found | Kitlayer',
+      meta: [
+        { name: 'description', content: 'The requested blog post could not be found.' }
+      ]
+    };
+  }
+
+  return {
+    title: post.seoTitle ? `${post.seoTitle} | Kitlayer` : `${post.title} | Kitlayer`,
+    meta: [
+      { name: 'description', content: post.seoDescription || post.excerpt },
+      { property: 'og:title', content: post.seoTitle || post.title },
+      { property: 'og:description', content: post.seoDescription || post.excerpt },
+      { property: 'og:image', content: `https://kitlayer.com${post.coverImage}` },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: url.href },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: post.seoTitle || post.title },
+      { name: 'twitter:description', content: post.seoDescription || post.excerpt },
+      { name: 'twitter:image', content: `https://kitlayer.com${post.coverImage}` },
+      { name: 'article:published_time', content: post.date },
+      { name: 'article:section', content: post.category },
+    ],
+    links: [
+      { rel: 'canonical', href: url.href }
+    ]
+  };
+};

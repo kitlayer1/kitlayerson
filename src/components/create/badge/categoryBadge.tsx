@@ -1,11 +1,13 @@
-import { component$ } from "@builder.io/qwik";
-import "./categoryBadge.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./categoryBadge.css?inline";
 
 interface Props {
   categories: { label: string; slug: string }[];
 }
 
 export const CategoryBadge = component$<Props>(({ categories }) => {
+  useStyles$(style0);
+
   return (
     <div class="category-badge-wrapper">
       {categories.map((item) => (

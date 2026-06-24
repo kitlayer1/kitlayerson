@@ -1,9 +1,10 @@
+import { useStyles$ } from '@builder.io/qwik';
 /* eslint-disable qwik/jsx-img */
 import { component$, useSignal, useVisibleTask$, $, Slot } from '@builder.io/qwik';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/supabaseClient';
 import { LoginModal } from '~/components/login/LoginModal';
-import './header.css';
+import style0 from "./header.css?inline";
 
 const getInitials = (name?: string, email?: string) => {
   if (name && name.trim() !== '') {
@@ -20,6 +21,8 @@ const getInitials = (name?: string, email?: string) => {
 };
 
 export const AppHeader = component$(() => {
+  useStyles$(style0);
+
 
   const isUserMenuOpen = useSignal(false);
   const user = useSignal<any>(null);

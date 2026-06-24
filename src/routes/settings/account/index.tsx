@@ -1,12 +1,15 @@
 // src/routes/settings/index.tsx
-import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$, $, useStyles$ } from '@builder.io/qwik';
 import { supabase } from "~/lib/supabaseClient";
-import "./account.css";
+import style0 from "./account.css?inline";
 import { DashboardHeader } from "../../dashboard/header/dashboardHeader";
-import "../settings.css";
+import style1 from "../settings.css?inline";
 import { SettingsBar } from "~/components/settings/settingsbar/settingsBar";
 
 export default component$(() => {
+  useStyles$(style0);
+  useStyles$(style1);
+
   const name = useSignal("");
   const surname = useSignal("");
   const email = useSignal("");

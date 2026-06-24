@@ -1,5 +1,6 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$, useSignal, $ } from '@builder.io/qwik';
-import './faq.css';
+import style0 from "./faq.css?inline";
 
 export interface FAQItem {
   question: string;
@@ -11,6 +12,8 @@ interface FAQProps {
 }
 
 export default component$<FAQProps>(({ items }) => {
+  useStyles$(style0);
+
   const openIndex = useSignal<number | null>(null);
 
   const toggleFAQ = $((index: number) => {

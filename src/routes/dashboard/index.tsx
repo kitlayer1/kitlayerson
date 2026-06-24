@@ -1,5 +1,5 @@
-import { component$, useStore, useVisibleTask$, $, useSignal } from "@builder.io/qwik";
-import "./dashboard.css";
+import { component$, useStore, useVisibleTask$, $, useSignal, useStyles$ } from '@builder.io/qwik';
+import style0 from "./dashboard.css?inline";
 import { supabase } from "~/lib/supabaseClient";
 import { DashboardHeader } from "./header/dashboardHeader";
 import { LogoPreviewModal } from "./previewModal/previewModal";
@@ -7,6 +7,8 @@ import { DashboardButton } from "./button/dashboardButtons";
 import { adjustSvgLayout } from "~/routes/app/logoUtils";
 
 export default component$(() => {
+  useStyles$(style0);
+
   const state = useStore({
     user: null as { id: string; name: string } | null,
     logos: [] as any[],

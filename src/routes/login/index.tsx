@@ -1,9 +1,11 @@
-import { component$, useSignal, $, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, $, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
 import { supabase } from "~/lib/supabaseClient";
 import { useLocation } from "@builder.io/qwik-city";
-import "./login.css";
+import style0 from "./login.css?inline";
 
 export default component$(() => {
+  useStyles$(style0);
+
   const loc = useLocation();
   const step = useSignal<"email" | "otp" | "profile">("email");
   const email = useSignal("");

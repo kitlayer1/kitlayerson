@@ -1,7 +1,10 @@
+import { useStyles$ } from '@builder.io/qwik';
 import { component$ } from '@builder.io/qwik';
-import './pricingSection.css';
+import style0 from "./pricingSection.css?inline";
 
 export const PricingSection = component$(() => {
+  useStyles$(style0);
+
   return (
     <section class="pricing-section">
       <div class="pricing-container">

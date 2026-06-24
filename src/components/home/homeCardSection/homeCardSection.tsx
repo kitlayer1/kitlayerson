@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
-import "./homeCardSection.css";
+import { component$, useStyles$ } from '@builder.io/qwik';
+import style0 from "./homeCardSection.css?inline";
 
 export const HomeCardSection = component$(() => {
+  useStyles$(style0);
+
   const cards = [
     {
       title: "Enter Your Brand Name",

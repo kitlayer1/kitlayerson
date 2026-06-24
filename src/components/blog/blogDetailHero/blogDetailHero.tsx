@@ -1,6 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from '@builder.io/qwik';
 import { Link } from "@builder.io/qwik-city";
-import "./blogDetailHero.css";
+import style0 from "./blogDetailHero.css?inline";
 
 interface BlogDetailHeroProps {
   title: string;
@@ -13,6 +13,8 @@ interface BlogDetailHeroProps {
 
 export const BlogDetailHero = component$<BlogDetailHeroProps>(
   ({ title, description, coverImage }) => {
+  useStyles$(style0);
+
     return (
       <section class="blog-detail-hero">
         <div class="blog-detail-hero-inner">
@@ -34,6 +36,8 @@ export const BlogDetailHero = component$<BlogDetailHeroProps>(
                 class="blog-detail-hero-image"
                 width={520}
                 height={500}
+                loading="eager"
+                fetchPriority="high"
               />
             )}
           </div>

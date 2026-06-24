@@ -1,7 +1,9 @@
-import { component$, useStore, $ } from "@builder.io/qwik";
-import "./footer.css";
+import { component$, useStore, $, useStyles$ } from '@builder.io/qwik';
+import style0 from "./footer.css?inline";
 
 export const Footer = component$(() => {
+  useStyles$(style0);
+
   const currentYear = new Date().getFullYear();
   
   const state = useStore({
