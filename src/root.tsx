@@ -28,14 +28,28 @@ export default component$(() => {
         <RouterHead />
         <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
         
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RQ60GB7NT"></script>
+        {/* Google tag (gtag.js) — deferred to prevent forced reflow */}
         <script dangerouslySetInnerHTML={`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
+          gtag('config', 'G-7RQ60GB7NT', { send_page_view: false });
 
-          gtag('config', 'G-7RQ60GB7NT');
+          function _loadGtag() {
+            var s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RQ60GB7NT';
+            s.async = true;
+            s.onload = function() {
+              gtag('event', 'page_view');
+            };
+            document.head.appendChild(s);
+          }
+
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(_loadGtag, { timeout: 4000 });
+          } else {
+            setTimeout(_loadGtag, 3000);
+          }
         `} />
       </head>
       <body lang="en">
