@@ -28,28 +28,40 @@ export default component$(() => {
         <RouterHead />
         <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
         
-        {/* Google tag (gtag.js) — deferred to prevent forced reflow */}
+        {/* Google tag (gtag.js) — loaded on first user interaction */}
         <script dangerouslySetInnerHTML={`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-7RQ60GB7NT', { send_page_view: false });
 
-          function _loadGtag() {
-            var s = document.createElement('script');
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RQ60GB7NT';
-            s.async = true;
-            s.onload = function() {
-              gtag('event', 'page_view');
-            };
-            document.head.appendChild(s);
-          }
+          (function() {
+            var _gtmLoaded = false;
 
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(_loadGtag, { timeout: 4000 });
-          } else {
-            setTimeout(_loadGtag, 3000);
-          }
+            function _loadGtag() {
+              if (_gtmLoaded) return;
+              _gtmLoaded = true;
+
+              ['scroll', 'click', 'mousemove', 'touchstart', 'keydown'].forEach(function(evt) {
+                window.removeEventListener(evt, _loadGtag, { passive: true });
+              });
+
+              var s = document.createElement('script');
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RQ60GB7NT';
+              s.async = true;
+              s.onload = function() {
+                gtag('event', 'page_view');
+              };
+              document.head.appendChild(s);
+            }
+
+            ['scroll', 'click', 'mousemove', 'touchstart', 'keydown'].forEach(function(evt) {
+              window.addEventListener(evt, _loadGtag, { passive: true, once: true });
+            });
+
+            // Fallback: 8 saniye içinde etkileşim olmazsa yine de yükle
+            setTimeout(_loadGtag, 8000);
+          })();
         `} />
       </head>
       <body lang="en">
