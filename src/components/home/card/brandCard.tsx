@@ -13,7 +13,7 @@ export const CategoryBrandCard = component$(() => {
   useStyles$(style0);
 
   const categories: Category[] = [
-    { id: 1, title: "Food", image: "/images/home/section/category/food.svg", href: "/create/food-logo-maker" },
+    { id: 1, title: "Food", image: "/images/home/section/category/food.svg", href: "/create/food-drink-logo-maker" },
     { id: 2, title: "Technology", image: "/images/home/section/category/technology.svg", href: "/create/technology-logo-maker" },
     { id: 3, title: "Travel", image: "/images/home/section/category/travel.svg", href: "/create/travel-logo-maker" },
     { id: 4, title: "Gaming", image: "/images/home/section/category/gaming.svg", href: "/create/gaming-logo-maker" },

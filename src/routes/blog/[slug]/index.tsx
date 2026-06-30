@@ -178,7 +178,7 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = ({ resolveValue, url }) => {
+export const head: DocumentHead = ({ resolveValue }) => {
   const post = resolveValue(useBlogPost);
   
   if (!post) {
@@ -198,7 +198,7 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
       { property: 'og:description', content: post.seoDescription || post.excerpt },
       { property: 'og:image', content: `https://kitlayer.com${post.coverImage}` },
       { property: 'og:type', content: 'article' },
-      { property: 'og:url', content: url.href },
+      { property: 'og:url', content: `https://kitlayer.com/blog/${post.slug}` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: post.seoTitle || post.title },
       { name: 'twitter:description', content: post.seoDescription || post.excerpt },
@@ -207,7 +207,7 @@ export const head: DocumentHead = ({ resolveValue, url }) => {
       { name: 'article:section', content: post.category },
     ],
     links: [
-      { rel: 'canonical', href: url.href }
+      { rel: 'canonical', href: `https://kitlayer.com/blog/${post.slug}` }
     ]
   };
 };

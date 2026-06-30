@@ -93,13 +93,13 @@ export const Footer = component$(() => {
                 <Chevron />
               </h3>
               <ul class="footer-links">
-                <li><a href="/design/food">Food Logo Maker</a></li>
-                <li><a href="/design/education">Education Logo Maker</a></li>
-                <li><a href="/design/gaming">Gaming Logo Maker</a></li>
-                <li><a href="/design/travel">Travel Logo Maker</a></li>
-                <li><a href="/design/beauty">Beauty Logo Maker</a></li>
-                <li><a href="/design/technology">Technology Logo Maker</a></li>
-                <li><a href="/design/fashion">Fashion Logo Maker</a></li>
+                <li><a href="/create/restaurant-logo-maker">Restaurant Logo Maker</a></li>
+                <li><a href="/create/business-logo-maker">Business Logo Maker</a></li>
+                <li><a href="/create/jewellery-logo-maker">Jewellery Logo Maker</a></li>
+                <li><a href="/create/technology-logo-maker">Technology Logo Maker</a></li>
+                <li><a href="/create/travel-logo-maker">Travel Logo Maker</a></li>
+                <li><a href="/create/beauty-logo-maker">Beauty Logo Maker</a></li>
+                <li><a href="/create/gaming-logo-maker">Gaming Logo Maker</a></li>
               </ul>
             </div>
 
