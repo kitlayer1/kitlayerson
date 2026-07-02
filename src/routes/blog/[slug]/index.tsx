@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik';
 import { routeLoader$, Link, type DocumentHead } from '@builder.io/qwik-city';
 import style0 from "./blogDetail.css?inline";
 import { BlogDetailHero } from '~/components/blog/blogDetailHero/blogDetailHero';
-import blogData from '../../../../public/data/blogDetail.json';
+import blogData from '../../../../src/data/blogDetail.json';
 import { HomeHeader } from '~/components/global/header/homeHeader';
 import { Footer } from '~/components/global/footer/footer';
 

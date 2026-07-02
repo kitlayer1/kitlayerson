@@ -73,7 +73,7 @@
 .hero-image-wrapper {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   border-radius: var(--radius-md);
   overflow: hidden;
   margin-bottom: 20px;
@@ -101,6 +101,7 @@
   line-height: var(--lh-subtitle);
   letter-spacing: var(--ls-tight-md);
   color: var(--color-heading-white-2);
+  text-transform: uppercase;
   max-width: 450px;
   margin: 0 0 12px 0;
 }

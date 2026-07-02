@@ -4,7 +4,7 @@ import { BlogCard } from "~/components/blog/blogCard/blogCard";
 import { BlogHero } from "~/components/blog/blogHero/blogHero";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { Footer } from "~/components/global/footer/footer";
-import blogData from "../../../public/data/blogDetail.json";
+import blogData from "../../../src/data/blogDetail.json";
 
 export const useBlogData = routeLoader$(async () => {
   return blogData;
@@ -14,8 +14,8 @@ export default component$(() => {
   const loc = useLocation();
   const blogData = useBlogData();
   
-  // Fix hero posts to the first two
-  const allData = blogData.value || [];
+  // Sort posts by id descending
+  const allData = [...(blogData.value || [])].sort((a: any, b: any) => (b.id || 0) - (a.id || 0));
   const heroPosts = allData.slice(0, 2);
   const remainingPosts = allData.slice(2);
 

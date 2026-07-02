@@ -5,7 +5,7 @@ import { CategoryHero } from "~/components/create/hero/categoryHero";
 import { CategoryLogoBrand } from "~/components/create/logoBrand/categoryLogoBrand";
 import { HomeHeader } from "~/components/global/header/homeHeader";
 import { NotFound } from "~/components/global/notFound/notFound";
-import createData from "../../../../public/data/createDetail.json";
+import createData from "../../../../src/data/createDetail.json";
 import { Footer } from "~/components/global/footer/footer";
 import { ProductSection } from "~/components/product/productSection/productSection";
 import { GlobalSelect } from "~/components/global/globalSelect/globalSelect";

@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
-import metaTagsData from "../../../public/data/metaTags.json";
+import metaTagsData from "../../../src/data/metaTags.json";
 
 /**
  * The RouterHead component is placed inside of the document `<head>` element.
