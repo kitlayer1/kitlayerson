@@ -445,3 +445,25 @@
     transform: translateY(0);
   }
 }
+
+.canva2025-modal-mobile .canva2025-dropdown-menu-v2 {
+  top: auto;
+  bottom: calc(100% + 8px);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+  animation: canva2025-slideUpDropdown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.canva2025-modal-mobile .canva2025-dropdown-content {
+  max-height: 45vh;
+}
+
+@keyframes canva2025-slideUpDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -143,7 +143,7 @@ export default component$(() => {
     const user = userData?.user;
 
     if (!user) {
-      error.value = "Kullanıcı bulunamadı.";
+      error.value = "User not found.";
       loading.value = false;
       return;
     }

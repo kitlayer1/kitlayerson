@@ -105,7 +105,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
     const user = userData?.user;
 
     if (!user) {
-      error.value = "Kullanıcı bulunamadı.";
+      error.value = "User not found.";
       loading.value = false;
       return;
     }
@@ -150,7 +150,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
             <>
               <h1 class="login-modal-title">Welcome Back</h1>
               <p class="login-modal-desc">
-                hesabın varsa giriş yapabilir veya e-posta adresini girerek hesap oluşturabilirsin
+                Log in if you have an account or enter your email address to create one
               </p>
 
               {error.value && <p class="login-modal-error">{error.value}</p>}
@@ -161,7 +161,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
                 onClick$={() => handleOAuthLogin("google")}
               >
                 <img src="https://www.vectorlogo.zone/logos/google/google-tile.svg" alt="Google" width="24" height="24" />
-                Google ile giriş
+                Continue with Google
               </button>
 
               <button
@@ -170,11 +170,11 @@ export const LoginModal = component$<LoginModalProps>((props) => {
                 onClick$={() => handleOAuthLogin("facebook")}
               >
                 <img src="https://www.svgrepo.com/show/452196/facebook-1.svg" alt="Facebook" width="24" height="24" />
-                Facebook ile giriş
+                Continue with Facebook
               </button>
 
               <div class="login-modal-divider">
-                <span>veya</span>
+                <span>or</span>
               </div>
 
               <input
@@ -190,7 +190,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
                 disabled={loading.value || !email.value}
                 onClick$={handleEmailLogin}
               >
-                {loading.value ? "Giriş yapılıyor..." : "Giriş yap"}
+                {loading.value ? "Logging in..." : "Log in"}
               </button>
             </>
           )}
