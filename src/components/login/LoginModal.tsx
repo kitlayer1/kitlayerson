@@ -5,6 +5,7 @@ import style0 from "./LoginModal.css?inline";
 interface LoginModalProps {
   onClose$: QRL<() => void>;
   onSuccess$: QRL<() => void>;
+  redirectUrl?: string;
 }
 
 export const LoginModal = component$<LoginModalProps>((props) => {
@@ -81,7 +82,7 @@ export const LoginModal = component$<LoginModalProps>((props) => {
     error.value = null;
 
     // Preserve the current URL with all query parameters for redirect
-    const currentUrl = window.location.href;
+    const currentUrl = props.redirectUrl || window.location.href;
     const redirectUrl = `${window.location.origin}/login?redirect=${encodeURIComponent(currentUrl)}`;
 
     const { error: err } = await supabase.auth.signInWithOAuth({

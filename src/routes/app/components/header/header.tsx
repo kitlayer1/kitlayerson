@@ -246,7 +246,6 @@ export const AppHeader = component$(() => {
           onClose$={() => showLoginModal.value = false} 
           onSuccess$={() => {
             showLoginModal.value = false;
-            window.location.reload();
           }} 
         />
       )}

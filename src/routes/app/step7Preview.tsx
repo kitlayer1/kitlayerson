@@ -549,6 +549,16 @@ export const Step7Preview = component$(
           console.log("Kullanıcı giriş yapmamış, session oluşturulmadı");
         }
 
+        // Check if returning from OAuth login triggered by Download
+        const currentUrlObj = new URL(window.location.href);
+        if (currentUrlObj.searchParams.get("action") === "download") {
+          currentUrlObj.searchParams.delete("action");
+          window.history.replaceState({}, "", currentUrlObj.toString());
+          if (isAuthenticated) {
+            showModal.value = true;
+          }
+        }
+
       } catch (error) {
         console.error("Initialization hatası:", error);
       } finally {
@@ -766,6 +776,7 @@ export const Step7Preview = component$(
               showLoginModal.value = false;
               showModal.value = true;
             })}
+            redirectUrl={window.location.href + (window.location.search ? "&" : "?") + "action=download"}
           />
         )}
       </div>

@@ -342,7 +342,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
               {/* File Type */}
               <div class="canva2025-section-v2">
                 <label class="canva2025-label-v2">File Type</label>
-                <div class="canva2025-select-wrapper">
+                <div class="canva2025-select-wrapper" style={{ zIndex: showFormatModal.value ? 100 : 1 }}>
                   <div
                     class={`canva2025-select-trigger-v2 ${showFormatModal.value ? 'active' : ''}`}
                     onClick$={(e) => { e.stopPropagation(); showFormatModal.value = !showFormatModal.value; showLogoTypeModal.value = false; }}
@@ -405,7 +405,7 @@ export const DownloadModal = component$<DownloadModalProps>((props) => {
               {/* Logo Type */}
               <div class="canva2025-section-v2">
                 <label class="canva2025-label-v2">Logo Type</label>
-                <div class="canva2025-select-wrapper">
+                <div class="canva2025-select-wrapper" style={{ zIndex: showLogoTypeModal.value ? 100 : 1 }}>
                   <div
                     class={`canva2025-select-trigger-v2 ${showLogoTypeModal.value ? 'active' : ''}`}
                     onClick$={(e) => { e.stopPropagation(); showLogoTypeModal.value = !showLogoTypeModal.value; showFormatModal.value = false; }}
